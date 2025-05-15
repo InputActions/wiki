@@ -302,6 +302,44 @@ touchpad:
                 - $pointer_position_window_percentage_x >= 0.5
 ```
 
+## JSON
+The YAML library used can also parse JSON. This may be useful for NixOS users who want to configure this in Nix.
+
+```json
+{
+  "mouse": {
+    "gestures": [
+      {
+        "type": "swipe",
+        "direction": "right",
+        "mouse_buttons": [ "left" ],
+
+        "conditions": [
+          "$cursor_shape == text",
+          {
+            "any": [
+              "$keyboard_modifiers == meta",
+              "$keyboard_modifiers == alt"
+            ]
+          }
+        ],
+
+        "actions": [
+          {
+            "on": "begin",
+            "input": [
+              {
+                "keyboard": [ "a" ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 # Configuration example
 ```yaml
 mouse:

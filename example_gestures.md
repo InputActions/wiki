@@ -171,6 +171,18 @@
         plasma_shortcut: kwin,Window Maximize
   ```
 </details>
+<details>
+  <summary>Right + Swipe down - Minimize window under cursor</summary>
+
+  ```yaml
+   - type: swipe
+     direction: down
+     mouse_buttons: [ right ]
+
+     actions:
+       - command: kdotool windowminimize $window_under_id
+  ```
+</details>
 
 ## Touchpad
 <details>

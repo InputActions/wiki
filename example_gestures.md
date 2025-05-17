@@ -40,6 +40,47 @@
   ```
 </details>
 <details>
+  <summary>Extra7/Extra8 - Volume control (repeats if held)</summary>
+
+  ```yaml
+  _anchors:
+    - &repeat_delay 250
+    - &repeat_interval 50
+
+  mouse:
+    gestures:
+      - type: press
+        mouse_buttons: [ extra8 ]
+        instant: true
+
+        actions:
+          - on: begin
+            input:
+              - keyboard: [ volumedown ]
+
+          - on: update
+            threshold: *repeat_delay
+            interval: *repeat_interval
+            input:
+              - keyboard: [ volumedown ]
+
+      - type: press
+        mouse_buttons: [ extra7 ]
+        instant: true
+
+        actions:
+          - on: begin
+            input:
+              - keyboard: [ volumeup ]
+
+          - on: update
+            threshold: *repeat_delay
+            interval: *repeat_interval
+            input:
+              - keyboard: [ volumeup ]
+  ```
+</details>
+<details>
   <summary>Meta + Left/Right - Go back/forward</summary>
 
   ```yaml

@@ -175,7 +175,7 @@ conditions:
     - $pointer_position_window_percentage_x < .5 # Left side
     - $pointer_position_screen_percentage >= .99 # Bottom-right corner
     - $pointer_position_window_percentage between .4,.4;.6,.6 # Middle
-    - $pointer_shape != text
+    - $cursor_shape != text
 ```
 
 ### Action

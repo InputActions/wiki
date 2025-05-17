@@ -23,7 +23,6 @@ In the following example, it is not necessary to set ``speed: slow`` on *Gesture
 # Gesture 1
 - type: swipe
   direction: right
-  fingers: 3
   speed: fast
   
   actions:
@@ -33,7 +32,6 @@ In the following example, it is not necessary to set ``speed: slow`` on *Gesture
 # Gesture 2
 - type: swipe
   direction: right
-  fingers: 3
 
   actions:
     - on: begin
@@ -45,6 +43,8 @@ Press gestures update every 5 ms with a delta of 5.
 
 ## Swipe gestures
 Swipe gestures are limited to 4 directions. The direction is determined during the first few input events, which allows for executing actions at all points of the gesture's lifecycle.
+
+Swipe gestures are currently not compatible with stroke gestures.
 
 ## Stroke gestures
 Stroke gestures allow you to draw any shape. The performed stroke is compared against all gestures and the one with the highest match (must be ≥70%) is ended, while all others are cancelled. 

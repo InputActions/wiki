@@ -233,15 +233,15 @@ one:
 ## YAML Anchors
 Anchors can be used to reduce duplication.
 
-``&name`` - Define (must be defined before referencing) <br>
-``*name`` - Reference
+``&name`` - Define (can be done anywhere) <br>
+``*name`` - Reference (must be defined first above the reference)
 
-The merge operator ``<<`` is not supported, therefore this only works well with simple types.
+The merge operator ``<<`` is not supported.
  
 ### Example
 
 ```yaml
-call_this_whatever_you_want:
+_anchors: # Call this whatever you want but prefix it with _ so it does not conflict with anything in the future
   - &touchpad_interval_p 75
   - &touchpad_interval_n -75
   
@@ -249,6 +249,7 @@ touchpad:
   gestures:
     - type: swipe
       direction: up
+      threshold: &touchpad_swipe_threshold 100 # This will work too
 
       actions:
         - on: update
@@ -299,6 +300,26 @@ touchpad:
             - direction: left
               conditions:
                 - $pointer_position_window_percentage_x >= 0.5
+```
+
+A practical example with strokes:
+```yaml
+mouse:
+  gestures:
+    - type: stroke
+      mouse_buttons: [ right ]
+
+      conditions:
+        - $keyboard_modifiers == meta
+
+      gestures:
+        - strokes: 'ADEAAGQyZAA='
+          actions:
+            - command: kwrite
+
+        - strokes: 'HwkAB0QSDBBYHRMbYyoZMWQ3HUFaSCRMTFYqVztdMGITXj2vBlZCwABJR9EBNE3eDxpX5x0LXvQuBWQA'
+          actions:
+            - command: dolphin
 ```
 
 ## JSON

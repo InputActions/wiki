@@ -20,4 +20,4 @@ All variables of the *point* type have variants with the ``_x`` and ``_y`` suffi
 ``window_`` variables have ``window_under_`` variants that return information about the window the pointer is hovering over.
 
 ## Expansion
-String variables can be referenced (``$name``) in command actions and will be replaced. To prevent this behavior, add ``\`` before ``$``: ``\$name``
+String, bool, number variables can be referenced (``$name``) in command actions and will be replaced. Expansion currently cannot be prevented.

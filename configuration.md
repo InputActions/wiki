@@ -211,7 +211,7 @@ Like actions, the group type is determined by the presence of one of the followi
 |----------|---------------------------|------------------------------------------------------|
 | **one**  | *list([Action](#action))* | Executes only the first action that can be executed. |
 
-#### Example
+##### Example
 ```yaml
 # Exit fullscreen if fullscreen, unmaximize if maximized and minimize otherwise
 one:

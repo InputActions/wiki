@@ -176,7 +176,7 @@ conditions:
   - $cursor_shape != text
 ```
 
-### Action
+## Action
 | Property        | Type                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Default |
 |-----------------|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
 | on              | *enum(begin, end, cancel, update, end_cancel)*               | At which point of the gesture's lifecycle the action should be executed.                                                                                                                                                                                                                                                                                                                                                                                             | *end*   |
@@ -201,12 +201,12 @@ Unlike gestures, the action type is determined only by the presence of one of th
 |---------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **plasma_shortcut** | *string* | Invoke a KDE Plasma global shortcut. Format: ``component,shortcut``.<br><br>Run ``qdbus org.kde.kglobalaccel \| grep /component`` for the list of components. Don't put the */component/* prefix in this file.<br>Run ``qdbus org.kde.kglobalaccel /component/$component org.kde.kglobalaccel.Component.shortcutNames`` for the list of shortcuts.<br><br>Example: ``kwin,Window Minimize`` |
 
-## ActionGroup
+### ActionGroup : [Action](#action)
 Groups control how actions are executed. Actions inside groups ignore the *on*, *interval* and *threshold* properties. Those properties should be set on the group itself. Conditions are allowed.
 
 Like actions, the group type is determined by the presence of one of the following properties.
 
-### OneActionGroup : [ActionGroup](#actiongroup)
+#### OneActionGroup : [ActionGroup](#actiongroup--action)
 | Property | Type                      | Description                                          |
 |----------|---------------------------|------------------------------------------------------|
 | **one**  | *list([Action](#action))* | Executes only the first action that can be executed. |

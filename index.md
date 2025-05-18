@@ -1,6 +1,7 @@
 # Documentation
 [Configuration](configuration.md)<br>
-[Example gestures](example_gestures.md)
+[Example gestures](example_gestures.md)<br>
+[Variables](variables.md)
 
 # Gestures
 ## Lifecycle

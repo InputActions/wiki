@@ -66,7 +66,8 @@ Mouse press gestures do not start immediately by default, allowing swipe gesture
 If this behavior is not desired, *PressGesture.instant* should be set to true. The property is set per-gesture, but affects all activated press gestures.
 
 ### Wheel gestures
-If a mouse button or keyboard modifier is pressed, wheel gestures end only after it is released. If none are pressed, gestures begin, update and end instantly on every single scroll event and therefore do not support thresholds.
+Wheel gestures can have two different lifecycles - if the gesture has an ``on: update`` action and a mouse button or modifier is present, the gesture begins on
+the first scroll event and ends when a modifier/button is released, otherwise it begins and ends on the same scroll event. 
 
 ### Distinguishing between normal clicks and press/swipe gestures
 When a mouse button is pressed, the event is blocked and the plugin gives the user 200 ms to perform any mouse movement. After that period, a press gesture is started, however if none were activated, all previously blocked buttons are pressed.

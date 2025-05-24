@@ -36,11 +36,11 @@ Bold properties must be set.
 | range(type)                 | Range of numbers of *type*. Format: ``min-max``. ``-`` may be surrounded by exactly one space on each side.<br><br>Example: ``range(int)`` - ``1 - 2``, ``range(point)`` - ``0;0 - 0.5;0.5`` |
 
 ## Root
-| Property    | Type                                                                                                                     | Description                                                                    | Default |
-|-------------|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|---------|
-| autoreload  | *bool*                                                                                                                   | Whether the configuration should be automatically reloaded on file change.     | *true*  |
-| mouse       | *[MouseEventHandler](#mouseeventhandler--eventhandler)* or *list([MouseEventHandler](#mouseeventhandler--eventhandler))* | A list is only necessary if you need different gestures for different devices. |         |
-| touchpad    | *[TouchpadEventHandler](#touchpadeventhandler--eventhandler)*                                                            |                                                                                |         |
+| Property    | Type                                                          | Description                                                                | Default |
+|-------------|---------------------------------------------------------------|----------------------------------------------------------------------------|---------|
+| autoreload  | *bool*                                                        | Whether the configuration should be automatically reloaded on file change. | *true*  |
+| mouse       | *[MouseEventHandler](#mouseeventhandler--eventhandler)*       |                                                                            |         |
+| touchpad    | *[TouchpadEventHandler](#touchpadeventhandler--eventhandler)* |                                                                            |         |
 
 ## EventHandler
 | Property     | Type                                                         | Description                                                                              |
@@ -360,13 +360,8 @@ The YAML library used can also parse JSON. This may be useful for NixOS users wh
 # Configuration example
 ```yaml
 mouse:
-  - whitelist: [ 'TPPS/2 IBM TrackPoint' ]
-    gestures:
-      # ...
-
-  # Input events from 'TPPS/2 IBM TrackPoint' will not reach the handler below.
-  - gestures:
-      # ...
+  gestures:
+    # ...
 
 touchpad:
   speed:

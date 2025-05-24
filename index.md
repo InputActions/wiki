@@ -1,4 +1,6 @@
 # Documentation
+Make sure to select the right version above the file list or *main* if using the main branch. 
+
 [Configuration](configuration.md)<br>
 [Example gestures](example_gestures.md)<br>
 [Variables](variables.md)
@@ -83,9 +85,9 @@ This is not possible due to KWin not providing the absolute positions of fingers
 ### Press (hold) gestures
 Single- and two-finger press gestures begin almost immediately. Three- and four-finger gestures have a significant delay added by libinput that may make those gestures annoying to use.
 
-### Two-finger swipe gestures
-Two-finger swipe gestures are achieved by treating scroll events as swipe events. As a result of this approach, the plugin does not know when fingers are lifted, so it must assume that the gesture has ended if there have been no events for 100 ms.
+### Two-finger swipe/stroke gestures
+Two-finger swipe gestures are achieved by treating scroll events as motion events. The thresholds for changing the scroll axis are quite large, which can cause 
+problems with stroke gestures and ``direction: any`` swipe gestures utilizing the ``move_by_delta`` mouse input action. For two-finger stroke gestures it is 
+recommended (but not required) to only use strokes that have been recorded using two fingers.
 
-Another issue is that the thresholds for changing the scroll axis are quite large, which can cause problems with stroke gestures and ``direction: any`` swipe gestures utilizing the ``move_by_delta`` mouse input action.
-
-If scrolling on touchpad edges is enabled, this feature will not work.
+This feature will not work if scrolling on edges is enabled.

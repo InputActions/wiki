@@ -65,7 +65,6 @@ The *blacklist* and *whitelist* properties are currently not supported for touch
 | Property         | Type    | Description                                                                | Default |
 |------------------|---------|----------------------------------------------------------------------------|---------|
 | delta_multiplier | *float* | Delta multiplier used for *move_by_delta* mouse input actions.             | *1.0*   |
-| scroll_timeout   | *time*  | The time of inactivity after which 2-finger motion gestures will be ended. | *100*   |
 
 ## Speed
 The defaults may not work for everyone, as they depend on the device's sensitivity and size.

@@ -16,24 +16,30 @@ inputactions: Failed to load configuration: Invalid swipe direction (line 4, col
 # Configuration file structure
 Bold properties must be set.
 
-## Inheritance
+``a.b`` in the *Property* column means that *b* is a property of *a*:
+```yaml
+a:
+  b: value
+```
+
 ``B : A`` means that B inherits all properties from A unless stated otherwise. 
 
 ## Types
-| Type                        | Description                                                                                                                                                                                  |
-|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| bool                        | *true* or *false*                                                                                                                                                                            |
-| float                       | Positive or negative number with decimal places.                                                                                                                                             |
-| int                         | Positive or negative number.                                                                                                                                                                 |
-| regex                       | Regular expression                                                                                                                                                                           |
-| string                      | Text                                                                                                                                                                                         |
-| time                        | Time in milliseconds.                                                                                                                                                                        |
-| uint                        | Positive number.                                                                                                                                                                             |
-| enum(value1, value2, ...)   | Single value from the list of valid values in brackets.<br><br>Example: ``value2``                                                                                                           |
-| flags(value1, value2, ...)  | List of one or multiple values from the list of valid values in brackets.<br><br>Example: ``[ value1, value2 ]``                                                                             |
-| list(type)                  | List containing elements of *type*.<br><br>Example: ``list(int)`` - ``[ 1, 2, 3 ]`` or:<br>- 1<br>- 2<br>- 3                                                                                 |
-| point                       | Format: ``x,y``                                                                                                                                                                              |
-| range(type)                 | Range of numbers of *type*. Format: ``min-max``. ``-`` may be surrounded by exactly one space on each side.<br><br>Example: ``range(int)`` - ``1 - 2``, ``range(point)`` - ``0;0 - 0.5;0.5`` |
+| Type                       | Description                                                                                                                                                                                  |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| bool                       | *true* or *false*                                                                                                                                                                            |
+| float                      | Positive or negative number with decimal places.                                                                                                                                             |
+| int                        | Positive or negative number.                                                                                                                                                                 |
+| regex                      | Regular expression                                                                                                                                                                           |
+| string                     | Text                                                                                                                                                                                         |
+| time                       | Time in milliseconds.                                                                                                                                                                        |
+| uint                       | Positive number.                                                                                                                                                                             |
+| enum(value1, value2, ...)  | Single value from the list of valid values in brackets.<br><br>Example: ``value2``                                                                                                           |
+| flags(value1, value2, ...) | List of one or multiple values from the list of valid values in brackets.<br><br>Example: ``[ value1, value2 ]``                                                                             |
+| list(type)                 | List containing elements of *type*.<br><br>Example: ``list(int)`` - ``[ 1, 2, 3 ]`` or:<br>- 1<br>- 2<br>- 3                                                                                 |
+| map(key_type, value_type)  | A map (``key: value``) where all keys are of type *key_type* and values of type *value_type*.                                                                                                |
+| point                      | Format: ``x,y``                                                                                                                                                                              |
+| range(type)                | Range of numbers of *type*. Format: ``min-max``. ``-`` may be surrounded by exactly one space on each side.<br><br>Example: ``range(int)`` - ``1 - 2``, ``range(point)`` - ``0;0 - 0.5;0.5`` |
 
 ## Root
 | Property    | Type                                                          | Description                                                                | Default |
@@ -43,12 +49,13 @@ Bold properties must be set.
 | touchpad    | *[TouchpadEventHandler](#touchpadeventhandler--eventhandler)* |                                                                            |         |
 
 ## EventHandler
-| Property     | Type                                                         | Description                                                                              |
-|--------------|--------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| **gestures** | *list([Gesture](#gesture) or [GestureGroup](#gesturegroup))* |                                                                                          |
-| blacklist    | *list(string)*                                               | Names of devices that should be ignored.<br><br>Mutually exclusive with *whitelist*.     |
-| speed        | *[Speed](#speed)*                                            | Settings for how gesture speed is determined.                                            |
-| whitelist    | *list(string)*                                               | Names of devices that should not be ignored.<br><br>Mutually exclusive with *blacklist*. |
+| Property      | Type                                                         | Description                                                                                                                                |
+|---------------|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| **gestures**  | *list([Gesture](#gesture) or [GestureGroup](#gesturegroup))* |                                                                                                                                            |
+| devices       | *map(string, [Device](#device)*                              | Per-device settings, where the key is the device name. Names can be obtained from variables.<br><br>Currently only available on touchpads. |
+| speed         | *[Speed](#speed)*                                            | Settings for how gesture speed is determined.                                                                                              |
+| ~~blacklist~~ | *list(string)*                                               | **Deprecated.** Use a gesture group with a *device_name* condition instead                                                                 |
+| ~~whitelist~~ | *list(string)*                                               | **Deprecated.** Use a gesture group with a *device_name* condition instead                                                                 |
 
 ### MouseEventHandler : [EventHandler](#eventhandler)
 Supports trackpoints as well.
@@ -62,9 +69,18 @@ Supports trackpoints as well.
 ### TouchpadEventHandler : [EventHandler](#eventhandler)
 The *blacklist* and *whitelist* properties are currently not supported for touchpads.
 
-| Property         | Type    | Description                                                                | Default |
-|------------------|---------|----------------------------------------------------------------------------|---------|
-| delta_multiplier | *float* | Delta multiplier used for *move_by_delta* mouse input actions.             | *1.0*   |
+| Property         | Type    | Description                                                                                       | Default |
+|------------------|---------|---------------------------------------------------------------------------------------------------|---------|
+| click_timeout    | *time*  | The time during which a click gesture must be performed. If not, a press gesture will be started. | *200*   |
+| delta_multiplier | *float* | Delta multiplier used for *move_by_delta* mouse input actions.                                    | *1.0*   |
+
+## Device
+Some properties are detected automatically, but due to device or driver bugs, the value may be incorrect, in which case the user must override it manually.
+
+| Property              | Type          | Description                                                                                                             |
+|-----------------------|---------------|-------------------------------------------------------------------------------------------------------------------------|
+| buttonpad             | *bool*        | Whether the touchpad is a buttonpad (no physical buttons below, the entire device is a button). Detected automatically. |
+| pressure_ranges.thumb | *range(uint)* | Pressure range for thumb detection. Current pressures can be obtained from variables.                                   |
 
 ## Speed
 The defaults may not work for everyone, as they depend on the device's sensitivity and size.
@@ -82,7 +98,7 @@ See [example_gestures.md](example_gestures.md) for examples.
 
 | Property               | Type                                                                      | Description                                                                                                                                                                     | Default                                                  |
 |------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| **type**               | *enum(pinch, press, rotate, stroke, swipe, wheel)*                        | *hold* is a deprecated alias for *press*.                                                                                                                                       |                                                          |
+| **type**               | *enum(click, pinch, press, rotate, stroke, swipe, wheel)*                 | *hold* is a deprecated alias for *press*.                                                                                                                                       |                                                          |
 | actions                | *list([Action](#action))*                                                 |                                                                                                                                                                                 |                                                          |
 | clear_modifiers        | *bool*                                                                    | Whether keyboard modifiers should be cleared when this gesture begins.                                                                                                          | *true* if gesture has an input action, *false* otherwise |
 | conditions             | *[Condition](#condition)* or *list([Condition](#condition))*              | Must be satisfied in order for this gesture to be activated.<br><br>Condition lists not in a group will be put in an *all* [ConditionGroup](#conditiongroup--condition).        |                                                          |                                                          |
@@ -363,6 +379,11 @@ mouse:
     # ...
 
 touchpad:
+  devices:
+    Synaptics TM3276-022:
+      pressure_ranges:
+        thumb: 75-140
+
   speed:
     swipe_threshold: 15
 

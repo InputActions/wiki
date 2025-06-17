@@ -347,3 +347,49 @@
           - plasma_shortcut: kwin,Window Minimize
   ```
 </details>
+
+From this point onwards gestures will only have placeholder actions.
+<details>
+  <summary>Tip tap</summary>
+  Place one finger in the middle then another one on the left/right. The gesture will not trigger if the second finger is removed too quickly.
+
+  ```yaml
+  - type: press
+    conditions:
+      - $fingers == 2
+      - $finger_1_position_percentage_x between 0.4;0.6
+      - $finger_2_position_percentage_x < 0.5
+
+    actions:
+      - on: begin
+        input:
+          - keyboard: [ a ]
+
+  - type: press
+    conditions:
+      - $fingers == 2
+      - $finger_1_position_percentage_x between 0.4;0.6
+      - $finger_2_position_percentage_x > 0.5
+
+    actions:
+      - on: begin
+        input:
+          - keyboard: [ b ]
+  ```
+</details>
+<details>
+  <summary>Swipe up from bottom edge</summary>
+
+  ```yaml
+  - type: swipe
+    direction: up
+    conditions:
+      - $fingers == 3
+      - $finger_1_position_percentage_y >= 0.8
+
+    actions:
+      - on: begin
+        input:
+          - keyboard: [ a ]
+  ```
+</details>

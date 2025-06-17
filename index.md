@@ -5,6 +5,10 @@ Make sure to select the right version above the file list or *main* if using the
 [Example gestures](example_gestures.md)<br>
 [Variables](variables.md)
 
+# Listing variables
+Some information that the user may need during configuration is exposed through variables. Run ``watch -n .1 qdbus org.inputactions / variables`` to list all
+variables and their current values (updates every 100 ms).
+
 # Gestures
 ## Lifecycle
 - activate - If a gesture's activation conditions are satisfied, it is added to the list of active gestures and can receive update events. If one of the activated gestures has set speed, all of them will only receive events after it is determined (*Speed.events*)
@@ -41,9 +45,6 @@ In the following example, it is not necessary to set ``speed: slow`` on *Gesture
       # ...
 ```
 
-## Press gestures
-Press gestures update every 5 ms with a delta of 5.
-
 ## Swipe gestures
 Swipe gestures are limited to 4 directions. The direction is determined during the first few input events, which allows for executing actions at all points of the gesture's lifecycle.
 
@@ -56,12 +57,17 @@ Strokes can be recorded using the stroke recorder at *System Settings* -> *Deskt
 
 Only *end* actions are supported.
 
+## Time-based gestures
+Motionless gestures are based on time and update every *5 ms* with a delta of *5*.
+
 # Input
-Input events are sent and blocked at compositor level. Programs that read from /dev/input may not function as expected.  
+Input events are generated and blocked at compositor level. Programs that read from /dev/input may not function as expected.
 
 # Devices
 ## Mouse
 Mouse gestures are only supported on Plasma 6.3
+
+Supported gesture types: *press*, *stroke*, *swipe*, *wheel*
 
 ### Press gestures
 Mouse press gestures do not start immediately by default, allowing swipe gestures or normal clicks to be performed. 
@@ -76,14 +82,36 @@ the first scroll event and ends when a modifier/button is released, otherwise it
 When a mouse button is pressed, the event is blocked and the plugin gives the user 200 ms to perform any mouse movement. After that period, a press gesture is started, however if none were activated, all previously blocked buttons are pressed.
 
 ## Touchpad
+Supported gesture types: *click*, *pinch*, *press*, *rotate*, *stroke*, *swipe*
+
 ### Acceleration
 KWin only provides unaccelerated deltas for both scroll and swipe events.
 
-### Edge detection
-This is not possible due to KWin not providing the absolute positions of fingers. Gesture speed and min/max thresholds may be used as an alternative.
+### libevdev backend
+The libevdev backend enables click gestures, finger position variables, finger pressure variables and thumb variables.
+
+[Setup instructions](https://github.com/taj-ny/InputActions#additional-setup-optional)
+
+#### Click gestures
+Available on buttonpads only (touchpads that do not have separate physical buttons below and instead act as one button).
+
+#### Pressure
+On most devices the pressure is the area covered by the finger. Few devices provide true pressure.
+
+#### Thumb detection
+Input Actions can detect whether a thumb is present on the touchpad based on the pressure range manually specified by the user.
+See *[Device](configuration.md#device)*.
+
+### Five-finger gestures
+[Libinput does not support five-finger gestures](https://gitlab.freedesktop.org/libinput/libinput/-/issues/763), click gestures are an exception, as they are
+managed by Input Actions.
+
+### Pinch gesture recognition issues
+Libinput is terrible at recognizing pinch gestures.
 
 ### Press (hold) gestures
-Single- and two-finger press gestures begin almost immediately. Three- and four-finger gestures have a significant delay added by libinput that may make those gestures annoying to use.
+Single- and two-finger press gestures begin almost immediately. Three- and four-finger gestures have a significant delay added by libinput that may make those
+gestures annoying to use.
 
 ### Two-finger swipe/stroke gestures
 Two-finger swipe gestures are achieved by treating scroll events as motion events. The thresholds for changing the scroll axis are quite large, which can cause 

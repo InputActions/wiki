@@ -6,7 +6,9 @@
 
 This page only explains the configuration structure, to learn how certain features of the plugin actually work, see [index.md](index.md).
 
-There is currently no configuration UI. The configuration file is located at ``~/.config/kwingestures.yml``. It is created automatically when the plugin is loaded. The plugin should be reconfigured when the file changes. If it doesn't, disable and enable it manually or run ``qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect kwin_gestures``.
+There is currently no configuration UI. The configuration file is located at ``~/.config/inputactions/config.yaml``
+(or ``~/.config/inputactions/config-debug.yaml`` on debug builds). It is created automatically when the plugin is loaded. The plugin should be reconfigured when
+the file changes. If it doesn't, disable and enable it manually or run ``qdbus org.kde.KWin /Effects org.kde.kwin.Effects.reconfigureEffect kwin_gestures``.
 
 When the configuration fails to load, the error will be logged. To see the last five, run ``journalctl --boot=0 -g "inputactions:" -n 5``. The message should contain the approximate position of where the error is located.
 ```

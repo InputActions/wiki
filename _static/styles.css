@@ -1,0 +1,10 @@
+table.align-default {
+    margin: unset !important;
+}
+
+/*.toc-tree > ul > li:first-child > a {*/
+/*    display: unset !important;*/
+/*}*/
+/*.toc-tree > ul > li:first-child > ul {*/
+/*    padding-left: var(--toc-item-spacing-horizontal) !important;*/
+/*}*/

@@ -1,14 +1,14 @@
 # InputActions wiki
-This wiki defaults to the latest Git commit. Use the <a href="/main/version_selector">version selector</a> to select your version.
+This wiki defaults to the latest Git commit. Use the <a href="/main/version-selector">version selector</a> to select your version.
 
 For v0.7 and below see <https://github.com/InputActions/docs> and choose the version by clicking the button that says ``main``.
 
 ```{toctree}
 :hidden:
 
-Version selector <version_selector>
-Getting started <getting_started/index>
-Example gestures <example_gestures>
+Version selector <version-selector>
+Getting started <getting-started/index>
+Example gestures <example-gestures>
 ```
 
 ```{toctree}
@@ -27,7 +27,7 @@ Devices <devices/index>
 :hidden:
 :caption: Advanced
 
-Dynamic values <dynamic_values/index>
-Gesture groups <advanced/gesture_groups>
-YAML anchors <advanced/yaml_anchors>
+Dynamic values <dynamic-values/index>
+Gesture groups <advanced/gesture-groups>
+YAML anchors <advanced/yaml-anchors>
 ```

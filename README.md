@@ -1,2 +1,2 @@
 # InputActions wiki
-https://wiki.inputactions.org/en/latest
+https://wiki.inputactions.org

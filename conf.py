@@ -24,8 +24,7 @@ myst_enable_extensions = [
 ]
 myst_heading_anchors = 6
 
-html_baseurl = 'pages'
 html_css_files = ['styles.css']
-html_title = 'InputActions'
+html_title = 'InputActions v0.8.0'
 html_theme = 'furo'
 html_static_path = ['_static']

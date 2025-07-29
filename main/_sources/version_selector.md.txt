@@ -1,2 +1,2 @@
 # Version selector
-- [latest](/main)
+- <a href="/">latest</a>

@@ -1,5 +1,5 @@
 # InputActions wiki
-This wiki defaults to the latest Git commit. Use the [version selector](/version_selector) to select your version.
+This wiki defaults to the latest Git commit. Use the <a href="/main/version_selector">version selector</a> to select your version.
 
 For v0.7 and below see <https://github.com/InputActions/docs> and choose the version by clicking the button that says ``main``.
 

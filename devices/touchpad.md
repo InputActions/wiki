@@ -18,7 +18,7 @@ This enables the following features:
 - ``finger_`` and ``thumb_`` [variables](/variables) (thumb detection requires the pressure range to be set, see *[](#touchpadproperties)*),
 - click gestures.
 
-Additional [setup instructions](<project:/getting_started/installation/index.md#additional-setup-optional>) are required to enable those features.
+Additional [setup instructions](<project:/getting-started/installation/index.md#additional-setup-optional>) are required to enable those features.
 
 ### Five-finger gestures
 [Libinput does not support five-finger gestures](https://gitlab.freedesktop.org/libinput/libinput/-/issues/763), click gestures are an exception, as they are managed by InputActions.

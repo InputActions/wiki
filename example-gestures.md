@@ -1,6 +1,6 @@
 # Example gestures
 :::{important}
-Read [](/getting_started/introduction) first before complaining that these do not work.
+Read [](/getting-started/introduction) first before complaining that these do not work.
 :::
 
 ## Mouse

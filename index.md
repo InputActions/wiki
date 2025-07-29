@@ -7,6 +7,7 @@ For v0.7 and below see <https://github.com/InputActions/docs> and choose the ver
 ```{toctree}
 :hidden:
 
+Version selector <version_selector>
 Getting started <getting_started/index>
 Example gestures <example_gestures>
 ```

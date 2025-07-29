@@ -1,2 +1,2 @@
 # Version selector
-- <a href="/main">latest</a>
+- <a href="/main">Latest Git</a>

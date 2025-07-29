@@ -13,4 +13,4 @@
 ## Description
 Performed by clicking the touchpad (not the buttons below or above).
 
-Requires [libevdev backend](<project:/devices/touchpad#libevdev-backend>) to be enabled.
+Requires [libevdev backend](<project:/devices/touchpad.md#libevdev-backend>) to be enabled.

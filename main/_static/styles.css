@@ -1,0 +1,7 @@
+table.align-default {
+    margin: unset !important;
+}
+
+.loaded {
+    display: none !important;
+}

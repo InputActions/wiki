@@ -52,7 +52,6 @@ Only one property per item allowed.
   - *list([MouseAction](#mouseaction))*
 :::
 
-
 #### KeyboardAction
 [List of keyboard keys](https://github.com/taj-ny/InputActions/blob/96f757fee0fa4a53bac6d85bf2e70fafc884f6ce/src/libinputactions/yaml_convert.h#L46), omit the
 ``KEY_`` prefix and use lowercase characters.
@@ -101,7 +100,7 @@ Only one property per item allowed.
   - Move the pointer by (*x*, *y*).
 
 * - ``move_by_delta``
-  - Move the pointer by the current delta of a motion gesture. Multiplied by *[](#touchpadeventhandler).delta_multiplier*.
+  - Move the pointer by the current delta of a motion gesture. Multiplied by *<project:/devices/touchpad.md#touchpadeventhandler>.delta_multiplier*.
 
 * - ``move_to [x] [y]``
   - Move the pointer to (*x*, *y*).

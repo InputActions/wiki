@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=4c34044c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=1982ea70" />
     
     
 
@@ -308,6 +308,10 @@
 <p>Configuration will be reloaded automatically when the file is modified. You can run <code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.inputactions</span> <span class="pre">/</span> <span class="pre">reloadConfig</span></code> to reload it manually, this will
 also print any errors. Another way to get the errors is to run <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">--boot=0</span> <span class="pre">-g</span> <span class="pre">&quot;inputactions:&quot;</span> <span class="pre">-n</span> <span class="pre">5</span></code>.</p>
 <p>Configuration uses the YAML format, JSON will work as well if you really want to use it.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.</p>
+</div>
 <section id="subproperties">
 <h2>Subproperties<a class="headerlink" href="#subproperties" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">a.b</span></code> in the <code class="docutils literal notranslate"><span class="pre">Property</span></code> column means that <code class="docutils literal notranslate"><span class="pre">b</span></code> is a property of <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
@@ -404,7 +408,7 @@ also print any errors. Another way to get the errors is to run <code class="docu
 <tr class="row-even"><td><p>autoreload</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the configuration should be automatically reloaded on file change.</p></td>
-<td><p><em>true</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>keyboard</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
@@ -426,7 +430,7 @@ also print any errors. Another way to get the errors is to run <code class="docu
 </div>
 </section>
 <section id="eventhandler">
-<span id="id1"></span><h3>EventHandler<a class="headerlink" href="#eventhandler" title="Link to this heading">¶</a></h3>
+<h3>EventHandler<a class="headerlink" href="#eventhandler" title="Link to this heading">¶</a></h3>
 <p>Inherited by <a class="reference internal" href="devices/mouse.html#mouseeventhandler"><span class="std std-ref">MouseEventHandler</span></a> and <a class="reference internal" href="devices/touchpad.html#touchpadeventhandler"><span class="std std-ref">TouchpadEventHandler</span></a>.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -475,27 +479,27 @@ also print any errors. Another way to get the errors is to run <code class="docu
 <td><p>How many input events to sample in order to determine the speed at which the gesture is performed. The average of each event’s delta is compared against the thresholds below. If the threshold is reached, the gesture is considered to have been performed fast, otherwise slow.</p>
 <p><strong>Note</strong>: No gestures will be triggered until all events have been sampled.</p>
 </td>
-<td><p><em>3</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>swipe_threshold</p></td>
 <td><p><em>float</em></p></td>
 <td></td>
-<td><p><em>20</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>pinch_in_threshold</p></td>
 <td><p><em>float</em></p></td>
 <td></td>
-<td><p><em>0.04</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.04</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>pinch_out_threshold</p></td>
 <td><p><em>float</em></p></td>
 <td></td>
-<td><p><em>0.08</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.08</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>rotate_threshold</p></td>
 <td><p><em>float</em></p></td>
 <td></td>
-<td><p><em>5</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
 </tr>
 </tbody>
 </table>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=4c34044c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=1982ea70" />
     
     
 
@@ -311,7 +311,7 @@
 </div>
 <p>Mouse gestures on Plasma require a version of 6.3 or higher.</p>
 <section id="mouseeventhandler">
-<span id="id1"></span><h2>MouseEventHandler<a class="headerlink" href="#mouseeventhandler" title="Link to this heading">¶</a></h2>
+<h2>MouseEventHandler<a class="headerlink" href="#mouseeventhandler" title="Link to this heading">¶</a></h2>
 <p>Inherits <a class="reference internal" href="../config.html#eventhandler"><span class="std std-ref">EventHandler</span></a>.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -326,19 +326,19 @@
 <tr class="row-even"><td><p>motion_timeout</p></td>
 <td><p><em>time</em></p></td>
 <td><p>The time during which a motion gesture must be performed. If not, a press gesture will be started. If no press gestures are activated, all pressed mouse buttons will actually be pressed, after having been blocked previously.</p></td>
-<td><p><em>200</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>press_timeout</p></td>
 <td><p><em>time</em></p></td>
 <td><p>The time during which press gestures are not started in case the user presses more than one mouse button.</p>
 <p>Swipe and wheel gesture aren’t affected by this option.</p>
 </td>
-<td><p><em>50</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>unblock_buttons_on_timeout</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether blocked mouse buttons should be pressed immediately on timeout. If false, they will be pressed and instantly released on button release.</p></td>
-<td><p><em>true</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
 </tbody>
 </table>

@@ -196,10 +196,8 @@ Swipe gestures have a different acceleration profile. You can change *Device.del
 
   ```yaml
   - type: swipe
+    fingers: 3
     direction: any
-    
-    conditions:
-      - $fingers == 3
 
     actions:
       - on: begin
@@ -222,10 +220,8 @@ Swipe gestures have a different acceleration profile. You can change *Device.del
 
   ```yaml
   - type: swipe
+    fingers: 3
     direction: left
-    
-    conditions:
-      - $fingers == 3
 
     actions:
       - on: begin
@@ -233,10 +229,8 @@ Swipe gestures have a different acceleration profile. You can change *Device.del
           - mouse: [ back ]
 
   - type: swipe
+    fingers: 3
     direction: right
-    
-    conditions:
-      - $fingers == 3
 
     actions:
       - on: begin
@@ -250,10 +244,8 @@ Swipe gestures have a different acceleration profile. You can change *Device.del
 
   ```yaml
   - type: rotate
+    fingers: 2
     direction: any
-    
-    conditions:
-      - $fingers == 2
 
     actions:
       - on: update
@@ -275,11 +267,9 @@ Swipe fast - Open alt+tab switcher
 
   ```yaml
   - type: swipe
+    fingers: 4
     direction: left_right
     speed: fast
-
-    conditions:
-      - $fingers == 4
     
     actions:
       - on: begin
@@ -302,11 +292,9 @@ Swipe fast - Open alt+tab switcher
 
   # Quick window switching (left)
   - type: swipe
+    fingers: 4
     direction: left
     speed: slow
-    
-    conditions:
-      - $fingers == 4
 
     actions:
       - on: begin
@@ -315,11 +303,9 @@ Swipe fast - Open alt+tab switcher
 
   # Quick window switching (right)
   - type: swipe
+    fingers: 4
     direction: right
     speed: slow
-    
-    conditions:
-      - $fingers == 4
 
     actions:
       - on: begin
@@ -332,10 +318,8 @@ Swipe fast - Open alt+tab switcher
 
   ```yaml
   - type: swipe
+    fingers: 4
     direction: down
-    
-    conditions:
-      - $fingers == 4
 
     actions:
       - on: begin
@@ -359,8 +343,9 @@ From this point onwards gestures will only have placeholder actions.
 
   ```yaml
   - type: press
+    fingers: 2
+
     conditions:
-      - $fingers == 2
       - $finger_1_position_percentage_x between 0.4;0.6
       - $finger_2_position_percentage_x < 0.5
 
@@ -370,8 +355,9 @@ From this point onwards gestures will only have placeholder actions.
           - keyboard: [ a ]
 
   - type: press
+    fingers: 2
+
     conditions:
-      - $fingers == 2
       - $finger_1_position_percentage_x between 0.4;0.6
       - $finger_2_position_percentage_x > 0.5
 
@@ -386,9 +372,10 @@ From this point onwards gestures will only have placeholder actions.
 
   ```yaml
   - type: swipe
+    fingers: 3
     direction: up
+
     conditions:
-      - $fingers == 3
       - $finger_1_position_percentage_y >= 0.8
 
     actions:

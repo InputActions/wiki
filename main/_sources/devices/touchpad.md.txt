@@ -30,9 +30,8 @@ gestures it is  recommended (but not required) to only use strokes that have bee
 
 This feature will not work if scrolling on edges is enabled.
 
-(touchpadeventhandler)=
 ## TouchpadEventHandler
-Inherits [](#eventhandler).
+Inherits <project:/config.md#eventhandler>.
 
 :::{list-table}
 :header-rows: 1
@@ -52,12 +51,12 @@ Inherits [](#eventhandler).
 * - click_timeout
   - *time*
   - The time during which a click gesture must be performed. If not, a press gesture will be started.
-  - *200*
+  - ``200``
 
 * - delta_multiplier
   - *float*
   - Delta multiplier used for *move_by_delta* mouse input actions.
-  - *1.0*
+  - ``1.0``
 :::
 
 ## TouchpadProperties

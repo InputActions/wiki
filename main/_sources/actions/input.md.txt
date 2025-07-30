@@ -53,8 +53,7 @@ Only one property per item allowed.
 :::
 
 #### KeyboardAction
-[List of keyboard keys](https://github.com/taj-ny/InputActions/blob/96f757fee0fa4a53bac6d85bf2e70fafc884f6ce/src/libinputactions/yaml_convert.h#L46), omit the
-``KEY_`` prefix and use lowercase characters.
+See [](/misc/keyboard-scancodes) for list of keys.
 
 :::{list-table}
 :header-rows: 1
@@ -78,8 +77,8 @@ Only one property per item allowed.
 :::
 
 #### MouseAction
-[List of mouse buttons](https://github.com/taj-ny/InputActions/blob/96f757fee0fa4a53bac6d85bf2e70fafc884f6ce/src/libinputactions/yaml_convert.h#L557), omit the
-``BTN_`` prefix and use lowercase characters.
+Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, ``side``, ``extra``, ``extra6``, ``extra7``, ``extra8``, ``extra9``, ``extra10``,
+``extra11``, ``extra12`` ``extra13``.
 
 :::{list-table}
 :header-rows: 1

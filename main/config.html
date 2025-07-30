@@ -326,48 +326,64 @@ also print any errors. Another way to get the errors is to run <code class="docu
 </section>
 <section id="types">
 <h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper docutils container">
+<div class="table-wrapper colwidths-given docutils container">
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 22.2%" />
+<col style="width: 44.4%" />
+<col style="width: 33.3%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
 <th class="head"><p>Description</p></th>
+<th class="head"><p>Examples</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>float</p></td>
-<td><p>Positive or negative number with decimal places.</p></td>
+<td><p>Floating point number.</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>int</p></td>
-<td><p>Positive or negative number.</p></td>
+<td><p>Signed integer, can be negative.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>regex</p></td>
-<td><p>Regular expression</p></td>
+<td><p>Regular expression.</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>string</p></td>
 <td><p>Text, can be wrapped in <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">'</span></code>, but usually does not have to be.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>time</p></td>
-<td><p>Time in milliseconds.</p></td>
+<td><p>Duration in milliseconds, cannot be negative.</p></td>
+<td></td>
 </tr>
 <tr class="row-even"><td><p>uint</p></td>
-<td><p>Positive number.</p></td>
+<td><p>Unsigned integer, cannot be negative.</p></td>
+<td></td>
 </tr>
 <tr class="row-odd"><td><p>enum(value1, value2, …)</p></td>
-<td><p>Single value from the list of valid values in brackets.</p>
-<p>Example: <code class="docutils literal notranslate"><span class="pre">value2</span></code></p>
-</td>
+<td><p>One value from the list of values in brackets.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">value2</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>flags(value1, value2, …)</p></td>
-<td><p>List of one or multiple values from the list of valid values in brackets.</p>
-<p>Example: <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">value1,</span> <span class="pre">value2</span> <span class="pre">]</span></code></p>
+<td><p>List of one or more values from the list of values in brackets.</p></td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">value1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">value2</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>list(type)</p></td>
-<td><p>List containing elements of <em>type</em>.</p>
-<p>Example: <code class="docutils literal notranslate"><span class="pre">list(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3</span> <span class="pre">]</span></code> or:</p>
+<td><p>List of elements of type <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p></td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
@@ -376,15 +392,22 @@ also print any errors. Another way to get the errors is to run <code class="docu
 </td>
 </tr>
 <tr class="row-even"><td><p>map(key_type, value_type)</p></td>
-<td><p>A map (<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>) where all keys are of type <em>key_type</em> and values of type <em>value_type</em>.</p></td>
+<td><p>A map (<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>) where all keys are of type <code class="docutils literal notranslate"><span class="pre">key_type</span></code> and values of type <code class="docutils literal notranslate"><span class="pre">value_type</span></code>.</p></td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span>
+<span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span>
+</pre></div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td><p>point</p></td>
-<td><p>Format: <code class="docutils literal notranslate"><span class="pre">x,y</span></code></p></td>
+<tr class="row-odd"><td><p>point(type)</p></td>
+<td><p>Two numeric values (x and y) of type <code class="docutils literal notranslate"><span class="pre">type</span></code>. Format: <code class="docutils literal notranslate"><span class="pre">x,y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">point(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">4,0</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">point(float)</span></code> - <code class="docutils literal notranslate"><span class="pre">1.1,2.2</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>range(type)</p></td>
-<td><p>Range of numbers of <em>type</em>. Format: <code class="docutils literal notranslate"><span class="pre">min-max</span></code>. <code class="docutils literal notranslate"><span class="pre">-</span></code> may be surrounded by exactly one space on each side.</p>
-<p>Example: <code class="docutils literal notranslate"><span class="pre">range(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">range(point)</span></code> - <code class="docutils literal notranslate"><span class="pre">0;0</span> <span class="pre">-</span> <span class="pre">0.5;0.5</span></code></p>
-</td>
+<td><p>Range of numbers of type <code class="docutils literal notranslate"><span class="pre">type</span></code>. Format: <code class="docutils literal notranslate"><span class="pre">min-max</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> may be surrounded by exactly one space on each side.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">range(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">2</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">range(point)</span></code> - <code class="docutils literal notranslate"><span class="pre">0;0</span> <span class="pre">-</span> <span class="pre">0.5;0.5</span></code></p></td>
 </tr>
 </tbody>
 </table>

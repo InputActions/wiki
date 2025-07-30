@@ -10,6 +10,10 @@ also print any errors. Another way to get the errors is to run ``journalctl --bo
 
 Configuration uses the YAML format, JSON will work as well if you really want to use it.
 
+:::{important}
+Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.
+:::
+
 ## Subproperties
 ``a.b`` in the ``Property`` column means that ``b`` is a property of ``a``:
 ```yaml

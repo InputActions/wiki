@@ -65,7 +65,7 @@ It is also possible for a gesture below to cancel the one above it if actions ar
 ```
 
 ## Properties
-Those properties can be set on all gestures. See the other tables below for properties that are only available in specific cases.
+These properties can be set on all gestures. See the other tables below for properties that are only available in specific cases.
 
 :::{list-table}
 :header-rows: 1

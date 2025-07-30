@@ -95,7 +95,7 @@ Child objects inherit all properties from their parent, add new ones and can be 
 * - autoreload
   - *bool*
   - Whether the configuration should be automatically reloaded on file change.
-  - *true*
+  - ``true``
 
 * - keyboard
   - *[](#eventhandler)*
@@ -103,19 +103,18 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - 
 
 * - mouse
-  - *[](#mouseeventhandler)*
+  - *<project:/devices/mouse.md#mouseeventhandler>*
   - 
   - 
 
 * - touchpad
-  - *[](#touchpadeventhandler)*
+  - *<project:/devices/touchpad.md#touchpadeventhandler>*
   - 
   - 
 :::
 
-(eventhandler)=
 ### EventHandler
-Inherited by [](#mouseeventhandler) and [](#touchpadeventhandler).
+Inherited by <project:/devices/mouse.md#mouseeventhandler> and <project:/devices/touchpad.md#touchpadeventhandler>.
 
 :::{list-table}
 :header-rows: 1
@@ -157,27 +156,27 @@ The defaults may not work for everyone, as they depend on the device's sensitivi
   - How many input events to sample in order to determine the speed at which the gesture is performed. The average of each event's delta is compared against the thresholds below. If the threshold is reached, the gesture is considered to have been performed fast, otherwise slow.
 
     **Note**: No gestures will be triggered until all events have been sampled.
-  - *3*
+  - ``3``
 
 * - swipe_threshold
   - *float*
   - 
-  - *20*
+  - ``20``
 
 * - pinch_in_threshold
   - *float*
   - 
-  - *0.04*
+  - ``0.04``
 
 * - pinch_out_threshold
   - *float*
   - 
-  - *0.08*
+  - ``0.08``
 
 * - rotate_threshold
   - *float*
   - 
-  - *5*
+  - ``5``
 :::
 
 ## Example

@@ -27,45 +27,56 @@ Child objects inherit all properties from their parent, add new ones and can be 
 ## Types
 :::{list-table}
 :header-rows: 1
+:widths: 10 20 15
 
 * - Type
   - Description
+  - Examples
 
 * - bool
   - ``true`` or ``false``
+  -
 
 * - float
-  - Positive or negative number with decimal places.
+  - Floating point number.
+  -
 
 * - int
-  - Positive or negative number.
+  - Signed integer, can be negative.
+  -
 
 * - regex
-  - Regular expression
+  - Regular expression.
+  -
 
 * - string
   - Text, can be wrapped in ``"`` or ``'``, but usually does not have to be.
+  -
 
 * - time
-  - Time in milliseconds.
+  - Duration in milliseconds, cannot be negative.
+  -
 
 * - uint
-  - Positive number.
+  - Unsigned integer, cannot be negative.
+  -
 
 * - enum(value1, value2, ...)
-  - Single value from the list of valid values in brackets.
-
-    Example: ``value2``
+  - One value from the list of values in brackets.
+  - ``value2``
 
 * - flags(value1, value2, ...)
-  - List of one or multiple values from the list of valid values in brackets.
-
-    Example: ``[ value1, value2 ]``
+  - List of one or more values from the list of values in brackets.
+  - ```yaml
+    [ value1, value2 ]
+    ```
 
 * - list(type)
-  - List containing elements of *type*.
+  - List of elements of type ``type``.
+  - ```yaml
+    [ 1, 2, 3 ]
+    ```
 
-    Example: ``list(int)`` - ``[ 1, 2, 3 ]`` or:
     ```yaml
     - 1
     - 2
@@ -73,15 +84,21 @@ Child objects inherit all properties from their parent, add new ones and can be 
     ```
 
 * - map(key_type, value_type)
-  - A map (``key: value``) where all keys are of type *key_type* and values of type *value_type*.
+  - A map (``key: value``) where all keys are of type ``key_type`` and values of type ``value_type``.
+  - ```yaml
+    key1: value1
+    key2: value2
+    ```
 
-* - point
-  - Format: ``x,y``
+* - point(type)
+  - Two numeric values (x and y) of type ``type``. Format: ``x,y``
+  - ``point(int)`` - ``4,0``<br>
+    ``point(float)`` - ``1.1,2.2``
 
 * - range(type)
-  - Range of numbers of *type*. Format: ``min-max``. ``-`` may be surrounded by exactly one space on each side.
-
-    Example: ``range(int)`` - ``1 - 2``, ``range(point)`` - ``0;0 - 0.5;0.5``
+  - Range of numbers of type ``type``. Format: ``min-max``, ``-`` may be surrounded by exactly one space on each side.
+  - ``range(int)`` - ``1 - 2``<br>
+    ``range(point)`` - ``0;0 - 0.5;0.5``
 :::
 
 ## Structure

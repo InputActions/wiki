@@ -405,11 +405,12 @@ sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class
 </section>
 <section id="after-installation">
 <h2>After installation<a class="headerlink" href="#after-installation" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Open the <em>Desktop Effects</em> page in <em>System Settings</em>.</p></li>
-<li><p>Enable the <em>Input Actions</em> effect in the <em>Tools</em> category.</p></li>
-</ol>
-<p>To rebuild, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> in the project directory and then all command starting from (and including) <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code>.</p>
+<p>To enable the plugin, run</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>qdbus6<span class="w"> </span>org.kde.KWin<span class="w"> </span>/Effects<span class="w"> </span>org.kde.kwin.Effects.loadEffect<span class="w"> </span>kwin_gestures
+</pre></div>
+</div>
+<p>or open the <code class="docutils literal notranslate"><span class="pre">Desktop</span> <span class="pre">Effects</span></code> page in <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Settings</span></code> and enable <code class="docutils literal notranslate"><span class="pre">InputActions</span></code> in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> category.</p>
+<p>To rebuild, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> in the project directory and then all command starting from <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code>.</p>
 </section>
 </section>
 

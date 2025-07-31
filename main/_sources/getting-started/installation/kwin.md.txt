@@ -106,7 +106,10 @@ sudo rpm-ostree install InputActions/build/inputactions.rpm
 ```
 
 ## After installation
-1. Open the *Desktop Effects* page in *System Settings*.
-2. Enable the *Input Actions* effect in the *Tools* category.
+To enable the plugin, run 
+```sh
+qdbus6 org.kde.KWin /Effects org.kde.kwin.Effects.loadEffect kwin_gestures
+```
+or open the ``Desktop Effects`` page in ``System Settings`` and enable ``InputActions`` in the ``Tools`` category.
 
-To rebuild, run ``make clean`` in the project directory and then all command starting from (and including) ``cd build``.
+To rebuild, run ``make clean`` in the project directory and then all command starting from ``cd build``.

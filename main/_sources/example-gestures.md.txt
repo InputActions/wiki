@@ -21,26 +21,21 @@ Read [](/getting-started/introduction) first before complaining that these do no
 
   ```yaml
   - type: wheel
-    direction: up
+    direction: up_down
 
     conditions:
       - $keyboard_modifiers == meta
 
     actions:
       - on: update
-        input:
-          - keyboard: [ volumeup ]
-
-  - type: wheel
-    direction: down
-
-    conditions:
-      - $keyboard_modifiers == meta
-
-    actions:
-      - on: update
+        interval: '+'
         input:
           - keyboard: [ volumedown ]
+
+      - on: update
+        interval: '-'
+        input:
+          - keyboard: [ volumeup ]
   ```
 </details>
 <details>

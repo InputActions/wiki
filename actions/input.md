@@ -23,17 +23,10 @@ Release actions should be performed in ``on: end_cancel`` actions instead of ``o
 * - Property
   - Type
   - Description
-  - Default
 
 * - **input**
   - *list([](#deviceactions))*
   - Input actions to perform.
-  - 
-
-* - delay
-  - *time*
-  - Delay between each item in the sequence. Some programs (including input methods such as fcitx5) may not handle input events as expected if they are generated without delays.
-  - ``0``
 :::
 
 ### DeviceActions

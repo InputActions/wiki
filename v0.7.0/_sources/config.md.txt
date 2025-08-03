@@ -118,11 +118,6 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Whether the configuration should be automatically reloaded on file change.
   - ``true``
 
-* - keyboard
-  - *[](#eventhandler)*
-  - 
-  - 
-
 * - mouse
   - *<project:/devices/mouse.md#mouseeventhandler>*
   - 

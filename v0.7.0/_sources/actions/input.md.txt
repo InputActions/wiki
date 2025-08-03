@@ -23,12 +23,10 @@ Release actions should be performed in ``on: end_cancel`` actions instead of ``o
 * - Property
   - Type
   - Description
-  - Default
 
 * - **input**
   - *list([](#deviceactions))*
   - Input actions to perform.
-  -
 :::
 
 ### DeviceActions

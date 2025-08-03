@@ -1,7 +1,7 @@
 # Gesture
 :::{list-table}
 * - **Inherited by**
-  - [](/gestures/click), [](/gestures/pinch), [](/gestures/press), [](/gestures/rotate), [](/gestures/shortcut), [](/gestures/stroke), [](/gestures/swipe)
+  - [](/gestures/click), [](/gestures/pinch), [](/gestures/press), [](/gestures/rotate), [](/gestures/stroke), [](/gestures/swipe)
 :::
 
 ## Description
@@ -76,7 +76,7 @@ These properties can be set on all gestures. See the other tables below for prop
   - Default
 
 * - **type**
-  - *enum(click, pinch, press, rotate, shortcut, stroke, swipe, wheel)*
+  - *enum(click, pinch, press, rotate, stroke, swipe, wheel)*
   -
   -
 

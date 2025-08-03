@@ -13,16 +13,7 @@ Runs a command in a shell.
 
 * - Property
   - Type
-  - Description
-  - Default
 
 * - **command**
   - *string*
-  - 
-  -
-
-* - wait
-  - *bool*
-  - Whether to wait (up to 30 seconds) for the shell process to exit, no actions will be executed until then.
-  - ``false``
 :::

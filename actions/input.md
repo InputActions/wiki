@@ -71,9 +71,6 @@ See [](/misc/keyboard-scancodes) for list of keys.
   - One or more keys separated by ``+``. Pressed in the order as specified and released in reverse order.
 
     ``key1+key2`` is equivalent to ``[ +key1, +key2, -key2, -key1 ]``
-
-* - ``text: [text]``
-  - Writes ``text`` into the application. Unlike other actions, this one is actually a map and accepts dynamic values (evaluated asynchronously).
 :::
 
 #### MouseAction
@@ -110,8 +107,4 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
 input:
   - keyboard: [ leftctrl+n ]
   - mouse: [ left, move_by 10 10 ]
-  - keyboard: [ text: aaaaaa ]
-  - keyboard:
-      - text:
-          command: date
 ```

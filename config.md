@@ -151,14 +151,6 @@ Inherited by <project:/devices/mouse.md#mouseeventhandler> and <project:/devices
 * - speed
   - *[](#speed)*
   - Settings for how gesture speed is determined.
-
-* - ~~blacklist~~
-  - *list(string)*
-  - **Deprecated.** Use a gesture group with a ``device_name`` condition instead.
-
-* - ~~whitelist~~
-  - *list(string)*
-  - See ``blacklist``.
 :::
 
 ### Speed

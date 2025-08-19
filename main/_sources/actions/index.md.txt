@@ -1,7 +1,7 @@
 # Action
 :::{list-table}
 * - **Inherited by**
-  - [](/actions/groups/index), [](/actions/command), [](/actions/input), [](/actions/plasma-shortcut)
+  - [](/actions/groups/index), [](/actions/command), [](/actions/input), [](/actions/sleep), [](/actions/plasma-shortcut)
 :::
 
 ## Description
@@ -53,5 +53,6 @@ Action type is determined by the presence of required properties.
 Command <command>
 Input <input>
 Plasma shortcut <plasma-shortcut>
+Sleep <sleep>
 Groups <groups/index>
 ```

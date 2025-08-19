@@ -32,7 +32,7 @@ Release actions should be performed in ``on: end_cancel`` actions instead of ``o
 
 * - delay
   - *time*
-  - Delay between each item in the sequence. Some programs (including input methods such as fcitx5) may not handle input events as expected if they are generated without delays.
+  - Delay between each item in the sequence.
   - ``0``
 :::
 
@@ -104,6 +104,12 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
 * - ``move_to [x] [y]``
   - Move the pointer to (*x*, *y*).
 :::
+
+## Known issues
+- Input methods may cause improper processing of keyboard events. Workaround: set ``delay``, ``1`` should be enough.
+- Windows that have just been activated by an action may not process events properly. Workaround: add a [](/actions/sleep) after the action that caused the
+  activation.
+- Keyboard text is always processed before keys. Workaround: set ``delay`` or split into multiple actions and add a [](/actions/sleep).
 
 ## Example
 ```yaml

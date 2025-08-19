@@ -339,7 +339,7 @@
 </tr>
 <tr class="row-odd"><td><p>delay</p></td>
 <td><p><em>time</em></p></td>
-<td><p>Delay between each item in the sequence. Some programs (including input methods such as fcitx5) may not handle input events as expected if they are generated without delays.</p></td>
+<td><p>Delay between each item in the sequence.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
 </tbody>
@@ -430,6 +430,15 @@
 </section>
 </section>
 </section>
+<section id="known-issues">
+<h2>Known issues<a class="headerlink" href="#known-issues" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Input methods may cause improper processing of keyboard events. Workaround: set <code class="docutils literal notranslate"><span class="pre">delay</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> should be enough.</p></li>
+<li><p>Windows that have just been activated by an action may not process events properly. Workaround: add a <a class="reference internal" href="sleep.html"><span class="doc std std-doc">SleepAction</span></a> after the action that caused the
+activation.</p></li>
+<li><p>Keyboard text is always processed before keys. Workaround: set <code class="docutils literal notranslate"><span class="pre">delay</span></code> or split into multiple actions and add a <a class="reference internal" href="sleep.html"><span class="doc std std-doc">SleepAction</span></a>.</p></li>
+</ul>
+</section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">input</span><span class="p">:</span>
@@ -509,6 +518,7 @@
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#known-issues">Known issues</a></li>
 <li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>

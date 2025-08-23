@@ -1,7 +1,7 @@
 # Touchpad
 :::{list-table}
 * - **Supported gestures**
-  - [](/gestures/click), [](/gestures/pinch), [](/gestures/press), [](/gestures/rotate), [](/gestures/stroke), [](/gestures/swipe)
+  - [](/gestures/click), [](/gestures/pinch), [](/gestures/press), [](/gestures/rotate), [](/gestures/stroke), [](/gestures/swipe), [](/gestures/tap)
 :::
 
 ## Description
@@ -16,12 +16,13 @@ The libevdev input backend supplies the following touchpad data, which libinput 
 
 This enables the following features:
 - ``finger_`` and ``thumb_`` [variables](/variables) (thumb detection requires the pressure range to be set, see *[](#touchpadproperties)*),
-- click gestures.
+- [](/gestures/click),
+- [](/gestures/tap).
 
 Additional [setup instructions](<project:/getting-started/installation/index.md#additional-setup-optional>) are required to enable those features.
 
 ### Five-finger gestures
-[Libinput does not support five-finger gestures](https://gitlab.freedesktop.org/libinput/libinput/-/issues/763), click gestures are an exception, as they are managed by InputActions.
+[Libinput does not support five-finger gestures](https://gitlab.freedesktop.org/libinput/libinput/-/issues/763), click and tap gestures are an exception, as they are managed by InputActions.
 
 ### Two-finger swipe/stroke gestures
 Two-finger swipe gestures are achieved by treating scroll events as motion events. The thresholds for changing the scroll axis are quite large, which can cause
@@ -66,12 +67,25 @@ Inherits <project:/config.md#eventhandler>.
 * - Property
   - Type
   - Description
+  - Default
 
 * - buttonpad
   - *bool*
   - Whether the touchpad is a buttonpad (no physical buttons below, the entire device is a button). Detected automatically.
+  - ``false``
+
+* - pressure_ranges.finger
+  - *uint*
+  - Minimum pressure for the touch point to be considered a finger. Everything below this value will be ignored.
+  - ``0``
 
 * - pressure_ranges.thumb
-  - *range(uint)*
-  - Pressure range for thumb detection. Current pressures can be obtained from variables.
+  - *uint*
+  - Minimum pressure for the touch point to be considered a thumb. Required for ``thumb_`` variables.
+  - ``4294967295``
+
+* - pressure_ranges.palm
+  - *uint*
+  - Minimum pressure for the touch point to be considered a palm. Everything over this value will be ignored.
+  - ``4294967295``
 :::

@@ -14,9 +14,13 @@ Variables are currently only used in conditions and cannot be created by users.
 
     See table at <https://developer.mozilla.org/en-US/docs/Web/CSS/cursor#syntax> for preview.
 
+* - finger_{1..5}_initial_position_percentage
+  - *point*
+  - The initial position of the finger. This variable should be preferred over ``finger_{1..5}_position_percentage`` for swipe from edge gestures.
+
 * - finger_{1..5}_position_percentage
   - *point*
-  - Absolute position of the finger as a percentage.
+  - Absolute current position of the finger as a percentage. Ranges from ``0.0`` to ``1.0``.
 
 * - finger_{1..5}_pressure
   - *number*
@@ -58,9 +62,13 @@ Variables are currently only used in conditions and cannot be created by users.
   - *bool*
   - Whether a thumb is currently present on the input device.
 
+* - thumb_initial_position_percentage
+  - *point*
+  - See ``finger_{1..5}_initial_position_percentage``.
+
 * - thumb_position_percentage
   - *point*
-  - Position of the thumb (if present) as a percentage.
+  - See ``finger_{1..5}_position_percentage``.
 
 * - window{_under}_class
   - *string*

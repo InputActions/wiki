@@ -371,7 +371,7 @@ From this point onwards gestures will only have placeholder actions.
     direction: up
 
     conditions:
-      - $finger_1_position_percentage_y >= 0.8
+      - $finger_1_initial_position_percentage_y >= 0.8
 
     actions:
       - on: begin

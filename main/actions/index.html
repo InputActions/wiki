@@ -341,15 +341,22 @@
 <tr class="row-even"><td><p>interval</p></td>
 <td><p><em>float</em> or <em>string</em></p></td>
 <td><p>How often should an <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> action execute. Can be negative for bi-directional gestures.</p>
-<p><code class="docutils literal notranslate"><span class="pre">0</span></code> - Execute exactly once per event<br />
-<code class="docutils literal notranslate"><span class="pre">'+'</span></code> - Execute exactly once per event with positive delta<br />
-<code class="docutils literal notranslate"><span class="pre">'-'</span></code> - Execute exactly once per event with negative delta<br />
-<code class="docutils literal notranslate"><span class="pre">number</span></code> - Execute when total delta is positive and is equal to or larger than <code class="docutils literal notranslate"><span class="pre">number</span></code><br />
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code> - Execute exactly once per event
+<code class="docutils literal notranslate"><span class="pre">'+'</span></code> - Execute exactly once per event with positive delta
+<code class="docutils literal notranslate"><span class="pre">'-'</span></code> - Execute exactly once per event with negative delta
+<code class="docutils literal notranslate"><span class="pre">number</span></code> - Execute when total delta is positive and is equal to or larger than <code class="docutils literal notranslate"><span class="pre">number</span></code>
 <code class="docutils literal notranslate"><span class="pre">-number</span></code> - Execute when total delta is negative and is equal to or smaller than <code class="docutils literal notranslate"><span class="pre">number</span></code></p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>threshold</p></td>
+<tr class="row-odd"><td><p>limit</p></td>
+<td><p><em>uint</em></p></td>
+<td><p>How many times the action can be executed during a gesture.</p>
+<p><code class="docutils literal notranslate"><span class="pre">0</span></code> - no limit</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>threshold</p></td>
 <td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
 <td><p>Same as <em><a class="reference internal" href="../gestures/index.html"><span class="doc std std-doc">Gesture</span></a>.threshold</em>, but only for this action.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> actions cannot have this property.</strong></p>

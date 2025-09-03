@@ -26,17 +26,24 @@ Action type is determined by the presence of required properties.
 * - conditions
   - *[](/conditions/index)* or *list([](/conditions/index))*
   - Same as *[](/gestures/index).conditions*, but only for this action.
-  - 
+  -
 
 * - interval
   - *float* or *string*
   - How often should an ``on: update`` action execute. Can be negative for bi-directional gestures.
 
-    ``0`` - Execute exactly once per event  
-    ``'+'`` - Execute exactly once per event with positive delta  
-    ``'-'`` - Execute exactly once per event with negative delta  
-    ``number`` - Execute when total delta is positive and is equal to or larger than ``number``  
+    ``0`` - Execute exactly once per event
+    ``'+'`` - Execute exactly once per event with positive delta
+    ``'-'`` - Execute exactly once per event with negative delta
+    ``number`` - Execute when total delta is positive and is equal to or larger than ``number``
     ``-number`` - Execute when total delta is negative and is equal to or smaller than ``number``
+  - ``0``
+
+* - limit
+  - *uint*
+  - How many times the action can be executed during a gesture.
+
+    ``0`` - no limit
   - ``0``
 
 * - threshold
@@ -44,7 +51,7 @@ Action type is determined by the presence of required properties.
   - Same as *[](/gestures/index).threshold*, but only for this action.
 
     **``on: begin`` actions cannot have this property.**
-  - 
+  -
 :::
 
 ```{toctree}

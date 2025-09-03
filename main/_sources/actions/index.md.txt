@@ -33,9 +33,13 @@ Action type is determined by the presence of required properties.
   - How often should an ``on: update`` action execute. Can be negative for bi-directional gestures.
 
     ``0`` - Execute exactly once per event
+
     ``'+'`` - Execute exactly once per event with positive delta
+
     ``'-'`` - Execute exactly once per event with negative delta
+
     ``number`` - Execute when total delta is positive and is equal to or larger than ``number``
+
     ``-number`` - Execute when total delta is negative and is equal to or smaller than ``number``
   - ``0``
 

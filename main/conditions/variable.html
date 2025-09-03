@@ -313,16 +313,19 @@
 </div>
 <p>Variable conditions compare the value of a <a class="reference internal" href="../variables.html"><span class="doc std std-doc">variable</span></a> against another value using a specific operator.</p>
 <p>Format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[!]$(variable_name) (operator) (value)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[!]$variable operator value
 </pre></div>
 </div>
 <p>An exclamation mark placed before <code class="docutils literal notranslate"><span class="pre">$</span></code> will negate the condition.</p>
+<p>For variables of type <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">operator</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> may be omitted. <code class="docutils literal notranslate"><span class="pre">$variable</span></code> and <code class="docutils literal notranslate"><span class="pre">!$variable</span></code> conditions are equivalent to <code class="docutils literal notranslate"><span class="pre">$variable</span> <span class="pre">==</span> <span class="pre">true</span></code>
+and <code class="docutils literal notranslate"><span class="pre">$variable</span> <span class="pre">==</span> <span class="pre">false</span></code> respectively.</p>
 <p>The value can be:</p>
 <ul class="simple">
-<li><p>a value of the same type as <code class="docutils literal notranslate"><span class="pre">variable_name</span></code> (automatically converted to lists when necessary, no need to put single values in <code class="docutils literal notranslate"><span class="pre">[]</span></code>),</p></li>
-<li><p>a variable of the same type as <code class="docutils literal notranslate"><span class="pre">variable_name</span></code>,</p></li>
-<li><p>a list of values of the same types as <code class="docutils literal notranslate"><span class="pre">variable_name</span></code>, may be empty (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
+<li><p>a value of the same type as <code class="docutils literal notranslate"><span class="pre">variable</span></code> (automatically converted to lists when necessary, no need to put single values in <code class="docutils literal notranslate"><span class="pre">[]</span></code>),</p></li>
+<li><p>a variable of the same type as <code class="docutils literal notranslate"><span class="pre">variable</span></code>,</p></li>
+<li><p>a list of values of the same types as <code class="docutils literal notranslate"><span class="pre">variable</span></code>, may be empty (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
 </ul>
+<p>See <a class="reference internal" href="index.html"><span class="doc std std-doc">Condition</span></a> for examples.</p>
 <section id="operators">
 <h2>Operators<a class="headerlink" href="#operators" title="Link to this heading">¶</a></h2>
 <p><em>T2</em> must be the same as <em>T1</em> unless stated otherwise.</p>

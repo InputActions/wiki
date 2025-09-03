@@ -8,15 +8,20 @@ Variable conditions compare the value of a [variable](/variables) against anothe
 
 Format:
 ```
-[!]$(variable_name) (operator) (value)
+[!]$variable operator value
 ```
 
 An exclamation mark placed before ``$`` will negate the condition.
 
+For variables of type ``bool``, ``operator`` and ``value`` may be omitted. ``$variable`` and ``!$variable`` conditions are equivalent to ``$variable == true``
+and ``$variable == false`` respectively.
+
 The value can be:
-- a value of the same type as ``variable_name`` (automatically converted to lists when necessary, no need to put single values in ``[]``),
-- a variable of the same type as ``variable_name``,
-- a list of values of the same types as ``variable_name``, may be empty (``[]``).
+- a value of the same type as ``variable`` (automatically converted to lists when necessary, no need to put single values in ``[]``),
+- a variable of the same type as ``variable``,
+- a list of values of the same types as ``variable``, may be empty (``[]``).
+
+See [](/conditions/index) for examples.
 
 ## Operators
 *T2* must be the same as *T1* unless stated otherwise.

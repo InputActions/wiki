@@ -45,6 +45,10 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Signed integer, can be negative.
   -
 
+* - keyboard_key
+  - See [](misc/keyboard-scancodes.md).
+  -
+
 * - regex
   - Regular expression.
   -

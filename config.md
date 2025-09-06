@@ -204,7 +204,8 @@ touchpad:
   devices:
     Synaptics TM3276-022:
       pressure_ranges:
-        thumb: 75-140
+        thumb: 75
+        palm: 140
 
   speed:
     swipe_threshold: 15

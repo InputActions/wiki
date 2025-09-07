@@ -181,7 +181,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -294,7 +294,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -311,6 +311,15 @@
 </tbody>
 </table>
 </div>
+<section id="scancodes">
+<h2>Scancodes<a class="headerlink" href="#scancodes" title="Link to this heading">¶</a></h2>
+<p>InputActions uses scancodes only. On non-QWERTY layouts, scancodes may map to different keycodes than expected (e.g. on a QWERTZ layout, the <code class="docutils literal notranslate"><span class="pre">y</span></code> scancode
+will map to the <code class="docutils literal notranslate"><span class="pre">z</span></code> keycode).</p>
+<p>Shortcut gestures are not affected by the current keyboard layout, but keyboard <a class="reference internal" href="../actions/input.html"><span class="std std-doc">input actions</span></a> are, and will not work well if multiple
+layouts are in use.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">evtest</span></code> utility can be used to obtain scancodes of pressed keys.</p>
+<p>See <a class="reference internal" href="../misc/keyboard-scancodes.html"><span class="std std-doc">Keyboard scancodes</span></a>.</p>
+</section>
 </section>
 
         </article>
@@ -356,8 +365,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Keyboard</a><ul>
+<li><a class="reference internal" href="#scancodes">Scancodes</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

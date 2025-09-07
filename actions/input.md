@@ -53,7 +53,7 @@ Only one property per item allowed.
 :::
 
 #### KeyboardAction
-See [](/misc/keyboard-scancodes) for list of keys.
+See [](/devices/keyboard).
 
 :::{list-table}
 :header-rows: 1

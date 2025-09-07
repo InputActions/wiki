@@ -5,5 +5,6 @@
 
 Keyboard <keyboard>
 Mouse <mouse>
+Pointer <pointer>
 Touchpad <touchpad>
 ```

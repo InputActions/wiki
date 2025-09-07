@@ -6,7 +6,7 @@ If you like InputActions, consider [making a donation](https://github.com/sponso
 ```{toctree}
 :hidden:
 
-Version selector <version-selector>
+Version selector <https://wiki.inputactions.org/main/version-selector>
 Getting started <getting-started/index>
 Example gestures <example-gestures>
 ```

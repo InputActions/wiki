@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="ClickGesture" href="click.html" /><link rel="prev" title="Configuration" href="../config.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="PinchGesture" href="pinch.html" /><link rel="prev" title="ClickGesture" href="click.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Gesture - InputActions v0.8.0</title>
+        <title>HoverGesture - InputActions v0.8.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -216,9 +216,9 @@
 <p class="caption" role="heading"><span class="caption-text">Core</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Gestures</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Gestures</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Gestures</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Gestures</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="click.html">Click</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hover.html">Hover</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Hover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pinch.html">Pinch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="press.html">Press</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rotate.html">Rotate</a></li>
@@ -282,7 +282,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/gestures/index.md.txt" title="View this page">
+  <a class="muted-link" href="../_sources/gestures/hover.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -302,218 +302,26 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="gesture">
-<h1>Gesture<a class="headerlink" href="#gesture" title="Link to this heading">¶</a></h1>
+          <section id="hovergesture">
+<h1>HoverGesture<a class="headerlink" href="#hovergesture" title="Link to this heading">¶</a></h1>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>Inherited by</strong></p></td>
-<td><p><a class="reference internal" href="click.html"><span class="doc std std-doc">ClickGesture</span></a>, <a class="reference internal" href="hover.html"><span class="doc std std-doc">HoverGesture</span></a> <a class="reference internal" href="pinch.html"><span class="doc std std-doc">PinchGesture</span></a>, <a class="reference internal" href="press.html"><span class="doc std std-doc">PressGesture</span></a>, <a class="reference internal" href="rotate.html"><span class="doc std std-doc">RotateGesture</span></a>, <a class="reference internal" href="shortcut.html"><span class="doc std std-doc">ShortcutGesture</span></a>, <a class="reference internal" href="stroke.html"><span class="doc std std-doc">StrokeGesture</span></a>,
-<a class="reference internal" href="swipe.html"><span class="doc std std-doc">SwipeGesture</span></a>, <a class="reference internal" href="tap.html"><span class="doc std std-doc">TapGesture</span></a>, <a class="reference internal" href="wheel.html"><span class="doc std std-doc">WheelGesture</span></a></p></td>
+<tr class="row-odd"><td><p><strong>Inherits</strong></p></td>
+<td><p><a class="reference internal" href="index.html"><span class="doc std std-doc">Gesture</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Supported devices</strong></p></td>
+<td><p><a class="reference internal" href="../devices/pointer.html"><span class="doc std std-doc">Pointer</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Type</strong></p></td>
+<td><p>Time-based gesture</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Each gesture’s page explicitly states the type, supported devices and source of the delta.</p>
-<p>Thresholds and action intervals are based on the gesture’s delta.  Time-based gestures update every <em>5 ms</em> with a delta of <em>5</em>.</p>
-<section id="lifecycle">
-<h3>Lifecycle<a class="headerlink" href="#lifecycle" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">begin</span></code> - Can be delayed or prevented by thresholds.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> - Before a gesture receives an update event, its update conditions (direction) are checked first. If not satisfied, the gesture is cancelled.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code> - The user has finished performing the gesture and end conditions have been satisfied.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cancel</span></code> - The gesture’s update conditions were not satisfied, the gesture has been overridden by another one as a result of conflict resolution, or the
-user has started performing a different gesture.</p></li>
-</ul>
-</section>
-<section id="conflict-resolution">
-<h3>Conflict resolution<a class="headerlink" href="#conflict-resolution" title="Link to this heading">¶</a></h3>
-<p>Conflict resolution ensures that there are never multiple gestures executing actions simultaneously by immediately cancelling all other gestures when:</p>
-<ul class="simple">
-<li><p>a gesture is updated, and has any action that had been executed, or has an update action that can be executed but hasn’t been yet (interval not reached),</p></li>
-<li><p>a gesture ends, and has an end action that can be executed,</p></li>
-<li><p>a stroke gesture is active (in this case only swipe gestures are cancelled).</p></li>
-</ul>
-<p>Gestures are updated in the same order as specified in the configuration.</p>
-<p>In the following example, it is not necessary to set <code class="docutils literal notranslate"><span class="pre">speed:</span> <span class="pre">slow</span></code> on <em>Gesture 2</em>, because when the action of <em>Gesture 1</em> is executed, <em>Gesture 2</em> will be
-cancelled immediately. The same applies to all other properties - conditions, thresholds etc.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gesture 1</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
-<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right</span>
-<span class="w">  </span><span class="nt">speed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fast</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">begin</span>
-<span class="w">      </span><span class="c1"># ...</span>
-
-<span class="c1"># Gesture 2</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
-<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right</span>
-
-<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">begin</span>
-<span class="w">      </span><span class="c1"># ...</span>
-</pre></div>
-</div>
-<p>It is also possible for a gesture below to cancel the one above it if actions are executed at different points of the lifecycle.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gesture 1</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
-<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
-<span class="w">      </span><span class="c1"># ...</span>
-
-<span class="c1"># Gesture 2</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
-<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">right</span>
-
-<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">begin</span>
-<span class="w">      </span><span class="c1"># ...</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
-<p>These properties can be set on all gestures. See the other tables below for properties that are only available in specific cases.</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Default</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>type</strong></p></td>
-<td><p><em>enum(click, hover, pinch, press, rotate, shortcut, stroke, swipe, tap, wheel)</em></p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>actions</p></td>
-<td><p><em>list(<a class="reference internal" href="../actions/index.html"><span class="doc std std-doc">Action</span></a>)</em></p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>clear_modifiers</p></td>
-<td><p>bool</p></td>
-<td><p>Whether keyboard modifiers should be cleared when this gesture begins. They will not be restored after the gesture ends.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if an <a class="reference internal" href="../actions/input.html"><span class="doc std std-doc">InputAction</span></a> is present, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise</p></td>
-</tr>
-<tr class="row-odd"><td><p>conditions</p></td>
-<td><p><em><a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
-<td><p>Must be satisfied in order for this gesture to be activated.</p>
-<p>If the value is a list, the behavior is the same as an <code class="docutils literal notranslate"><span class="pre">all</span></code> <a class="reference internal" href="../conditions/group.html"><span class="doc std std-doc">ConditionGroup</span></a>.</p>
-</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>end_conditions</p></td>
-<td><p><em><a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
-<td><p>If satisfied, the gesture will end, otherwise it will be cancelled.</p>
-<p>If the value is a list, the behavior is the same as an <code class="docutils literal notranslate"><span class="pre">all</span></code> <a class="reference internal" href="../conditions/group.html"><span class="doc std std-doc">ConditionGroup</span></a>.</p>
-</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>id</p></td>
-<td><p><em>string</em></p></td>
-<td><p>Must be unique.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>set_last_trigger</p></td>
-<td><p><em>bool</em></p></td>
-<td><p>Whether to set <code class="docutils literal notranslate"><span class="pre">last_trigger</span></code> variables.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>threshold</p></td>
-<td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
-<td><p>How far this gesture needs to progress in order to begin.</p>
-<p><strong>Gestures with <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> or <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions cannot have maximum thresholds.</strong></p>
-</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p><s>keyboard_modifiers</s></p></td>
-<td></td>
-<td><p><strong>Deprecated.</strong> Use the <code class="docutils literal notranslate"><span class="pre">keyboard_modifiers</span></code> variable in a condition instead.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<section id="motion-gestures">
-<h3>Motion gestures<a class="headerlink" href="#motion-gestures" title="Link to this heading">¶</a></h3>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>speed</p></td>
-<td><p><em>enum(fast, slow)</em></p></td>
-<td><p>The speed at which the gesture must be performed. Will be available as a variable in the future.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="mouse-gestures">
-<h3>Mouse gestures<a class="headerlink" href="#mouse-gestures" title="Link to this heading">¶</a></h3>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Default</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>mouse_buttons</p></td>
-<td><p><em>flags(left, middle, right, back, forward, extra1, extra2, …, extra13)</em></p></td>
-<td><p>Mouse buttons that must be pressed in order for the gesture to be activated.</p>
-<p><code class="docutils literal notranslate"><span class="pre">extra1</span></code> and <code class="docutils literal notranslate"><span class="pre">extra2</span></code> are equal to <code class="docutils literal notranslate"><span class="pre">back</span></code> and <code class="docutils literal notranslate"><span class="pre">forward</span></code> respectively.</p>
-</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>mouse_buttons_exact_order</p></td>
-<td><p><em>bool</em></p></td>
-<td><p>Whether mouse buttons must be pressed in the same order as specified in <code class="docutils literal notranslate"><span class="pre">mouse_buttons</span></code>.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="touchpad-gestures">
-<h3>Touchpad gestures<a class="headerlink" href="#touchpad-gestures" title="Link to this heading">¶</a></h3>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>fingers</p></td>
-<td><p><em>uint</em></p></td>
-<td><p>How many fingers must be present on the input device.</p>
-<p>Equivalent to a <code class="docutils literal notranslate"><span class="pre">$fingers</span> <span class="pre">==</span> <span class="pre">[value]</span></code> condition.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-</section>
+<p>Begins when the pointer enters an area that satisfies the gesture’s conditions, ends when it leaves that area or the area no longer satisfies conditions.</p>
 </section>
 </section>
 
@@ -522,23 +330,23 @@ cancelled immediately. The same applies to all other properties - conditions, th
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="click.html">
+          <a class="next-page" href="pinch.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">ClickGesture</div>
+                <div class="title">PinchGesture</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../config.html">
+          <a class="prev-page" href="click.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Configuration</div>
+                <div class="title">ClickGesture</div>
                 
               </div>
             </a>
@@ -572,18 +380,8 @@ cancelled immediately. The same applies to all other properties - conditions, th
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Gesture</a><ul>
-<li><a class="reference internal" href="#description">Description</a><ul>
-<li><a class="reference internal" href="#lifecycle">Lifecycle</a></li>
-<li><a class="reference internal" href="#conflict-resolution">Conflict resolution</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#properties">Properties</a><ul>
-<li><a class="reference internal" href="#motion-gestures">Motion gestures</a></li>
-<li><a class="reference internal" href="#mouse-gestures">Mouse gestures</a></li>
-<li><a class="reference internal" href="#touchpad-gestures">Touchpad gestures</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">HoverGesture</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
 </ul>
 </li>
 </ul>

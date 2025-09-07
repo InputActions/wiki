@@ -132,6 +132,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - 
   - 
 
+* - pointer
+  - *[](#eventhandler)*
+  - 
+  - 
+
 * - touchpad
   - *<project:/devices/touchpad.md#touchpadeventhandler>*
   - 

@@ -201,7 +201,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="version-selector.html">Version selector</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://wiki.inputactions.org/main/version-selector">Version selector</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="getting-started/index.html">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="getting-started/installation/index.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Installation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="getting-started/installation/hyprland.html">Hyprland</a></li>
@@ -354,34 +354,38 @@ also print any errors. Another way to get the errors is to run <code class="docu
 <td><p>Signed integer, can be negative.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>regex</p></td>
+<tr class="row-odd"><td><p>keyboard_key</p></td>
+<td><p>See <a class="reference internal" href="misc/keyboard-scancodes.html"><span class="std std-doc">Keyboard scancodes</span></a>.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>regex</p></td>
 <td><p>Regular expression.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>string</p></td>
+<tr class="row-odd"><td><p>string</p></td>
 <td><p>Text, can be wrapped in <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">'</span></code>, but usually does not have to be.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>time</p></td>
+<tr class="row-even"><td><p>time</p></td>
 <td><p>Duration in milliseconds, cannot be negative.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>uint</p></td>
+<tr class="row-odd"><td><p>uint</p></td>
 <td><p>Unsigned integer, cannot be negative.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>enum(value1, value2, …)</p></td>
+<tr class="row-even"><td><p>enum(value1, value2, …)</p></td>
 <td><p>One value from the list of values in brackets.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">value2</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>flags(value1, value2, …)</p></td>
+<tr class="row-odd"><td><p>flags(value1, value2, …)</p></td>
 <td><p>List of one or more values from the list of values in brackets.</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">value1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">value2</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>list(type)</p></td>
+<tr class="row-even"><td><p>list(type)</p></td>
 <td><p>List of elements of type <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
@@ -393,7 +397,7 @@ also print any errors. Another way to get the errors is to run <code class="docu
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>map(key_type, value_type)</p></td>
+<tr class="row-odd"><td><p>map(key_type, value_type)</p></td>
 <td><p>A map (<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>) where all keys are of type <code class="docutils literal notranslate"><span class="pre">key_type</span></code> and values of type <code class="docutils literal notranslate"><span class="pre">value_type</span></code>.</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span>
 <span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span>
@@ -401,12 +405,12 @@ also print any errors. Another way to get the errors is to run <code class="docu
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>point(type)</p></td>
+<tr class="row-even"><td><p>point(type)</p></td>
 <td><p>Two numeric values (x and y) of type <code class="docutils literal notranslate"><span class="pre">type</span></code>. Format: <code class="docutils literal notranslate"><span class="pre">x,y</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">point(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">4,0</span></code><br>
 <code class="docutils literal notranslate"><span class="pre">point(float)</span></code> - <code class="docutils literal notranslate"><span class="pre">1.1,2.2</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>range(type)</p></td>
+<tr class="row-odd"><td><p>range(type)</p></td>
 <td><p>Range of numbers of type <code class="docutils literal notranslate"><span class="pre">type</span></code>. Format: <code class="docutils literal notranslate"><span class="pre">min-max</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> may be surrounded by exactly one space on each side.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">range(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">2</span></code><br>
 <code class="docutils literal notranslate"><span class="pre">range(point)</span></code> - <code class="docutils literal notranslate"><span class="pre">0;0</span> <span class="pre">-</span> <span class="pre">0.5;0.5</span></code></p></td>
@@ -535,7 +539,8 @@ also print any errors. Another way to get the errors is to run <code class="docu
 <span class="w">  </span><span class="nt">devices</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">Synaptics TM3276-022</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">pressure_ranges</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">thumb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75-140</span>
+<span class="w">        </span><span class="nt">thumb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75</span>
+<span class="w">        </span><span class="nt">palm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span>
 
 <span class="w">  </span><span class="nt">speed</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">swipe_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>

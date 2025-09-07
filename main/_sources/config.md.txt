@@ -45,6 +45,10 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Signed integer, can be negative.
   -
 
+* - keyboard_key
+  - See [](misc/keyboard-scancodes.md).
+  -
+
 * - regex
   - Regular expression.
   -
@@ -204,7 +208,8 @@ touchpad:
   devices:
     Synaptics TM3276-022:
       pressure_ranges:
-        thumb: 75-140
+        thumb: 75
+        palm: 140
 
   speed:
     swipe_threshold: 15

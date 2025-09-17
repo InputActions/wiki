@@ -5,8 +5,8 @@ There is no configuration UI. The file is located at ``~/.config/inputactions/co
 InputActions can run commands and simulate keyboard and mouse events. You may want to restrict write access to the configuration file.
 :::
 
-Configuration will be reloaded automatically when the file is modified. You can run ``qdbus6 org.inputactions / reloadConfig`` to reload it manually, this will
-also print any errors. Another way to get the errors is to run ``journalctl --boot=0 -g "inputactions:" -n 5``.
+Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
+``qdbus6 org.inputactions / reloadConfig`` to reload it manually, this will also print errors.
 
 Configuration uses the YAML format, JSON will work as well if you really want to use it.
 
@@ -120,6 +120,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
 * - autoreload
   - *bool*
   - Whether the configuration should be automatically reloaded on file change.
+  - ``true``
+
+* - notifications.config_error
+  - *bool*
+  - Send a notification when the configuration fails to load.
   - ``true``
 
 * - keyboard

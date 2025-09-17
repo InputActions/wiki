@@ -53,7 +53,7 @@ Only one property per item allowed.
 :::
 
 #### KeyboardAction
-See [](/devices/keyboard).
+See [](/devices/keyboard/index).
 
 :::{list-table}
 :header-rows: 1
@@ -99,7 +99,7 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
   - Move the pointer by (*x*, *y*).
 
 * - ``move_by_delta``
-  - Move the pointer by the current delta of a motion gesture. Multiplied by *<project:/devices/touchpad.md#touchpadeventhandler>.delta_multiplier*.
+  - Move the pointer by the current delta of a motion trigger. Multiplied by *<project:/devices/touchpad/index.md#touchpadeventhandler>.delta_multiplier*.
 
 * - ``move_to [x] [y]``
   - Move the pointer to (*x*, *y*).

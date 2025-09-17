@@ -16,7 +16,7 @@ Variables are currently only used in conditions and cannot be created by users.
 
 * - finger_{1..5}_initial_position_percentage
   - *point*
-  - The initial position of the finger. This variable should be preferred over ``finger_{1..5}_position_percentage`` for swipe from edge gestures.
+  - The initial position of the finger. This variable should be preferred over ``finger_{1..5}_position_percentage`` for swipe from edge triggers.
 
 * - finger_{1..5}_position_percentage
   - *point*
@@ -30,17 +30,17 @@ Variables are currently only used in conditions and cannot be created by users.
   - *number*
   - Amount of fingers currently on the input device.
 
-    Does not change thorough the gesture.
+    Does not change thorough the trigger.
 
 * - keyboard_modifiers
   - *flags(alt, ctrl, meta, shift)*
   - Currently pressed keyboard modifiers.
 
-    Does not change thorough the gesture.
+    Does not change thorough the trigger.
 
 * - last_trigger_id
   - *string*
-  - ID (*Gesture.id*) of the last trigger that was updated or ended.
+  - ID (*[](/trigger).id*) of the last trigger that was updated or ended.
 
 * - plasma_overview_active
   - *bool*

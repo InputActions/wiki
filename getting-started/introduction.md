@@ -6,11 +6,11 @@
 :end-before: "## "
 ```
 
-## First gesture
-All configuration for specific device types is located in the ``keyboard``, ``mouse`` and ``touchpad`` root nodes. Gestures are defined in the ``gestures``
-property of the those nodes.
+## First trigger
+All configuration for specific device types is located in the ``keyboard``, ``mouse``, ``pointer`` and ``touchpad`` root nodes. Triggers are defined in the
+``gestures``property of the those nodes.
 
-This gesture will launch dolphin if you swipe three fingers to the right.
+This trigger will launch dolphin if you swipe three fingers to the right.
 ```yaml
 touchpad:
   gestures:
@@ -23,8 +23,8 @@ touchpad:
           command: dolphin
 ```
 
-The ``on`` property of actions allows you to control at which point of the [gesture's lifecycle](<project:/gestures/index.md#lifecycle>) it should execute. The
-default value is ``end``. Set it to ``begin`` if you want the gesture to trigger immediately.
+The ``on`` property of actions allows you to control at which point of the [trigger's lifecycle](<project:/trigger.md#lifecycle>) it should execute. The default
+value is ``end``. Set it to ``begin`` if you want to execute an actions as soon as the trigger begins.
 
 To create a repeating action, set ``on`` to ``update`` and specify the repeat rate in the ``interval`` property.
 ```yaml
@@ -41,13 +41,13 @@ touchpad:
             - keyboard: [ volumeup ]
 ```
 
-See [](/gestures/index), [](/actions/index) and everything else in the ``Core`` section of the sidebar for more information.
+See [](/trigger), [](/actions/index) and everything else in the ``Core`` section of the sidebar for more information.
 
 ## Input event blocking
 Input events are processed and blocked in the compositor. Programs that do not receive events from the compositor will still be able to process them.
 
-## Complex gestures
-Complex gestures will require multiple actions that execute at different points of the gesture's lifecycle. Here is an example three-finger window drag gesture.
+## Complex triggers
+Complex triggers will require multiple actions that execute at different points of the trigger's lifecycle. Here is an example three-finger window drag trigger.
 ```yaml
 - type: swipe
   direction: any
@@ -70,7 +70,7 @@ Complex gestures will require multiple actions that execute at different points 
 ```
 
 ## Conditions
-Conditions allow you to make a gesture activate only if certain criteria are met - finger count, window class, cursor shape and [much more](/variables).
+Conditions allow you to make a trigger activate only if certain criteria are met - finger count, window class, cursor shape and [much more](/variables).
 
 It is also possible to set conditions on actions, though they will not have an effect on whether events are blocked.
 
@@ -91,8 +91,8 @@ touchpad:
 
 See [](/conditions/index).
 
-## Bidirectional gestures
-Changing the direction does not cause gesture activation. The following configuration will not allow for changing direction without lifting fingers.
+## Bidirectional triggers
+Changing the direction does not cause trigger activation. The following configuration will not allow for changing direction without lifting fingers.
 ```yaml
 - type: rotate
   direction: clockwise
@@ -105,7 +105,7 @@ Changing the direction does not cause gesture activation. The following configur
   # ...
 ```
 
-To create gestures with two repeating actions depending on the direction, set ``direction`` to a value that allows multiple directions (explicitly stated in
+To create triggers with two repeating actions depending on the direction, set ``direction`` to a value that allows multiple directions (explicitly stated in
 the property's description).
 ```yaml
 - type: rotate
@@ -123,8 +123,8 @@ the property's description).
         - keyboard: [ volumeup ]
 ```
 
-## Conflicting gestures
-At some point you may run into a situation where you want a global gesture that does x, and a local one for program y that does z. The first solution that may 
+## Conflicting triggers
+At some point you may run into a situation where you want a global trigger that does x, and a local one for program y that does z. The first solution that may
 come to your mind is this:
 ```yaml
 # Global
@@ -142,8 +142,8 @@ come to your mind is this:
   # ...
 ```
 
-This will very quickly become a big mess. Instead, you should rely on the behavior that the first gesture to execute an action will cancel all other gestures,
-and gestures are updated from top to bottom. This is a simplification, see <project:/gestures/index.md#conflict-resolution> for a detailed explanation.
+This will very quickly become a big mess. Instead, you should rely on the behavior that the first trigger to execute an action will cancel all other triggers,
+and triggers are updated from top to bottom. This is a simplification, see <project:/trigger.md#conflict-resolution> for a detailed explanation.
 
 The proper solution is:
 ```yaml
@@ -159,8 +159,8 @@ The proper solution is:
   # No window_class condition
 ```
 
-## Chaining gestures
-The ``last_trigger_id`` variable contains the ID of the last gesture. You can use it to have a gesture activate only if another specific gesture had been
+## Chaining triggers
+The ``last_trigger_id`` variable contains the ID of the last trigger. You can use it to have a trigger activate only if another specific trigger had been
 performed immediately prior.
 
 ```yaml
@@ -179,7 +179,7 @@ performed immediately prior.
     # ...
 ```
 
-If you want to be able to perform the swipe gesture multiple times without holding every time, you can set ``set_last_trigger: false`` on the swipe gesture and
+If you want to be able to perform the swipe trigger multiple times without holding every time, you can set ``set_last_trigger: false`` on the swipe trigger and
 it will not set the ``last_trigger_id`` variable anymore.
 
-There is currently no convenient way to chain more than two gestures.
+There is currently no convenient way to chain more than two triggers.

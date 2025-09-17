@@ -1,4 +1,4 @@
-# Example gestures
+# Example triggers
 :::{important}
 Read [](/getting-started/introduction) first before complaining that these do not work.
 :::
@@ -187,7 +187,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
 <details>
   <summary>Swipe 3 - Window drag</summary>
 
-Swipe gestures have a different acceleration profile. You can change *Device.delta_multiplier* to make the gesture faster or slower.
+Swipe triggers have a different acceleration profile. You can change *Device.delta_multiplier* to make the trigger faster or slower.
 
   ```yaml
   - type: swipe
@@ -331,10 +331,10 @@ Swipe fast - Open alt+tab switcher
   ```
 </details>
 
-From this point onwards gestures will only have placeholder actions.
+From this point onwards triggers will only have placeholder actions.
 <details>
   <summary>Tip tap</summary>
-  Place one finger in the middle then another one on the left/right. The gesture will not trigger if the second finger is removed too quickly.
+  Place one finger in the middle then another one on the left/right. The trigger will not activate if the second finger is removed too quickly.
 
   ```yaml
   - type: press

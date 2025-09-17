@@ -128,7 +128,7 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - 
 
 * - mouse
-  - *<project:/devices/mouse.md#mouseeventhandler>*
+  - *<project:/devices/mouse/index.md#mouseeventhandler>*
   - 
   - 
 
@@ -138,13 +138,13 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - 
 
 * - touchpad
-  - *<project:/devices/touchpad.md#touchpadeventhandler>*
+  - *<project:/devices/touchpad/index.md#touchpadeventhandler>*
   - 
   - 
 :::
 
 ### EventHandler
-Inherited by <project:/devices/mouse.md#mouseeventhandler> and <project:/devices/touchpad.md#touchpadeventhandler>.
+Inherited by <project:/devices/mouse/index.md#mouseeventhandler> and <project:/devices/touchpad/index.md#touchpadeventhandler>.
 
 :::{list-table}
 :header-rows: 1
@@ -154,12 +154,12 @@ Inherited by <project:/devices/mouse.md#mouseeventhandler> and <project:/devices
   - Description
 
 * - **gestures**
-  - *list([](/gestures/index))*
+  - *list([](/trigger))*
   - 
 
 * - speed
   - *[](#speed)*
-  - Settings for how gesture speed is determined.
+  - Settings for how motion trigger speed is determined.
 :::
 
 ### Speed
@@ -175,9 +175,9 @@ The defaults may not work for everyone, as they depend on the device's sensitivi
 
 * - events
   - *uint*
-  - How many input events to sample in order to determine the speed at which the gesture is performed. The average of each event's delta is compared against the thresholds below. If the threshold is reached, the gesture is considered to have been performed fast, otherwise slow.
+  - How many input events to sample in order to determine the speed at which the trigger is performed. The average of each event's delta is compared against the thresholds below. If the threshold is reached, the trigger is considered to have been performed fast, otherwise slow.
 
-    **Note**: No gestures will be triggered until all events have been sampled.
+    **Note**: No triggers will begin until all events have been sampled.
   - ``3``
 
 * - swipe_threshold

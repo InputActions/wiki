@@ -1,12 +1,7 @@
 # Touchpad
-:::{list-table}
-* - **Supported gestures**
-  - [](/gestures/click), [](/gestures/pinch), [](/gestures/press), [](/gestures/rotate), [](/gestures/stroke), [](/gestures/swipe), [](/gestures/tap)
-:::
-
 ## Description
 ### Acceleration
-Touchpad gestures are unaccelerated, this also applies to the ``move_by_delta`` mouse input action.
+Touchpad triggers are unaccelerated, this also applies to the ``move_by_delta`` mouse input action.
 
 ### libevdev backend
 The libevdev input backend supplies the following touchpad data, which libinput does not:
@@ -16,27 +11,27 @@ The libevdev input backend supplies the following touchpad data, which libinput 
 
 This enables the following features:
 - ``finger_`` and ``thumb_`` [variables](/variables) (thumb detection requires the pressure range to be set, see *[](#touchpadproperties)*),
-- one-finger swipe/stroke gestures,
-- [](/gestures/click),
-- [](/gestures/tap).
+- one-finger swipe/stroke triggers,
+- click trigger,
+- tap trigger.
 
 Additional [setup instructions](<project:/getting-started/installation/index.md#additional-setup-optional>) are required to enable those features.
 
-### One-finger swipe/stroke gestures
-One-finger swipe gestures use the pointer's unaccelerated delta and lock its position for the duration of the gesture. The sensitivity may be different compared
-to other gestures. Actions that move the pointer will not work.
+### One-finger swipe/stroke triggers
+One-finger swipe triggers use the pointer's unaccelerated delta and lock its position for the duration of the trigger. The sensitivity may be different compared
+to other triggers. Actions that move the pointer will not work.
 
 On Hyprland, the pointer is not locked and the accelerated delta is used instead.
 
-### Two-finger swipe/stroke gestures
-Two-finger swipe gestures are achieved by treating scroll events as motion events. The thresholds for changing the scroll axis are quite large, which can cause
-unexpected behavior with stroke gestures and ``direction: any`` swipe gestures utilizing the ``move_by_delta`` mouse input action. For two-finger stroke
-gestures it is  recommended (but not required) to only use strokes that have been recorded using two fingers.
+### Two-finger swipe/stroke triggers
+Two-finger swipe triggers are achieved by treating scroll events as two-finger motion events. The thresholds for changing the scroll axis are quite large, which
+can cause unexpected behavior with stroke triggers and ``direction: any`` swipe triggers utilizing the ``move_by_delta`` mouse input action. For two-finger
+stroke triggers it is recommended (but not required) to only use strokes that have been recorded using two fingers.
 
 This feature will not work if scrolling on edges is enabled.
 
-### Five-finger gestures
-[Libinput does not support five-finger gestures](https://gitlab.freedesktop.org/libinput/libinput/-/issues/763), click and tap gestures are an exception, as
+### Five-finger triggers
+[Libinput does not support five-finger gestures](https://gitlab.freedesktop.org/libinput/libinput/-/issues/763), click and tap triggers are an exception, as
 they are managed by InputActions.
 
 ## TouchpadEventHandler
@@ -59,7 +54,7 @@ Inherits <project:/config.md#eventhandler>.
 
 * - click_timeout
   - *time*
-  - The time during which a click gesture must be performed. If not, a press gesture will be started.
+  - The time during which a click trigger must be performed. If not, a press trigger will be started.
   - ``200``
 
 * - delta_multiplier
@@ -97,3 +92,10 @@ Inherits <project:/config.md#eventhandler>.
   - Minimum pressure for the touch point to be considered a palm. Everything over this value will be ignored.
   - ``4294967295``
 :::
+
+```{toctree}
+:maxdepth: 1
+:hidden:
+
+triggers/index
+```

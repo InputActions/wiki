@@ -1,19 +1,16 @@
-# WheelGesture
+# Wheel
 :::{list-table}
 * - **Inherits**
-  - [](/gestures/index)
-
-* - **Supported devices**
-  - [](/devices/mouse)
+  - [](/trigger)
 
 * - **Type**
-  - Motion gesture (delta based on distance)
+  - Motion trigger (delta based on distance)
 :::
 
 ## Description
 Performed by using a scroll wheel.
 
-Wheel gestures can have two different lifecycles - if the gesture has an ``on: update`` action and a mouse button or keyboard modifier is present, the gesture
+Wheel triggers can have two different lifecycles - if the trigger has an ``on: update`` action and a mouse button or keyboard modifier is present, the trigger
 begins on the first scroll event and ends when a modifier/button is released, otherwise it begins and ends on the same scroll event.
 
 ## Properties

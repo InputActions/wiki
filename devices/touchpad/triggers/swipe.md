@@ -1,19 +1,21 @@
-# SwipeGesture
+# Swipe
 :::{list-table}
 * - **Inherits**
-  - [](/gestures/index)
+  - [](/trigger)
 
-* - **Supported devices**
-  - [](/devices/mouse), [](/devices/touchpad)
+* - **Finger count range**
+  - 1-4
 
 * - **Type**
-  - Motion gesture (delta based on distance)
+  - Motion trigger (delta based on distance)
 :::
 
 ## Description
+Performed by moving all fingers in the same direction (left, right, up, down).
+
 The direction is determined in the first few input events, making it possible to use ``on: begin`` and ``on: update`` actions.
 
-If complex shapes or diagonal gestures are required, use [](/gestures/stroke) instead. Swipe gestures are not compatible with stroke gestures, only one type may
+If complex shapes or diagonal motion is required, use [](stroke) instead. Swipe triggers are not compatible with stroke triggers, only one type may
 be active at a time. 
 
 ## Properties

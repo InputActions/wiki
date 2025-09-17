@@ -1,16 +1,16 @@
-# Gesture groups
-Gesture groups apply all properties except *gestures* to the gestures specified in the *gestures* property. This can also be used to reduce duplication.
+# Trigger groups
+Trigger groups apply all properties except ``gestures`` to the triggers specified in the ``gestures`` property. This can be used to reduce duplication.
 
 ## Example
 ```yaml
 touchpad:
   gestures:
-    # Firefox gestures
+    # Firefox triggers
     - conditions:
         - $window_class == firefox
 
       gestures:
-        # Firefox swipe gestures with meta modifier
+        # Firefox swipe triggers with meta modifier
         - type: swipe
           conditions:
             - $keyboard_modifiers == meta
@@ -24,7 +24,7 @@ touchpad:
               conditions:
                 - $pointer_position_window_percentage_x >= 0.5
 
-        # Firefox swipe gestures with alt modifier
+        # Firefox swipe triggers with alt modifier
         - type: swipe
           conditions:
             - $keyboard_modifiers == alt

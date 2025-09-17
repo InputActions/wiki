@@ -1,13 +1,10 @@
-# ShortcutGesture
+# Shortcut
 :::{list-table}
 * - **Inherits**
-  - [](/gestures/index)
-
-* - **Supported devices**
-  - [](/devices/keyboard)
+  - [](/trigger)
 
 * - **Type**
-  - Time-based gesture
+  - Time-based trigger
 :::
 
 ## Description

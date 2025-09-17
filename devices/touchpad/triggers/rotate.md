@@ -1,13 +1,13 @@
-# RotateGesture
+# Rotate
 :::{list-table}
 * - **Inherits**
-  - [](/gestures/index)
+  - [](/trigger)
 
-* - **Supported devices**
-  - [](/devices/touchpad)
+* - **Finger count range**
+  - 2-4
 
 * - **Type**
-  - Motion gesture (delta based on angle)
+  - Motion trigger (delta based on angle)
 :::
 
 ## Properties

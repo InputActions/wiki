@@ -8,7 +8,7 @@ If you like InputActions, consider [making a donation](https://github.com/sponso
 
 Version selector <https://wiki.inputactions.org/main/version-selector>
 Getting started <getting-started/index>
-Example gestures <example-gestures>
+Example triggers <example-triggers>
 ```
 
 ```{toctree}
@@ -16,11 +16,11 @@ Example gestures <example-gestures>
 :caption: Core
 
 Configuration <config>
-Gestures <gestures/index>
+Trigger <trigger>
+Devices <devices/index>
 Actions <actions/index>
 Conditions <conditions/index>
 Variables <variables>
-Devices <devices/index>
 ```
 
 ```{toctree}
@@ -28,6 +28,6 @@ Devices <devices/index>
 :caption: Advanced
 
 Dynamic values <dynamic-values/index>
-Gesture groups <advanced/gesture-groups>
+Trigger groups <advanced/trigger-groups>
 YAML anchors <advanced/yaml-anchors>
 ```

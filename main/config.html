@@ -330,8 +330,8 @@
 <p class="admonition-title">Warning</p>
 <p>InputActions can run commands and simulate keyboard and mouse events. You may want to restrict write access to the configuration file.</p>
 </div>
-<p>Configuration will be reloaded automatically when the file is modified. You can run <code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.inputactions</span> <span class="pre">/</span> <span class="pre">reloadConfig</span></code> to reload it manually, this will
-also print any errors. Another way to get the errors is to run <code class="docutils literal notranslate"><span class="pre">journalctl</span> <span class="pre">--boot=0</span> <span class="pre">-g</span> <span class="pre">&quot;inputactions:&quot;</span> <span class="pre">-n</span> <span class="pre">5</span></code>.</p>
+<p>Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
+<code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.inputactions</span> <span class="pre">/</span> <span class="pre">reloadConfig</span></code> to reload it manually, this will also print errors.</p>
 <p>Configuration uses the YAML format, JSON will work as well if you really want to use it.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -462,22 +462,27 @@ also print any errors. Another way to get the errors is to run <code class="docu
 <td><p>Whether the configuration should be automatically reloaded on file change.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>keyboard</p></td>
+<tr class="row-odd"><td><p>notifications.config_error</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Send a notification when the configuration fails to load.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>keyboard</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>mouse</p></td>
+<tr class="row-odd"><td><p>mouse</p></td>
 <td><p><em><a class="reference internal" href="devices/mouse/index.html#mouseeventhandler"><span class="std std-ref">MouseEventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>pointer</p></td>
+<tr class="row-even"><td><p>pointer</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>touchpad</p></td>
+<tr class="row-odd"><td><p>touchpad</p></td>
 <td><p><em><a class="reference internal" href="devices/touchpad/index.html#touchpadeventhandler"><span class="std std-ref">TouchpadEventHandler</span></a></em></p></td>
 <td></td>
 <td></td>

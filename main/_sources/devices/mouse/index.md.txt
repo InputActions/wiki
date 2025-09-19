@@ -1,6 +1,4 @@
 # Mouse
-Mouse triggers on Plasma require a version of 6.3 or higher.
-
 ## MouseEventHandler
 Inherits <project:/config.md#eventhandler>.
 

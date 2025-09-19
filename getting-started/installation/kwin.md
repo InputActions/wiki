@@ -3,6 +3,8 @@
 It is necessary to restart KWin after updating the plugin, otherwise the newer version will not be loaded and the old one will be used instead.
 :::
 
+The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0.
+
 ## Packages
 <details>
   <summary>Arch Linux (AUR)*</summary>

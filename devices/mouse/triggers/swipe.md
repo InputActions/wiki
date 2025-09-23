@@ -22,8 +22,17 @@ a time.
 * - Property
   - Type
   - Description
+  - Default
 
 * - **direction**
   - *enum(left, right, up, down, left_right, up_down, any)*
   - ``any``, ``left_right`` and ``up_down`` allow multiple directions. ``any`` will not work well with action intervals, as they only accept a single value, not two (x and y).
+  -
+
+* - lock_pointer
+  - *bool*
+  - Lock the pointer's position while the trigger is active.
+
+    Currently not supported on Hyprland.
+  - ``false``
 :::

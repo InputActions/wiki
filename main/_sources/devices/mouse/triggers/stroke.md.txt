@@ -23,8 +23,17 @@ active at a time.
 * - Property
   - Type
   - Description
+  - Default
 
 * - **strokes**
   - *string* or *list(string)*
   - Base64-encoded string(s) containing the processed stroke(s).
+  -
+
+* - lock_pointer
+  - *bool*
+  - Lock the pointer's position while the trigger is active.
+
+    Currently not supported on Hyprland.
+  - ``false``
 :::

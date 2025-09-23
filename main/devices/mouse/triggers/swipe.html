@@ -352,12 +352,21 @@ a time.</p>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
 <th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>direction</strong></p></td>
 <td><p><em>enum(left, right, up, down, left_right, up_down, any)</em></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">any</span></code>, <code class="docutils literal notranslate"><span class="pre">left_right</span></code> and <code class="docutils literal notranslate"><span class="pre">up_down</span></code> allow multiple directions. <code class="docutils literal notranslate"><span class="pre">any</span></code> will not work well with action intervals, as they only accept a single value, not two (x and y).</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lock_pointer</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Lock the pointer’s position while the trigger is active.</p>
+<p>Currently not supported on Hyprland.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
 </tbody>
 </table>

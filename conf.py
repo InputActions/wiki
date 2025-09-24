@@ -1,7 +1,7 @@
 project = 'InputActions'
 copyright = '2025, taj_ny'
 author = 'taj_ny'
-release = 'v0.8.1'
+release = 'v0.8.2'
 
 extensions = [
     "myst_parser",
@@ -25,6 +25,6 @@ myst_enable_extensions = [
 myst_heading_anchors = 6
 
 html_css_files = ['styles.css']
-html_title = 'InputActions v0.8.1'
+html_title = 'InputActions v0.8.2'
 html_theme = 'furo'
 html_static_path = ['_static']

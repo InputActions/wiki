@@ -1,0 +1,878 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
+        <title>Keyboard scancodes - InputActions v0.8.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=1982ea70" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">InputActions v0.8.2</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">InputActions v0.8.2</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference external" href="https://wiki.inputactions.org/main/version-selector">Version selector</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started/index.html">Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Getting started</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../getting-started/installation/index.html">Installation</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Installation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/installation/hyprland.html">Hyprland</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/installation/kwin.html">KWin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example-triggers.html">Example triggers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Devices</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Keyboard</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Triggers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../devices/mouse/index.html">Mouse</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Mouse</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../devices/mouse/triggers/index.html">Triggers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Triggers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../devices/mouse/triggers/press.html">Press</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/mouse/triggers/stroke.html">Stroke</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/mouse/triggers/swipe.html">Swipe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/mouse/triggers/wheel.html">Wheel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../devices/pointer/index.html">Pointer</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of Pointer</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../devices/pointer/triggers/index.html">Triggers</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Triggers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../devices/pointer/triggers/hover.html">Hover</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../devices/touchpad/index.html">Touchpad</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of Touchpad</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../devices/touchpad/triggers/index.html">Triggers</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of Triggers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/click.html">Click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/pinch.html">Pinch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/press.html">Press</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/rotate.html">Rotate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/stroke.html">Stroke</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/swipe.html">Swipe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/tap.html">Tap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../actions/index.html">Actions</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of Actions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../actions/command.html">Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions/input.html">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions/plasma-shortcut.html">Plasma shortcut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions/sleep.html">Sleep</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../actions/groups/index.html">Groups</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of Groups</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../actions/groups/one.html">One</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../conditions/index.html">Conditions</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of Conditions</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conditions/variable.html">Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conditions/group.html">Group</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../variables.html">Variables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dynamic-values/index.html">Dynamic values</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of Dynamic values</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dynamic-values/command.html">Command</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/trigger-groups.html">Trigger groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/yaml-anchors.html">YAML anchors</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/misc/keyboard-scancodes.md.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="keyboard-scancodes">
+<h1>Keyboard scancodes<a class="headerlink" href="#keyboard-scancodes" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>reserved</p></li>
+<li><p>esc</p></li>
+<li><p>1</p></li>
+<li><p>2</p></li>
+<li><p>3</p></li>
+<li><p>4</p></li>
+<li><p>5</p></li>
+<li><p>6</p></li>
+<li><p>7</p></li>
+<li><p>8</p></li>
+<li><p>9</p></li>
+<li><p>0</p></li>
+<li><p>minus</p></li>
+<li><p>equal</p></li>
+<li><p>backspace</p></li>
+<li><p>tab</p></li>
+<li><p>q</p></li>
+<li><p>w</p></li>
+<li><p>e</p></li>
+<li><p>r</p></li>
+<li><p>t</p></li>
+<li><p>y</p></li>
+<li><p>u</p></li>
+<li><p>i</p></li>
+<li><p>o</p></li>
+<li><p>p</p></li>
+<li><p>leftbrace</p></li>
+<li><p>rightbrace</p></li>
+<li><p>enter</p></li>
+<li><p>leftctrl</p></li>
+<li><p>a</p></li>
+<li><p>s</p></li>
+<li><p>d</p></li>
+<li><p>f</p></li>
+<li><p>g</p></li>
+<li><p>h</p></li>
+<li><p>j</p></li>
+<li><p>k</p></li>
+<li><p>l</p></li>
+<li><p>semicolon</p></li>
+<li><p>apostrophe</p></li>
+<li><p>grave</p></li>
+<li><p>leftshift</p></li>
+<li><p>backslash</p></li>
+<li><p>z</p></li>
+<li><p>x</p></li>
+<li><p>c</p></li>
+<li><p>v</p></li>
+<li><p>b</p></li>
+<li><p>n</p></li>
+<li><p>m</p></li>
+<li><p>comma</p></li>
+<li><p>dot</p></li>
+<li><p>slash</p></li>
+<li><p>rightshift</p></li>
+<li><p>kpasterisk</p></li>
+<li><p>leftalt</p></li>
+<li><p>space</p></li>
+<li><p>capslock</p></li>
+<li><p>f1</p></li>
+<li><p>f2</p></li>
+<li><p>f3</p></li>
+<li><p>f4</p></li>
+<li><p>f5</p></li>
+<li><p>f6</p></li>
+<li><p>f7</p></li>
+<li><p>f8</p></li>
+<li><p>f9</p></li>
+<li><p>f10</p></li>
+<li><p>numlock</p></li>
+<li><p>scrolllock</p></li>
+<li><p>kp7</p></li>
+<li><p>kp8</p></li>
+<li><p>kp9</p></li>
+<li><p>kpminus</p></li>
+<li><p>kp4</p></li>
+<li><p>kp5</p></li>
+<li><p>kp6</p></li>
+<li><p>kpplus</p></li>
+<li><p>kp1</p></li>
+<li><p>kp2</p></li>
+<li><p>kp3</p></li>
+<li><p>kp0</p></li>
+<li><p>kpdot</p></li>
+<li><p>zenkakuhankaku</p></li>
+<li><p>102nd</p></li>
+<li><p>f11</p></li>
+<li><p>f12</p></li>
+<li><p>ro</p></li>
+<li><p>katakana</p></li>
+<li><p>hiragana</p></li>
+<li><p>henkan</p></li>
+<li><p>katakanahiragana</p></li>
+<li><p>muhenkan</p></li>
+<li><p>kpjpcomma</p></li>
+<li><p>kpenter</p></li>
+<li><p>rightctrl</p></li>
+<li><p>kpslash</p></li>
+<li><p>sysrq</p></li>
+<li><p>rightalt</p></li>
+<li><p>linefeed</p></li>
+<li><p>home</p></li>
+<li><p>up</p></li>
+<li><p>pageup</p></li>
+<li><p>left</p></li>
+<li><p>right</p></li>
+<li><p>end</p></li>
+<li><p>down</p></li>
+<li><p>pagedown</p></li>
+<li><p>insert</p></li>
+<li><p>delete</p></li>
+<li><p>macro</p></li>
+<li><p>mute</p></li>
+<li><p>volumedown</p></li>
+<li><p>volumeup</p></li>
+<li><p>power</p></li>
+<li><p>kpequal</p></li>
+<li><p>kpplusminus</p></li>
+<li><p>pause</p></li>
+<li><p>scale</p></li>
+<li><p>kpcomma</p></li>
+<li><p>hangeul</p></li>
+<li><p>hanja</p></li>
+<li><p>yen</p></li>
+<li><p>leftmeta</p></li>
+<li><p>rightmeta</p></li>
+<li><p>compose</p></li>
+<li><p>stop</p></li>
+<li><p>again</p></li>
+<li><p>props</p></li>
+<li><p>undo</p></li>
+<li><p>front</p></li>
+<li><p>copy</p></li>
+<li><p>open</p></li>
+<li><p>paste</p></li>
+<li><p>find</p></li>
+<li><p>cut</p></li>
+<li><p>help</p></li>
+<li><p>menu</p></li>
+<li><p>calc</p></li>
+<li><p>setup</p></li>
+<li><p>sleep</p></li>
+<li><p>wakeup</p></li>
+<li><p>file</p></li>
+<li><p>sendfile</p></li>
+<li><p>deletefile</p></li>
+<li><p>xfer</p></li>
+<li><p>prog1</p></li>
+<li><p>prog2</p></li>
+<li><p>www</p></li>
+<li><p>msdos</p></li>
+<li><p>coffee</p></li>
+<li><p>rotate_display</p></li>
+<li><p>cyclewindows</p></li>
+<li><p>mail</p></li>
+<li><p>bookmarks</p></li>
+<li><p>computer</p></li>
+<li><p>back</p></li>
+<li><p>forward</p></li>
+<li><p>closecd</p></li>
+<li><p>ejectcd</p></li>
+<li><p>ejectclosecd</p></li>
+<li><p>nextsong</p></li>
+<li><p>playpause</p></li>
+<li><p>previoussong</p></li>
+<li><p>stopcd</p></li>
+<li><p>record</p></li>
+<li><p>rewind</p></li>
+<li><p>phone</p></li>
+<li><p>iso</p></li>
+<li><p>config</p></li>
+<li><p>homepage</p></li>
+<li><p>refresh</p></li>
+<li><p>exit</p></li>
+<li><p>move</p></li>
+<li><p>edit</p></li>
+<li><p>scrollup</p></li>
+<li><p>scrolldown</p></li>
+<li><p>kpleftparen</p></li>
+<li><p>kprightparen</p></li>
+<li><p>new</p></li>
+<li><p>redo</p></li>
+<li><p>f13</p></li>
+<li><p>f14</p></li>
+<li><p>f15</p></li>
+<li><p>f16</p></li>
+<li><p>f17</p></li>
+<li><p>f18</p></li>
+<li><p>f19</p></li>
+<li><p>f20</p></li>
+<li><p>f21</p></li>
+<li><p>f22</p></li>
+<li><p>f23</p></li>
+<li><p>f24</p></li>
+<li><p>playcd</p></li>
+<li><p>pausecd</p></li>
+<li><p>prog3</p></li>
+<li><p>prog4</p></li>
+<li><p>all_applications</p></li>
+<li><p>suspend</p></li>
+<li><p>close</p></li>
+<li><p>play</p></li>
+<li><p>fastforward</p></li>
+<li><p>bassboost</p></li>
+<li><p>print</p></li>
+<li><p>hp</p></li>
+<li><p>camera</p></li>
+<li><p>sound</p></li>
+<li><p>question</p></li>
+<li><p>email</p></li>
+<li><p>chat</p></li>
+<li><p>search</p></li>
+<li><p>connect</p></li>
+<li><p>finance</p></li>
+<li><p>sport</p></li>
+<li><p>shop</p></li>
+<li><p>alterase</p></li>
+<li><p>cancel</p></li>
+<li><p>brightnessdown</p></li>
+<li><p>brightnessup</p></li>
+<li><p>media</p></li>
+<li><p>switchvideomode</p></li>
+<li><p>kbdillumtoggle</p></li>
+<li><p>kbdillumdown</p></li>
+<li><p>kbdillumup</p></li>
+<li><p>send</p></li>
+<li><p>reply</p></li>
+<li><p>forwardmail</p></li>
+<li><p>save</p></li>
+<li><p>documents</p></li>
+<li><p>battery</p></li>
+<li><p>bluetooth</p></li>
+<li><p>wlan</p></li>
+<li><p>uwb</p></li>
+<li><p>unknown</p></li>
+<li><p>video_next</p></li>
+<li><p>video_prev</p></li>
+<li><p>brightness_cycle</p></li>
+<li><p>brightness_auto</p></li>
+<li><p>display_off</p></li>
+<li><p>wwan</p></li>
+<li><p>rfkill</p></li>
+<li><p>micmute</p></li>
+<li><p>ok</p></li>
+<li><p>select</p></li>
+<li><p>goto</p></li>
+<li><p>clear</p></li>
+<li><p>power2</p></li>
+<li><p>option</p></li>
+<li><p>info</p></li>
+<li><p>time</p></li>
+<li><p>vendor</p></li>
+<li><p>archive</p></li>
+<li><p>program</p></li>
+<li><p>channel</p></li>
+<li><p>favorites</p></li>
+<li><p>epg</p></li>
+<li><p>pvr</p></li>
+<li><p>mhp</p></li>
+<li><p>language</p></li>
+<li><p>title</p></li>
+<li><p>subtitle</p></li>
+<li><p>angle</p></li>
+<li><p>full_screen</p></li>
+<li><p>mode</p></li>
+<li><p>keyboard</p></li>
+<li><p>aspect_ratio</p></li>
+<li><p>pc</p></li>
+<li><p>tv</p></li>
+<li><p>tv2</p></li>
+<li><p>vcr</p></li>
+<li><p>vcr2</p></li>
+<li><p>sat</p></li>
+<li><p>sat2</p></li>
+<li><p>cd</p></li>
+<li><p>tape</p></li>
+<li><p>radio</p></li>
+<li><p>tuner</p></li>
+<li><p>player</p></li>
+<li><p>text</p></li>
+<li><p>dvd</p></li>
+<li><p>aux</p></li>
+<li><p>mp3</p></li>
+<li><p>audio</p></li>
+<li><p>video</p></li>
+<li><p>directory</p></li>
+<li><p>list</p></li>
+<li><p>memo</p></li>
+<li><p>calendar</p></li>
+<li><p>red</p></li>
+<li><p>green</p></li>
+<li><p>yellow</p></li>
+<li><p>blue</p></li>
+<li><p>channelup</p></li>
+<li><p>channeldown</p></li>
+<li><p>first</p></li>
+<li><p>last</p></li>
+<li><p>ab</p></li>
+<li><p>next</p></li>
+<li><p>restart</p></li>
+<li><p>slow</p></li>
+<li><p>shuffle</p></li>
+<li><p>break</p></li>
+<li><p>previous</p></li>
+<li><p>digits</p></li>
+<li><p>teen</p></li>
+<li><p>twen</p></li>
+<li><p>videophone</p></li>
+<li><p>games</p></li>
+<li><p>zoomin</p></li>
+<li><p>zoomout</p></li>
+<li><p>zoomreset</p></li>
+<li><p>wordprocessor</p></li>
+<li><p>editor</p></li>
+<li><p>spreadsheet</p></li>
+<li><p>graphicseditor</p></li>
+<li><p>presentation</p></li>
+<li><p>database</p></li>
+<li><p>news</p></li>
+<li><p>voicemail</p></li>
+<li><p>addressbook</p></li>
+<li><p>messenger</p></li>
+<li><p>displaytoggle</p></li>
+<li><p>spellcheck</p></li>
+<li><p>logoff</p></li>
+<li><p>dollar</p></li>
+<li><p>euro</p></li>
+<li><p>frameback</p></li>
+<li><p>frameforward</p></li>
+<li><p>context_menu</p></li>
+<li><p>media_repeat</p></li>
+<li><p>10channelsup</p></li>
+<li><p>10channelsdown</p></li>
+<li><p>images</p></li>
+<li><p>notification_center</p></li>
+<li><p>pickup_phone</p></li>
+<li><p>hangup_phone</p></li>
+<li><p>del_eol</p></li>
+<li><p>del_eos</p></li>
+<li><p>ins_line</p></li>
+<li><p>del_line</p></li>
+<li><p>fn</p></li>
+<li><p>fn_esc</p></li>
+<li><p>fn_f1</p></li>
+<li><p>fn_f2</p></li>
+<li><p>fn_f3</p></li>
+<li><p>fn_f4</p></li>
+<li><p>fn_f5</p></li>
+<li><p>fn_f6</p></li>
+<li><p>fn_f7</p></li>
+<li><p>fn_f8</p></li>
+<li><p>fn_f9</p></li>
+<li><p>fn_f10</p></li>
+<li><p>fn_f11</p></li>
+<li><p>fn_f12</p></li>
+<li><p>fn_1</p></li>
+<li><p>fn_2</p></li>
+<li><p>fn_d</p></li>
+<li><p>fn_e</p></li>
+<li><p>fn_f</p></li>
+<li><p>fn_s</p></li>
+<li><p>fn_b</p></li>
+<li><p>fn_right_shift</p></li>
+<li><p>brl_dot1</p></li>
+<li><p>brl_dot2</p></li>
+<li><p>brl_dot3</p></li>
+<li><p>brl_dot4</p></li>
+<li><p>brl_dot5</p></li>
+<li><p>brl_dot6</p></li>
+<li><p>brl_dot7</p></li>
+<li><p>brl_dot8</p></li>
+<li><p>brl_dot9</p></li>
+<li><p>brl_dot10</p></li>
+<li><p>numeric_0</p></li>
+<li><p>numeric_1</p></li>
+<li><p>numeric_2</p></li>
+<li><p>numeric_3</p></li>
+<li><p>numeric_4</p></li>
+<li><p>numeric_5</p></li>
+<li><p>numeric_6</p></li>
+<li><p>numeric_7</p></li>
+<li><p>numeric_8</p></li>
+<li><p>numeric_9</p></li>
+<li><p>numeric_star</p></li>
+<li><p>numeric_pound</p></li>
+<li><p>numeric_a</p></li>
+<li><p>numeric_b</p></li>
+<li><p>numeric_c</p></li>
+<li><p>numeric_d</p></li>
+<li><p>camera_focus</p></li>
+<li><p>wps_button</p></li>
+<li><p>touchpad_toggle</p></li>
+<li><p>touchpad_on</p></li>
+<li><p>touchpad_off</p></li>
+<li><p>camera_zoomin</p></li>
+<li><p>camera_zoomout</p></li>
+<li><p>camera_up</p></li>
+<li><p>camera_down</p></li>
+<li><p>camera_left</p></li>
+<li><p>camera_right</p></li>
+<li><p>attendant_on</p></li>
+<li><p>attendant_off</p></li>
+<li><p>attendant_toggle</p></li>
+<li><p>lights_toggle</p></li>
+<li><p>als_toggle</p></li>
+<li><p>rotate_lock_toggle</p></li>
+<li><p>refresh_rate_toggle</p></li>
+<li><p>buttonconfig</p></li>
+<li><p>taskmanager</p></li>
+<li><p>journal</p></li>
+<li><p>controlpanel</p></li>
+<li><p>appselect</p></li>
+<li><p>screensaver</p></li>
+<li><p>voicecommand</p></li>
+<li><p>assistant</p></li>
+<li><p>kbd_layout_next</p></li>
+<li><p>emoji_picker</p></li>
+<li><p>dictate</p></li>
+<li><p>camera_access_enable</p></li>
+<li><p>camera_access_disable</p></li>
+<li><p>camera_access_toggle</p></li>
+<li><p>brightness_min</p></li>
+<li><p>brightness_max</p></li>
+<li><p>kbdinputassist_prev</p></li>
+<li><p>kbdinputassist_next</p></li>
+<li><p>kbdinputassist_prevgroup</p></li>
+<li><p>kbdinputassist_nextgroup</p></li>
+<li><p>kbdinputassist_accept</p></li>
+<li><p>kbdinputassist_cancel</p></li>
+<li><p>right_up</p></li>
+<li><p>right_down</p></li>
+<li><p>left_up</p></li>
+<li><p>left_down</p></li>
+<li><p>root_menu</p></li>
+<li><p>media_top_menu</p></li>
+<li><p>numeric_11</p></li>
+<li><p>numeric_12</p></li>
+<li><p>audio_desc</p></li>
+<li><p>3d_mode</p></li>
+<li><p>next_favorite</p></li>
+<li><p>stop_record</p></li>
+<li><p>pause_record</p></li>
+<li><p>vod</p></li>
+<li><p>unmute</p></li>
+<li><p>fastreverse</p></li>
+<li><p>slowreverse</p></li>
+<li><p>data</p></li>
+<li><p>onscreen_keyboard</p></li>
+<li><p>privacy_screen_toggle</p></li>
+<li><p>selective_screenshot</p></li>
+<li><p>next_element</p></li>
+<li><p>previous_element</p></li>
+<li><p>autopilot_engage_toggle</p></li>
+<li><p>mark_waypoint</p></li>
+<li><p>sos</p></li>
+<li><p>nav_chart</p></li>
+<li><p>fishing_chart</p></li>
+<li><p>single_range_radar</p></li>
+<li><p>dual_range_radar</p></li>
+<li><p>radar_overlay</p></li>
+<li><p>traditional_sonar</p></li>
+<li><p>clearvu_sonar</p></li>
+<li><p>sidevu_sonar</p></li>
+<li><p>nav_info</p></li>
+<li><p>brightness_menu</p></li>
+<li><p>macro1</p></li>
+<li><p>macro2</p></li>
+<li><p>macro3</p></li>
+<li><p>macro4</p></li>
+<li><p>macro5</p></li>
+<li><p>macro6</p></li>
+<li><p>macro7</p></li>
+<li><p>macro8</p></li>
+<li><p>macro9</p></li>
+<li><p>macro10</p></li>
+<li><p>macro11</p></li>
+<li><p>macro12</p></li>
+<li><p>macro13</p></li>
+<li><p>macro14</p></li>
+<li><p>macro15</p></li>
+<li><p>macro16</p></li>
+<li><p>macro17</p></li>
+<li><p>macro18</p></li>
+<li><p>macro19</p></li>
+<li><p>macro20</p></li>
+<li><p>macro21</p></li>
+<li><p>macro22</p></li>
+<li><p>macro23</p></li>
+<li><p>macro24</p></li>
+<li><p>macro25</p></li>
+<li><p>macro26</p></li>
+<li><p>macro27</p></li>
+<li><p>macro28</p></li>
+<li><p>macro29</p></li>
+<li><p>macro30</p></li>
+<li><p>macro_record_start</p></li>
+<li><p>macro_record_stop</p></li>
+<li><p>macro_preset_cycle</p></li>
+<li><p>macro_preset1</p></li>
+<li><p>macro_preset2</p></li>
+<li><p>macro_preset3</p></li>
+<li><p>kbd_lcd_menu1</p></li>
+<li><p>kbd_lcd_menu2</p></li>
+<li><p>kbd_lcd_menu3</p></li>
+<li><p>kbd_lcd_menu4</p></li>
+<li><p>kbd_lcd_menu5</p></li>
+<li><p>max</p></li>
+</ul>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, taj_ny
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=205ab768"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    </body>
+</html>

@@ -21,7 +21,7 @@ Additional [setup instructions](<project:/getting-started/installation/index.md#
 One-finger swipe triggers use the pointer's unaccelerated delta and lock its position for the duration of the trigger. The sensitivity may be different compared
 to other triggers. Actions that move the pointer will not work.
 
-On Hyprland, the pointer is not locked and the accelerated delta is used instead.
+On Hyprland, the accelerated delta is used instead.
 
 ### Two-finger swipe/stroke triggers
 Two-finger swipe triggers are achieved by treating scroll events as two-finger motion events. The thresholds for changing the scroll axis are quite large, which

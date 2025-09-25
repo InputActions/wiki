@@ -32,7 +32,5 @@ a time.
 * - lock_pointer
   - *bool*
   - Lock the pointer's position while the trigger is active.
-
-    Currently not supported on Hyprland.
   - ``false``
 :::

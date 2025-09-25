@@ -379,3 +379,25 @@ From this point onwards triggers will only have placeholder actions.
           - keyboard: [ a ]
   ```
 </details>
+<details>
+  <summary>Swipe 3 right then up (no lifting fingers)</summary>
+
+  ```yaml
+  - type: swipe
+    fingers: 3
+    direction: right
+    id: swipe_3_right
+
+  - type: swipe
+    fingers: 3
+    direction: up
+
+    conditions:
+      - $last_trigger_id == swipe_3_right
+
+    actions:
+      - on: begin
+        input:
+          - keyboard: [ a ]
+  ```
+</details>

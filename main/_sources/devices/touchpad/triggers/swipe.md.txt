@@ -13,7 +13,8 @@
 ## Description
 Performed by moving all fingers in the same direction (left, right, up, down).
 
-The direction is determined in the first few input events, making it possible to use ``on: begin`` and ``on: update`` actions.
+The direction is determined in the first few input events, making it possible to use ``on: begin`` and ``on: update`` actions. Upon changing the swipe axis,
+triggers of this type are cancelled and reactivated if there are no active triggers with ``any`` direction.
 
 If complex shapes or diagonal motion is required, use [](stroke) instead. Swipe triggers are not compatible with stroke triggers, only one type may
 be active at a time. 

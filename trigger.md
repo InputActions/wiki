@@ -9,6 +9,8 @@ Thresholds and action intervals are based on the trigger's delta. Time-based tri
 ### Lifecycle
 - ``begin`` - Can be delayed or prevented by thresholds.
 - ``update`` - Before a trigger receives an update event, its update conditions (direction) are checked first. If not satisfied, the trigger is cancelled.
+- ``tick`` - Uses the same interval and delta as time-based triggers. Intended for creation of time-based actions in non-time-based triggers. Ticking starts
+  when the trigger begins.
 - ``end`` - The user has finished performing the trigger and end conditions have been satisfied.
 - ``cancel`` - The trigger's update conditions were not satisfied, the trigger has been overridden by another one as a result of conflict resolution, or the
   user has started performing a different trigger.

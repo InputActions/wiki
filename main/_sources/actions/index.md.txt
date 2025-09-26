@@ -19,7 +19,7 @@ Action type is determined by the presence of required properties.
   - Default
 
 * - on
-  - *enum(begin, end, cancel, update, end_cancel)*
+  - *enum(begin, cancel, end, end_cancel, tick, update)*
   - At which point of the trigger's lifecycle the action should be executed.
   - ``end``
 

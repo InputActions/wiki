@@ -103,6 +103,9 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
 
 * - ``move_to [x] [y]``
   - Move the pointer to (*x*, *y*).
+
+* - ``wheel [x] [y]``
+  - Move the wheel by (*x*, *y*). Currently not supported on Hyprland.
 :::
 
 ## Known issues

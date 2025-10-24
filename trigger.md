@@ -85,6 +85,12 @@ specific cases.
   -
   -
 
+* - block_events
+  - *bool*
+  - Whether this trigger should block all input events required to perform it while active. Only one active trigger needs this property set to ``true`` in order
+    for events to be blocked.
+  - ``true``
+
 * - clear_modifiers
   - bool
   - Whether keyboard modifiers should be cleared when this trigger begins. They will not be restored after the trigger ends.

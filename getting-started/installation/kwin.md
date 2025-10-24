@@ -61,7 +61,7 @@ The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0.
   <summary>Debian-based (KDE Neon, Kubuntu, Ubuntu)</summary>
 
   ```
-  sudo apt install git cmake g++ extra-cmake-modules qt6-tools-dev kwin-wayland kwin-dev libkf6configwidgets-dev gettext libkf6kcmutils-dev libyaml-cpp-dev libxkbcommon-dev pkg-config libevdev-dev
+  sudo apt install git cmake g++ extra-cmake-modules qt6-tools-dev kwin-wayland kwin-dev libkf6configwidgets-dev gettext libkf6kcmutils-dev libyaml-cpp-dev libxkbcommon-dev pkg-config libevdev-dev libdrm-dev
   ```
 </details>
 <details>

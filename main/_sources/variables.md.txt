@@ -99,8 +99,9 @@ All variables of the *point* type have variants with the ``_x`` and ``_y`` suffi
 
 ``window_`` variables have ``window_under_`` variants that return information about the window the pointer is hovering over.
 
-## Expansion
-String, bool, number variables can be referenced (``$name``) in command actions and will be replaced. Expansion currently cannot be prevented.
+## Commands
+Variables can be referenced in commands (``$name``) and will be provided as environment variables if the value is not null. For boolean variables, the value
+of the environment variable will be ``1`` if ``true``, and will not be set at all if ``false``.
 
 ## Listing variables
 Some information that the user may need during configuration is exposed through variables. Run ``qdbus org.inputactions / variables`` to list all

@@ -417,9 +417,10 @@
 </div>
 <p>All variables of the <em>point</em> type have variants with the <code class="docutils literal notranslate"><span class="pre">_x</span></code> and <code class="docutils literal notranslate"><span class="pre">_y</span></code> suffixes that return the X and Y values respectively.</p>
 <p><code class="docutils literal notranslate"><span class="pre">window_</span></code> variables have <code class="docutils literal notranslate"><span class="pre">window_under_</span></code> variants that return information about the window the pointer is hovering over.</p>
-<section id="expansion">
-<h2>Expansion<a class="headerlink" href="#expansion" title="Link to this heading">¶</a></h2>
-<p>String, bool, number variables can be referenced (<code class="docutils literal notranslate"><span class="pre">$name</span></code>) in command actions and will be replaced. Expansion currently cannot be prevented.</p>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">¶</a></h2>
+<p>Variables can be referenced in commands (<code class="docutils literal notranslate"><span class="pre">$name</span></code>) and will be provided as environment variables if the value is not null. For boolean variables, the value
+of the environment variable will be <code class="docutils literal notranslate"><span class="pre">1</span></code> if <code class="docutils literal notranslate"><span class="pre">true</span></code>, and will not be set at all if <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 </section>
 <section id="listing-variables">
 <h2>Listing variables<a class="headerlink" href="#listing-variables" title="Link to this heading">¶</a></h2>
@@ -484,7 +485,7 @@ variables and their current values, can be combined with <code class="docutils l
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Variables</a><ul>
-<li><a class="reference internal" href="#expansion">Expansion</a></li>
+<li><a class="reference internal" href="#commands">Commands</a></li>
 <li><a class="reference internal" href="#listing-variables">Listing variables</a></li>
 </ul>
 </li>

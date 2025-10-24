@@ -7,6 +7,8 @@
 ## Description
 Runs a command in a shell.
 
+[Variables can be used here.](/variables.md)
+
 ## Properties
 :::{list-table}
 :header-rows: 1

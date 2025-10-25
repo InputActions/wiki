@@ -70,6 +70,10 @@ Variables are currently only used in conditions and cannot be created by users.
   - *point*
   - See ``finger_{1..5}_position_percentage``.
 
+* - time_since_last_trigger
+  - *time*
+  - Time in milliseconds since ``last_trigger_id`` was set.
+
 * - window{_under}_class
   - *string*
   - The window's resource class.

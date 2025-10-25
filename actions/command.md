@@ -7,7 +7,7 @@
 ## Description
 Runs a command in a shell.
 
-[Variables can be used here.](/variables.md)
+[Variables can be used here.](<project:/variables.md#commands>)
 
 ## Properties
 :::{list-table}

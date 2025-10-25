@@ -7,7 +7,7 @@ Runs the specified command in a shell and returns its standard output once it fi
 In synchronous evaluation mode, launching programs that communicate with the compositor will result in a deadlock.
 :::
 
-[Variables can be used here.](/variables.md)
+[Variables can be used here.](<project:/variables.md#commands>)
 
 ## Properties
 :::{list-table}

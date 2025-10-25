@@ -330,6 +330,43 @@ Swipe fast - Open alt+tab switcher
           - plasma_shortcut: kwin,Window Minimize
   ```
 </details>
+<details>
+  <summary>Swipe 1 - Move the pointer automatically if the finger is at an edge</summary>
+
+  ```yaml
+  - type: swipe
+    fingers: 1
+    direction: any
+    block_events: false
+
+    conditions: $finger_1_initial_position_percentage between 0.2,0.2;0.8,0.8 # prevent accidental activations
+
+    actions:
+      - on: tick
+        conditions: $finger_1_position_percentage_x <= 0.05
+
+        input:
+          - mouse: [ move_by -1 0 ]
+
+      - on: tick
+        conditions: $finger_1_position_percentage_x >= 0.95
+
+        input:
+          - mouse: [ move_by 1 0 ]
+
+      - on: tick
+        conditions: $finger_1_position_percentage_y <= 0.05
+
+        input:
+          - mouse: [ move_by 0 -1 ]
+
+      - on: tick
+        conditions: $finger_1_position_percentage_y >= 0.95
+
+        input:
+          - mouse: [ move_by 0 1 ]
+  ```
+</details>
 
 From this point onwards triggers will only have placeholder actions.
 <details>

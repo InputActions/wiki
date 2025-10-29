@@ -122,6 +122,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Whether the configuration should be automatically reloaded on file change.
   - ``true``
 
+* - device_rules
+  - *list(<project:/devices/index.md#devicerule>)*
+  - Evaluated from bottom to top, each rule applies properties to all devices that satisfy the rule's conditions.
+  -
+
 * - notifications.config_error
   - *bool*
   - Send a notification when the configuration fails to load.

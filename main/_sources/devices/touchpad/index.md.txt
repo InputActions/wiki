@@ -45,13 +45,6 @@ Inherits <project:/config.md#eventhandler>.
   - Description
   - Default
 
-* - devices
-  - *map(string, [](#touchpadproperties))*
-  - Device properties where the key is the device name, which can be obtained from variables.
-
-    Some properties are detected automatically, but due to device or driver bugs, the value may be incorrect, in which case the user must override it manually.
-  - 
-
 * - click_timeout
   - *time*
   - The time during which a click trigger must be performed. If not, a press trigger will be started.
@@ -61,9 +54,18 @@ Inherits <project:/config.md#eventhandler>.
   - *float*
   - Delta multiplier used for *move_by_delta* mouse input actions.
   - ``1.0``
+
+* - ~~devices~~
+  - *map(string, [](#touchpadproperties))*
+  - Device properties where the key is the device name, which can be obtained from variables.
+
+    **Deprecated**. Use [Root.device_rules](/config.md#root) instead.
+  - 
 :::
 
 ## TouchpadProperties
+Some properties are detected automatically, but due to device or driver bugs, the value may be incorrect, in which case the user must override it manually.
+
 :::{list-table}
 :header-rows: 1
 

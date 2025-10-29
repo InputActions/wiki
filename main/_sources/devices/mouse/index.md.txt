@@ -1,4 +1,7 @@
 # Mouse
+## Description
+Trackpoints also fall under this category.
+
 ## MouseEventHandler
 Inherits <project:/config.md#eventhandler>.
 

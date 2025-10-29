@@ -371,22 +371,22 @@ they are managed by InputActions.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>devices</p></td>
-<td><p><em>map(string, <a class="reference internal" href="#touchpadproperties"><span class="std std-ref">TouchpadProperties</span></a>)</em></p></td>
-<td><p>Device properties where the key is the device name, which can be obtained from variables.</p>
-<p>Some properties are detected automatically, but due to device or driver bugs, the value may be incorrect, in which case the user must override it manually.</p>
-</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>click_timeout</p></td>
+<tr class="row-even"><td><p>click_timeout</p></td>
 <td><p><em>time</em></p></td>
 <td><p>The time during which a click trigger must be performed. If not, a press trigger will be started.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>delta_multiplier</p></td>
+<tr class="row-odd"><td><p>delta_multiplier</p></td>
 <td><p><em>float</em></p></td>
 <td><p>Delta multiplier used for <em>move_by_delta</em> mouse input actions.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><s>devices</s></p></td>
+<td><p><em>map(string, <a class="reference internal" href="#touchpadproperties"><span class="std std-ref">TouchpadProperties</span></a>)</em></p></td>
+<td><p>Device properties where the key is the device name, which can be obtained from variables.</p>
+<p><strong>Deprecated</strong>. Use <a class="reference internal" href="../../config.html#root"><span class="std std-ref">Root.device_rules</span></a> instead.</p>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -394,6 +394,7 @@ they are managed by InputActions.</p>
 </section>
 <section id="touchpadproperties">
 <h2>TouchpadProperties<a class="headerlink" href="#touchpadproperties" title="Link to this heading">¶</a></h2>
+<p>Some properties are detected automatically, but due to device or driver bugs, the value may be incorrect, in which case the user must override it manually.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>

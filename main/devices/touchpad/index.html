@@ -338,7 +338,10 @@
 <li><p>click trigger,</p></li>
 <li><p>tap trigger.</p></li>
 </ul>
-<p>Additional <a class="reference internal" href="../../getting-started/installation/index.html#additional-setup-optional"><span class="std std-ref">setup instructions</span></a> are required to enable those features.</p>
+<p>Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as libevdev is not used for things that
+libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the <code class="docutils literal notranslate"><span class="pre">handle_libevdev_events</span></code> device
+property can be used to disable libevdev event processing for a specific device.</p>
+<p>The Hyprland and KWin implementations require additional setup instructions to enable this backend.</p>
 </section>
 <section id="one-finger-swipe-stroke-triggers">
 <h3>One-finger swipe/stroke triggers<a class="headerlink" href="#one-finger-swipe-stroke-triggers" title="Link to this heading">¶</a></h3>
@@ -411,17 +414,22 @@ they are managed by InputActions.</p>
 <td><p>Whether the touchpad is a buttonpad (no physical buttons below, the entire device is a button). Detected automatically.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>pressure_ranges.finger</p></td>
+<tr class="row-odd"><td><p>handle_libevdev_events</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Disable in case of any issues.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>pressure_ranges.finger</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>Minimum pressure for the touch point to be considered a finger. Everything below this value will be ignored.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>pressure_ranges.thumb</p></td>
+<tr class="row-odd"><td><p>pressure_ranges.thumb</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>Minimum pressure for the touch point to be considered a thumb. Required for <code class="docutils literal notranslate"><span class="pre">thumb_</span></code> variables.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4294967295</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>pressure_ranges.palm</p></td>
+<tr class="row-even"><td><p>pressure_ranges.palm</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>Minimum pressure for the touch point to be considered a palm. Everything over this value will be ignored.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4294967295</span></code></p></td>

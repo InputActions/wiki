@@ -437,19 +437,28 @@ for events to be blocked.</p></td>
 <td><p>Must be unique.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>set_last_trigger</p></td>
+<tr class="row-odd"><td><p>resume_timeout</p></td>
+<td><p><em>time</em></p></td>
+<td><p>The amount of time after a trigger ends, during which the trigger can be performed again as if it never actually ended. Performing any action that does not
+activate this trigger causes it to be cancelled immediately.</p>
+<p>Can be used for a drag touchpad trigger that allows lifting fingers.</p>
+<p>Not compatible with stroke triggers.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>set_last_trigger</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether to set <code class="docutils literal notranslate"><span class="pre">last_trigger</span></code> variables.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>threshold</p></td>
+<tr class="row-odd"><td><p>threshold</p></td>
 <td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
 <td><p>How far this trigger needs to progress in order to begin.</p>
 <p><strong>Triggers with <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> or <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions cannot have maximum thresholds.</strong></p>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><s>keyboard_modifiers</s></p></td>
+<tr class="row-even"><td><p><s>keyboard_modifiers</s></p></td>
 <td></td>
 <td><p><strong>Deprecated.</strong> Use the <code class="docutils literal notranslate"><span class="pre">keyboard_modifiers</span></code> variable in a condition instead.</p></td>
 <td></td>

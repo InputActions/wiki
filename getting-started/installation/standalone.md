@@ -30,7 +30,7 @@ For package maintainers: this is the main version and should be called ``inputac
 
   {
     environment.systemPackages = [
-      inputs.inputactions.packages.${pkgs.system}.default
+      inputs.inputactions.packages.${pkgs.system}.inputactions
     ];
   }
   ```

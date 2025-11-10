@@ -15,7 +15,11 @@ This enables the following features:
 - click trigger,
 - tap trigger.
 
-Additional [setup instructions](<project:/getting-started/installation/index.md#additional-setup-optional>) are required to enable those features.
+Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as libevdev is not used for things that
+libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the ``handle_libevdev_events`` device
+property can be used to disable libevdev event processing for a specific device.
+
+The Hyprland and KWin implementations require additional setup instructions to enable this backend.
 
 ### One-finger swipe/stroke triggers
 One-finger swipe triggers use the pointer's unaccelerated delta and lock its position for the duration of the trigger. The sensitivity may be different compared
@@ -78,6 +82,11 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - *bool*
   - Whether the touchpad is a buttonpad (no physical buttons below, the entire device is a button). Detected automatically.
   - ``false``
+
+* - handle_libevdev_events
+  - *bool*
+  - Disable in case of any issues.
+  - ``true``
 
 * - pressure_ranges.finger
   - *uint*

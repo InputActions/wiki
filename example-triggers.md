@@ -193,6 +193,7 @@ Swipe triggers have a different acceleration profile. You can change *Device.del
   - type: swipe
     fingers: 3
     direction: any
+    resume_timeout: 500 # Optional: allow lifting fingers for 500 ms, perform any other action (for example tap) to cancel the trigger immediately
 
     actions:
       - on: begin

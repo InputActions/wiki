@@ -115,6 +115,16 @@ specific cases.
   - Must be unique.
   -
 
+* - resume_timeout
+  - *time*
+  - The amount of time after a trigger ends, during which the trigger can be performed again as if it never actually ended. Performing any action that does not
+    activate this trigger causes it to be cancelled immediately.
+
+    Can be used for a drag touchpad trigger that allows lifting fingers.
+
+    Not compatible with stroke triggers.
+  - ``0``
+
 * - set_last_trigger
   - *bool*
   - Whether to set ``last_trigger`` variables.

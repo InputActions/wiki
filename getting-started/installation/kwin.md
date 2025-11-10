@@ -115,3 +115,11 @@ qdbus6 org.kde.KWin /Effects org.kde.kwin.Effects.loadEffect kwin_gestures
 or open the ``Desktop Effects`` page in ``System Settings`` and enable ``InputActions`` in the ``Tools`` category.
 
 To rebuild, run ``make clean`` in the project directory and then all command starting from ``cd build``.
+
+## Additional setup (optional)
+To enable [extra touchpad features](/devices/touchpad/index.md#libevdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:
+```
+ENV{ID_INPUT_TOUCHPAD}=="1", TAG+="uaccess"
+```
+
+This will give all programs read and write access to all touchpads.

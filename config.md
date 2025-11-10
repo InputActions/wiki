@@ -1,8 +1,16 @@
 # Configuration
-There is no configuration UI. The file is located at ``~/.config/inputactions/config.yaml``. On debug builds ``~/.config/inputactions/config-debug.yaml`` takes priority over the previous path.
+There is no configuration UI.
+
+Configuration path candidates:
+- ``~/.config/inputactions/config-debug.yaml`` (debug builds only)
+- ``/etc/inputactions/config.yaml``
+- ``~/.config/inputactions/config.yaml`` (created if does not exist)
+
+Candidates are checked from top to bottom. The configuration path is only chosen once, a restart is required if you wish to use a different file.
 
 :::{warning}
-InputActions can run commands and simulate keyboard and mouse events. You may want to restrict write access to the configuration file.
+InputActions can execute commands. In the future, it will also be capable of running commands on key press/release events without blocking them. If you do not
+want normal users to have the ability to create such configurations, use the ``/etc/inputactions/config.yaml`` file.
 :::
 
 Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run

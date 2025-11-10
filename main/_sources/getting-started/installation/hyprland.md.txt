@@ -42,3 +42,11 @@ Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.
 ```
 hyprpm add https://github.com/taj-ny/InputActions
 ```
+
+## Additional setup (optional)
+To enable [extra touchpad features](/devices/touchpad/index.md#libevdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:
+```
+ENV{ID_INPUT_TOUCHPAD}=="1", TAG+="uaccess"
+```
+
+This will give all programs read and write access to all touchpads.

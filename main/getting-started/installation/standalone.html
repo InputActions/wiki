@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Standalone" href="standalone.html"><link rel="prev" title="Hyprland" href="hyprland.html">
+<link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Introduction" href="../introduction.html"><link rel="prev" title="KWin" href="kwin.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
-        <title>KWin - InputActions main</title>
+        <title>Standalone - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=580074bf" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -198,8 +198,8 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Getting started</a><input aria-label="Toggle navigation of Getting started" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Installation</a><input aria-label="Toggle navigation of Installation" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="hyprland.html">Hyprland</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">KWin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="standalone.html">Standalone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kwin.html">KWin</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Standalone</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
@@ -297,7 +297,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/getting-started/installation/kwin.md.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/getting-started/installation/standalone.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -315,26 +315,19 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="kwin">
-<h1>KWin<a class="headerlink" href="#kwin" title="Link to this heading">¶</a></h1>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>It is necessary to restart KWin after updating the plugin, otherwise the newer version will not be loaded and the old one will be used instead.</p>
-</div>
-<p>The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0.</p>
+          <section id="standalone">
+<h1>Standalone<a class="headerlink" href="#standalone" title="Link to this heading">¶</a></h1>
+<p>Works in any environment.</p>
+<p>For package maintainers: this is the main version and should be called <code class="docutils literal notranslate"><span class="pre">inputactions</span></code> without any <code class="docutils literal notranslate"><span class="pre">standalone</span></code> in the name.</p>
+<section id="cmake-builds-flags">
+<h2>CMake builds flags<a class="headerlink" href="#cmake-builds-flags" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INPUTACTIONS_BUILD_STANDALONE</span></code> - build the standalone implementation (default: OFF)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INPUTACTIONS_SYSTEMD</span></code> - enable systemd support, currently only installs the daemon service (default: ON)</p></li>
+</ul>
+</section>
 <section id="packages">
 <h2>Packages<a class="headerlink" href="#packages" title="Link to this heading">¶</a></h2>
-<details>
-  <summary>Arch Linux (AUR)*</summary>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Choose <code class="docutils literal notranslate"><span class="pre">cleanBuild</span></code> when reinstalling the package.</p>
-</div>
-<p><a class="reference external" href="https://aur.archlinux.org/packages/inputactions-kwin">https://aur.archlinux.org/packages/inputactions-kwin</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yay</span> <span class="o">-</span><span class="n">S</span> <span class="n">inputactions</span><span class="o">-</span><span class="n">kwin</span>
-</pre></div>
-</div>
-</details>
 <details>
   <summary>NixOS (flakes)</summary>
 <p><code class="docutils literal notranslate"><span class="pre">flake.nix</span></code>:</p>
@@ -354,13 +347,12 @@
 
 <span class="p">{</span>
   environment<span class="o">.</span><span class="ss">systemPackages</span> <span class="o">=</span> <span class="p">[</span>
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-kwin
+    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </details>
-<p><strong>* Unofficial package, use at your own risk.</strong></p>
 </section>
 <section id="manual">
 <h2>Manual<a class="headerlink" href="#manual" title="Link to this heading">¶</a></h2>
@@ -368,25 +360,25 @@
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h3>
 <details>
   <summary>Arch Linux</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">kwin</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="o">--</span><span class="n">noconfirm</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span>
 </pre></div>
 </div>
 </details>
 <details>
   <summary>Debian-based (KDE Neon, Kubuntu, Ubuntu)</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">g</span><span class="o">++</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span><span class="o">-</span><span class="n">dev</span> <span class="n">kwin</span><span class="o">-</span><span class="n">wayland</span> <span class="n">kwin</span><span class="o">-</span><span class="n">dev</span> <span class="n">libkf6configwidgets</span><span class="o">-</span><span class="n">dev</span> <span class="n">gettext</span> <span class="n">libkf6kcmutils</span><span class="o">-</span><span class="n">dev</span> <span class="n">libyaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libdrm</span><span class="o">-</span><span class="n">dev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">g</span><span class="o">++</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span><span class="o">-</span><span class="n">dev</span> <span class="n">gettext</span> <span class="n">libyaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libinput</span><span class="o">-</span><span class="n">dev</span> <span class="n">libwayland</span><span class="o">-</span><span class="n">dev</span> <span class="n">systemd</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
 </details>
 <details>
-  <summary>Fedora 40 - 42</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">gcc</span><span class="o">-</span><span class="n">g</span><span class="o">++</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span><span class="o">-</span><span class="n">devel</span> <span class="n">kwin</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">ki18n</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kguiaddons</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kcmutils</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kconfigwidgets</span><span class="o">-</span><span class="n">devel</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kguiaddons</span> <span class="n">kf6</span><span class="o">-</span><span class="n">ki18n</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libepoxy</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libdrm</span><span class="o">-</span><span class="n">devel</span>
+  <summary>Fedora</summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">gcc</span><span class="o">-</span><span class="n">g</span><span class="o">++</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span><span class="o">-</span><span class="n">devel</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libinput</span><span class="o">-</span><span class="n">devel</span> <span class="n">libudev</span><span class="o">-</span><span class="n">devel</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span>
 </pre></div>
 </div>
 </details>
 <details>
   <summary>openSUSE</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">git</span> <span class="n">cmake</span><span class="o">-</span><span class="n">full</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">kf6</span><span class="o">-</span><span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kguiaddons</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kconfigwidgets</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">ki18n</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kcmutils</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;cmake(KF6I18n)&quot;</span> <span class="s2">&quot;cmake(KF6KCMUtils)&quot;</span> <span class="s2">&quot;cmake(KF6WindowSystem)&quot;</span> <span class="s2">&quot;cmake(Qt6Core)&quot;</span> <span class="s2">&quot;cmake(Qt6DBus)&quot;</span> <span class="s2">&quot;cmake(Qt6Quick)&quot;</span> <span class="s2">&quot;cmake(Qt6Widgets)&quot;</span> <span class="n">libepoxy</span><span class="o">-</span><span class="n">devel</span> <span class="n">kwin6</span><span class="o">-</span><span class="n">devel</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">git</span> <span class="n">cmake</span><span class="o">-</span><span class="n">full</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">kf6</span><span class="o">-</span><span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="s2">&quot;cmake(Qt6Core)&quot;</span> <span class="s2">&quot;cmake(Qt6DBus)&quot;</span> <span class="s2">&quot;cmake(Qt6Network)&quot;</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libudev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libinput</span><span class="o">-</span><span class="n">devel</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;pkgconfig(systemd)&quot;</span>
 </pre></div>
 </div>
 </details>
@@ -397,46 +389,99 @@
 <span class="nb">cd</span><span class="w"> </span>InputActions
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON
+cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_STANDALONE<span class="o">=</span>ON
 make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
 sudo<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
 </section>
-<section id="installation-fedora-immutable">
-<h3>Installation (Fedora immutable)<a class="headerlink" href="#installation-fedora-immutable" title="Link to this heading">¶</a></h3>
-<p>Build the plugin in a container. The image’s KWin version must be the same as the one on your real system.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter container</span>
-sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>extra-cmake-modules<span class="w"> </span>gcc-g++<span class="w"> </span>qt6-qtbase-devel<span class="w"> </span>kwin-devel<span class="w"> </span>kf6-ki18n-devel<span class="w"> </span>kf6-kguiaddons-devel<span class="w"> </span>kf6-kcmutils-devel<span class="w"> </span>kf6-kconfigwidgets-devel<span class="w"> </span>qt6-qtbase<span class="w"> </span>kf6-kguiaddons<span class="w"> </span>kf6-ki18n<span class="w"> </span>wayland-devel<span class="w"> </span>yaml-cpp<span class="w"> </span>yaml-cpp-devel<span class="w"> </span>libepoxy-devel<span class="w"> </span>libevdev<span class="w"> </span>libevdev-devel<span class="w"> </span>libdrm-devel<span class="w"> </span>rpmbuild
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/taj-ny/InputActions
-<span class="nb">cd</span><span class="w"> </span>InputActions
-mkdir<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON
-make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-cpack<span class="w"> </span>-V<span class="w"> </span>-G<span class="w"> </span>RPM
-<span class="nb">exit</span><span class="w"> </span><span class="c1"># exit container</span>
-sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class="w"> </span>InputActions/build/inputactions.rpm
+</section>
+<section id="post-installation">
+<h2>Post-installation<a class="headerlink" href="#post-installation" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Enable the daemon (<code class="docutils literal notranslate"><span class="pre">/usr/bin/inputactionsd</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="o">--</span><span class="n">now</span> <span class="n">inputactionsd</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">/usr/bin/inputactions-client</span></code> to autostart. The client must be started after the session, by the user who owns the session, in an environment where
+it can use KWin’s DBus interface (Plasma only) and can connect to the Wayland server (non-GNOME environments). A running client is required in every virtual
+terminal InputActions will be used in.</p></li>
+</ol>
+<section id="gnome">
+<h3>GNOME<a class="headerlink" href="#gnome" title="Link to this heading">¶</a></h3>
+<p>Enable the <code class="docutils literal notranslate"><span class="pre">InputActions</span></code> helper extension (installed automatically after starting the client).</p>
+</section>
+<section id="plasma">
+<h3>Plasma<a class="headerlink" href="#plasma" title="Link to this heading">¶</a></h3>
+<p>The helper script is loaded and unloaded automatically by the client.</p>
+</section>
+</section>
+<section id="inputactions-setup">
+<h2>InputActions setup<a class="headerlink" href="#inputactions-setup" title="Link to this heading">¶</a></h2>
+<p>By default, devices are not grabbed but their events are processed. Grabbing is required for event filtering. Both properties can be configured using
+<a class="reference internal" href="../../devices/index.html#devicerule"><span class="std std-ref">device rules</span></a>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">device_rules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">all</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="c1"># remove some conditions if you don&#39;t use triggers for a specific device type</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types contains keyboard</span><span class="w"> </span><span class="c1"># keyboards must be grabbed for Trigger.clear_modifiers to work</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types contains mouse</span><span class="w"> </span><span class="c1"># ungrabbed mice are currently very buggy</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types contains touchpad</span><span class="w"> </span><span class="c1"># touchpad event filtering is experimental and may cause issues</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">not</span><span class="p">:</span><span class="w"> </span><span class="c1"># blacklist</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$name == Yubico YubiKey OTP+FIDO+CCID</span>
+<span class="w">    </span><span class="nt">grab</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">ignore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types != keyboard</span>
+<span class="w">    </span><span class="nt">ignore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># ignore all devices other than keyboards (required to get modifiers) by default</span>
 </pre></div>
 </div>
 </section>
+<section id="virtual-devices">
+<h2>Virtual devices<a class="headerlink" href="#virtual-devices" title="Link to this heading">¶</a></h2>
+<p>Two devices, named <code class="docutils literal notranslate"><span class="pre">InputActions</span> <span class="pre">Virtual</span> <span class="pre">Keyboard</span></code> and <code class="docutils literal notranslate"><span class="pre">InputActions</span> <span class="pre">Virtual</span> <span class="pre">Mouse</span></code> are created for the purpose of generating input events using the
+input action.</p>
+<p>For each grabbed input device, a pair of virtual devices is created. The first one has the <code class="docutils literal notranslate"> <span class="pre">(InputActions</span> <span class="pre">internal)</span></code> name suffix, is grabbed and only used
+internally as a hack for injecting evdev events into libinput. The second one has the <code class="docutils literal notranslate"> <span class="pre">(InputActions</span> <span class="pre">output)</span></code> suffix and is where real and simulated
+events are written to.</p>
+<p>The output device does not inherit settings from the real device, they must be copied manually.</p>
 </section>
-<section id="after-installation">
-<h2>After installation<a class="headerlink" href="#after-installation" title="Link to this heading">¶</a></h2>
-<p>To enable the plugin, run</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>qdbus6<span class="w"> </span>org.kde.KWin<span class="w"> </span>/Effects<span class="w"> </span>org.kde.kwin.Effects.loadEffect<span class="w"> </span>kwin_gestures
+<section id="udev-rules">
+<h2>Udev rules<a class="headerlink" href="#udev-rules" title="Link to this heading">¶</a></h2>
+<p>Libinput relies on udev environment variables for some features, such as pointer acceleration. These variables are not applied to virtual devices, which can
+result in devices changing their behavior after starting InputActions. In that case, udev rules must be created to apply some missing variables.</p>
+<ol class="arabic">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">libinput</span> <span class="pre">list-devices</span></code> to get the path of the input device</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Device</span><span class="p">:</span>                  <span class="n">Logitech</span> <span class="n">G502</span> <span class="n">X</span>
+<span class="n">Kernel</span><span class="p">:</span>                  <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">event15</span>
 </pre></div>
 </div>
-<p>or open the <code class="docutils literal notranslate"><span class="pre">Desktop</span> <span class="pre">Effects</span></code> page in <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Settings</span></code> and enable <code class="docutils literal notranslate"><span class="pre">InputActions</span></code> in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> category.</p>
-<p>To rebuild, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> in the project directory and then all command starting from <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code>.</p>
-</section>
-<section id="additional-setup-optional">
-<h2>Additional setup (optional)<a class="headerlink" href="#additional-setup-optional" title="Link to this heading">¶</a></h2>
-<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#libevdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENV</span><span class="p">{</span><span class="n">ID_INPUT_TOUCHPAD</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">TAG</span><span class="o">+=</span><span class="s2">&quot;uaccess&quot;</span>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">udevadm</span> <span class="pre">info</span> <span class="pre">[path]</span></code> (where <code class="docutils literal notranslate"><span class="pre">[path]</span></code> is the value of <code class="docutils literal notranslate"><span class="pre">Kernel:</span></code> above). Look for lines that start with <code class="docutils literal notranslate"><span class="pre">E:</span></code>. Known problematic variables include
+(but are not limited to) the following: <code class="docutils literal notranslate"><span class="pre">MOUSE_DPI</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">E</span><span class="p">:</span> <span class="n">MOUSE_DPI</span><span class="o">=</span><span class="mi">800</span><span class="o">@</span><span class="mi">1000</span> <span class="mi">1200</span><span class="o">@</span><span class="mi">1000</span> <span class="o">*</span><span class="mi">1600</span><span class="o">@</span><span class="mi">1000</span> <span class="mi">2400</span><span class="o">@</span><span class="mi">1000</span> <span class="mi">3200</span><span class="o">@</span><span class="mi">1000</span>
 </pre></div>
 </div>
-<p>This will give all programs read and write access to all touchpads.</p>
+</li>
+<li><p>Add the rules to<code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/99-inputactions.rules</span></code>. The rule for <code class="docutils literal notranslate"><span class="pre">(InputActions</span> <span class="pre">internal)</span></code> is optional but recommended.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="n">ATTRS</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;Logitech G502 X (InputActions output)&quot;</span><span class="p">,</span> <span class="n">ENV</span><span class="p">{</span><span class="n">MOUSE_DPI</span><span class="p">}</span><span class="o">=</span><span class="s2">&quot;800@1000 1200@1000 *1600@1000 2400@1000 3200@1000&quot;</span>
+<span class="n">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="n">ATTRS</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;Logitech G502 X (InputActions internal)&quot;</span><span class="p">,</span> <span class="n">ENV</span><span class="p">{</span><span class="n">MOUSE_DPI</span><span class="p">}</span><span class="o">=</span><span class="s2">&quot;800@1000 1200@1000 *1600@1000 2400@1000 3200@1000&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reload rules</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">udevadm</span> <span class="n">control</span> <span class="o">--</span><span class="n">reload</span><span class="o">-</span><span class="n">rules</span>
+<span class="n">sudo</span> <span class="n">udevadm</span> <span class="n">trigger</span>
+</pre></div>
+</div>
+</li>
+<li><p>Restart the daemon</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">inputactionsd</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 </section>
 
@@ -445,23 +490,23 @@ sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="standalone.html">
+          <a class="next-page" href="../introduction.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Standalone</div>
+                <div class="title">Introduction</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="hyprland.html">
+          <a class="prev-page" href="kwin.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Hyprland</div>
+                <div class="title">KWin</div>
                 
               </div>
             </a>
@@ -495,16 +540,22 @@ sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">KWin</a><ul>
+<li><a class="reference internal" href="#">Standalone</a><ul>
+<li><a class="reference internal" href="#cmake-builds-flags">CMake builds flags</a></li>
 <li><a class="reference internal" href="#packages">Packages</a></li>
 <li><a class="reference internal" href="#manual">Manual</a><ul>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#installation-fedora-immutable">Installation (Fedora immutable)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#after-installation">After installation</a></li>
-<li><a class="reference internal" href="#additional-setup-optional">Additional setup (optional)</a></li>
+<li><a class="reference internal" href="#post-installation">Post-installation</a><ul>
+<li><a class="reference internal" href="#gnome">GNOME</a></li>
+<li><a class="reference internal" href="#plasma">Plasma</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inputactions-setup">InputActions setup</a></li>
+<li><a class="reference internal" href="#virtual-devices">Virtual devices</a></li>
+<li><a class="reference internal" href="#udev-rules">Udev rules</a></li>
 </ul>
 </li>
 </ul>

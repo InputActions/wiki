@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Example triggers" href="../example-triggers.html"><link rel="prev" title="KWin" href="installation/kwin.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Example triggers" href="../example-triggers.html"><link rel="prev" title="Standalone" href="installation/standalone.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
         <title>Introduction - InputActions main</title>
@@ -199,6 +199,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="installation/index.html">Installation</a><input aria-label="Toggle navigation of Installation" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="installation/hyprland.html">Hyprland</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation/kwin.html">KWin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/standalone.html">Standalone</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
@@ -318,10 +319,18 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<p>There is no configuration UI. The file is located at <code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config.yaml</span></code>. On debug builds <code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config-debug.yaml</span></code> takes priority over the previous path.</p>
+<p>There is no configuration UI.</p>
+<p>Configuration path candidates:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config-debug.yaml</span></code> (debug builds only)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config.yaml</span></code> (created if does not exist)</p></li>
+</ul>
+<p>Candidates are checked from top to bottom. The configuration path is only chosen once, a restart is required if you wish to use a different file.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>InputActions can run commands and simulate keyboard and mouse events. You may want to restrict write access to the configuration file.</p>
+<p>InputActions can execute commands. In the future, it will also be capable of running commands on key press/release events without blocking them. If you do not
+want normal users to have the ability to create such configurations, use the <code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code> file.</p>
 </div>
 <p>Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
 <code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.inputactions</span> <span class="pre">/</span> <span class="pre">reloadConfig</span></code> to reload it manually, this will also print errors.</p>
@@ -519,14 +528,14 @@ it will not set the <code class="docutils literal notranslate"><span class="pre"
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="installation/kwin.html">
+          <a class="prev-page" href="installation/standalone.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">KWin</div>
+                <div class="title">Standalone</div>
                 
               </div>
             </a>

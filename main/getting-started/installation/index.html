@@ -199,6 +199,7 @@
 <li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Installation</a><input aria-label="Toggle navigation of Installation" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="hyprland.html">Hyprland</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kwin.html">KWin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standalone.html">Standalone</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
@@ -316,23 +317,163 @@
         <article role="main" id="furo-main-content">
           <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
-<p>Follow the instructions for your environment:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="hyprland.html"><span class="doc std std-doc">Hyprland</span></a></p></li>
-<li><p><a class="reference internal" href="kwin.html"><span class="doc std std-doc">KWin (KDE Plasma)</span></a></p></li>
-</ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>All implementations are compositor plugins for better integration with the environment than Wayland protocols allow for. As such, they must be rebuilt manually
-when the compositor is updated.</p>
+<p>The recommended InputActions implementation is <a class="reference internal" href="standalone.html"><span class="doc std std-doc">standalone</span></a>, as it works in any environment. There are also two compositor plugins that have
+slightly more features, but need to be rebuilt on every compositor update.</p>
+<section id="differences-between-implementations">
+<h2>Differences between implementations<a class="headerlink" href="#differences-between-implementations" title="Link to this heading">¶</a></h2>
+<p>This table only lists features that are not available in all implementations.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>GNOME</p></th>
+<th class="head"><p>Hyprland</p></th>
+<th class="head"><p>Plasma (Wayland)</p></th>
+<th class="head"><p>Plasma (Wayland, X11)</p></th>
+<th class="head"><p>Other (Wayland)</p></th>
+<th class="head"><p>Other (X11)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>InputActions implementation</p></td>
+<td><p><a class="reference internal" href="standalone.html"><span class="std std-doc">Standalone</span></a> + extension</p></td>
+<td><p><a class="reference internal" href="hyprland.html"><span class="std std-doc">Hyprland</span></a> (compositor plugin)</p></td>
+<td><p><a class="reference internal" href="standalone.html"><span class="std std-doc">KWin</span></a> (compositor plugin)</p></td>
+<td><p><a class="reference internal" href="standalone.html"><span class="std std-doc">Standalone</span></a> + script</p></td>
+<td><p><a class="reference internal" href="standalone.html"><span class="std std-doc">Standalone</span></a></p></td>
+<td><p><a class="reference internal" href="standalone.html"><span class="std std-doc">Standalone</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p> </p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Multi-session support</p></td>
+<td><p>✅<sup>[1]</sup></p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅<sup>[1]</sup></p></td>
+<td><p>✅<sup>[1]</sup></p></td>
+<td><p>✅<sup>[1]</sup></p></td>
+</tr>
+<tr class="row-even"><td><p>Compatibility with other input tools</p></td>
+<td><p>?<sup>[2]</sup></p></td>
+<td><p>✅<sup>[3]</sup></p></td>
+<td><p>✅<sup>[3]</sup></p></td>
+<td><p>?<sup>[2]</sup></p></td>
+<td><p>?<sup>[2]</sup></p></td>
+<td><p>?<sup>[2]</sup></p></td>
+</tr>
+<tr class="row-odd"><td><p> </p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="../../actions/input.html"><span class="std std-doc">InputAction</span></a></strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Keyboard text action</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p> </p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong><a class="reference internal" href="../../variables.html"><span class="std std-doc">Variables</span></a></strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cursor_shape</span></code></p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plasma_overview_active</span></code></p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>pointer position variables</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">screen_name</span></code></p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">window{_under}_name</span></code></p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p><a class="reference external" href="https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1">wlr foreign toplevel management</a> required</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p>other window variables</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p><a class="reference external" href="https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1">wlr foreign toplevel management</a> required</p></td>
+<td><p>❌</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<section id="additional-setup-optional">
-<h2>Additional setup (optional)<a class="headerlink" href="#additional-setup-optional" title="Link to this heading">¶</a></h2>
-<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#libevdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENV</span><span class="p">{</span><span class="n">ID_INPUT_TOUCHPAD</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">TAG</span><span class="o">+=</span><span class="s2">&quot;uaccess&quot;</span>
-</pre></div>
-</div>
-<p>This will give all programs read and write access to all touchpads.</p>
+<ol class="arabic simple">
+<li><p>Each virtual terminal has its own InputActions session.</p></li>
+<li><p>InputActions will conflict with any program that grabs input devices and creates virtual ones. Virtual input devices created by InputActions need to be
+blacklisted in such tools if possible. InputActions can be configured to ignore and not grab specific devices in order to let other tools process their
+events first.</p></li>
+<li><p>InputActions blocks input events in the compositor. Event generation also occurs in the compositor and tools operating at evdev level do not receive such
+events.</p></li>
+</ol>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -394,7 +535,7 @@ when the compositor is updated.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#additional-setup-optional">Additional setup (optional)</a></li>
+<li><a class="reference internal" href="#differences-between-implementations">Differences between implementations</a></li>
 </ul>
 </li>
 </ul>

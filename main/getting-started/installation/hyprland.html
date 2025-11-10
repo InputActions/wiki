@@ -199,6 +199,7 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Installation</a><input aria-label="Toggle navigation of Installation" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Hyprland</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kwin.html">KWin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="standalone.html">Standalone</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
@@ -360,6 +361,14 @@
 </div>
 </section>
 </section>
+<section id="additional-setup-optional">
+<h2>Additional setup (optional)<a class="headerlink" href="#additional-setup-optional" title="Link to this heading">¶</a></h2>
+<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#libevdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENV</span><span class="p">{</span><span class="n">ID_INPUT_TOUCHPAD</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">TAG</span><span class="o">+=</span><span class="s2">&quot;uaccess&quot;</span>
+</pre></div>
+</div>
+<p>This will give all programs read and write access to all touchpads.</p>
+</section>
 </section>
 
         </article>
@@ -424,6 +433,7 @@
 <li><a class="reference internal" href="#installation">Installation</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#additional-setup-optional">Additional setup (optional)</a></li>
 </ul>
 </li>
 </ul>

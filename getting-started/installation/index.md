@@ -2,8 +2,11 @@
 The recommended InputActions implementation is [standalone](standalone), as it works in any environment. There are also two compositor plugins that have
 slightly more features, but need to be rebuilt on every compositor update.
 
-## Differences between implementations
+## Feature comparison
 This table only lists features that are not available in all implementations.
+
+If the standalone implementation turns out to work well, the compositor plugins will be rewritten to work with the daemon, which will reduce the number of
+differences.
 
 :::{list-table}
 :header-rows: 1
@@ -79,6 +82,30 @@ This table only lists features that are not available in all implementations.
   - ❌
   - ❌
   - ❌
+
+* - &nbsp;
+  -
+  -
+  -
+  -
+  -
+  -
+
+* - **Touchpad**
+  -
+  -
+  -
+  -
+  -
+  -
+
+* - Accelerated gestures
+  - ✅
+  - ❌
+  - ❌
+  - ✅
+  - ✅
+  - ✅
 
 * - &nbsp;
   -

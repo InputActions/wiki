@@ -1,7 +1,7 @@
 # Touchpad
 ## Description
 ### Acceleration
-Touchpad triggers are unaccelerated, this also applies to the ``move_by_delta`` mouse input action.
+The Hyprland and KWin implementations only provide the unaccelerated delta, while the standalone provides both.
 
 ### libevdev backend
 The libevdev input backend supplies the following touchpad data, which libinput does not:
@@ -19,13 +19,13 @@ Plenty of features and device quirks that libinput takes care of are missing her
 libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the ``handle_libevdev_events`` device
 property can be used to disable libevdev event processing for a specific device.
 
-The Hyprland and KWin implementations require additional setup instructions to enable this backend.
+The Hyprland and KWin implementations require additional setup instructions (available in the installation section) to enable this backend.
 
 ### One-finger swipe/stroke triggers
 One-finger swipe triggers use the pointer's unaccelerated delta and lock its position for the duration of the trigger. The sensitivity may be different compared
 to other triggers. Actions that move the pointer will not work.
 
-On Hyprland, the accelerated delta is used instead.
+On Hyprland, the delta is based on the pointer's position and may be either unaccelerated or accelerated, depending on the device configuration.
 
 ### Two-finger swipe/stroke triggers
 Two-finger swipe triggers are achieved by treating scroll events as two-finger motion events. The thresholds for changing the scroll axis are quite large, which

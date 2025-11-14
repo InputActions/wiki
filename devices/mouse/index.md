@@ -2,6 +2,8 @@
 ## Description
 Trackpoints also fall under this category.
 
+On Hyprland, the delta is based on the pointer's position and may be either unaccelerated or accelerated, depending on the device configuration.
+
 ## MouseEventHandler
 Inherits <project:/config.md#eventhandler>.
 

@@ -6,6 +6,9 @@ Each device has its own set of triggers, listed in the ``Triggers`` subpage of t
 
 Thresholds and action intervals are based on the trigger's delta. Time-based triggers update every *5 ms* with a delta of *5*.
 
+Triggers use the unaccelerated delta if available. The accelerated delta is only used for action intervals and ``move_by_delta`` input actions if
+``accelerated`` is set to ``true``.
+
 ### Lifecycle
 - ``begin`` - Can be delayed or prevented by thresholds.
 - ``update`` - Before a trigger receives an update event, its update conditions (direction) are checked first. If not satisfied, the trigger is cancelled.
@@ -79,6 +82,11 @@ specific cases.
   - *enum(click, hover, pinch, press, rotate, shortcut, stroke, swipe, tap, wheel)*
   - Same as the trigger's name but lowercase.
   -
+
+* - accelerated
+  - *bool*
+  - Use the accelerated delta (if available) for action intervals and the ``move_by_delta`` input action.
+  - ``false``
 
 * - actions
   - *list([](/actions/index))*

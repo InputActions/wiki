@@ -319,9 +319,11 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p>The recommended InputActions implementation is <a class="reference internal" href="standalone.html"><span class="doc std std-doc">standalone</span></a>, as it works in any environment. There are also two compositor plugins that have
 slightly more features, but need to be rebuilt on every compositor update.</p>
-<section id="differences-between-implementations">
-<h2>Differences between implementations<a class="headerlink" href="#differences-between-implementations" title="Link to this heading">¶</a></h2>
+<section id="feature-comparison">
+<h2>Feature comparison<a class="headerlink" href="#feature-comparison" title="Link to this heading">¶</a></h2>
 <p>This table only lists features that are not available in all implementations.</p>
+<p>If the standalone implementation turns out to work well, the compositor plugins will be rewritten to work with the daemon, which will reduce the number of
+differences.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -407,7 +409,7 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><strong><a class="reference internal" href="../../variables.html"><span class="std std-doc">Variables</span></a></strong></p></td>
+<tr class="row-odd"><td><p><strong>Touchpad</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
@@ -415,7 +417,31 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cursor_shape</span></code></p></td>
+<tr class="row-even"><td><p>Accelerated gestures</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td><p> </p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong><a class="reference internal" href="../../variables.html"><span class="std std-doc">Variables</span></a></strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cursor_shape</span></code></p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
@@ -423,7 +449,7 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plasma_overview_active</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plasma_overview_active</span></code></p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
@@ -431,7 +457,7 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-even"><td><p>pointer position variables</p></td>
+<tr class="row-odd"><td><p>pointer position variables</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
@@ -439,7 +465,7 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">screen_name</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">screen_name</span></code></p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
@@ -447,7 +473,7 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">window{_under}_name</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">window{_under}_name</span></code></p></td>
 <td><p>✅</p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
@@ -455,7 +481,7 @@ slightly more features, but need to be rebuilt on every compositor update.</p>
 <td><p><a class="reference external" href="https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1">wlr foreign toplevel management</a> required</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-odd"><td><p>other window variables</p></td>
+<tr class="row-even"><td><p>other window variables</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
@@ -535,7 +561,7 @@ events.</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#differences-between-implementations">Differences between implementations</a></li>
+<li><a class="reference internal" href="#feature-comparison">Feature comparison</a></li>
 </ul>
 </li>
 </ul>

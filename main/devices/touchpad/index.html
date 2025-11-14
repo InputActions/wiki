@@ -321,7 +321,7 @@
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <section id="acceleration">
 <h3>Acceleration<a class="headerlink" href="#acceleration" title="Link to this heading">¶</a></h3>
-<p>Touchpad triggers are unaccelerated, this also applies to the <code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code> mouse input action.</p>
+<p>The Hyprland and KWin implementations only provide the unaccelerated delta, while the standalone provides both.</p>
 </section>
 <section id="libevdev-backend">
 <h3>libevdev backend<a class="headerlink" href="#libevdev-backend" title="Link to this heading">¶</a></h3>
@@ -341,13 +341,13 @@
 <p>Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as libevdev is not used for things that
 libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the <code class="docutils literal notranslate"><span class="pre">handle_libevdev_events</span></code> device
 property can be used to disable libevdev event processing for a specific device.</p>
-<p>The Hyprland and KWin implementations require additional setup instructions to enable this backend.</p>
+<p>The Hyprland and KWin implementations require additional setup instructions (available in the installation section) to enable this backend.</p>
 </section>
 <section id="one-finger-swipe-stroke-triggers">
 <h3>One-finger swipe/stroke triggers<a class="headerlink" href="#one-finger-swipe-stroke-triggers" title="Link to this heading">¶</a></h3>
 <p>One-finger swipe triggers use the pointer’s unaccelerated delta and lock its position for the duration of the trigger. The sensitivity may be different compared
 to other triggers. Actions that move the pointer will not work.</p>
-<p>On Hyprland, the accelerated delta is used instead.</p>
+<p>On Hyprland, the delta is based on the pointer’s position and may be either unaccelerated or accelerated, depending on the device configuration.</p>
 </section>
 <section id="two-finger-swipe-stroke-triggers">
 <h3>Two-finger swipe/stroke triggers<a class="headerlink" href="#two-finger-swipe-stroke-triggers" title="Link to this heading">¶</a></h3>

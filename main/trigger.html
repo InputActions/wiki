@@ -322,6 +322,8 @@
 <p>An action or set of actions performed using an input device, also referred to as <em>gesture</em>.</p>
 <p>Each device has its own set of triggers, listed in the <code class="docutils literal notranslate"><span class="pre">Triggers</span></code> subpage of the device.</p>
 <p>Thresholds and action intervals are based on the trigger’s delta. Time-based triggers update every <em>5 ms</em> with a delta of <em>5</em>.</p>
+<p>Triggers use the unaccelerated delta if available. The accelerated delta is only used for action intervals and <code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code> input actions if
+<code class="docutils literal notranslate"><span class="pre">accelerated</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <section id="lifecycle">
 <h3>Lifecycle<a class="headerlink" href="#lifecycle" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -402,42 +404,47 @@ specific cases.</p>
 <td><p>Same as the trigger’s name but lowercase.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>actions</p></td>
+<tr class="row-odd"><td><p>accelerated</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Use the accelerated delta (if available) for action intervals and the <code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code> input action.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>actions</p></td>
 <td><p><em>list(<a class="reference internal" href="actions/index.html"><span class="doc std std-doc">Action</span></a>)</em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>block_events</p></td>
+<tr class="row-odd"><td><p>block_events</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether this trigger should block all input events required to perform it while active. Only one active trigger needs this property set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in order
 for events to be blocked.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>clear_modifiers</p></td>
+<tr class="row-even"><td><p>clear_modifiers</p></td>
 <td><p>bool</p></td>
 <td><p>Whether keyboard modifiers should be cleared when this trigger begins. They will not be restored after the trigger ends.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if an <a class="reference internal" href="actions/input.html"><span class="doc std std-doc">InputAction</span></a> is present, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise</p></td>
 </tr>
-<tr class="row-even"><td><p>conditions</p></td>
+<tr class="row-odd"><td><p>conditions</p></td>
 <td><p><em><a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
 <td><p>Must be satisfied in order for this trigger to be activated.</p>
 <p>If the value is a list, the behavior is the same as an <code class="docutils literal notranslate"><span class="pre">all</span></code> <a class="reference internal" href="conditions/group.html"><span class="doc std std-doc">ConditionGroup</span></a>.</p>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>end_conditions</p></td>
+<tr class="row-even"><td><p>end_conditions</p></td>
 <td><p><em><a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
 <td><p>If satisfied, the trigger will end, otherwise it will be cancelled.</p>
 <p>If the value is a list, the behavior is the same as an <code class="docutils literal notranslate"><span class="pre">all</span></code> <a class="reference internal" href="conditions/group.html"><span class="doc std std-doc">ConditionGroup</span></a>.</p>
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>id</p></td>
+<tr class="row-odd"><td><p>id</p></td>
 <td><p><em>string</em></p></td>
 <td><p>Must be unique.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>resume_timeout</p></td>
+<tr class="row-even"><td><p>resume_timeout</p></td>
 <td><p><em>time</em></p></td>
 <td><p>The amount of time after a trigger ends, during which the trigger can be performed again as if it never actually ended. Performing any action that does not
 activate this trigger causes it to be cancelled immediately.</p>
@@ -446,19 +453,19 @@ activate this trigger causes it to be cancelled immediately.</p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>set_last_trigger</p></td>
+<tr class="row-odd"><td><p>set_last_trigger</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether to set <code class="docutils literal notranslate"><span class="pre">last_trigger</span></code> variables.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>threshold</p></td>
+<tr class="row-even"><td><p>threshold</p></td>
 <td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
 <td><p>How far this trigger needs to progress in order to begin.</p>
 <p><strong>Triggers with <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> or <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions cannot have maximum thresholds.</strong></p>
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><s>keyboard_modifiers</s></p></td>
+<tr class="row-odd"><td><p><s>keyboard_modifiers</s></p></td>
 <td></td>
 <td><p><strong>Deprecated.</strong> Use the <code class="docutils literal notranslate"><span class="pre">keyboard_modifiers</span></code> variable in a condition instead.</p></td>
 <td></td>

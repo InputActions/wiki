@@ -30,9 +30,6 @@ jobs:
           publish_dir: _build/
           destination_dir: ${{ github.ref_name }}
           keep_files: true # zizmor: ignore[anonymous-definition]
-        permissions:
-          contents:
-            write: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}

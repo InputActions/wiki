@@ -31,3 +31,10 @@ Dynamic values <dynamic-values/index>
 Trigger groups <advanced/trigger-groups>
 YAML anchors <advanced/yaml-anchors>
 ```
+
+```{toctree}
+:hidden:
+:caption: Other
+
+Packaging guidelines <packaging-guidelines.md>
+```

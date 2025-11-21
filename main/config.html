@@ -278,6 +278,10 @@
 <li class="toctree-l1"><a class="reference internal" href="advanced/trigger-groups.html">Trigger groups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="packaging-guidelines.html">Packaging guidelines</a></li>
+</ul>
 
 </div>
 </div>
@@ -331,7 +335,7 @@
 want normal users to have the ability to create such configurations, use the <code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code> file.</p>
 </div>
 <p>Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
-<code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.inputactions</span> <span class="pre">/</span> <span class="pre">reloadConfig</span></code> to reload it manually, this will also print errors.</p>
+<code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code> to reload it manually, this will also print errors.</p>
 <p>Configuration uses the YAML format, JSON will work as well if you really want to use it.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>

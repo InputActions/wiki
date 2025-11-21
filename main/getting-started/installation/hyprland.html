@@ -278,6 +278,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../advanced/trigger-groups.html">Trigger groups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../packaging-guidelines.html">Packaging guidelines</a></li>
+</ul>
 
 </div>
 </div>
@@ -334,6 +338,9 @@
 </pre></div>
 </div>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  home<span class="o">.</span><span class="ss">packages</span> <span class="o">=</span> <span class="p">[</span>
+    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-ctl
+  <span class="p">];</span>
   wayland<span class="o">.</span>windowManager<span class="o">.</span>hyprland<span class="o">.</span><span class="ss">plugins</span> <span class="o">=</span> <span class="p">[</span>
     inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-hyprland
   <span class="p">];</span>
@@ -342,20 +349,30 @@
 </div>
 </details>
 </section>
-<section id="hyprpm">
-<h2>hyprpm<a class="headerlink" href="#hyprpm" title="Link to this heading">¶</a></h2>
+<section id="manual-hyprpm">
+<h2>Manual (hyprpm)<a class="headerlink" href="#manual-hyprpm" title="Link to this heading">¶</a></h2>
 <section id="dependencies">
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h3>
 <details>
   <summary>Arch Linux</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span> <span class="n">cli11</span>
 </pre></div>
 </div>
 </details>
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<p>Read <a class="reference external" href="https://wiki.hypr.land/Plugins/Using-Plugins">https://wiki.hypr.land/Plugins/Using-Plugins</a> first.</p>
+<p>First, build the control tool:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/taj-ny/InputActions
+<span class="nb">cd</span><span class="w"> </span>InputActions
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON
+make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Then, build the Hyprland plugin. Read <a class="reference external" href="https://wiki.hypr.land/Plugins/Using-Plugins">https://wiki.hypr.land/Plugins/Using-Plugins</a> first.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hyprpm</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">taj</span><span class="o">-</span><span class="n">ny</span><span class="o">/</span><span class="n">InputActions</span>
 </pre></div>
 </div>
@@ -428,7 +445,7 @@
             <ul>
 <li><a class="reference internal" href="#">Hyprland</a><ul>
 <li><a class="reference internal" href="#packages">Packages</a></li>
-<li><a class="reference internal" href="#hyprpm">hyprpm</a><ul>
+<li><a class="reference internal" href="#manual-hyprpm">Manual (hyprpm)</a><ul>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 </ul>

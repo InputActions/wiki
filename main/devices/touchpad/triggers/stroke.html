@@ -278,6 +278,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced/trigger-groups.html">Trigger groups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Other</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../packaging-guidelines.html">Packaging guidelines</a></li>
+</ul>
 
 </div>
 </div>
@@ -336,7 +340,7 @@
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>At the end, the performed stroke is compared against all active triggers’ strokes and the trigger with the highest stroke match (must be at least 70%) is ended,
 while all others are cancelled. Only <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end</span></code> actions are supported.</p>
-<p>Strokes can be recorded using the stroke recorder at <em>System Settings</em> -&gt; <em>Desktop Effects</em> -&gt; <em>Input Actions (configure)</em> or DBus: <code class="docutils literal notranslate"><span class="pre">qdbus</span> <span class="pre">org.inputactions</span> <span class="pre">/</span> <span class="pre">recordStroke</span></code>.</p>
+<p>Strokes can be recorded using the stroke recorder at <em>System Settings</em> -&gt; <em>Desktop Effects</em> -&gt; <em>Input Actions (configure)</em> or DBus: <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">record-stroke</span></code>.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> or <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions are required, use <a class="reference internal" href="swipe.html"><span class="doc std std-doc">Swipe</span></a> instead. Stroke triggers are not compatible with swipe triggers, only one type
 may be active at a time.</p>
 </section>

@@ -155,7 +155,55 @@ differences.
   - ❌
   - ❌
 
-* - ``window{_under}_name``
+* - &nbsp;
+  -
+  -
+  -
+  -
+  -
+  -
+
+* - **Windows**
+  -
+  -
+  -
+  -
+  -
+  -
+
+* - Active window info
+  - ✅
+  - ✅
+  - ✅
+  - ✅
+  - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
+  - ❌
+
+* - Window under pointer info
+  - ✅
+  - ✅
+  - ✅
+  - ✅
+  - ❌
+  - ❌
+
+* - Window resource class (``window{_under}_class`` variable)
+  - ✅
+  - ✅
+  - ✅
+  - ✅
+  - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
+  - ❌
+
+* - Window resource name (``window{_under}_name`` variable)
+  - ✅
+  - ❌
+  - ✅
+  - ✅
+  - ❌
+  - ❌
+
+* - Window fullscreen state (``window{_under}_fullscreen`` variable)
   - ✅
   - ❌
   - ✅
@@ -163,7 +211,15 @@ differences.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - other window variables
+* - Window maximized state (``window{_under}_maximized`` variable)
+  - ✅
+  - ✅
+  - ✅
+  - ✅
+  - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
+  - ❌
+
+* - Window title (``window{_under}_title`` variable)
   - ✅
   - ✅
   - ✅

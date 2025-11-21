@@ -19,6 +19,9 @@
 
   ```nix
   {
+    home.packages = [
+      inputs.inputactions.packages.${pkgs.system}.inputactions-ctl
+    ];
     wayland.windowManager.hyprland.plugins = [
       inputs.inputactions.packages.${pkgs.system}.inputactions-hyprland
     ];
@@ -26,18 +29,29 @@
   ```
 </details>
 
-## hyprpm
+## Manual (hyprpm)
 ### Dependencies
 <details>
   <summary>Arch Linux</summary>
 
   ```
-  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-tools yaml-cpp libevdev
+  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-tools yaml-cpp libevdev cli11
   ```
 </details>
 
 ### Installation
-Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.
+First, build the control tool:
+```sh
+git clone https://github.com/taj-ny/InputActions
+cd InputActions
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_CTL=ON
+make -j$(nproc)
+sudo make install
+```
+
+Then, build the Hyprland plugin. Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.
 
 ```
 hyprpm add https://github.com/taj-ny/InputActions

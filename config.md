@@ -14,7 +14,7 @@ want normal users to have the ability to create such configurations, use the ``/
 :::
 
 Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
-``qdbus6 org.inputactions / reloadConfig`` to reload it manually, this will also print errors.
+``inputactions config reload`` to reload it manually, this will also print errors.
 
 Configuration uses the YAML format, JSON will work as well if you really want to use it.
 

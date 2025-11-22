@@ -22,6 +22,9 @@ Configuration uses the YAML format, JSON will work as well if you really want to
 Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.
 :::
 
+If a specific configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
+suspend InputActions until the next config reload. A notification will be sent when triggered.
+
 ## Subproperties
 ``a.b`` in the ``Property`` column means that ``b`` is a property of ``a``:
 ```yaml

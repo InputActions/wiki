@@ -3,6 +3,9 @@
 * - **Inherits**
   - [](/trigger)
 
+* - **Action events**
+  - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
+
 * - **Type**
   - Motion trigger (delta based on distance)
 :::

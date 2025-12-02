@@ -20,6 +20,7 @@ All touchpad triggers have the following additional properties:
 :maxdepth: 1
 :hidden:
 
+circle
 click
 pinch
 press

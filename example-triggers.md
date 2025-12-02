@@ -369,6 +369,35 @@ Swipe fast - Open alt+tab switcher
           - mouse: [ move_by 0 1 ]
   ```
 </details>
+<details>
+  <summary>Swipe 2 in circular motion - Circular scrolling</summary>
+
+  Place two fingers, with at least one's initial position being the top or bottom edge, then start circling around any point.
+
+  ```yaml
+  - type: circle
+    fingers: 2
+    direction: any
+
+    conditions:
+      any:
+        - $finger_1_initial_position_percentage_y <= 0.05
+        - $finger_2_initial_position_percentage_y <= 0.05
+        - $finger_1_initial_position_percentage_y >= 0.95
+        - $finger_2_initial_position_percentage_y >= 0.95
+
+    actions:
+      - on: update
+        interval: -0.5
+        input:
+          - mouse: [ wheel 0 -1 ]
+
+      - on: update
+        interval: 0.5
+        input:
+          - mouse: [ wheel 0 1 ]
+  ```
+</details>
 
 From this point onwards triggers will only have placeholder actions.
 <details>

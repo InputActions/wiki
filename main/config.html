@@ -575,19 +575,19 @@ suspend InputActions until the next config reload. A notification will be sent w
 </section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mouse</span><span class="p">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">device_rules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$name == Synaptics TM3276-022</span>
+<span class="w">    </span><span class="nt">pressure_ranges</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">thumb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75</span>
+<span class="w">      </span><span class="nt">palm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span>
+
+<span class="nt">mouse</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">click_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
 <span class="w">  </span>
 <span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># ...</span>
 
 <span class="nt">touchpad</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">devices</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">Synaptics TM3276-022</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">pressure_ranges</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">thumb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75</span>
-<span class="w">        </span><span class="nt">palm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span>
-
 <span class="w">  </span><span class="nt">speed</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">swipe_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span>
 

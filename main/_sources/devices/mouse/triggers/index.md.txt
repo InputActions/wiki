@@ -27,6 +27,7 @@ All mouse triggers have the following additional properties:
 :maxdepth: 1
 :hidden:
 
+circle
 press
 stroke
 swipe

@@ -3,6 +3,9 @@
 * - **Inherits**
   - [](/trigger)
 
+* - **Action events**
+  - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
+
 * - **Finger count range**
   - 2-4
 

@@ -3,6 +3,9 @@
 * - **Inherits**
   - [](/trigger)
 
+* - **Action events**
+  - ``begin``, ``cancel``, ``end`` ``update``
+
 * - **Type**
   - Time-based trigger
 :::

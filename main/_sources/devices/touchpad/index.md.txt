@@ -11,7 +11,7 @@ The libevdev input backend supplies the following touchpad data, which libinput 
 
 This enables the following features:
 - ``finger_`` and ``thumb_`` [variables](/variables) (thumb detection requires the pressure range to be set, see *[](#touchpadproperties)*),
-- one-finger swipe/stroke triggers,
+- one-finger circle/stroke/swipe triggers,
 - click trigger,
 - tap trigger.
 

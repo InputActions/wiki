@@ -1,4 +1,4 @@
-# Pinch
+# Circle
 :::{list-table}
 * - **Inherits**
   - [](/trigger)
@@ -6,15 +6,15 @@
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
 
-* - **Finger count range**
-  - 2-4
+* - **Incompatible with**
+  - [](stroke), [](swipe)
 
 * - **Type**
-  - Motion trigger (delta based on scale)
+  - Motion trigger (delta based on angle)
 :::
 
 ## Description
-Libinput may often incorrectly recognize pinch gestures as swipe gestures.
+Continuous circular motion.
 
 ## Properties
 :::{list-table}
@@ -23,8 +23,15 @@ Libinput may often incorrectly recognize pinch gestures as swipe gestures.
 * - Property
   - Type
   - Description
+  - Default
 
 * - **direction**
-  - *enum(in, out, any)*
+  - *enum(clockwise, counterclockwise, any)*
   - ``any`` allows multiple directions.
+  -
+
+* - lock_pointer
+  - *bool*
+  - Lock the pointer's position while the trigger is active.
+  - ``false``
 :::

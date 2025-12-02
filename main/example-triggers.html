@@ -221,6 +221,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="devices/mouse/index.html">Mouse</a><input aria-label="Toggle navigation of Mouse" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="devices/mouse/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/mouse/triggers/circle.html">Circle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="devices/mouse/triggers/press.html">Press</a></li>
 <li class="toctree-l4"><a class="reference internal" href="devices/mouse/triggers/stroke.html">Stroke</a></li>
 <li class="toctree-l4"><a class="reference internal" href="devices/mouse/triggers/swipe.html">Swipe</a></li>
@@ -238,6 +239,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="devices/touchpad/index.html">Touchpad</a><input aria-label="Toggle navigation of Touchpad" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="devices/touchpad/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchpad/triggers/circle.html">Circle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="devices/touchpad/triggers/click.html">Click</a></li>
 <li class="toctree-l4"><a class="reference internal" href="devices/touchpad/triggers/pinch.html">Pinch</a></li>
 <li class="toctree-l4"><a class="reference internal" href="devices/touchpad/triggers/press.html">Press</a></li>
@@ -672,6 +674,33 @@ Swipe fast - Open alt+tab switcher</p>
 
 <span class="w">      </span><span class="nt">input</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">move_by 0 1</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</details>
+<details>
+  <summary>Swipe 2 in circular motion - Circular scrolling</summary>
+<p>Place two fingers, with at least one’s initial position being the top or bottom edge, then start circling around any point.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">circle</span>
+<span class="w">  </span><span class="nt">fingers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">any</span>
+
+<span class="w">  </span><span class="nt">conditions</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">any</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$finger_1_initial_position_percentage_y &lt;= 0.05</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$finger_2_initial_position_percentage_y &lt;= 0.05</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$finger_1_initial_position_percentage_y &gt;= 0.95</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$finger_2_initial_position_percentage_y &gt;= 0.95</span>
+
+<span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.5</span>
+<span class="w">      </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">wheel 0 -1</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">      </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">wheel 0 1</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </details>

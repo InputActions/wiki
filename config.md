@@ -224,6 +224,12 @@ The defaults may not work for everyone, as they depend on the device's sensitivi
 
 ## Example
 ```yaml
+device_rules:
+  - conditions: $name == Synaptics TM3276-022
+    pressure_ranges:
+      thumb: 75
+      palm: 140
+
 mouse:
   click_timeout: 50
   
@@ -231,12 +237,6 @@ mouse:
     # ...
 
 touchpad:
-  devices:
-    Synaptics TM3276-022:
-      pressure_ranges:
-        thumb: 75
-        palm: 140
-
   speed:
     swipe_threshold: 15
 

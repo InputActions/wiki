@@ -435,6 +435,8 @@ sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class
 </pre></div>
 </div>
 <p>or open the <code class="docutils literal notranslate"><span class="pre">Desktop</span> <span class="pre">Effects</span></code> page in <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Settings</span></code> and enable <code class="docutils literal notranslate"><span class="pre">InputActions</span></code> in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> category.</p>
+<p>If the plugin ever causes the compositor to crash repeatedly, making it impossible to disable it, remove <code class="docutils literal notranslate"><span class="pre">kwin_gesturesEnabled=true</span></code> from
+<code class="docutils literal notranslate"><span class="pre">~/.config/kwinrc</span></code>.</p>
 <p>To rebuild, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> in the project directory and then all command starting from <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code>.</p>
 </section>
 <section id="additional-setup-optional">

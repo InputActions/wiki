@@ -115,6 +115,9 @@ qdbus6 org.kde.KWin /Effects org.kde.kwin.Effects.loadEffect kwin_gestures
 ```
 or open the ``Desktop Effects`` page in ``System Settings`` and enable ``InputActions`` in the ``Tools`` category.
 
+If the plugin ever causes the compositor to crash repeatedly, making it impossible to disable it, remove ``kwin_gesturesEnabled=true`` from
+``~/.config/kwinrc``.
+
 To rebuild, run ``make clean`` in the project directory and then all command starting from ``cd build``.
 
 ## Additional setup (optional)

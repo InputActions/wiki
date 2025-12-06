@@ -448,7 +448,7 @@ terminal InputActions will be used in.</p></li>
 <section id="virtual-devices">
 <h2>Virtual devices<a class="headerlink" href="#virtual-devices" title="Link to this heading">¶</a></h2>
 <p>Two devices, named <code class="docutils literal notranslate"><span class="pre">InputActions</span> <span class="pre">Virtual</span> <span class="pre">Keyboard</span></code> and <code class="docutils literal notranslate"><span class="pre">InputActions</span> <span class="pre">Virtual</span> <span class="pre">Mouse</span></code> are created for the purpose of generating input events using the
-input action.</p>
+input action. Pointer acceleration should be disabled for <code class="docutils literal notranslate"><span class="pre">InputActions</span> <span class="pre">Virtual</span> <span class="pre">Mouse</span></code>.</p>
 <p>For each grabbed input device, a pair of virtual devices is created. The first one has the <code class="docutils literal notranslate"> <span class="pre">(InputActions</span> <span class="pre">internal)</span></code> name suffix, is grabbed and only used
 internally as a hack for injecting evdev events into libinput. The second one has the <code class="docutils literal notranslate"> <span class="pre">(InputActions</span> <span class="pre">output)</span></code> suffix and is where real and simulated
 events are written to.</p>

@@ -118,7 +118,7 @@ device_rules:
 
 ## Virtual devices
 Two devices, named ``InputActions Virtual Keyboard`` and ``InputActions Virtual Mouse`` are created for the purpose of generating input events using the
-input action.
+input action. Pointer acceleration should be disabled for ``InputActions Virtual Mouse``.
 
 For each grabbed input device, a pair of virtual devices is created. The first one has the `` (InputActions internal)`` name suffix, is grabbed and only used
 internally as a hack for injecting evdev events into libinput. The second one has the `` (InputActions output)`` suffix and is where real and simulated

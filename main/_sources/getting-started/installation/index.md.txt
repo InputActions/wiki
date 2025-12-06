@@ -1,5 +1,5 @@
 # Installation
-For [Hyprland](/getting-started/installation/hyprland.md) and [Plasma Wayland](/getting-started/installation/standalone.md), the compositor plugins are
+For [Hyprland](/getting-started/installation/hyprland.md) and [Plasma Wayland](/getting-started/installation/kwin.md), the compositor plugins are
 recommended, as currently they are the most reliable. It is necessary to rebuild them on every compositor update.
 
 For other environments (including those mentioned above) there is a [standalone](standalone) implementation that operates at evdev level. It is still a work

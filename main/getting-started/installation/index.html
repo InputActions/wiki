@@ -323,13 +323,13 @@
         <article role="main" id="furo-main-content">
           <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
-<p>The recommended InputActions implementation is <a class="reference internal" href="standalone.html"><span class="doc std std-doc">standalone</span></a>, as it works in any environment. There are also two compositor plugins that have
-slightly more features, but need to be rebuilt on every compositor update.</p>
+<p>For <a class="reference internal" href="hyprland.html"><span class="std std-doc">Hyprland</span></a> and <a class="reference internal" href="standalone.html"><span class="std std-doc">Plasma Wayland</span></a>, the compositor plugins are
+recommended, as currently they are the most reliable. It is necessary to rebuild them on every compositor update.</p>
+<p>For other environments (including those mentioned above) there is a <a class="reference internal" href="standalone.html"><span class="doc std std-doc">standalone</span></a> implementation that operates at evdev level. It is still a work
+in progress.</p>
 <section id="feature-comparison">
 <h2>Feature comparison<a class="headerlink" href="#feature-comparison" title="Link to this heading">¶</a></h2>
 <p>This table only lists features that are not available in all implementations.</p>
-<p>If the standalone implementation turns out to work well, the compositor plugins will be rewritten to work with the daemon, which will reduce the number of
-differences.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>

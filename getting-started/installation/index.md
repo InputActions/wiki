@@ -1,12 +1,12 @@
 # Installation
-The recommended InputActions implementation is [standalone](standalone), as it works in any environment. There are also two compositor plugins that have
-slightly more features, but need to be rebuilt on every compositor update.
+For [Hyprland](/getting-started/installation/hyprland.md) and [Plasma Wayland](/getting-started/installation/standalone.md), the compositor plugins are
+recommended, as currently they are the most reliable. It is necessary to rebuild them on every compositor update.
+
+For other environments (including those mentioned above) there is a [standalone](standalone) implementation that operates at evdev level. It is still a work
+in progress.
 
 ## Feature comparison
 This table only lists features that are not available in all implementations.
-
-If the standalone implementation turns out to work well, the compositor plugins will be rewritten to work with the daemon, which will reduce the number of
-differences.
 
 :::{list-table}
 :header-rows: 1

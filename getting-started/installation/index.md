@@ -22,7 +22,7 @@ This table only lists features that are not available in all implementations.
 * - InputActions implementation
   - [Standalone](/getting-started/installation/standalone.md) + extension
   - [Hyprland](/getting-started/installation/hyprland.md) (compositor plugin)
-  - [KWin](/getting-started/installation/standalone.md) (compositor plugin)
+  - [KWin](/getting-started/installation/kwin.md) (compositor plugin)
   - [Standalone](/getting-started/installation/standalone.md) + script
   - [Standalone](/getting-started/installation/standalone.md)
   - [Standalone](/getting-started/installation/standalone.md)

@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Example triggers" href="../example-triggers.html"><link rel="prev" title="Standalone" href="installation/standalone.html">
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
         <title>Introduction - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -380,11 +380,9 @@ value is <code class="docutils literal notranslate"><span class="pre">end</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumeup</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="../trigger.html"><span class="doc std std-doc">Trigger</span></a>, <a class="reference internal" href="../actions/index.html"><span class="doc std std-doc">Action</span></a> and everything else in the <code class="docutils literal notranslate"><span class="pre">Core</span></code> section of the sidebar for more information.</p>
-</section>
-<section id="input-event-blocking">
-<h2>Input event blocking<a class="headerlink" href="#input-event-blocking" title="Link to this heading">¶</a></h2>
-<p>Input events are processed and blocked in the compositor. Programs that do not receive events from the compositor will still be able to process them.</p>
+<p>See <a class="reference internal" href="../trigger.html"><span class="doc std std-doc">Trigger</span></a>, <a class="reference internal" href="../actions/index.html"><span class="doc std std-doc">Action</span></a> and everything else in the <code class="docutils literal notranslate"><span class="pre">Core</span></code> section of the sidebar for more information. The list of triggers for a particular
+device can be found at <code class="docutils literal notranslate"><span class="pre">Devices</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">[device]</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Triggers</span></code>.</p>
+<p><img alt="" src="../_images/touchpad_triggers.png" /></p>
 </section>
 <section id="complex-triggers">
 <h2>Complex triggers<a class="headerlink" href="#complex-triggers" title="Link to this heading">¶</a></h2>
@@ -413,7 +411,7 @@ value is <code class="docutils literal notranslate"><span class="pre">end</span>
 <section id="conditions">
 <h2>Conditions<a class="headerlink" href="#conditions" title="Link to this heading">¶</a></h2>
 <p>Conditions allow you to make a trigger activate only if certain criteria are met - finger count, window class, cursor shape and <a class="reference internal" href="../variables.html"><span class="doc std std-doc">much more</span></a>.</p>
-<p>It is also possible to set conditions on actions, though they will not have an effect on whether events are blocked.</p>
+<p>It is also possible to set conditions on actions, though events will be blocked even if no action can be executed.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">touchpad</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
@@ -494,6 +492,89 @@ and triggers are updated from top to bottom. This is a simplification, see <a cl
 <span class="c1"># Global</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">  </span><span class="c1"># No window_class condition</span>
+</pre></div>
+</div>
+</section>
+<section id="yaml-anchors">
+<h2>YAML anchors<a class="headerlink" href="#yaml-anchors" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="../advanced/yaml-anchors.html"><span class="std std-doc">YAML anchors</span></a> can be used to define values (mouse trigger button, strokes etc.) once and reuse them thorough the configuration.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;name</span></code> - Define (can be done anywhere)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*name</span></code> - Reference (must be defined first above the reference)</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_anchors</span><span class="p">:</span><span class="w"> </span><span class="c1"># Prefixed with _ to prevent potential conflicts with future properties, may be renamed to anything</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;mouse_stroke_button</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">back</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_up</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;MGQA0DMnPMwwAGQA&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_left</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;ZDIAnQAxZAA=&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_down</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;MAAAMTNkZAA=&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_circle_clockwise</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;PgwAAE8LBRldGgwpZDEUN19LHUhTWSNgMl0uphJTObUERj/JAChJ2gUaT/AaDVf7QAZkAA==&#39;</span><span class="w">  </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_circle_counterclockwise</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;UQsAojwHBl0mDA1UFBYTSgcjGT8AMx8yAEEjIgpWKhEXXi8CKl81+UBaPO9YS0XiZDtLzGInUbtZGVayRAhfpTUEZAA=&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">mouse</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stroke</span>
+<span class="w">      </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="nv">*stroke_up</span>
+<span class="w">      </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="nv">*mouse_stroke_button</span>
+<span class="w">      </span><span class="c1"># ...</span>
+</pre></div>
+</div>
+</section>
+<section id="trigger-groups">
+<h2>Trigger groups<a class="headerlink" href="#trigger-groups" title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href="../advanced/trigger-groups.html"><span class="std std-doc">Trigger groups</span></a> apply a set of properties to all triggers specified in the <code class="docutils literal notranslate"><span class="pre">gestures</span></code> property of the group and can be nested.</p>
+<p>Conditions are merged into an <code class="docutils literal notranslate"><span class="pre">all:</span></code> condition group consisting of the group’s and the trigger’s condition.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_anchors</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;mouse_stroke_button</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">back</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_up</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;MGQA0DMnPMwwAGQA&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_down</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;MAAAMTNkZAA=&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">mouse</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$window_class == firefox</span>
+<span class="w">      </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># Firefox triggers</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stroke</span>
+<span class="w">          </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="nv">*mouse_stroke_button</span>
+
+<span class="w">          </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">            </span><span class="c1"># Stroke triggers</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="nv">*stroke_up</span>
+<span class="w">              </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl+t</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="nv">*stroke_down</span>
+<span class="w">              </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl+n</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">        </span><span class="c1"># Other Firefox triggers</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">press</span>
+<span class="w">          </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">extra7</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">          </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">back</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$window_class == VSCodium</span>
+<span class="w">      </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># VSCodium triggers</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stroke</span>
+<span class="w">          </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="nv">*mouse_stroke_button</span>
+
+<span class="w">          </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">            </span><span class="c1"># Stroke triggers</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="nv">*stroke_up</span>
+<span class="w">              </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl+pageup</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="nv">*stroke_down</span>
+<span class="w">              </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl+pagedown</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </section>
@@ -580,11 +661,12 @@ it will not set the <code class="docutils literal notranslate"><span class="pre"
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
 <li><a class="reference internal" href="#first-trigger">First trigger</a></li>
-<li><a class="reference internal" href="#input-event-blocking">Input event blocking</a></li>
 <li><a class="reference internal" href="#complex-triggers">Complex triggers</a></li>
 <li><a class="reference internal" href="#conditions">Conditions</a></li>
 <li><a class="reference internal" href="#bidirectional-triggers">Bidirectional triggers</a></li>
 <li><a class="reference internal" href="#conflicting-triggers">Conflicting triggers</a></li>
+<li><a class="reference internal" href="#yaml-anchors">YAML anchors</a></li>
+<li><a class="reference internal" href="#trigger-groups">Trigger groups</a></li>
 <li><a class="reference internal" href="#chaining-triggers">Chaining triggers</a></li>
 </ul>
 </li>

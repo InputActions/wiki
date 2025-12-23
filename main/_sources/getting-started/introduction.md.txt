@@ -41,10 +41,10 @@ touchpad:
             - keyboard: [ volumeup ]
 ```
 
-See [](/trigger), [](/actions/index) and everything else in the ``Core`` section of the sidebar for more information.
+See [](/trigger), [](/actions/index) and everything else in the ``Core`` section of the sidebar for more information. The list of triggers for a particular
+device can be found at ``Devices`` -> ``[device]`` -> ``Triggers``.
 
-## Input event blocking
-Input events are processed and blocked in the compositor. Programs that do not receive events from the compositor will still be able to process them.
+![](/_static/images/touchpad_triggers.png)
 
 ## Complex triggers
 Complex triggers will require multiple actions that execute at different points of the trigger's lifecycle. Here is an example three-finger window drag trigger.
@@ -72,7 +72,7 @@ Complex triggers will require multiple actions that execute at different points 
 ## Conditions
 Conditions allow you to make a trigger activate only if certain criteria are met - finger count, window class, cursor shape and [much more](/variables).
 
-It is also possible to set conditions on actions, though they will not have an effect on whether events are blocked.
+It is also possible to set conditions on actions, though events will be blocked even if no action can be executed.
 
 ```yaml
 touchpad:
@@ -157,6 +157,89 @@ The proper solution is:
 # Global
 - type: ...
   # No window_class condition
+```
+
+## YAML anchors
+[YAML anchors](/advanced/yaml-anchors.md) can be used to define values (mouse trigger button, strokes etc.) once and reuse them thorough the configuration.
+
+- ``&name`` - Define (can be done anywhere)
+- ``*name`` - Reference (must be defined first above the reference)
+
+```yaml
+_anchors: # Prefixed with _ to prevent potential conflicts with future properties, may be renamed to anything
+  - &mouse_stroke_button [ back ]
+  - &stroke_up [ 'MGQA0DMnPMwwAGQA' ]
+  - &stroke_left [ 'ZDIAnQAxZAA=' ]
+  - &stroke_down [ 'MAAAMTNkZAA=' ]
+  - &stroke_circle_clockwise [ 'PgwAAE8LBRldGgwpZDEUN19LHUhTWSNgMl0uphJTObUERj/JAChJ2gUaT/AaDVf7QAZkAA=='  ]
+  - &stroke_circle_counterclockwise [ 'UQsAojwHBl0mDA1UFBYTSgcjGT8AMx8yAEEjIgpWKhEXXi8CKl81+UBaPO9YS0XiZDtLzGInUbtZGVayRAhfpTUEZAA=' ]
+
+mouse:
+  gestures:
+    - type: stroke
+      strokes: *stroke_up
+      mouse_buttons: *mouse_stroke_button
+      # ...
+```
+
+## Trigger groups
+[Trigger groups](/advanced/trigger-groups.md) apply a set of properties to all triggers specified in the ``gestures`` property of the group and can be nested.
+
+Conditions are merged into an ``all:`` condition group consisting of the group's and the trigger's condition.
+
+```yaml
+_anchors:
+  - &mouse_stroke_button [ back ]
+  - &stroke_up [ 'MGQA0DMnPMwwAGQA' ]
+  - &stroke_down [ 'MAAAMTNkZAA=' ]
+
+mouse:
+  gestures:
+    - conditions:
+        - $window_class == firefox
+      gestures:
+        # Firefox triggers
+        - type: stroke
+          mouse_buttons: *mouse_stroke_button
+
+          gestures:
+            # Stroke triggers
+            - strokes: *stroke_up
+              actions:
+                - input:
+                    - keyboard: [ leftctrl+t ]
+
+            - strokes: *stroke_down
+              actions:
+                - input:
+                    - keyboard: [ leftctrl+n ]
+
+        # Other Firefox triggers
+        - type: press
+          mouse_buttons: [ extra7 ]
+
+          actions:
+            - input:
+                - mouse: [ back ]
+
+    - conditions:
+        - $window_class == VSCodium
+      gestures:
+        # VSCodium triggers
+        - type: stroke
+          mouse_buttons: *mouse_stroke_button
+
+          gestures:
+            # Stroke triggers
+            - strokes: *stroke_up
+              actions:
+                - input:
+                    - keyboard: [ leftctrl+pageup ]
+
+            - strokes: *stroke_down
+              actions:
+                - input:
+                    - keyboard: [ leftctrl+pagedown ]
 ```
 
 ## Chaining triggers

@@ -22,8 +22,8 @@ All touchpad triggers have the following additional properties:
 
 circle
 click
+hold
 pinch
-press
 rotate
 stroke
 swipe

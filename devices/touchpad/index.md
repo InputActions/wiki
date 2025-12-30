@@ -51,7 +51,7 @@ Inherits <project:/config.md#eventhandler>.
 
 * - click_timeout
   - *time*
-  - The time during which a click trigger must be performed. If not, a press trigger will be started.
+  - The time during which a click trigger must be performed. If not, a hold trigger will be started.
   - ``200``
 
 * - delta_multiplier

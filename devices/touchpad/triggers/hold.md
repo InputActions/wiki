@@ -1,4 +1,4 @@
-# Press
+# Hold
 :::{list-table}
 * - **Inherits**
   - [](/trigger)
@@ -16,4 +16,4 @@
 ## Description
 Performed by placing fingers on the touchpad and not moving them.
 
-Single- and two-finger press triggers begin almost immediately. Three- and four-finger triggers have a significant delay added by libinput.
+Single- and two-finger hold triggers begin almost immediately. Three- and four-finger triggers have a significant delay added by libinput.

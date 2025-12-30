@@ -241,8 +241,8 @@
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/touchpad/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/circle.html">Circle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/click.html">Click</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/hold.html">Hold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/pinch.html">Pinch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/press.html">Press</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/rotate.html">Rotate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/stroke.html">Stroke</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../devices/touchpad/triggers/swipe.html">Swipe</a></li>
@@ -582,7 +582,7 @@ and triggers are updated from top to bottom. This is a simplification, see <a cl
 <h2>Chaining triggers<a class="headerlink" href="#chaining-triggers" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">last_trigger_id</span></code> variable contains the ID of the last trigger. You can use it to have a trigger activate only if another specific trigger had been
 performed immediately prior.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">press</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hold</span>
 <span class="w">  </span><span class="nt">fingers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hold_2</span>
 

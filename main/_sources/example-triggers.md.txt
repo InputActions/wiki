@@ -405,7 +405,7 @@ From this point onwards triggers will only have placeholder actions.
   Place one finger in the middle then another one on the left/right. The trigger will not activate if the second finger is removed too quickly.
 
   ```yaml
-  - type: press
+  - type: hold
     fingers: 2
 
     conditions:
@@ -417,7 +417,7 @@ From this point onwards triggers will only have placeholder actions.
         input:
           - keyboard: [ a ]
 
-  - type: press
+  - type: hold
     fingers: 2
 
     conditions:

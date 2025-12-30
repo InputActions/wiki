@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Stroke" href="stroke.html"><link rel="prev" title="Pinch" href="pinch.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Pinch" href="pinch.html"><link rel="prev" title="Click" href="click.html">
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
-        <title>Rotate - InputActions main</title>
+        <title>Hold - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -241,9 +241,9 @@
 <li class="toctree-l3 current has-children"><a class="reference internal" href="index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="circle.html">Circle</a></li>
 <li class="toctree-l4"><a class="reference internal" href="click.html">Click</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hold.html">Hold</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Hold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pinch.html">Pinch</a></li>
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Rotate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rotate.html">Rotate</a></li>
 <li class="toctree-l4"><a class="reference internal" href="stroke.html">Stroke</a></li>
 <li class="toctree-l4"><a class="reference internal" href="swipe.html">Swipe</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tap.html">Tap</a></li>
@@ -303,7 +303,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/devices/touchpad/triggers/rotate.md.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/devices/touchpad/triggers/hold.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -321,8 +321,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="rotate">
-<h1>Rotate<a class="headerlink" href="#rotate" title="Link to this heading">¶</a></h1>
+          <section id="hold">
+<h1>Hold<a class="headerlink" href="#hold" title="Link to this heading">¶</a></h1>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
@@ -333,32 +333,18 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">tick</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Finger count range</strong></p></td>
-<td><p>2-4</p></td>
+<td><p>1-4</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Type</strong></p></td>
-<td><p>Motion trigger (delta based on angle)</p></td>
+<td><p>Time-based trigger</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>direction</strong></p></td>
-<td><p><em>enum(clockwise, counterclockwise, any)</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">any</span></code> allows multiple directions.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Performed by placing fingers on the touchpad and not moving them.</p>
+<p>Single- and two-finger hold triggers begin almost immediately. Three- and four-finger triggers have a significant delay added by libinput.</p>
 </section>
 </section>
 
@@ -367,23 +353,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="stroke.html">
+          <a class="next-page" href="pinch.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Stroke</div>
+                <div class="title">Pinch</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="pinch.html">
+          <a class="prev-page" href="click.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Pinch</div>
+                <div class="title">Click</div>
                 
               </div>
             </a>
@@ -417,8 +403,8 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Rotate</a><ul>
-<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#">Hold</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
 </ul>
 </li>
 </ul>

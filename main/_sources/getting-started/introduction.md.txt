@@ -247,7 +247,7 @@ The ``last_trigger_id`` variable contains the ID of the last trigger. You can us
 performed immediately prior.
 
 ```yaml
-- type: press
+- type: hold
   fingers: 2
   id: hold_2
 

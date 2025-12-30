@@ -79,7 +79,7 @@ specific cases.
   - Default
 
 * - **type**
-  - *enum(circle, click, hover, pinch, press, rotate, shortcut, stroke, swipe, tap, wheel)*
+  - *enum(circle, click, hold, hover, pinch, press, rotate, shortcut, stroke, swipe, tap, wheel)*
   - Same as the trigger's name but lowercase.
   -
 

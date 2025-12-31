@@ -74,34 +74,35 @@ Variables are currently only used in conditions and cannot be created by users.
   - *time*
   - Time in milliseconds since ``last_trigger_id`` was set.
 
-* - window{_under}_class
+* - window{_under_pointer}_class
   - *string*
   - The window's resource class.
 
-* - window{_under}_fullscreen
+* - window{_under_pointer}_fullscreen
   - *bool*
   - Whether the window is fullscreen.
 
-* - window{_under}_id
+* - window{_under_pointer}_id
   - *string*
   - The window's identifier.
 
-* - window{_under}_maximized
+* - window{_under_pointer}_maximized
   - *bool*
   - Whether the active window is maximized.
 
-* - window{_under}_name
+* - window{_under_pointer}_name
   - *string*
   - The window's resource name.
 
-* - window{_under}_title
+* - window{_under_pointer}_title
   - *string*
   - 
 :::
 
 All variables of the *point* type have variants with the ``_x`` and ``_y`` suffixes that return the X and Y values respectively.
 
-``window_`` variables have ``window_under_`` variants that return information about the window the pointer is hovering over.
+``window_`` variables have ``window_under_pointer_`` variants that return information about the window the pointer is hovering over. ``window_under_``
+variables are aliased to ``window_under_pointer_``.
 
 ## Commands
 Variables can be referenced in commands (``$name``) and will be provided as environment variables if the value is not null. For boolean variables, the value

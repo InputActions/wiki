@@ -179,7 +179,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
      mouse_buttons: [ right ]
 
      actions:
-       - command: kdotool windowminimize $window_under_id
+       - command: kdotool windowminimize $window_under_pointer_id
   ```
 </details>
 

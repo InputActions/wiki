@@ -20,7 +20,7 @@ conditions:
   - $pointer_position_screen_percentage >= 0.99;0.99 # Bottom-right corner
   - $pointer_position_window_percentage between 0.4,0.4;0.6,0.6 # Middle
   - $cursor_shape != text
-  - $window_id == $window_under_id # pointer is over active window
+  - $window_id == $window_under_pointer_id # pointer is over active window
 ```
 
 ```{toctree}

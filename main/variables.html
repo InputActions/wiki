@@ -399,27 +399,27 @@
 <td><p><em>time</em></p></td>
 <td><p>Time in milliseconds since <code class="docutils literal notranslate"><span class="pre">last_trigger_id</span></code> was set.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window{_under}_class</p></td>
+<tr class="row-odd"><td><p>window{_under_pointer}_class</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s resource class.</p></td>
 </tr>
-<tr class="row-even"><td><p>window{_under}_fullscreen</p></td>
+<tr class="row-even"><td><p>window{_under_pointer}_fullscreen</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the window is fullscreen.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window{_under}_id</p></td>
+<tr class="row-odd"><td><p>window{_under_pointer}_id</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s identifier.</p></td>
 </tr>
-<tr class="row-even"><td><p>window{_under}_maximized</p></td>
+<tr class="row-even"><td><p>window{_under_pointer}_maximized</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the active window is maximized.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window{_under}_name</p></td>
+<tr class="row-odd"><td><p>window{_under_pointer}_name</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s resource name.</p></td>
 </tr>
-<tr class="row-even"><td><p>window{_under}_title</p></td>
+<tr class="row-even"><td><p>window{_under_pointer}_title</p></td>
 <td><p><em>string</em></p></td>
 <td></td>
 </tr>
@@ -427,7 +427,8 @@
 </table>
 </div>
 <p>All variables of the <em>point</em> type have variants with the <code class="docutils literal notranslate"><span class="pre">_x</span></code> and <code class="docutils literal notranslate"><span class="pre">_y</span></code> suffixes that return the X and Y values respectively.</p>
-<p><code class="docutils literal notranslate"><span class="pre">window_</span></code> variables have <code class="docutils literal notranslate"><span class="pre">window_under_</span></code> variants that return information about the window the pointer is hovering over.</p>
+<p><code class="docutils literal notranslate"><span class="pre">window_</span></code> variables have <code class="docutils literal notranslate"><span class="pre">window_under_pointer_</span></code> variants that return information about the window the pointer is hovering over. <code class="docutils literal notranslate"><span class="pre">window_under_</span></code>
+variables are aliased to <code class="docutils literal notranslate"><span class="pre">window_under_pointer_</span></code>.</p>
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">¶</a></h2>
 <p>Variables can be referenced in commands (<code class="docutils literal notranslate"><span class="pre">$name</span></code>) and will be provided as environment variables if the value is not null. For boolean variables, the value

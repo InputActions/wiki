@@ -187,7 +187,7 @@ This table only lists features that are not available in all implementations.
   - ❌
   - ❌
 
-* - Window resource class (``window{_under}_class`` variable)
+* - Window resource class (``window{_under_pointer}_class`` variable)
   - ✅
   - ✅
   - ✅
@@ -195,7 +195,7 @@ This table only lists features that are not available in all implementations.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - Window resource name (``window{_under}_name`` variable)
+* - Window resource name (``window{_under_pointer}_name`` variable)
   - ✅
   - ❌
   - ✅
@@ -203,7 +203,7 @@ This table only lists features that are not available in all implementations.
   - ❌
   - ❌
 
-* - Window fullscreen state (``window{_under}_fullscreen`` variable)
+* - Window fullscreen state (``window{_under_pointer}_fullscreen`` variable)
   - ✅
   - ❌
   - ✅
@@ -211,7 +211,7 @@ This table only lists features that are not available in all implementations.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - Window maximized state (``window{_under}_maximized`` variable)
+* - Window maximized state (``window{_under_pointer}_maximized`` variable)
   - ✅
   - ✅
   - ✅
@@ -219,7 +219,7 @@ This table only lists features that are not available in all implementations.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - Window title (``window{_under}_title`` variable)
+* - Window title (``window{_under_pointer}_title`` variable)
   - ✅
   - ✅
   - ✅

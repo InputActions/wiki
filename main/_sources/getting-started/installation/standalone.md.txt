@@ -81,6 +81,11 @@ sudo make install
 ```
 
 ## Post-installation
+:::{warning}
+If you have installed the compositor plugin, make sure to disable it. There is currently no protection against running it and the standalone version
+simultaneously.
+:::
+
 1. Enable the daemon (``/usr/bin/inputactionsd``):
    ```
    sudo systemctl enable --now inputactionsd

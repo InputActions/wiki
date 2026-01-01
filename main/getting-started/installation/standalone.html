@@ -405,6 +405,11 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 </section>
 <section id="post-installation">
 <h2>Post-installation<a class="headerlink" href="#post-installation" title="Link to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have installed the compositor plugin, make sure to disable it. There is currently no protection against running it and the standalone version
+simultaneously.</p>
+</div>
 <ol class="arabic">
 <li><p>Enable the daemon (<code class="docutils literal notranslate"><span class="pre">/usr/bin/inputactionsd</span></code>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="o">--</span><span class="n">now</span> <span class="n">inputactionsd</span>

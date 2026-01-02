@@ -18,7 +18,8 @@ Draw any shape. At the end of the trigger, the performed stroke is compared agai
 (must be at least 70%) is ended, while all others are cancelled. **Only ``on: end`` actions are supported, making this trigger not suitable for certain use
 cases.**
 
-Strokes can be recorded using the stroke recorder at *System Settings* -> *Desktop Effects* -> *Input Actions (configure)* or DBus: ``inputactions record-stroke``.
+Strokes can be recorded using the stroke recorder at *System Settings* -> *Desktop Effects* -> *Input Actions (configure)* or the control tool:
+``inputactions record-stroke``.
 
 ## Properties
 :::{list-table}

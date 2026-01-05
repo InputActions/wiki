@@ -342,7 +342,7 @@
     nixpkgs<span class="o">.</span><span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:nixos/nixpkgs/nixos-unstable&quot;</span><span class="p">;</span>
 
     <span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:taj-ny/InputActions&quot;</span><span class="p">;</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/taj-ny/InputActions?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
   <span class="p">};</span>
@@ -392,7 +392,7 @@
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/taj-ny/InputActions
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
 <span class="nb">cd</span><span class="w"> </span>InputActions
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build

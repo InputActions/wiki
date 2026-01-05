@@ -349,7 +349,7 @@
     nixpkgs<span class="o">.</span><span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:nixos/nixpkgs/nixos-unstable&quot;</span><span class="p">;</span>
 
     <span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:taj-ny/InputActions&quot;</span><span class="p">;</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/taj-ny/InputActions?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
   <span class="p">};</span>
@@ -400,7 +400,7 @@
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/taj-ny/InputActions
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
 <span class="nb">cd</span><span class="w"> </span>InputActions
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
@@ -415,7 +415,7 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 <p>Build the plugin in a container. The image’s KWin version must be the same as the one on your real system.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter container</span>
 sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>extra-cmake-modules<span class="w"> </span>gcc-g++<span class="w"> </span>qt6-qtbase-devel<span class="w"> </span>kwin-devel<span class="w"> </span>kf6-ki18n-devel<span class="w"> </span>kf6-kguiaddons-devel<span class="w"> </span>kf6-kcmutils-devel<span class="w"> </span>kf6-kconfigwidgets-devel<span class="w"> </span>qt6-qtbase<span class="w"> </span>kf6-kguiaddons<span class="w"> </span>kf6-ki18n<span class="w"> </span>wayland-devel<span class="w"> </span>yaml-cpp<span class="w"> </span>yaml-cpp-devel<span class="w"> </span>libepoxy-devel<span class="w"> </span>libevdev<span class="w"> </span>libevdev-devel<span class="w"> </span>libdrm-devel<span class="w"> </span>rpmbuild
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/taj-ny/InputActions
+git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
 <span class="nb">cd</span><span class="w"> </span>InputActions
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build

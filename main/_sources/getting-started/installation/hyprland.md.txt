@@ -9,7 +9,7 @@
   {
     inputs = {
       inputactions = {
-        url = "github:taj-ny/InputActions";
+        url = "git+https://github.com/taj-ny/InputActions?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.hyprland.follows = "hyprland"; # Use if hyprland is in inputs too
       };
@@ -42,7 +42,7 @@
 ### Installation
 First, build the control tool:
 ```sh
-git clone https://github.com/taj-ny/InputActions
+git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
 mkdir build
 cd build

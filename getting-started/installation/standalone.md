@@ -18,7 +18,7 @@ For package maintainers: this is the main version and should be called ``inputac
       nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
       inputactions = {
-        url = "github:taj-ny/InputActions";
+        url = "git+https://github.com/taj-ny/InputActions?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
       };
     };
@@ -71,7 +71,7 @@ For package maintainers: this is the main version and should be called ``inputac
 
 ### Installation
 ```sh
-git clone https://github.com/taj-ny/InputActions
+git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
 mkdir build
 cd build

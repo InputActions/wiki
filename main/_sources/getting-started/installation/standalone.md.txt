@@ -112,6 +112,7 @@ device_rules:
           - $types contains keyboard # keyboards must be grabbed for Trigger.clear_modifiers to work
           - $types contains mouse # ungrabbed mice are currently very buggy
           - $types contains touchpad # touchpad event filtering is experimental and may cause issues
+          - $types contains touchscreen
         - none: # blacklist
           - $name == Yubico YubiKey OTP+FIDO+CCID
     grab: true

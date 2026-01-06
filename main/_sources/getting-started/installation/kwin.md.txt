@@ -3,7 +3,8 @@
 It is necessary to restart KWin after updating the plugin, otherwise the newer version will not be loaded and the old one will be used instead.
 :::
 
-The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0.
+The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0. If a new feature requires additional changes to work on older versions, it will
+likely be made available only on the latest one.
 
 ## Packages
 <details>

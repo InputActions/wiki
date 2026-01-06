@@ -251,20 +251,33 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="devices/touchscreen/index.html">Touchscreen</a><input aria-label="Toggle navigation of Touchscreen" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="devices/touchscreen/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/circle.html">Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/hold.html">Hold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/pinch.html">Pinch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/rotate.html">Rotate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/stroke.html">Stroke</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/swipe.html">Swipe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="devices/touchscreen/triggers/tap.html">Tap</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="actions/index.html">Actions</a><input aria-label="Toggle navigation of Actions" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="actions/index.html">Actions</a><input aria-label="Toggle navigation of Actions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="actions/command.html">Command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/input.html">Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/plasma-shortcut.html">Plasma shortcut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/sleep.html">Sleep</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="actions/groups/index.html">Groups</a><input aria-label="Toggle navigation of Groups" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="actions/groups/index.html">Groups</a><input aria-label="Toggle navigation of Groups" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="actions/groups/one.html">One</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="conditions/index.html">Conditions</a><input aria-label="Toggle navigation of Conditions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="conditions/index.html">Conditions</a><input aria-label="Toggle navigation of Conditions" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="conditions/variable.html">Variable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conditions/group.html">Group</a></li>
 </ul>
@@ -273,7 +286,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
@@ -399,27 +412,39 @@
 <td><p><em>time</em></p></td>
 <td><p>Time in milliseconds since <code class="docutils literal notranslate"><span class="pre">last_trigger_id</span></code> was set.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window{_under_pointer}_class</p></td>
+<tr class="row-odd"><td><p>window_class<br>
+window_under_fingers_class<br>
+window_under_pointer_class</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s resource class.</p></td>
 </tr>
-<tr class="row-even"><td><p>window{_under_pointer}_fullscreen</p></td>
+<tr class="row-even"><td><p>window_fullscreen<br>
+window_under_fingers_fullscreen<br>
+window_under_pointer_fullscreen</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the window is fullscreen.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window{_under_pointer}_id</p></td>
+<tr class="row-odd"><td><p>window_id<br>
+window_under_fingers_id<br>
+window_under_pointer_id</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s identifier.</p></td>
 </tr>
-<tr class="row-even"><td><p>window{_under_pointer}_maximized</p></td>
+<tr class="row-even"><td><p>window_maximized<br>
+window_under_fingers_maximized<br>
+window_under_pointer_maximized</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the active window is maximized.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window{_under_pointer}_name</p></td>
+<tr class="row-odd"><td><p>window_name<br>
+window_under_fingers_name<br>
+window_under_pointer_name</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s resource name.</p></td>
 </tr>
-<tr class="row-even"><td><p>window{_under_pointer}_title</p></td>
+<tr class="row-even"><td><p>window_title<br>
+window_under_fingers_title<br>
+window_under_pointer_title</p></td>
 <td><p><em>string</em></p></td>
 <td></td>
 </tr>
@@ -427,8 +452,8 @@
 </table>
 </div>
 <p>All variables of the <em>point</em> type have variants with the <code class="docutils literal notranslate"><span class="pre">_x</span></code> and <code class="docutils literal notranslate"><span class="pre">_y</span></code> suffixes that return the X and Y values respectively.</p>
-<p><code class="docutils literal notranslate"><span class="pre">window_</span></code> variables have <code class="docutils literal notranslate"><span class="pre">window_under_pointer_</span></code> variants that return information about the window the pointer is hovering over. <code class="docutils literal notranslate"><span class="pre">window_under_</span></code>
-variables are aliased to <code class="docutils literal notranslate"><span class="pre">window_under_pointer_</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">window_</span></code> variables refer to the active window, <code class="docutils literal notranslate"><span class="pre">window_under_pointer_</span></code> - window under the cursor and <code class="docutils literal notranslate"><span class="pre">window_under_fingers_</span></code> - window under the finger
+placed on a touchscreen (in case of multiple fingers, under the center).</p>
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">¶</a></h2>
 <p>Variables can be referenced in commands (<code class="docutils literal notranslate"><span class="pre">$name</span></code>) and will be provided as environment variables if the value is not null. For boolean variables, the value

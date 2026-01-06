@@ -96,7 +96,7 @@ Variables are currently only used in conditions and cannot be created by users.
     window_under_fingers_maximized<br>
     window_under_pointer_maximized
   - *bool*
-  - Whether the active window is maximized.
+  - Whether the window is maximized.
 
 * - window_name<br>
     window_under_fingers_name<br>
@@ -108,7 +108,7 @@ Variables are currently only used in conditions and cannot be created by users.
     window_under_fingers_title<br>
     window_under_pointer_title
   - *string*
-  - 
+  - The window's title.
 :::
 
 All variables of the *point* type have variants with the ``_x`` and ``_y`` suffixes that return the X and Y values respectively.

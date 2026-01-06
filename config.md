@@ -162,6 +162,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - *<project:/devices/touchpad/index.md#touchpadeventhandler>*
   - 
   - 
+
+* - touchscreen
+  - *<project:/devices/touchscreen/index.md#touchscreeneventhandler>*
+  -
+  -
 :::
 
 ### EventHandler

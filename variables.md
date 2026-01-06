@@ -74,35 +74,47 @@ Variables are currently only used in conditions and cannot be created by users.
   - *time*
   - Time in milliseconds since ``last_trigger_id`` was set.
 
-* - window{_under_pointer}_class
+* - window_class<br>
+    window_under_fingers_class<br>
+    window_under_pointer_class
   - *string*
   - The window's resource class.
 
-* - window{_under_pointer}_fullscreen
+* - window_fullscreen<br>
+    window_under_fingers_fullscreen<br>
+    window_under_pointer_fullscreen
   - *bool*
   - Whether the window is fullscreen.
 
-* - window{_under_pointer}_id
+* - window_id<br>
+    window_under_fingers_id<br>
+    window_under_pointer_id
   - *string*
   - The window's identifier.
 
-* - window{_under_pointer}_maximized
+* - window_maximized<br>
+    window_under_fingers_maximized<br>
+    window_under_pointer_maximized
   - *bool*
   - Whether the active window is maximized.
 
-* - window{_under_pointer}_name
+* - window_name<br>
+    window_under_fingers_name<br>
+    window_under_pointer_name
   - *string*
   - The window's resource name.
 
-* - window{_under_pointer}_title
+* - window_title<br>
+    window_under_fingers_title<br>
+    window_under_pointer_title
   - *string*
   - 
 :::
 
 All variables of the *point* type have variants with the ``_x`` and ``_y`` suffixes that return the X and Y values respectively.
 
-``window_`` variables have ``window_under_pointer_`` variants that return information about the window the pointer is hovering over. ``window_under_``
-variables are aliased to ``window_under_pointer_``.
+``window_`` variables refer to the active window, ``window_under_pointer_`` - window under the cursor and ``window_under_fingers_`` - window under the finger
+placed on a touchscreen (in case of multiple fingers, under the center).
 
 ## Commands
 Variables can be referenced in commands (``$name``) and will be provided as environment variables if the value is not null. For boolean variables, the value

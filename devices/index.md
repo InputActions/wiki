@@ -6,6 +6,7 @@ keyboard/index
 mouse/index
 pointer/index
 touchpad/index
+touchscreen/index
 ```
 
 ## DeviceRule

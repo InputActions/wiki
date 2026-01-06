@@ -1,5 +1,6 @@
 # Version selector
 - <a href="/main">Latest Git</a>
+- <a href="/v0.8.4">v0.8.4</a>
 - <a href="/v0.8.3">v0.8.3</a>
 - <a href="/v0.8.2">v0.8.2</a>
 - <a href="/v0.8.1">v0.8.1</a>

@@ -97,7 +97,7 @@ Build the plugin in a container. The image's KWin version must be the same as th
 
 ```sh
 # enter container
-sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel kwin-devel kf6-ki18n-devel kf6-kguiaddons-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel qt6-qtbase kf6-kguiaddons kf6-ki18n wayland-devel yaml-cpp yaml-cpp-devel libepoxy-devel libevdev libevdev-devel libdrm-devel rpmbuild
+sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel kwin-devel kf6-ki18n-devel kf6-kguiaddons-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel qt6-qtbase kf6-kguiaddons kf6-ki18n wayland-devel yaml-cpp yaml-cpp-devel libepoxy-devel libevdev libevdev-devel libdrm-devel cli11-devel rpmbuild
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
 mkdir build
@@ -110,7 +110,7 @@ sudo rpm-ostree install InputActions/build/inputactions.rpm
 ```
 
 ## After installation
-To enable the plugin, run 
+To enable the plugin, run
 ```sh
 qdbus6 org.kde.KWin /Effects org.kde.kwin.Effects.loadEffect kwin_gestures
 ```

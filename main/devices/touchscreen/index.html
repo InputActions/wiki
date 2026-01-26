@@ -356,10 +356,9 @@
 <h3>Window under fingers<a class="headerlink" href="#window-under-fingers" title="Link to this heading">¶</a></h3>
 <p>Information about the window located under the center of all touch points is available in <code class="docutils literal notranslate"><span class="pre">window_under_fingers_*</span></code> variables.</p>
 </section>
-<section id="compositors-plugins-and-multiple-touchscreens">
-<h3>Compositors plugins and multiple touchscreens<a class="headerlink" href="#compositors-plugins-and-multiple-touchscreens" title="Link to this heading">¶</a></h3>
-<p>The compositor plugin implementations may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule
-must be created to ignore all but one touchscreen.</p>
+<section id="kwin-and-multiple-touchscreens">
+<h3>KWin and multiple touchscreens<a class="headerlink" href="#kwin-and-multiple-touchscreens" title="Link to this heading">¶</a></h3>
+<p>The KWin plugin may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule must be created to ignore all but one touchscreen.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">device_rules</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$name != touchscreen name</span>
 <span class="w">    </span><span class="nt">ignore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -434,7 +433,7 @@ must be created to ignore all but one touchscreen.</p>
 <li><a class="reference internal" href="#description">Description</a><ul>
 <li><a class="reference internal" href="#event-filtering">Event filtering</a></li>
 <li><a class="reference internal" href="#window-under-fingers">Window under fingers</a></li>
-<li><a class="reference internal" href="#compositors-plugins-and-multiple-touchscreens">Compositors plugins and multiple touchscreens</a></li>
+<li><a class="reference internal" href="#kwin-and-multiple-touchscreens">KWin and multiple touchscreens</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#touchscreeneventhandler">TouchscreenEventHandler</a></li>

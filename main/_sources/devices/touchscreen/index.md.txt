@@ -14,9 +14,8 @@ Touchscreen event filtering requires blocking all events by default until a gest
 ### Window under fingers
 Information about the window located under the center of all touch points is available in ``window_under_fingers_*`` variables.
 
-### Compositors plugins and multiple touchscreens
-The compositor plugin implementations may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule
-must be created to ignore all but one touchscreen.
+### KWin and multiple touchscreens
+The KWin plugin may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule must be created to ignore all but one touchscreen.
 
 ```yaml
 device_rules:

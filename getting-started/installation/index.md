@@ -116,16 +116,8 @@ This table only lists features that are not available in all implementations.
   -
 
 * - **Touchscreen**
-  -
-  -
-  -
-  -
-  -
-  -
-
-* - Support
   - ✅
-  - ❌
+  - ✅
   - ✅ (6.5+)
   - ✅
   - ✅
@@ -133,7 +125,7 @@ This table only lists features that are not available in all implementations.
 
 * - Window under fingers info (``window_under_fingers_`` variables)
   - ❌
-  - ❌
+  - ✅
   - ✅
   - ❌
   - ❌

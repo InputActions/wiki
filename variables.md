@@ -24,7 +24,7 @@ Variables are currently only used in conditions and cannot be created by users.
 
 * - finger_{1..5}_pressure
   - *number*
-  - 
+  -
 
 * - fingers
   - *number*
@@ -103,6 +103,12 @@ Variables are currently only used in conditions and cannot be created by users.
     window_under_pointer_name
   - *string*
   - The window's resource name.
+
+* - window_pid<br>
+    window_under_fingers_pid<br>
+    window_under_pointer_pid
+  - *number*
+  - The window's process ID.
 
 * - window_title<br>
     window_under_fingers_title<br>

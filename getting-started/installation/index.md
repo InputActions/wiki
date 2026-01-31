@@ -123,7 +123,7 @@ This table only lists features that are not available in all implementations.
   - ✅
   - ✅
 
-* - Window under fingers info (``window_under_fingers_`` variables)
+* - Window under fingers info
   - ❌
   - ✅
   - ✅
@@ -211,7 +211,7 @@ This table only lists features that are not available in all implementations.
   - ❌
   - ❌
 
-* - Window resource class (``window{_under_pointer}_class`` variable)
+* - Window resource class
   - ✅
   - ✅
   - ✅
@@ -219,7 +219,7 @@ This table only lists features that are not available in all implementations.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - Window resource name (``window{_under_pointer}_name`` variable)
+* - Window resource name
   - ✅
   - ❌
   - ✅
@@ -227,7 +227,7 @@ This table only lists features that are not available in all implementations.
   - ❌
   - ❌
 
-* - Window fullscreen state (``window{_under_pointer}_fullscreen`` variable)
+* - Window fullscreen state
   - ✅
   - ❌
   - ✅
@@ -235,7 +235,7 @@ This table only lists features that are not available in all implementations.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - Window maximized state (``window{_under_pointer}_maximized`` variable)
+* - Window maximized state
   - ✅
   - ✅
   - ✅
@@ -243,7 +243,15 @@ This table only lists features that are not available in all implementations.
   - [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1) required
   - ❌
 
-* - Window title (``window{_under_pointer}_title`` variable)
+* - Window PID
+  - ✅
+  - ✅
+  - ✅
+  - ✅
+  - ❌
+  - ❌
+
+* - Window title
   - ✅
   - ✅
   - ✅

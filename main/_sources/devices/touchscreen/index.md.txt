@@ -19,8 +19,10 @@ The KWin plugin may currently not process touchscreen input correctly if multipl
 
 ```yaml
 device_rules:
-  - conditions: $name != touchscreen name
-    ignore: true
+  - conditions:
+      - $types contains touchscreen
+      - $name != device_name # replace 'device_name' with the device's name
+  ignore: true
 ```
 
 ## TouchscreenEventHandler

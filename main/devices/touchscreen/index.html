@@ -360,8 +360,10 @@
 <h3>KWin and multiple touchscreens<a class="headerlink" href="#kwin-and-multiple-touchscreens" title="Link to this heading">¶</a></h3>
 <p>The KWin plugin may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule must be created to ignore all but one touchscreen.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">device_rules</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$name != touchscreen name</span>
-<span class="w">    </span><span class="nt">ignore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types contains touchscreen</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$name != device_name</span><span class="w"> </span><span class="c1"># replace &#39;device_name&#39; with the device&#39;s name</span>
+<span class="w">  </span><span class="nt">ignore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </section>

@@ -22,7 +22,7 @@ device_rules:
   - conditions:
       - $types contains touchscreen
       - $name != device_name # replace 'device_name' with the device's name
-  ignore: true
+    ignore: true
 ```
 
 ## TouchscreenEventHandler

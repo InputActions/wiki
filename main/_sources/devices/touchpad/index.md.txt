@@ -58,11 +58,6 @@ Inherits <project:/config.md#eventhandler>.
   - The time during which a click trigger must be performed. If not, a hold trigger will be started.
   - ``200``
 
-* - delta_multiplier
-  - *float*
-  - Delta multiplier used for *move_by_delta* mouse input actions.
-  - ``1.0``
-
 * - ~~devices~~
   - *map(string, [](#properties))*
   - Device properties where the key is the device name, which can be obtained from variables.

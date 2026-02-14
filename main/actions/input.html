@@ -450,8 +450,8 @@
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">move_by</span> <span class="pre">[x]</span> <span class="pre">[y]</span></code></p></td>
 <td><p>Move the pointer by (<em>x</em>, <em>y</em>).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code></p></td>
-<td><p>Move the pointer by the current delta of a motion trigger. Multiplied by <em><a class="reference internal" href="../devices/touchpad/index.html#touchpadeventhandler"><span class="std std-ref">TouchpadEventHandler</span></a>.delta_multiplier</em>.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">move_by_delta</span> <span class="pre">[multiplier]</span></code></p></td>
+<td><p>Move the pointer by the current delta of a motion trigger. Multiplier is optional and defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">move_to</span> <span class="pre">[x]</span> <span class="pre">[y]</span></code></p></td>
 <td><p>Move the pointer to (<em>x</em>, <em>y</em>).</p></td>
@@ -468,6 +468,7 @@
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">input</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl+n</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">left</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">move_by 10 10</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">move_by_delta</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">move_by_delta 0.5</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">text</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">aaaaaa</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">text</span><span class="p">:</span>

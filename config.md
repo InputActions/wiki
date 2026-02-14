@@ -138,6 +138,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Evaluated from bottom to top, each rule applies properties to all devices that satisfy the rule's conditions.
   -
 
+* - external_variable_access
+  - *bool*
+  - Allow dumping variables by running ``inputactions variables list``.
+  - ``true``
+
 * - notifications.config_error
   - *bool*
   - Send a notification when the configuration fails to load.

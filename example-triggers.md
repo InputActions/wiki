@@ -116,7 +116,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
   - type: swipe
     direction: up
     mouse_buttons: [ left ]
-    
+
     conditions:
       - $keyboard_modifiers == meta
 
@@ -128,7 +128,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
   - type: swipe
     direction: down
     mouse_buttons: [ left ]
-    
+
     conditions:
       - $keyboard_modifiers == meta
 
@@ -161,7 +161,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
   - type: press
     mouse_buttons: [ middle ]
     instant: true
-    
+
     conditions:
       - $pointer_position_screen_percentage_y <= 0.01
 
@@ -187,8 +187,6 @@ Read [](/getting-started/introduction) first before complaining that these do no
 <details>
   <summary>Swipe 3 - Window drag</summary>
 
-Set *<project:/devices/touchpad/index.md#touchpadeventhandler>.delta_multiplier* to make the trigger faster or slower.
-
   ```yaml
   - type: swipe
     fingers: 3
@@ -204,7 +202,7 @@ Set *<project:/devices/touchpad/index.md#touchpadeventhandler>.delta_multiplier*
 
       - on: update
         input:
-          - mouse: [ move_by_delta ]
+          - mouse: [ move_by_delta ] # add a multiplier if necessary: "move_by_delta 1.5"
 
       - on: end_cancel
         input:
@@ -267,7 +265,7 @@ Swipe fast - Open alt+tab switcher
     fingers: 4
     direction: left_right
     speed: fast
-    
+
     actions:
       - on: begin
         input:

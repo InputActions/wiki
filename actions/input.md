@@ -89,8 +89,8 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
 * - ``move_by [x] [y]``
   - Move the pointer by (*x*, *y*).
 
-* - ``move_by_delta``
-  - Move the pointer by the current delta of a motion trigger. Multiplied by *<project:/devices/touchpad/index.md#touchpadeventhandler>.delta_multiplier*.
+* - ``move_by_delta [multiplier]``
+  - Move the pointer by the current delta of a motion trigger. Multiplier is optional and defaults to ``1``.
 
 * - ``move_to [x] [y]``
   - Move the pointer to (*x*, *y*).
@@ -104,6 +104,7 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
 input:
   - keyboard: [ leftctrl+n ]
   - mouse: [ left, move_by 10 10 ]
+  - mouse: [ move_by_delta, move_by_delta 0.5 ]
   - keyboard: [ text: aaaaaa ]
   - keyboard:
       - text:

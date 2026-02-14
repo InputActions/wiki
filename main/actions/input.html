@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -345,18 +347,11 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Generates input events at compositor level. Only programs that receive input from the compositor will be able to process them.</p>
-<p>The syntax of this action will change at some point in the future.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Forgetting to release a keyboard key or mouse button can make your session unusable. Using a physical input device will not help.</p>
-<p>Release actions should be performed in <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end_cancel</span></code> actions instead of <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end</span></code> ones.</p>
-</div>
-</section>
+<p>Simulates keyboard and mouse input.</p>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -368,7 +363,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>input</strong></p></td>
-<td><p><em>list(<a class="reference internal" href="#deviceactions"><span class="std std-ref">DeviceActions</span></a>)</em></p></td>
+<td><p><em>list(<a class="reference internal" href="#deviceaction"><span class="std std-ref">DeviceAction</span></a>)</em></p></td>
 <td><p>Input actions to perform.</p></td>
 <td></td>
 </tr>
@@ -380,8 +375,9 @@
 </tbody>
 </table>
 </div>
-<section id="deviceactions">
-<h3>DeviceActions<a class="headerlink" href="#deviceactions" title="Link to this heading">¶</a></h3>
+</section>
+<section id="deviceaction">
+<h3>DeviceAction<a class="headerlink" href="#deviceaction" title="Link to this heading">¶</a></h3>
 <p>Only one property per item allowed.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -400,8 +396,9 @@
 </tbody>
 </table>
 </div>
+</section>
 <section id="keyboardaction">
-<h4>KeyboardAction<a class="headerlink" href="#keyboardaction" title="Link to this heading">¶</a></h4>
+<h3>KeyboardAction<a class="headerlink" href="#keyboardaction" title="Link to this heading">¶</a></h3>
 <p>See <a class="reference internal" href="../devices/keyboard/index.html"><span class="doc std std-doc">Keyboard</span></a>.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -430,7 +427,7 @@
 </div>
 </section>
 <section id="mouseaction">
-<h4>MouseAction<a class="headerlink" href="#mouseaction" title="Link to this heading">¶</a></h4>
+<h3>MouseAction<a class="headerlink" href="#mouseaction" title="Link to this heading">¶</a></h3>
 <p>Button list: <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">middle</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">back</span></code>, <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">task</span></code>, <code class="docutils literal notranslate"><span class="pre">side</span></code>, <code class="docutils literal notranslate"><span class="pre">extra</span></code>, <code class="docutils literal notranslate"><span class="pre">extra6</span></code>, <code class="docutils literal notranslate"><span class="pre">extra7</span></code>, <code class="docutils literal notranslate"><span class="pre">extra8</span></code>, <code class="docutils literal notranslate"><span class="pre">extra9</span></code>, <code class="docutils literal notranslate"><span class="pre">extra10</span></code>,
 <code class="docutils literal notranslate"><span class="pre">extra11</span></code>, <code class="docutils literal notranslate"><span class="pre">extra12</span></code> <code class="docutils literal notranslate"><span class="pre">extra13</span></code>.</p>
 <div class="table-wrapper docutils container">
@@ -466,19 +463,8 @@
 </table>
 </div>
 </section>
-</section>
-</section>
-<section id="known-issues">
-<h2>Known issues<a class="headerlink" href="#known-issues" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Input methods may cause improper processing of keyboard events. Workaround: set <code class="docutils literal notranslate"><span class="pre">delay</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> should be enough.</p></li>
-<li><p>Windows that have just been activated by an action may not process events properly. Workaround: add a <a class="reference internal" href="sleep.html"><span class="doc std std-doc">SleepAction</span></a> after the action that caused the
-activation.</p></li>
-<li><p>Keyboard text is always processed before keys. Workaround: set <code class="docutils literal notranslate"><span class="pre">delay</span></code> or split into multiple actions and add a <a class="reference internal" href="sleep.html"><span class="doc std std-doc">SleepAction</span></a>.</p></li>
-</ul>
-</section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">input</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl+n</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">left</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">move_by 10 10</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -488,6 +474,26 @@ activation.</p></li>
 <span class="w">          </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As triggers may be cancelled, release actions should be performed in <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end_cancel</span></code> actions instead of <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end</span></code> ones.</p>
+</div>
+<p>The emergency key combination will release all pressed buttons and keys.</p>
+<p>In the KWin and Hyprland implementations, input is simulated in the compositor, thus programs which read from <code class="docutils literal notranslate"><span class="pre">/dev/input</span></code> will not see them. In the standalone
+implementation, uinput is used.</p>
+</section>
+<section id="known-issues">
+<h2>Known issues<a class="headerlink" href="#known-issues" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Input methods may cause improper processing of keyboard events. Workaround: set <code class="docutils literal notranslate"><span class="pre">delay</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> should be enough.</p></li>
+<li><p>Windows that have just been activated by an action may not process events properly. Workaround: add a <a class="reference internal" href="sleep.html"><span class="doc std std-doc">SleepAction</span></a> after the action that caused the
+activation.</p></li>
+<li><p>Keyboard text is always processed before keys. Workaround: set <code class="docutils literal notranslate"><span class="pre">delay</span></code> or split into multiple actions and add a <a class="reference internal" href="sleep.html"><span class="doc std std-doc">SleepAction</span></a>.</p></li>
+</ul>
 </section>
 </section>
 
@@ -547,17 +553,16 @@ activation.</p></li>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">InputAction</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#properties">Properties</a><ul>
-<li><a class="reference internal" href="#deviceactions">DeviceActions</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#deviceaction">DeviceAction</a></li>
 <li><a class="reference internal" href="#keyboardaction">KeyboardAction</a></li>
 <li><a class="reference internal" href="#mouseaction">MouseAction</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#known-issues">Known issues</a></li>
-<li><a class="reference internal" href="#example">Example</a></li>
 </ul>
 </li>
 </ul>

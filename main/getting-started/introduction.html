@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -364,7 +366,7 @@ suspend InputActions until the next config reload. A notification will be sent w
 <section id="first-trigger">
 <h2>First trigger<a class="headerlink" href="#first-trigger" title="Link to this heading">¶</a></h2>
 <p>All configuration for specific device types is located in the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code>, <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, <code class="docutils literal notranslate"><span class="pre">pointer</span></code> and <code class="docutils literal notranslate"><span class="pre">touchpad</span></code> root nodes. Triggers are defined in the
-<code class="docutils literal notranslate"><span class="pre">gestures</span></code>property of the those nodes.</p>
+<code class="docutils literal notranslate"><span class="pre">gestures</span></code> property of the those nodes.</p>
 <p>This trigger will launch dolphin if you swipe three fingers to the right.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">touchpad</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
@@ -373,10 +375,17 @@ suspend InputActions until the next config reload. A notification will be sent w
 <span class="w">      </span><span class="nt">fingers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 
 <span class="w">      </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
-<span class="w">          </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dolphin</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dolphin</span>
 </pre></div>
 </div>
+<p>More information about this particular trigger can be found at <a class="reference internal" href="../devices/touchpad/triggers/swipe.html"><span class="std std-doc">TouchpadSwipeTrigger</span></a>. It inherits properties from
+<a class="reference internal" href="../devices/touchpad/triggers/index.html"><span class="std std-doc">TouchpadTrigger</span></a>, which in turn inherits from <a class="reference internal" href="../trigger.html"><span class="doc std std-doc">Trigger</span></a>. Same goes for the action - <a class="reference internal" href="../actions/command.html"><span class="doc std std-doc">CommandAction</span></a>. Inheritance is mentioned
+in the table at the beginning of a page.</p>
+<p>The list of triggers for a specific device type may be found at <code class="docutils literal notranslate"><span class="pre">Devices</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">[device]</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Triggers</span></code>.
+<img alt="" src="../_images/touchpad_triggers.png" /></p>
+</section>
+<section id="action-events">
+<h2>Action events<a class="headerlink" href="#action-events" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">on</span></code> property of actions allows you to control at which point of the <a class="reference internal" href="../trigger.html#lifecycle"><span class="std std-ref">trigger’s lifecycle</span></a> it should execute. The default
 value is <code class="docutils literal notranslate"><span class="pre">end</span></code>. Set it to <code class="docutils literal notranslate"><span class="pre">begin</span></code> if you want to execute an actions as soon as the trigger begins.</p>
 <p>To create a repeating action, set <code class="docutils literal notranslate"><span class="pre">on</span></code> to <code class="docutils literal notranslate"><span class="pre">update</span></code> and specify the repeat rate in the <code class="docutils literal notranslate"><span class="pre">interval</span></code> property.</p>
@@ -393,9 +402,6 @@ value is <code class="docutils literal notranslate"><span class="pre">end</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumeup</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="../trigger.html"><span class="doc std std-doc">Trigger</span></a>, <a class="reference internal" href="../actions/index.html"><span class="doc std std-doc">Action</span></a> and everything else in the <code class="docutils literal notranslate"><span class="pre">Core</span></code> section of the sidebar for more information. The list of triggers for a particular
-device can be found at <code class="docutils literal notranslate"><span class="pre">Devices</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">[device]</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Triggers</span></code>.</p>
-<p><img alt="" src="../_images/touchpad_triggers.png" /></p>
 </section>
 <section id="complex-triggers">
 <h2>Complex triggers<a class="headerlink" href="#complex-triggers" title="Link to this heading">¶</a></h2>
@@ -674,6 +680,7 @@ it will not set the <code class="docutils literal notranslate"><span class="pre"
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
 <li><a class="reference internal" href="#first-trigger">First trigger</a></li>
+<li><a class="reference internal" href="#action-events">Action events</a></li>
 <li><a class="reference internal" href="#complex-triggers">Complex triggers</a></li>
 <li><a class="reference internal" href="#conditions">Conditions</a></li>
 <li><a class="reference internal" href="#bidirectional-triggers">Bidirectional triggers</a></li>

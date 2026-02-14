@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="CommandAction" href="command.html"><link rel="prev" title="Tap" href="../devices/touchscreen/triggers/tap.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="CommandAction" href="command.html"><link rel="prev" title="TouchscreenTapTrigger" href="../devices/touchscreen/triggers/tap.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Action - InputActions main</title>
@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -345,13 +347,11 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Executed at a specific point of a trigger’s <a class="reference internal" href="../trigger.html#lifecycle"><span class="std std-ref">lifecycle</span></a>.</p>
-<p>Action type is determined by the presence of required properties.</p>
-</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+<p>Unlike triggers, action types are determined by the presence of required properties.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -362,17 +362,12 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>on</p></td>
-<td><p><em>enum(begin, cancel, end, end_cancel, tick, update)</em></p></td>
-<td><p>At which point of the trigger’s lifecycle the action should be executed.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>conditions</p></td>
-<td><p><em><a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
-<td><p>Same as <em><a class="reference internal" href="../trigger.html"><span class="doc std std-doc">Trigger</span></a>.conditions</em>, but only for this action.</p></td>
+<tr class="row-even"><td><p>conditions</p></td>
+<td><p><em><a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a></em></p></td>
+<td><p>Must be satisfied in order for the action to be executed.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>interval</p></td>
+<tr class="row-odd"><td><p>interval</p></td>
 <td><p><em>float</em> or <em>string</em></p></td>
 <td><p>How often should an <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> action execute. Can be negative for bidirectional motion triggers.</p>
 <p><code class="docutils literal notranslate"><span class="pre">0</span></code> - Execute exactly once per event</p>
@@ -383,12 +378,19 @@
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>limit</p></td>
+<tr class="row-even"><td><p>limit</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>How many times the action can be executed during a trigger.</p>
 <p><code class="docutils literal notranslate"><span class="pre">0</span></code> - no limit</p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>on</p></td>
+<td><p><em>enum(begin, cancel, end, end_cancel, tick, update)</em></p></td>
+<td><p>At which point of the trigger’s <a class="reference internal" href="../trigger.html#lifecycle"><span class="std std-ref">lifecycle</span></a> the action should be executed.</p>
+<p>Valid values for a given trigger type are specified on its page in the <code class="docutils literal notranslate"><span class="pre">Action</span> <span class="pre">events</span></code> table row.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>threshold</p></td>
 <td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
@@ -400,8 +402,26 @@
 </tbody>
 </table>
 </div>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
+<p>Update actions assigned to the <code class="docutils literal notranslate"><span class="pre">actions</span></code> property of a bidirectional trigger:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-10</span>
+
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumeup</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">  </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumedown</span><span class="w"> </span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 </section>
 
@@ -426,7 +446,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Tap</div>
+                <div class="title">TouchscreenTapTrigger</div>
                 
               </div>
             </a>
@@ -461,8 +481,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Action</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

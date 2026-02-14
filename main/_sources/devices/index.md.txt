@@ -1,17 +1,10 @@
-# Devices
-```{toctree}
-:maxdepth: 1
+# Device
+:::{list-table}
+* - **Inherited by**
+  - [](/devices/keyboard/index), [](/devices/mouse/index), [](/devices/touchpad/index), [](/devices/touchscreen/index)
+:::
 
-keyboard/index
-mouse/index
-pointer/index
-touchpad/index
-touchscreen/index
-```
-
-## DeviceRule
-Applies a set of properties to all devices that satisfy the rule's conditions (if present).
-
+## Properties
 :::{list-table}
 :header-rows: 1
 
@@ -20,16 +13,9 @@ Applies a set of properties to all devices that satisfy the rule's conditions (i
   - Description
   - Default
 
-* - conditions
-  - *[](/conditions/index)* or *list([](/conditions/index))*
-  - Must be satisfied in order for this rule to be applied.
-
-    If the value is a list, the behavior is the same as an ``all`` [](/conditions/group).
-  -
-
 * - grab
   - *bool*
-  - Grab the device, required for event filtering.
+  - Grab the evdev device, required for event filtering.
 
     Standalone implementation only.
   - ``false``
@@ -40,34 +26,18 @@ Applies a set of properties to all devices that satisfy the rule's conditions (i
   - ``false``
 :::
 
-In addition to global properties listed above, some devices also have an additional set of properties listed on their pages
-(<project:/devices/touchpad/index.md#touchpadproperties>).
+In addition to global properties listed above, some devices types also have an additional set of properties listed on their pages.
 
-Rule conditions use a separate set of variables that describe the device for which a rule is currently being evaluated for:
-:::{list-table}
-:header-rows: 1
+Properties can be set using [device rules](/devices/rule).
 
-* - Name
-  - Type
-  - Description
+```{toctree}
+:maxdepth: 1
+:hidden:
 
-* - name
-  - *string*
-  -
-
-* - types
-  - *flags(keyboard, mouse, touchpad)*
-  - Certain devices may have multiple types (e.g. mouse and keyboard).
-:::
-
-### Examples
-```yaml
-device_rules:
-  - conditions: $name == Synaptics TM3276-02
-    ignore: false # don't ignore this device, overrides the rule below
-    
-  - conditions: $types contains mouse
-    # ...
-    
-  - ignore: true # ignore all devices by default
+Rule <rule>
+keyboard/index
+mouse/index
+pointer/index
+touchpad/index
+touchscreen/index
 ```

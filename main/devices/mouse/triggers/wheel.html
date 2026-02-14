@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Pointer" href="../../pointer/index.html"><link rel="prev" title="Swipe" href="swipe.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Pointer" href="../../pointer/index.html"><link rel="prev" title="MouseSwipeTrigger" href="swipe.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Wheel - InputActions main</title>
+        <title>MouseWheelTrigger - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trigger.html">Trigger</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">Devices</a><input aria-label="Toggle navigation of Devices" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -334,13 +336,13 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="wheel">
-<h1>Wheel<a class="headerlink" href="#wheel" title="Link to this heading">¶</a></h1>
+          <section id="mousewheeltrigger">
+<h1>MouseWheelTrigger<a class="headerlink" href="#mousewheeltrigger" title="Link to this heading">¶</a></h1>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Inherits</strong></p></td>
-<td><p><a class="reference internal" href="../../../trigger.html"><span class="doc std std-doc">Trigger</span></a></p></td>
+<td><p><a class="reference internal" href="index.html"><span class="doc std std-doc">MouseTrigger</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Action events</strong></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">tick</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
@@ -351,14 +353,11 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Performed by using a scroll wheel.</p>
-<p>Wheel triggers can have two different lifecycles - if the trigger has an <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> action and a mouse button or keyboard modifier is present, the trigger
-begins on the first scroll event and ends when a modifier/button is released, otherwise it begins and ends on the same scroll event.</p>
-</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -375,6 +374,12 @@ begins on the first scroll event and ends when a modifier/button is released, ot
 </tbody>
 </table>
 </div>
+</section>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Wheel triggers can have two different lifecycles - if the trigger has an <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> action and a mouse button or keyboard modifier is present, the trigger
+begins on the first scroll event and ends when a modifier/button is released, otherwise it begins and ends on the same scroll event.</p>
 </section>
 </section>
 
@@ -399,7 +404,7 @@ begins on the first scroll event and ends when a modifier/button is released, ot
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Swipe</div>
+                <div class="title">MouseSwipeTrigger</div>
                 
               </div>
             </a>
@@ -433,9 +438,12 @@ begins on the first scroll event and ends when a modifier/button is released, ot
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Wheel</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#">MouseWheelTrigger</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#description">Description</a></li>
 </ul>
 </li>
 </ul>

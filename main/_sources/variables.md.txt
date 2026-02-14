@@ -1,10 +1,11 @@
 # Variables
-Variables are currently only used in conditions and cannot be created by users.
+Variables contain information about the current state of the environment and input. They can be used in conditions or passed to commands.
 
+## Global variables
 :::{list-table}
 :header-rows: 1
 
-* - **Name**
+* - Name
   - Type
   - Description
 

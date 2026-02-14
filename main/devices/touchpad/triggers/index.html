@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Circle" href="circle.html"><link rel="prev" title="Touchpad" href="../index.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="TouchpadCircleTrigger" href="circle.html"><link rel="prev" title="Touchpad" href="../index.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Triggers - InputActions main</title>
+        <title>TouchpadTrigger - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trigger.html">Trigger</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">Devices</a><input aria-label="Toggle navigation of Devices" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -334,11 +336,25 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="triggers">
-<h1>Triggers<a class="headerlink" href="#triggers" title="Link to this heading">¶</a></h1>
+          <section id="touchpadtrigger">
+<h1>TouchpadTrigger<a class="headerlink" href="#touchpadtrigger" title="Link to this heading">¶</a></h1>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Inherits</strong></p></td>
+<td><p><a class="reference internal" href="../../../trigger.html"><span class="doc std std-doc">Trigger</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Inherited by</strong></p></td>
+<td><p><a class="reference internal" href="circle.html"><span class="doc std std-doc">TouchpadCircleTrigger</span></a>, <a class="reference internal" href="click.html"><span class="doc std std-doc">TouchpadClickTrigger</span></a>, <a class="reference internal" href="hold.html"><span class="doc std std-doc">TouchpadHoldTrigger</span></a>, <a class="reference internal" href="pinch.html"><span class="doc std std-doc">TouchpadPinchTrigger</span></a>, <a class="reference internal" href="rotate.html"><span class="doc std std-doc">TouchpadRotateTrigger</span></a>, <a class="reference internal" href="stroke.html"><span class="doc std std-doc">TouchpadStrokeTrigger</span></a>, <a class="reference internal" href="swipe.html"><span class="doc std std-doc">TouchpadSwipeTrigger</span></a>, <a class="reference internal" href="tap.html"><span class="doc std std-doc">TouchpadTapTrigger</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Base of all touchpad triggers.</p>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
-<p>All touchpad triggers have the following additional properties:</p>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -361,6 +377,7 @@
 </div>
 </section>
 </section>
+</section>
 
         </article>
       </div>
@@ -372,7 +389,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Circle</div>
+                <div class="title">TouchpadCircleTrigger</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -417,8 +434,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Triggers</a><ul>
+<li><a class="reference internal" href="#">TouchpadTrigger</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

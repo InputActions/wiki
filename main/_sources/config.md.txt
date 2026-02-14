@@ -57,7 +57,7 @@ Child objects inherit all properties from their parent, add new ones and can be 
   -
 
 * - keyboard_key
-  - See [](misc/keyboard-scancodes.md).
+  - See [](/devices/keyboard/scancodes).
   -
 
 * - regex
@@ -134,7 +134,7 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - ``true``
 
 * - device_rules
-  - *list(<project:/devices/index.md#devicerule>)*
+  - *list([](/devices/rule))*
   - Evaluated from bottom to top, each rule applies properties to all devices that satisfy the rule's conditions.
   -
 
@@ -145,23 +145,23 @@ Child objects inherit all properties from their parent, add new ones and can be 
 
 * - keyboard
   - *[](#eventhandler)*
-  - 
-  - 
+  -
+  -
 
 * - mouse
   - *<project:/devices/mouse/index.md#mouseeventhandler>*
-  - 
-  - 
+  -
+  -
 
 * - pointer
   - *[](#eventhandler)*
-  - 
-  - 
+  -
+  -
 
 * - touchpad
   - *<project:/devices/touchpad/index.md#touchpadeventhandler>*
-  - 
-  - 
+  -
+  -
 
 * - touchscreen
   - *<project:/devices/touchscreen/index.md#touchscreeneventhandler>*
@@ -181,7 +181,7 @@ Inherited by <project:/devices/mouse/index.md#mouseeventhandler> and <project:/d
 
 * - **gestures**
   - *list([](/trigger))*
-  - 
+  -
 
 * - speed
   - *[](#speed)*
@@ -208,22 +208,22 @@ The defaults may not work for everyone, as they depend on the device's sensitivi
 
 * - swipe_threshold
   - *float*
-  - 
+  -
   - ``20``
 
 * - pinch_in_threshold
   - *float*
-  - 
+  -
   - ``0.04``
 
 * - pinch_out_threshold
   - *float*
-  - 
+  -
   - ``0.08``
 
 * - rotate_threshold
   - *float*
-  - 
+  -
   - ``5``
 :::
 
@@ -237,7 +237,7 @@ device_rules:
 
 mouse:
   click_timeout: 50
-  
+
   gestures:
     # ...
 

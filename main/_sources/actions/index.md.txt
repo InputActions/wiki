@@ -4,12 +4,10 @@
   - [](/actions/groups/index), [](/actions/command), [](/actions/input), [](/actions/sleep), [](/actions/plasma-shortcut)
 :::
 
-## Description
-Executed at a specific point of a trigger's [lifecycle](<project:/trigger.md#lifecycle>).
+## Configuration
+### Properties
+Unlike triggers, action types are determined by the presence of required properties.
 
-Action type is determined by the presence of required properties.
-
-## Properties
 :::{list-table}
 :header-rows: 1
 
@@ -18,14 +16,9 @@ Action type is determined by the presence of required properties.
   - Description
   - Default
 
-* - on
-  - *enum(begin, cancel, end, end_cancel, tick, update)*
-  - At which point of the trigger's lifecycle the action should be executed.
-  - ``end``
-
 * - conditions
-  - *[](/conditions/index)* or *list([](/conditions/index))*
-  - Same as *[](/trigger).conditions*, but only for this action.
+  - *[](/conditions/index)*
+  - Must be satisfied in order for the action to be executed.
   -
 
 * - interval
@@ -50,6 +43,13 @@ Action type is determined by the presence of required properties.
     ``0`` - no limit
   - ``0``
 
+* - on
+  - *enum(begin, cancel, end, end_cancel, tick, update)*
+  - At which point of the trigger's [lifecycle](<project:/trigger.md#lifecycle>) the action should be executed.
+
+    Valid values for a given trigger type are specified on its page in the ``Action events`` table row.
+  - ``end``
+
 * - threshold
   - *float* (min) or *range(float)* (min and max)
   - Same as *[](/trigger).threshold*, but only for this action.
@@ -57,6 +57,22 @@ Action type is determined by the presence of required properties.
     **``on: begin`` actions cannot have this property.**
   -
 :::
+
+### Examples
+Update actions assigned to the ``actions`` property of a bidirectional trigger:
+```yaml
+- on: update
+  interval: -10
+
+  input:
+    - keyboard: [ volumeup ]
+
+- on: update
+  interval: 10
+
+  input:
+    - keyboard: [ volumedown ]
+```
 
 ```{toctree}
 :hidden:

@@ -4,10 +4,10 @@
   - [](/actions/index)
 :::
 
-## Description
 Waits for the specified amount of time.
 
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -17,3 +17,8 @@ Waits for the specified amount of time.
 * - **sleep**
   - *time*
 :::
+
+### Examples
+```yaml
+sleep: 1000
+```

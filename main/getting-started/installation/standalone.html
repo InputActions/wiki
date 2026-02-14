@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -445,9 +447,9 @@ terminal InputActions will be used in.</p></li>
 <section id="inputactions-setup">
 <h2>InputActions setup<a class="headerlink" href="#inputactions-setup" title="Link to this heading">¶</a></h2>
 <p>By default, devices are not grabbed but their events are processed. Grabbing is required for event filtering. Both properties can be configured using
-<a class="reference internal" href="../../devices/index.html#devicerule"><span class="std std-ref">device rules</span></a>.</p>
+<a class="reference internal" href="../../devices/rule.html"><span class="doc std std-doc">device rules</span></a>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">device_rules</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">all</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">any</span><span class="p">:</span><span class="w"> </span><span class="c1"># remove some conditions if you don&#39;t use triggers for a specific device type</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types contains keyboard</span><span class="w"> </span><span class="c1"># keyboards must be grabbed for Trigger.clear_modifiers to work</span>

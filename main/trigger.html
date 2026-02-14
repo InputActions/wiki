@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Devices" href="devices/index.html"><link rel="prev" title="Configuration" href="config.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Device" href="devices/index.html"><link rel="prev" title="Configuration" href="config.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Trigger - InputActions main</title>
@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -336,15 +338,123 @@
         <article role="main" id="furo-main-content">
           <section id="trigger">
 <h1>Trigger<a class="headerlink" href="#trigger" title="Link to this heading">¶</a></h1>
+<p>An action or set of actions performed using an input device, also referred to as <em>gesture</em>.</p>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<section id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+<p>These properties can be set on all triggers. See the other tables below and the <code class="docutils literal notranslate"><span class="pre">Triggers</span></code> page of every device for properties that are only available in
+specific cases.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p><em>enum(circle, click, hold, hover, pinch, press, rotate, shortcut, stroke, swipe, tap, wheel)</em></p></td>
+<td><p>Same as the trigger’s name but lowercase.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>accelerated</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Use the accelerated delta (if available) for action intervals and the <code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code> input action.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>actions</p></td>
+<td><p><em>list(<a class="reference internal" href="actions/index.html"><span class="doc std std-doc">Action</span></a>)</em></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>block_events</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether this trigger should block all input events required to perform it while active. Only one active trigger needs this property set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in order
+for events to be blocked.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>clear_modifiers</p></td>
+<td><p>bool</p></td>
+<td><p>Whether keyboard modifiers should be cleared when this trigger begins. They will not be restored after the trigger ends.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if an <a class="reference internal" href="actions/input.html"><span class="doc std std-doc">InputAction</span></a> is present, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise</p></td>
+</tr>
+<tr class="row-odd"><td><p>conditions</p></td>
+<td><p><em><a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a></em></p></td>
+<td><p>Must be satisfied in order for this trigger to be activated.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>end_conditions</p></td>
+<td><p><em><a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a></em></p></td>
+<td><p>If satisfied, the trigger will end, otherwise it will be cancelled.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td><p><em>string</em></p></td>
+<td><p>Must be unique.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>resume_timeout</p></td>
+<td><p><em>time</em></p></td>
+<td><p>The amount of time after a trigger ends, during which the trigger can be performed again as if it never actually ended. Performing any action that does not
+activate this trigger causes it to be cancelled immediately.</p>
+<p>Can be used for a drag touchpad trigger that allows lifting fingers.</p>
+<p>Not compatible with stroke triggers.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>set_last_trigger</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether to set <code class="docutils literal notranslate"><span class="pre">last_trigger</span></code> variables.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>threshold</p></td>
+<td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
+<td><p>How far this trigger needs to progress in order to begin.</p>
+<p><strong>Triggers with <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> or <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions cannot have maximum thresholds.</strong></p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><s>keyboard_modifiers</s></p></td>
+<td></td>
+<td><p><strong>Deprecated.</strong> Use the <code class="docutils literal notranslate"><span class="pre">keyboard_modifiers</span></code> variable in a condition instead.</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="motion-trigger-properties">
+<h3>Motion trigger properties<a class="headerlink" href="#motion-trigger-properties" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>speed</p></td>
+<td><p><em>enum(fast, slow)</em></p></td>
+<td><p>The speed at which the trigger must be performed. Will be available as a variable in the future.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>An action or set of actions performed using an input device, also referred to as <em>gesture</em>.</p>
 <p>Each device has its own set of triggers, listed in the <code class="docutils literal notranslate"><span class="pre">Triggers</span></code> subpage of the device.</p>
 <p>Thresholds and action intervals are based on the trigger’s delta. Time-based triggers update every <em>5 ms</em> with a delta of <em>5</em>.</p>
 <p>Triggers use the unaccelerated delta if available. The accelerated delta is only used for action intervals and <code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code> input actions if
 <code class="docutils literal notranslate"><span class="pre">accelerated</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</section>
 <section id="lifecycle">
-<h3>Lifecycle<a class="headerlink" href="#lifecycle" title="Link to this heading">¶</a></h3>
+<h2>Lifecycle<a class="headerlink" href="#lifecycle" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">begin</span></code> - Can be delayed or prevented by thresholds.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">update</span></code> - Before a trigger receives an update event, its update conditions (direction) are checked first. If not satisfied, the trigger is cancelled.</p></li>
@@ -356,7 +466,7 @@ user has started performing a different trigger.</p></li>
 </ul>
 </section>
 <section id="conflict-resolution">
-<h3>Conflict resolution<a class="headerlink" href="#conflict-resolution" title="Link to this heading">¶</a></h3>
+<h2>Conflict resolution<a class="headerlink" href="#conflict-resolution" title="Link to this heading">¶</a></h2>
 <p>Conflict resolution ensures that there are never multiple triggers executing actions simultaneously by immediately cancelling all other triggers when:</p>
 <ul class="simple">
 <li><p>a trigger is updated, and has any action that had been executed, or has an update action that can be executed but hasn’t been yet (interval not reached),</p></li>
@@ -404,115 +514,6 @@ cancelled immediately. The same applies to all other properties - conditions, th
 </div>
 </section>
 </section>
-<section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
-<p>These properties can be set on all triggers. See the other tables below and the <code class="docutils literal notranslate"><span class="pre">Triggers</span></code> page of every device for properties that are only available in
-specific cases.</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Default</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>type</strong></p></td>
-<td><p><em>enum(circle, click, hold, hover, pinch, press, rotate, shortcut, stroke, swipe, tap, wheel)</em></p></td>
-<td><p>Same as the trigger’s name but lowercase.</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>accelerated</p></td>
-<td><p><em>bool</em></p></td>
-<td><p>Use the accelerated delta (if available) for action intervals and the <code class="docutils literal notranslate"><span class="pre">move_by_delta</span></code> input action.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>actions</p></td>
-<td><p><em>list(<a class="reference internal" href="actions/index.html"><span class="doc std std-doc">Action</span></a>)</em></p></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>block_events</p></td>
-<td><p><em>bool</em></p></td>
-<td><p>Whether this trigger should block all input events required to perform it while active. Only one active trigger needs this property set to <code class="docutils literal notranslate"><span class="pre">true</span></code> in order
-for events to be blocked.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>clear_modifiers</p></td>
-<td><p>bool</p></td>
-<td><p>Whether keyboard modifiers should be cleared when this trigger begins. They will not be restored after the trigger ends.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if an <a class="reference internal" href="actions/input.html"><span class="doc std std-doc">InputAction</span></a> is present, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise</p></td>
-</tr>
-<tr class="row-odd"><td><p>conditions</p></td>
-<td><p><em><a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
-<td><p>Must be satisfied in order for this trigger to be activated.</p>
-<p>If the value is a list, the behavior is the same as an <code class="docutils literal notranslate"><span class="pre">all</span></code> <a class="reference internal" href="conditions/group.html"><span class="doc std std-doc">ConditionGroup</span></a>.</p>
-</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>end_conditions</p></td>
-<td><p><em><a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a></em> or <em>list(<a class="reference internal" href="conditions/index.html"><span class="doc std std-doc">Condition</span></a>)</em></p></td>
-<td><p>If satisfied, the trigger will end, otherwise it will be cancelled.</p>
-<p>If the value is a list, the behavior is the same as an <code class="docutils literal notranslate"><span class="pre">all</span></code> <a class="reference internal" href="conditions/group.html"><span class="doc std std-doc">ConditionGroup</span></a>.</p>
-</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>id</p></td>
-<td><p><em>string</em></p></td>
-<td><p>Must be unique.</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>resume_timeout</p></td>
-<td><p><em>time</em></p></td>
-<td><p>The amount of time after a trigger ends, during which the trigger can be performed again as if it never actually ended. Performing any action that does not
-activate this trigger causes it to be cancelled immediately.</p>
-<p>Can be used for a drag touchpad trigger that allows lifting fingers.</p>
-<p>Not compatible with stroke triggers.</p>
-</td>
-<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>set_last_trigger</p></td>
-<td><p><em>bool</em></p></td>
-<td><p>Whether to set <code class="docutils literal notranslate"><span class="pre">last_trigger</span></code> variables.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>threshold</p></td>
-<td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
-<td><p>How far this trigger needs to progress in order to begin.</p>
-<p><strong>Triggers with <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> or <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions cannot have maximum thresholds.</strong></p>
-</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p><s>keyboard_modifiers</s></p></td>
-<td></td>
-<td><p><strong>Deprecated.</strong> Use the <code class="docutils literal notranslate"><span class="pre">keyboard_modifiers</span></code> variable in a condition instead.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<section id="motion-triggers">
-<h3>Motion triggers<a class="headerlink" href="#motion-triggers" title="Link to this heading">¶</a></h3>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>speed</p></td>
-<td><p><em>enum(fast, slow)</em></p></td>
-<td><p>The speed at which the trigger must be performed. Will be available as a variable in the future.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</section>
-</section>
 
         </article>
       </div>
@@ -524,7 +525,7 @@ activate this trigger causes it to be cancelled immediately.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Devices</div>
+                <div class="title">Device</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -570,15 +571,14 @@ activate this trigger causes it to be cancelled immediately.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Trigger</a><ul>
-<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#motion-trigger-properties">Motion trigger properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#lifecycle">Lifecycle</a></li>
 <li><a class="reference internal" href="#conflict-resolution">Conflict resolution</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#properties">Properties</a><ul>
-<li><a class="reference internal" href="#motion-triggers">Motion triggers</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

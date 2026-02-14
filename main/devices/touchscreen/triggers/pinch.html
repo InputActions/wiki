@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Rotate" href="rotate.html"><link rel="prev" title="Hold" href="hold.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="TouchscreenRotateTrigger" href="rotate.html"><link rel="prev" title="TouchscreenHoldTrigger" href="hold.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Pinch - InputActions main</title>
+        <title>TouchscreenPinchTrigger - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trigger.html">Trigger</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">Devices</a><input aria-label="Toggle navigation of Devices" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -334,13 +336,13 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="pinch">
-<h1>Pinch<a class="headerlink" href="#pinch" title="Link to this heading">¶</a></h1>
+          <section id="touchscreenpinchtrigger">
+<h1>TouchscreenPinchTrigger<a class="headerlink" href="#touchscreenpinchtrigger" title="Link to this heading">¶</a></h1>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><strong>Inherits</strong></p></td>
-<td><p><a class="reference internal" href="../../../trigger.html"><span class="doc std std-doc">Trigger</span></a></p></td>
+<td><p><a class="reference internal" href="index.html"><span class="doc std std-doc">TouchscreenTrigger</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Action events</strong></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">tick</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
@@ -354,11 +356,10 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -377,6 +378,7 @@
 </div>
 </section>
 </section>
+</section>
 
         </article>
       </div>
@@ -388,7 +390,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Rotate</div>
+                <div class="title">TouchscreenRotateTrigger</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -399,7 +401,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Hold</div>
+                <div class="title">TouchscreenHoldTrigger</div>
                 
               </div>
             </a>
@@ -433,9 +435,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Pinch</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#">TouchscreenPinchTrigger</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

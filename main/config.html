@@ -212,7 +212,9 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -399,7 +401,7 @@ suspend InputActions until the next config reload. A notification will be sent w
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>keyboard_key</p></td>
-<td><p>See <a class="reference internal" href="misc/keyboard-scancodes.html"><span class="std std-doc">Keyboard scancodes</span></a>.</p></td>
+<td><p>See <a class="reference internal" href="devices/keyboard/scancodes.html"><span class="doc std std-doc">Keyboard scancodes</span></a>.</p></td>
 <td></td>
 </tr>
 <tr class="row-even"><td><p>regex</p></td>
@@ -484,7 +486,7 @@ suspend InputActions until the next config reload. A notification will be sent w
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>device_rules</p></td>
-<td><p><em>list(<a class="reference internal" href="devices/index.html#devicerule"><span class="std std-ref">DeviceRule</span></a>)</em></p></td>
+<td><p><em>list(<a class="reference internal" href="devices/rule.html"><span class="doc std std-doc">DeviceRule</span></a>)</em></p></td>
 <td><p>Evaluated from bottom to top, each rule applies properties to all devices that satisfy the rule’s conditions.</p></td>
 <td></td>
 </tr>
@@ -601,7 +603,7 @@ suspend InputActions until the next config reload. A notification will be sent w
 
 <span class="nt">mouse</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">click_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
-<span class="w">  </span>
+
 <span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># ...</span>
 

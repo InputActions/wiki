@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -345,12 +347,11 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Waits for the specified amount of time.</p>
-</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -365,6 +366,13 @@
 </tbody>
 </table>
 </div>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sleep</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -424,8 +432,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">SleepAction</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

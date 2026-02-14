@@ -1,20 +1,17 @@
-# Shortcut
+# KeyboardShortcutTrigger
 :::{list-table}
 * - **Inherits**
   - [](/trigger)
 
 * - **Action events**
-  - ``begin``, ``cancel``, ``end`` ``update``
+  - ``begin``, ``cancel``, ``end``, ``update``
 
 * - **Type**
   - Time-based trigger
 :::
 
-## Description
-Shortcuts must consist of 0 or more modifier keys and 0 or 1 non-modifier key. Modifier keys are not blocked (even if the shortcut is a single modifier), all
-other keys are.
-
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -28,3 +25,8 @@ other keys are.
 
     Example: ``shortcut: [ leftctrl, z ]``
 :::
+
+## Description
+Shortcuts must consist of 0 or more modifier keys and 0 or 1 non-modifier key. Modifier keys are not blocked (even if the shortcut is a single modifier), all
+other keys are.
+

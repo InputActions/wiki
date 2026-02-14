@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -348,17 +350,11 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Invokes a Plasma global shortcut.</p>
-<p>To view all shortcuts, open <code class="docutils literal notranslate"><span class="pre">~/.config/kglobalshortcutsrc</span></code>. The text inside brackets is the component, and text before <code class="docutils literal notranslate"><span class="pre">=</span></code> is the shortcut.</p>
-<p>For components such as <code class="docutils literal notranslate"><span class="pre">[services][org.kde.dolphin.desktop]</span></code>, omit <code class="docutils literal notranslate"><span class="pre">[services]</span></code>, replace <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> and possibly some other characters with <code class="docutils literal notranslate"><span class="pre">_</span></code>. The
-component of that example would be <code class="docutils literal notranslate"><span class="pre">org_kde_dolphin_desktop</span></code>.</p>
-<p>You can also run <code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.kde.kglobalaccel</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">/component</span></code> to list all components and
-<code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.kde.kglobalaccel</span> <span class="pre">/component/[replace</span> <span class="pre">this</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">component]</span> <span class="pre">org.kde.kglobalaccel.Component.shortcutNames</span></code> to list all shortcuts.</p>
-</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -376,11 +372,20 @@ component of that example would be <code class="docutils literal notranslate"><s
 </table>
 </div>
 </section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">plasma_shortcut</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kwin,Window Close</span>
 </pre></div>
 </div>
+</section>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>To view all shortcuts, open <code class="docutils literal notranslate"><span class="pre">~/.config/kglobalshortcutsrc</span></code>. The text inside brackets is the component, and text before <code class="docutils literal notranslate"><span class="pre">=</span></code> is the shortcut.</p>
+<p>For components such as <code class="docutils literal notranslate"><span class="pre">[services][org.kde.dolphin.desktop]</span></code>, omit <code class="docutils literal notranslate"><span class="pre">[services]</span></code>, replace <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> and possibly some other characters with <code class="docutils literal notranslate"><span class="pre">_</span></code>. The
+component of that example would be <code class="docutils literal notranslate"><span class="pre">org_kde_dolphin_desktop</span></code>.</p>
+<p>You can also run <code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.kde.kglobalaccel</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">/component</span></code> to list all components and
+<code class="docutils literal notranslate"><span class="pre">qdbus6</span> <span class="pre">org.kde.kglobalaccel</span> <span class="pre">/component/[replace</span> <span class="pre">this</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">component]</span> <span class="pre">org.kde.kglobalaccel.Component.shortcutNames</span></code> to list all shortcuts.</p>
 </section>
 </section>
 
@@ -440,9 +445,12 @@ component of that example would be <code class="docutils literal notranslate"><s
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">PlasmaShortcutAction</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#description">Description</a></li>
 </ul>
 </li>
 </ul>

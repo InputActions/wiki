@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -345,23 +347,21 @@
 </tbody>
 </table>
 </div>
-<p>Variable conditions compare the value of a <a class="reference internal" href="../variables.html"><span class="doc std std-doc">variable</span></a> against another value using a specific operator.</p>
-<p>Format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[!]$variable operator value
-</pre></div>
-</div>
+<p>Compares the value of a <a class="reference internal" href="../variables.html"><span class="doc std std-doc">variable</span></a> against another value using a specific operator.</p>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>Format: <code class="docutils literal notranslate"><span class="pre">$variable</span> <span class="pre">operator</span> <span class="pre">value</span></code></p>
 <p>An exclamation mark placed before <code class="docutils literal notranslate"><span class="pre">$</span></code> will negate the condition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">value</span></code> may be one of the following:</p>
+<ul class="simple">
+<li><p>a value of the same type as the variable (automatically converted to lists when necessary, no need to put single values in <code class="docutils literal notranslate"><span class="pre">[]</span></code>),</p></li>
+<li><p>a list of values of the same types as <code class="docutils literal notranslate"><span class="pre">variable</span></code>, may be empty (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
+<li><p>a reference to another variable of the same type as the first one,</p></li>
+</ul>
 <p>For variables of type <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">operator</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> may be omitted. <code class="docutils literal notranslate"><span class="pre">$variable</span></code> and <code class="docutils literal notranslate"><span class="pre">!$variable</span></code> conditions are equivalent to <code class="docutils literal notranslate"><span class="pre">$variable</span> <span class="pre">==</span> <span class="pre">true</span></code>
 and <code class="docutils literal notranslate"><span class="pre">$variable</span> <span class="pre">==</span> <span class="pre">false</span></code> respectively.</p>
-<p>The value can be:</p>
-<ul class="simple">
-<li><p>a value of the same type as <code class="docutils literal notranslate"><span class="pre">variable</span></code> (automatically converted to lists when necessary, no need to put single values in <code class="docutils literal notranslate"><span class="pre">[]</span></code>),</p></li>
-<li><p>a variable of the same type as <code class="docutils literal notranslate"><span class="pre">variable</span></code>,</p></li>
-<li><p>a list of values of the same types as <code class="docutils literal notranslate"><span class="pre">variable</span></code>, may be empty (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
-</ul>
-<p>See <a class="reference internal" href="index.html"><span class="doc std std-doc">Condition</span></a> for examples.</p>
 <section id="operators">
-<h2>Operators<a class="headerlink" href="#operators" title="Link to this heading">¶</a></h2>
+<h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">¶</a></h3>
 <p><em>T2</em> must be the same as <em>T1</em> unless stated otherwise.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -429,6 +429,28 @@ and <code class="docutils literal notranslate"><span class="pre">$variable</span
 </table>
 </div>
 </section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$fingers between 3;4</span><span class="w"> </span><span class="c1"># 3 or 4</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$keyboard_modifiers == []</span><span class="w"> </span><span class="c1"># no modifiers pressed</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="kt">!$keyboard_modifiers</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contains meta</span><span class="w"> </span><span class="c1"># meta not pressed</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$keyboard_modifiers contains [ ctrl, alt ]</span><span class="w"> </span><span class="c1"># ctrl, alt, and possibly other modifiers pressed</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$window_id == $window_under_pointer_id</span><span class="w"> </span><span class="c1"># pointer is over active window</span>
+</pre></div>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">$cursor_shape one_of [ default, text ]</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
         </article>
@@ -487,7 +509,11 @@ and <code class="docutils literal notranslate"><span class="pre">$variable</span
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">VariableCondition</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

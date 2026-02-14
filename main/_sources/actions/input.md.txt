@@ -4,19 +4,10 @@
   - [](/actions/index)
 :::
 
+Simulates keyboard and mouse input.
 
-## Description
-Generates input events at compositor level. Only programs that receive input from the compositor will be able to process them.
-
-The syntax of this action will change at some point in the future.
-
-:::{warning}
-Forgetting to release a keyboard key or mouse button can make your session unusable. Using a physical input device will not help.
-
-Release actions should be performed in ``on: end_cancel`` actions instead of ``on: end`` ones.
-:::
-
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -26,9 +17,9 @@ Release actions should be performed in ``on: end_cancel`` actions instead of ``o
   - Default
 
 * - **input**
-  - *list([](#deviceactions))*
+  - *list([](#deviceaction))*
   - Input actions to perform.
-  - 
+  -
 
 * - delay
   - *time*
@@ -36,7 +27,7 @@ Release actions should be performed in ``on: end_cancel`` actions instead of ``o
   - ``0``
 :::
 
-### DeviceActions
+### DeviceAction
 Only one property per item allowed.
 
 :::{list-table}
@@ -52,7 +43,7 @@ Only one property per item allowed.
   - *list([MouseAction](#mouseaction))*
 :::
 
-#### KeyboardAction
+### KeyboardAction
 See [](/devices/keyboard/index).
 
 :::{list-table}
@@ -76,7 +67,7 @@ See [](/devices/keyboard/index).
   - Writes ``text`` into the application. Unlike other actions, this one is actually a map and accepts dynamic values (evaluated asynchronously).
 :::
 
-#### MouseAction
+### MouseAction
 Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, ``side``, ``extra``, ``extra6``, ``extra7``, ``extra8``, ``extra9``, ``extra10``,
 ``extra11``, ``extra12`` ``extra13``.
 
@@ -108,13 +99,7 @@ Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, `
   - Move the wheel by (*x*, *y*). Currently not supported on Hyprland.
 :::
 
-## Known issues
-- Input methods may cause improper processing of keyboard events. Workaround: set ``delay``, ``1`` should be enough.
-- Windows that have just been activated by an action may not process events properly. Workaround: add a [](/actions/sleep) after the action that caused the
-  activation.
-- Keyboard text is always processed before keys. Workaround: set ``delay`` or split into multiple actions and add a [](/actions/sleep).
-
-## Example
+### Examples
 ```yaml
 input:
   - keyboard: [ leftctrl+n ]
@@ -124,3 +109,19 @@ input:
       - text:
           command: date
 ```
+
+## Description
+:::{important}
+As triggers may be cancelled, release actions should be performed in ``on: end_cancel`` actions instead of ``on: end`` ones.
+:::
+
+The emergency key combination will release all pressed buttons and keys.
+
+In the KWin and Hyprland implementations, input is simulated in the compositor, thus programs which read from ``/dev/input`` will not see them. In the standalone
+implementation, uinput is used.
+
+## Known issues
+- Input methods may cause improper processing of keyboard events. Workaround: set ``delay``, ``1`` should be enough.
+- Windows that have just been activated by an action may not process events properly. Workaround: add a [](/actions/sleep) after the action that caused the
+  activation.
+- Keyboard text is always processed before keys. Workaround: set ``delay`` or split into multiple actions and add a [](/actions/sleep).

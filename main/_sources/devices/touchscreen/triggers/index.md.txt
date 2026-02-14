@@ -1,7 +1,16 @@
-# Triggers
-### Properties
-All touchscreen triggers have the following additional properties:
+# TouchscreenTrigger
+:::{list-table}
+* - **Inherits**
+  - [](/trigger)
 
+* - **Inherited by**
+  - [](circle), [](hold), [](pinch), [](rotate), [](stroke), [](swipe), [](tap)
+:::
+
+Base of all touchscreen triggers.
+
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -20,11 +29,11 @@ All touchscreen triggers have the following additional properties:
 :maxdepth: 1
 :hidden:
 
-circle
-hold
-pinch
-rotate
-stroke
-swipe
-tap
+Circle <circle>
+Hold <hold>
+Pinch <pinch>
+Rotate <rotate>
+Stroke <stroke>
+Swipe <swipe>
+Tap <tap>
 ```

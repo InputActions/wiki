@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trigger.html">Trigger</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="devices/index.html">Devices</a><input aria-label="Toggle navigation of Devices" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="devices/rule.html">Rule</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="devices/keyboard/index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="devices/keyboard/scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="devices/keyboard/triggers/index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="devices/keyboard/triggers/shortcut.html">Shortcut</a></li>
 </ul>
@@ -336,11 +338,13 @@
         <article role="main" id="furo-main-content">
           <section id="variables">
 <h1>Variables<a class="headerlink" href="#variables" title="Link to this heading">¶</a></h1>
-<p>Variables are currently only used in conditions and cannot be created by users.</p>
+<p>Variables contain information about the current state of the environment and input. They can be used in conditions or passed to commands.</p>
+<section id="global-variables">
+<h2>Global variables<a class="headerlink" href="#global-variables" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Name</strong></p></th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Type</p></th>
 <th class="head"><p>Description</p></th>
 </tr>
@@ -460,6 +464,7 @@ window_under_pointer_title</p></td>
 <p>All variables of the <em>point</em> type have variants with the <code class="docutils literal notranslate"><span class="pre">_x</span></code> and <code class="docutils literal notranslate"><span class="pre">_y</span></code> suffixes that return the X and Y values respectively.</p>
 <p><code class="docutils literal notranslate"><span class="pre">window_</span></code> variables refer to the active window, <code class="docutils literal notranslate"><span class="pre">window_under_pointer_</span></code> - window under the cursor and <code class="docutils literal notranslate"><span class="pre">window_under_fingers_</span></code> - window under the finger
 placed on a touchscreen (in case of multiple fingers, under the center).</p>
+</section>
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">¶</a></h2>
 <p>Variables can be referenced in commands (<code class="docutils literal notranslate"><span class="pre">$name</span></code>) and will be provided as environment variables if the value is not null. For boolean variables, the value
@@ -528,6 +533,7 @@ variables and their current values, can be combined with <code class="docutils l
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Variables</a><ul>
+<li><a class="reference internal" href="#global-variables">Global variables</a></li>
 <li><a class="reference internal" href="#commands">Commands</a></li>
 <li><a class="reference internal" href="#listing-variables">Listing variables</a></li>
 </ul>

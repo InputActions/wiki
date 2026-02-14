@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Mouse" href="../../mouse/index.html"><link rel="prev" title="Triggers" href="index.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Shortcut - InputActions main</title>
+        <title>KeyboardShortcutTrigger - InputActions main</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -212,7 +212,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../trigger.html">Trigger</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../index.html">Devices</a><input aria-label="Toggle navigation of Devices" checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../rule.html">Rule</a></li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../index.html">Keyboard</a><input aria-label="Toggle navigation of Keyboard" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../scancodes.html">Scancodes</a></li>
 <li class="toctree-l3 current has-children"><a class="reference internal" href="index.html">Triggers</a><input aria-label="Toggle navigation of Triggers" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Shortcut</a></li>
 </ul>
@@ -334,8 +336,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="shortcut">
-<h1>Shortcut<a class="headerlink" href="#shortcut" title="Link to this heading">¶</a></h1>
+          <section id="keyboardshortcuttrigger">
+<h1>KeyboardShortcutTrigger<a class="headerlink" href="#keyboardshortcuttrigger" title="Link to this heading">¶</a></h1>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <tbody>
@@ -343,7 +345,7 @@
 <td><p><a class="reference internal" href="../../../trigger.html"><span class="doc std std-doc">Trigger</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Action events</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code> <code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Type</strong></p></td>
 <td><p>Time-based trigger</p></td>
@@ -351,13 +353,10 @@
 </tbody>
 </table>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Shortcuts must consist of 0 or more modifier keys and 0 or 1 non-modifier key. Modifier keys are not blocked (even if the shortcut is a single modifier), all
-other keys are.</p>
-</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -376,6 +375,12 @@ other keys are.</p>
 </tbody>
 </table>
 </div>
+</section>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Shortcuts must consist of 0 or more modifier keys and 0 or 1 non-modifier key. Modifier keys are not blocked (even if the shortcut is a single modifier), all
+other keys are.</p>
 </section>
 </section>
 
@@ -434,9 +439,12 @@ other keys are.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Shortcut</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#">KeyboardShortcutTrigger</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#description">Description</a></li>
 </ul>
 </li>
 </ul>

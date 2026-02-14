@@ -130,3 +130,15 @@ of the environment variable will be ``1`` if ``true``, and will not be set at al
 ## Listing variables
 Some information that the user may need during configuration is exposed through variables. Run ``inputactions variables list`` to list all
 variables and their current values, can be combined with ``watch -n [time] [command]`` to update automatically.
+
+## Saving variables for later use
+This is currently not possible, however if the variable only needs to be used in a command, a non-conflicting action may be used to write its value to a file:
+
+```yaml
+- on: begin
+  conflicting: false # Safe to use even in stroke triggers
+  command: echo "$window_under_pointer_pid" > /tmp/inputactions_var
+
+- on: end
+  command: kill -9 "$(cat /tmp/inputactions_var)"
+```

@@ -345,7 +345,8 @@
 <td><p><a class="reference internal" href="index.html"><span class="doc std std-doc">TouchpadTrigger</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Action events</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
+<td><p>Conflicting: <code class="docutils literal notranslate"><span class="pre">end</span></code><br>
+Non-conflicting: <code class="docutils literal notranslate"><span class="pre">begin</span></code>, <code class="docutils literal notranslate"><span class="pre">cancel</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">tick</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Finger count range</strong></p></td>
 <td><p>1-4</p></td>
@@ -385,8 +386,8 @@
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>At the end of the trigger, the performed stroke is compared against all active triggers’ strokes and the trigger with the highest stroke match
-(must be at least 70%) is ended, while all others are cancelled. <strong>Only <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end</span></code> actions are supported, making this trigger not suitable for certain use
-cases.</strong></p>
+(must be at least 70%) is ended, while all others are cancelled. <strong>Only <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">end</span></code> conflicting actions are supported, making this trigger not suitable for
+certain use cases.</strong></p>
 <p>Strokes can be recorded using the stroke recorder at <em>System Settings</em> -&gt; <em>Desktop Effects</em> -&gt; <em>Input Actions (configure)</em> or the control tool:
 <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">record-stroke</span></code>.</p>
 </section>

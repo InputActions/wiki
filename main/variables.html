@@ -475,6 +475,18 @@ of the environment variable will be <code class="docutils literal notranslate"><
 <p>Some information that the user may need during configuration is exposed through variables. Run <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">variables</span> <span class="pre">list</span></code> to list all
 variables and their current values, can be combined with <code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">-n</span> <span class="pre">[time]</span> <span class="pre">[command]</span></code> to update automatically.</p>
 </section>
+<section id="saving-variables-for-later-use">
+<h2>Saving variables for later use<a class="headerlink" href="#saving-variables-for-later-use" title="Link to this heading">¶</a></h2>
+<p>This is currently not possible, however if the variable only needs to be used in a command, a non-conflicting action may be used to write its value to a file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">begin</span>
+<span class="w">  </span><span class="nt">conflicting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># Safe to use even in stroke triggers</span>
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;$window_under_pointer_pid&quot; &gt; /tmp/inputactions_var</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kill -9 &quot;$(cat /tmp/inputactions_var)&quot;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -536,6 +548,7 @@ variables and their current values, can be combined with <code class="docutils l
 <li><a class="reference internal" href="#global-variables">Global variables</a></li>
 <li><a class="reference internal" href="#commands">Commands</a></li>
 <li><a class="reference internal" href="#listing-variables">Listing variables</a></li>
+<li><a class="reference internal" href="#saving-variables-for-later-use">Saving variables for later use</a></li>
 </ul>
 </li>
 </ul>

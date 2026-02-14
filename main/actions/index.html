@@ -367,7 +367,12 @@
 <td><p>Must be satisfied in order for the action to be executed.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>interval</p></td>
+<tr class="row-odd"><td><p>conflicting</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether this action can activate <a class="reference internal" href="../trigger.html#conflict-resolution"><span class="std std-ref">trigger conflict resolution</span></a>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>interval</p></td>
 <td><p><em>float</em> or <em>string</em></p></td>
 <td><p>How often should an <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> action execute. Can be negative for bidirectional motion triggers.</p>
 <p><code class="docutils literal notranslate"><span class="pre">0</span></code> - Execute exactly once per event</p>
@@ -378,21 +383,21 @@
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>limit</p></td>
+<tr class="row-odd"><td><p>limit</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>How many times the action can be executed during a trigger.</p>
 <p><code class="docutils literal notranslate"><span class="pre">0</span></code> - no limit</p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>on</p></td>
+<tr class="row-even"><td><p>on</p></td>
 <td><p><em>enum(begin, cancel, end, end_cancel, tick, update)</em></p></td>
 <td><p>At which point of the trigger’s <a class="reference internal" href="../trigger.html#lifecycle"><span class="std std-ref">lifecycle</span></a> the action should be executed.</p>
 <p>Valid values for a given trigger type are specified on its page in the <code class="docutils literal notranslate"><span class="pre">Action</span> <span class="pre">events</span></code> table row.</p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>threshold</p></td>
+<tr class="row-odd"><td><p>threshold</p></td>
 <td><p><em>float</em> (min) or <em>range(float)</em> (min and max)</p></td>
 <td><p>Same as <em><a class="reference internal" href="../trigger.html"><span class="doc std std-doc">Trigger</span></a>.threshold</em>, but only for this action.</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> actions cannot have this property.</strong></p>

@@ -149,7 +149,7 @@ Child objects inherit all properties from their parent, add new ones and can be 
   -
 
 * - mouse
-  - *<project:/devices/mouse/index.md#mouseeventhandler>*
+  - *[](#eventhandler)*
   -
   -
 
@@ -159,19 +159,17 @@ Child objects inherit all properties from their parent, add new ones and can be 
   -
 
 * - touchpad
-  - *<project:/devices/touchpad/index.md#touchpadeventhandler>*
+  - *[](#eventhandler)*
   -
   -
 
 * - touchscreen
-  - *<project:/devices/touchscreen/index.md#touchscreeneventhandler>*
+  - *[](#eventhandler)*
   -
   -
 :::
 
 ### EventHandler
-Inherited by <project:/devices/mouse/index.md#mouseeventhandler> and <project:/devices/touchpad/index.md#touchpadeventhandler>.
-
 :::{list-table}
 :header-rows: 1
 
@@ -235,9 +233,10 @@ device_rules:
       thumb: 75
       palm: 140
 
-mouse:
-  click_timeout: 50
+  - conditions: $types contains mouse
+    click_timeout: 50
 
+mouse:
   gestures:
     # ...
 

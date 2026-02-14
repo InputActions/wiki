@@ -20,6 +20,11 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - Whether the touchpad is a buttonpad (no physical buttons below, the entire device is a button). Detected automatically.
   - ``false``
 
+* - click_timeout
+  - *time*
+  - The time during which a click trigger must be performed. If not, a hold trigger will be started.
+  - ``200``
+
 * - handle_libevdev_events
   - *bool*
   - Disable in case of any issues.
@@ -41,30 +46,6 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - ``4294967295``
 :::
 
-## Configuration
-### TouchpadEventHandler
-Inherits <project:/config.md#eventhandler>.
-
-:::{list-table}
-:header-rows: 1
-
-* - Property
-  - Type
-  - Description
-  - Default
-
-* - click_timeout
-  - *time*
-  - The time during which a click trigger must be performed. If not, a hold trigger will be started.
-  - ``200``
-
-* - ~~devices~~
-  - *map(string, [](#properties))*
-  - Device properties where the key is the device name, which can be obtained from variables.
-
-    **Deprecated**. Use [Root.device_rules](/config.md#root) instead.
-  -
-:::
 
 ## Acceleration
 The Hyprland and KWin implementations only provide the unaccelerated delta, while the standalone provides both.

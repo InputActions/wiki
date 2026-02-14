@@ -8,10 +8,6 @@
 Touchscreen support is experimental.
 :::
 
-## Configuration
-### TouchscreenEventHandler
-Inherits <project:/config.md#eventhandler>.
-
 ## Event filtering
 Touchscreen event filtering requires blocking all events by default until a gesture is recognized. Setting the ``gestures`` property on
 ``TouchscreenEventHandler`` changes the behavior of the following actions:

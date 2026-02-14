@@ -20,11 +20,15 @@ All properties of the rule other then the ones listed above are device propertie
 ### Examples
 ```yaml
 device_rules:
-  - conditions: $name == Synaptics TM3276-02
+  - conditions:
+      any:
+        - $name == Synaptics TM3276-02
+        - $name contains Logitech
     ignore: false # don't ignore this device, overrides the rule below
 
   - conditions: $types contains mouse
-    # ...
+    press_timeout: 300
+    unblock_buttons_on_timeout: false
 
   - ignore: true # ignore all devices by default
 ```

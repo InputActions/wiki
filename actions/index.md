@@ -21,6 +21,11 @@ Unlike triggers, action types are determined by the presence of required propert
   - Must be satisfied in order for the action to be executed.
   -
 
+* - conflicting
+  - *bool*
+  - Whether this action can activate [trigger conflict resolution](<project:/trigger.md#conflict-resolution>).
+  - ``true``
+
 * - interval
   - *float* or *string*
   - How often should an ``on: update`` action execute. Can be negative for bidirectional motion triggers.

@@ -138,6 +138,13 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Evaluated from bottom to top, each rule applies properties to all devices that satisfy the rule's conditions.
   -
 
+* - emergency_combination
+  - *list(keyboard_key)*
+  - Keyboard keys that can be pressed in any order and held for 2 seconds to suspend InputActions until the next config reload.
+
+    Set to an empty list to disable.
+  - ``[ backspace, enter, space ]``
+
 * - external_variable_access
   - *bool*
   - Allow dumping variables by running ``inputactions variables list``.

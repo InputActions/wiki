@@ -6,10 +6,7 @@
 
 Trackpoints are also considered mice.
 
-## Configuration
-### MouseEventHandler
-Inherits <project:/config.md#eventhandler>.
-
+## Properties
 :::{list-table}
 :header-rows: 1
 

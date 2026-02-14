@@ -365,22 +365,27 @@
 <td><p>Whether the touchpad is a buttonpad (no physical buttons below, the entire device is a button). Detected automatically.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>handle_libevdev_events</p></td>
+<tr class="row-odd"><td><p>click_timeout</p></td>
+<td><p><em>time</em></p></td>
+<td><p>The time during which a click trigger must be performed. If not, a hold trigger will be started.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>handle_libevdev_events</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Disable in case of any issues.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>pressure_ranges.finger</p></td>
+<tr class="row-odd"><td><p>pressure_ranges.finger</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>Minimum pressure for the touch point to be considered a finger. Everything below this value will be ignored.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>pressure_ranges.thumb</p></td>
+<tr class="row-even"><td><p>pressure_ranges.thumb</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>Minimum pressure for the touch point to be considered a thumb. Required for <code class="docutils literal notranslate"><span class="pre">thumb_</span></code> variables.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4294967295</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>pressure_ranges.palm</p></td>
+<tr class="row-odd"><td><p>pressure_ranges.palm</p></td>
 <td><p><em>uint</em></p></td>
 <td><p>Minimum pressure for the touch point to be considered a palm. Everything over this value will be ignored.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4294967295</span></code></p></td>
@@ -388,38 +393,6 @@
 </tbody>
 </table>
 </div>
-</section>
-<section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<section id="touchpadeventhandler">
-<h3>TouchpadEventHandler<a class="headerlink" href="#touchpadeventhandler" title="Link to this heading">¶</a></h3>
-<p>Inherits <a class="reference internal" href="../../config.html#eventhandler"><span class="std std-ref">EventHandler</span></a>.</p>
-<div class="table-wrapper docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Property</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Default</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>click_timeout</p></td>
-<td><p><em>time</em></p></td>
-<td><p>The time during which a click trigger must be performed. If not, a hold trigger will be started.</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><s>devices</s></p></td>
-<td><p><em>map(string, <a class="reference internal" href="#properties"><span class="std std-ref">Properties</span></a>)</em></p></td>
-<td><p>Device properties where the key is the device name, which can be obtained from variables.</p>
-<p><strong>Deprecated</strong>. Use <a class="reference internal" href="../../config.html#root"><span class="std std-ref">Root.device_rules</span></a> instead.</p>
-</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 </section>
 <section id="acceleration">
 <h2>Acceleration<a class="headerlink" href="#acceleration" title="Link to this heading">¶</a></h2>
@@ -524,10 +497,6 @@ they are managed by InputActions.</p>
             <ul>
 <li><a class="reference internal" href="#">Touchpad</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#touchpadeventhandler">TouchpadEventHandler</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#acceleration">Acceleration</a></li>
 <li><a class="reference internal" href="#libevdev-backend">libevdev backend</a></li>
 <li><a class="reference internal" href="#one-finger-swipe-stroke-triggers">One-finger swipe/stroke triggers</a></li>

@@ -1,10 +1,13 @@
 # Mouse
-## Description
-Trackpoints also fall under this category.
+:::{list-table}
+* - **Inherits**
+  - [](/devices/index)
+:::
 
-On Hyprland, the delta is based on the pointer's position and may be either unaccelerated or accelerated, depending on the device configuration.
+Trackpoints are also considered mice.
 
-## MouseEventHandler
+## Configuration
+### MouseEventHandler
 Inherits <project:/config.md#eventhandler>.
 
 :::{list-table}
@@ -34,9 +37,12 @@ Inherits <project:/config.md#eventhandler>.
   - ``true``
 :::
 
+## Description
+In the Hyprland implementation, the delta is based on the pointer's position and may be either unaccelerated or accelerated, depending on the device configuration.
+
 ```{toctree}
 :maxdepth: 1
 :hidden:
 
-triggers/index
+Triggers <triggers/index>
 ```

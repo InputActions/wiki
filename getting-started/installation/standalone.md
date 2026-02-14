@@ -102,11 +102,11 @@ The helper script is loaded and unloaded automatically by the client.
 
 ## InputActions setup
 By default, devices are not grabbed but their events are processed. Grabbing is required for event filtering. Both properties can be configured using
-[device rules](<project:/devices/index.md#devicerule>).
+[device rules](/devices/rule).
 
 ```yaml
 device_rules:
-  - conditions: 
+  - conditions:
       all:
         - any: # remove some conditions if you don't use triggers for a specific device type
           - $types contains keyboard # keyboards must be grabbed for Trigger.clear_modifiers to work
@@ -159,7 +159,7 @@ result in devices changing their behavior after starting InputActions. In that c
    sudo udevadm control --reload-rules
    sudo udevadm trigger
    ```
-   
+
 5. Restart the daemon
    ```
    sudo systemctl restart inputactionsd

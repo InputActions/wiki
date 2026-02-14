@@ -2,5 +2,5 @@
 ```{toctree}
 :maxdepth: 1
 
-shortcut
+Shortcut <shortcut>
 ```

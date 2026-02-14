@@ -4,7 +4,7 @@
   - [](/trigger)
 
 * - **Action events**
-  - ``begin``, ``cancel``, ``end`` ``update``
+  - ``begin``, ``cancel``, ``end``, ``update``
 
 * - **Type**
   - Time-based trigger

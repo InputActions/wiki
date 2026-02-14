@@ -1,7 +1,16 @@
-# Triggers
-### Properties
-All mouse triggers have the following additional properties:
+# MouseTrigger
+:::{list-table}
+* - **Inherits**
+  - [](/trigger)
 
+* - **Inherited by**
+  - [](circle), [](press), [](stroke), [](swipe), [](wheel)
+:::
+
+Base of all mouse triggers.
+
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -27,9 +36,9 @@ All mouse triggers have the following additional properties:
 :maxdepth: 1
 :hidden:
 
-circle
-press
-stroke
-swipe
-wheel
+Circle <circle>
+Press <press>
+Stroke <stroke>
+Swipe <swipe>
+Wheel <wheel>
 ```

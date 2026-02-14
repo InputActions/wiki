@@ -1,7 +1,7 @@
-# Circle
+# MouseCircleTrigger
 :::{list-table}
 * - **Inherits**
-  - [](/trigger)
+  - [](/devices/mouse/triggers/index)
 
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
@@ -13,10 +13,10 @@
   - Motion trigger (delta based on angle)
 :::
 
-## Description
 Continuous circular motion.
 
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 

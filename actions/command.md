@@ -4,12 +4,10 @@
   - [](/actions/index)
 :::
 
-## Description
-Runs a command in a shell.
+Executes a command in a shell.
 
-[Variables can be used here.](<project:/variables.md#commands>)
-
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -20,11 +18,16 @@ Runs a command in a shell.
 
 * - **command**
   - *string*
-  - 
+  - The command to execute. Referenced InputActions variables will be provided as [environment variables](<project:/variables.md#commands>).
   -
 
 * - wait
   - *bool*
-  - Whether to wait (up to 30 seconds) for the shell process to exit, no actions will be executed until then.
+  - Whether to wait up to 30 seconds for the shell process to exit.
   - ``false``
 :::
+
+### Examples
+```yaml
+command: kill -9 $window_pid
+```

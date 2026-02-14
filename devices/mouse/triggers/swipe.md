@@ -1,7 +1,7 @@
-# Swipe
+# MouseSwipeTrigger
 :::{list-table}
 * - **Inherits**
-  - [](/trigger)
+  - [](/devices/mouse/triggers/index)
 
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
@@ -13,13 +13,10 @@
   - Motion trigger (delta based on distance)
 :::
 
-## Description
-Performed by moving the mouse left, right, up ur down.
+Straight motion in one of four directions: left, right, up or down.
 
-The direction is determined in the first few input events, making it possible to use ``on: begin`` and ``on: update`` actions. Upon changing the swipe axis,
-triggers of this type are cancelled and reactivated if there are no active triggers with ``any`` direction.
-
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -38,3 +35,7 @@ triggers of this type are cancelled and reactivated if there are no active trigg
   - Lock the pointer's position while the trigger is active.
   - ``false``
 :::
+
+## Description
+The direction is determined in the first few input events, making it possible to use ``on: begin`` and ``on: update`` actions. Upon changing the swipe axis,
+triggers of this type are cancelled and reactivated if there are no active triggers with ``any`` direction.

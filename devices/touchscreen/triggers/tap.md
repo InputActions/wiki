@@ -1,7 +1,7 @@
-# Tap
+# TouchscreenTapTrigger
 :::{list-table}
 * - **Inherits**
-  - [](/trigger)
+  - [](/devices/touchscreen/triggers/index)
 
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
@@ -13,5 +13,4 @@
   - Time-based trigger
 :::
 
-## Description
 Performed by quickly putting down fingers and lifting all of them.

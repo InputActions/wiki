@@ -1,7 +1,16 @@
-# Triggers
-### Properties
-All touchpad triggers have the following additional properties:
+# TouchpadTrigger
+:::{list-table}
+* - **Inherits**
+  - [](/trigger)
 
+* - **Inherited by**
+  - [](circle), [](click), [](hold), [](pinch), [](rotate), [](stroke), [](swipe), [](tap)
+:::
+
+Base of all touchpad triggers.
+
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -20,12 +29,12 @@ All touchpad triggers have the following additional properties:
 :maxdepth: 1
 :hidden:
 
-circle
-click
-hold
-pinch
-rotate
-stroke
-swipe
-tap
+Circle <circle>
+Click <click>
+Hold <hold>
+Pinch <pinch>
+Rotate <rotate>
+Stroke <stroke>
+Swipe <swipe>
+Tap <tap>
 ```

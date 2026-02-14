@@ -1,7 +1,7 @@
-# Hold
+# TouchscreenHoldTrigger
 :::{list-table}
 * - **Inherits**
-  - [](/trigger)
+  - [](/devices/touchscreen/triggers/index)
 
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
@@ -13,7 +13,4 @@
   - Time-based trigger
 :::
 
-## Description
-Performed by placing fingers on the touchscreen and not moving them.
-
-Hold triggers begin after 200 ms.
+Performed by placing fingers on the touchscreen and not moving them for 200 ms.

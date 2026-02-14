@@ -1,7 +1,7 @@
-# Pinch
+# TouchpadPinchTrigger
 :::{list-table}
 * - **Inherits**
-  - [](/trigger)
+  - [](/devices/touchpad/triggers/index)
 
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
@@ -13,10 +13,8 @@
   - Motion trigger (delta based on scale)
 :::
 
-## Description
-Libinput may often incorrectly recognize pinch gestures as swipe gestures.
-
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 
@@ -28,3 +26,6 @@ Libinput may often incorrectly recognize pinch gestures as swipe gestures.
   - *enum(in, out, any)*
   - ``any`` allows multiple directions.
 :::
+
+## Description
+Libinput may often incorrectly recognize pinch gestures as swipe gestures.

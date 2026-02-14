@@ -8,7 +8,7 @@
 
 ## First trigger
 All configuration for specific device types is located in the ``keyboard``, ``mouse``, ``pointer`` and ``touchpad`` root nodes. Triggers are defined in the
-``gestures``property of the those nodes.
+``gestures`` property of the those nodes.
 
 This trigger will launch dolphin if you swipe three fingers to the right.
 ```yaml
@@ -19,10 +19,17 @@ touchpad:
       fingers: 3
 
       actions:
-        - on: end
-          command: dolphin
+        - command: dolphin
 ```
 
+More information about this particular trigger can be found at [](/devices/touchpad/triggers/swipe.md). It inherits properties from
+[](/devices/touchpad/triggers/index.md), which in turn inherits from [](/trigger). Same goes for the action - [](/actions/command). Inheritance is mentioned
+in the table at the beginning of a page.
+
+The list of triggers for a specific device type may be found at ``Devices`` -> ``[device]`` -> ``Triggers``.
+![](/_static/images/touchpad_triggers.png)
+
+## Action events
 The ``on`` property of actions allows you to control at which point of the [trigger's lifecycle](<project:/trigger.md#lifecycle>) it should execute. The default
 value is ``end``. Set it to ``begin`` if you want to execute an actions as soon as the trigger begins.
 
@@ -40,11 +47,6 @@ touchpad:
           input:
             - keyboard: [ volumeup ]
 ```
-
-See [](/trigger), [](/actions/index) and everything else in the ``Core`` section of the sidebar for more information. The list of triggers for a particular
-device can be found at ``Devices`` -> ``[device]`` -> ``Triggers``.
-
-![](/_static/images/touchpad_triggers.png)
 
 ## Complex triggers
 Complex triggers will require multiple actions that execute at different points of the trigger's lifecycle. Here is an example three-finger window drag trigger.

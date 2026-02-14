@@ -7,10 +7,10 @@
   - [](/actions/groups/one)
 :::
 
-## Description
-Actions groups execute a set of actions in a specific way.
+Executes a set of actions in a specific way.
 
-Actions inside groups ignore the ``on``, ``interval`` and ``threshold`` properties. Those properties should be set on the group itself. Conditions are allowed.
+## Description
+Actions inside groups ignore the following properties of [](/actions/index): ``on``, ``interval`` and ``threshold``.
 
 ```{toctree}
 :hidden:

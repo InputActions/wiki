@@ -1,20 +1,28 @@
 # Touchscreen
-:::{warning}
+:::{list-table}
+* - **Inherits**
+  - [](/devices/index)
+:::
+
+:::{note}
 Touchscreen support is experimental.
 :::
 
-## Description
-### Event filtering
+## Configuration
+### TouchscreenEventHandler
+Inherits <project:/config.md#eventhandler>.
+
+## Event filtering
 Touchscreen event filtering requires blocking all events by default until a gesture is recognized. Setting the ``gestures`` property on
 ``TouchscreenEventHandler`` changes the behavior of the following actions:
 - hold - latency increased by 50 ms
 - motion - threshold for each finger increased by 4 mm
 - tap - latency increased by 50 ms
 
-### Window under fingers
+## Window under fingers
 Information about the window located under the center of all touch points is available in ``window_under_fingers_*`` variables.
 
-### KWin and multiple touchscreens
+## KWin and multiple touchscreens
 The KWin plugin may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule must be created to ignore all but one touchscreen.
 
 ```yaml
@@ -25,12 +33,9 @@ device_rules:
     ignore: true
 ```
 
-## TouchscreenEventHandler
-Inherits <project:/config.md#eventhandler>.
-
 ```{toctree}
 :maxdepth: 1
 :hidden:
 
-triggers/index
+Triggers <triggers/index>
 ```

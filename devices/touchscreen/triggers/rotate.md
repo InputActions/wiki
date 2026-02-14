@@ -1,7 +1,7 @@
-# Rotate
+# TouchscreenRotateTrigger
 :::{list-table}
 * - **Inherits**
-  - [](/trigger)
+  - [](/devices/touchscreen/triggers/index)
 
 * - **Action events**
   - ``begin``, ``cancel``, ``end``, ``tick``, ``update``
@@ -13,7 +13,8 @@
   - Motion trigger (delta based on angle)
 :::
 
-## Properties
+## Configuration
+### Properties
 :::{list-table}
 :header-rows: 1
 

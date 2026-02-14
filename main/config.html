@@ -490,37 +490,44 @@ suspend InputActions until the next config reload. A notification will be sent w
 <td><p>Evaluated from bottom to top, each rule applies properties to all devices that satisfy the rule’s conditions.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>external_variable_access</p></td>
+<tr class="row-even"><td><p>emergency_combination</p></td>
+<td><p><em>list(keyboard_key)</em></p></td>
+<td><p>Keyboard keys that can be pressed in any order and held for 2 seconds to suspend InputActions until the next config reload.</p>
+<p>Set to an empty list to disable.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">backspace,</span> <span class="pre">enter,</span> <span class="pre">space</span> <span class="pre">]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>external_variable_access</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Allow dumping variables by running <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">variables</span> <span class="pre">list</span></code>.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>notifications.config_error</p></td>
+<tr class="row-even"><td><p>notifications.config_error</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Send a notification when the configuration fails to load.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>keyboard</p></td>
+<tr class="row-odd"><td><p>keyboard</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>mouse</p></td>
+<tr class="row-even"><td><p>mouse</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>pointer</p></td>
+<tr class="row-odd"><td><p>pointer</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>touchpad</p></td>
+<tr class="row-even"><td><p>touchpad</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>touchscreen</p></td>
+<tr class="row-odd"><td><p>touchscreen</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>

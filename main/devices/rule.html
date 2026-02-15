@@ -370,7 +370,7 @@
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$name contains Logitech</span>
 <span class="w">    </span><span class="nt">ignore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># don&#39;t ignore this device, overrides the rule below</span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$types contains mouse</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$mouse</span>
 <span class="w">    </span><span class="nt">press_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
 <span class="w">    </span><span class="nt">unblock_buttons_on_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 
@@ -399,6 +399,22 @@ accessible here.</p>
 <tr class="row-odd"><td><p>types</p></td>
 <td><p><em>flags(keyboard, mouse, touchpad)</em></p></td>
 <td><p>Certain devices may have multiple types (e.g. mouse and keyboard).</p></td>
+</tr>
+<tr class="row-even"><td><p>keyboard</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether the device is a keyboard.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mouse</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether the device is a mouse.</p></td>
+</tr>
+<tr class="row-even"><td><p>touchpad</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether the device is a touchpad.</p></td>
+</tr>
+<tr class="row-odd"><td><p>touchscreen</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether the device is a touchscreen.</p></td>
 </tr>
 </tbody>
 </table>

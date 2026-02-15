@@ -26,7 +26,7 @@ device_rules:
         - $name contains Logitech
     ignore: false # don't ignore this device, overrides the rule below
 
-  - conditions: $types contains mouse
+  - conditions: $mouse
     press_timeout: 300
     unblock_buttons_on_timeout: false
 
@@ -51,4 +51,20 @@ accessible here.
 * - types
   - *flags(keyboard, mouse, touchpad)*
   - Certain devices may have multiple types (e.g. mouse and keyboard).
+
+* - keyboard
+  - *bool*
+  - Whether the device is a keyboard.
+
+* - mouse
+  - *bool*
+  - Whether the device is a mouse.
+
+* - touchpad
+  - *bool*
+  - Whether the device is a touchpad.
+
+* - touchscreen
+  - *bool*
+  - Whether the device is a touchscreen.
 :::

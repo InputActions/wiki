@@ -245,7 +245,7 @@ device_rules:
       thumb: 75
       palm: 140
 
-  - conditions: $types contains mouse
+  - conditions: $mouse
     click_timeout: 50
 
 mouse:

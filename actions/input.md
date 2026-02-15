@@ -68,8 +68,7 @@ See [](/devices/keyboard/index).
 :::
 
 ### MouseAction
-Button list: ``left``, ``middle``, ``right``, ``back``, ``forward``, ``task``, ``side``, ``extra``, ``extra6``, ``extra7``, ``extra8``, ``extra9``, ``extra10``,
-``extra11``, ``extra12`` ``extra13``.
+See [mouse buttons](<project:/devices/mouse/index.md#buttons>).
 
 :::{list-table}
 :header-rows: 1

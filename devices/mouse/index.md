@@ -37,6 +37,29 @@ Trackpoints are also considered mice.
 ## Description
 In the Hyprland implementation, the delta is based on the pointer's position and may be either unaccelerated or accelerated, depending on the device configuration.
 
+## Buttons
+- ``left``
+- ``middle``
+- ``right``
+- ``back`` (equivalent to ``BTN_SIDE`` evdev scancode)
+- ``forward`` (equivalent to ``BTN_EXTRA`` evdev scancode)
+- ``task`` (equivalent to ``BTN_FORWARD`` evdev scancode)
+- ``side`` (equivalent to ``BTN_BACK`` evdev scancode)
+- ``extra`` (equivalent to ``BTN_TASK`` evdev scancode)
+- ``extra1`` (alias for ``back``)
+- ``extra2`` (alias for ``forward``)
+- ``extra3`` (alias for ``task``)
+- ``extra4`` (alias for ``side``)
+- ``extra5`` (alias for ``extra``)
+- ``extra6``
+- ``extra7``
+- ``extra8``
+- ``extra9``
+- ``extra10``
+- ``extra11``
+- ``extra12``
+- ``extra13``
+
 ```{toctree}
 :maxdepth: 1
 :hidden:

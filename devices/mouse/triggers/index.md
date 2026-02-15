@@ -20,10 +20,8 @@ Base of all mouse triggers.
   - Default
 
 * - mouse_buttons
-  - *flags(left, middle, right, back, forward, extra1, extra2, ..., extra13)*
+  - *flags([MouseButton](<project:/devices/mouse/index.md#buttons>))*
   - Mouse buttons that must be pressed in order for the trigger to be activated.
-
-    ``extra1`` and ``extra2`` are equal to ``back`` and ``forward`` respectively.
   -
 
 * - mouse_buttons_exact_order

@@ -10,7 +10,7 @@
 Executes a set of actions in a specific way.
 
 ## Description
-Actions inside groups ignore the following properties of [](/actions/index): ``on``, ``interval`` and ``threshold``.
+Actions inside groups ignore the following trigger-specific properties of [](/actions/index): ``conflicting``, ``interval``, ``on`` and ``threshold``.
 
 ```{toctree}
 :hidden:

@@ -30,6 +30,15 @@ The group type is determined by the presence of one of the following properties,
   - No conditions must be satisfied.
 :::
 
+:::{note}
+Singular values in groups are not implicitly converted to lists. The following condition is invalid:
+
+```yaml
+conditions:
+  - any: $window_class == firefox
+```
+:::
+
 ### Examples
 ```yaml
 conditions:

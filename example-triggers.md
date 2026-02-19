@@ -42,7 +42,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
   <summary>Extra7/Extra8 - Volume control (repeats if held)</summary>
 
   ```yaml
-  _anchors:
+  anchors:
     - &repeat_delay 250
     - &repeat_interval 50
 

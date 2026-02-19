@@ -168,7 +168,7 @@ The proper solution is:
 - ``*name`` - Reference (must be defined first above the reference)
 
 ```yaml
-_anchors: # Prefixed with _ to prevent potential conflicts with future properties, may be renamed to anything
+anchors: # Prefixed with _ to prevent potential conflicts with future properties, may be renamed to anything
   - &mouse_stroke_button [ back ]
   - &stroke_up [ 'MGQA0DMnPMwwAGQA' ]
   - &stroke_left [ 'ZDIAnQAxZAA=' ]
@@ -190,7 +190,7 @@ mouse:
 Conditions are merged into an ``all:`` condition group consisting of the group's and the trigger's condition.
 
 ```yaml
-_anchors:
+anchors:
   - &mouse_stroke_button [ back ]
   - &stroke_up [ 'MGQA0DMnPMwwAGQA' ]
   - &stroke_down [ 'MAAAMTNkZAA=' ]

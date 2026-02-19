@@ -9,10 +9,10 @@ The merge operator ``<<`` is not supported.
 ## Example
 
 ```yaml
-_anchors: # Call this whatever you want but prefix it with _ so it does not conflict with anything in the future
+anchors: # Call this whatever you want but prefix it with _ so it does not conflict with anything in the future
   - &touchpad_interval_p 75
   - &touchpad_interval_n -75
-  
+
 touchpad:
   gestures:
     - type: swipe
@@ -23,7 +23,7 @@ touchpad:
         - on: update
           interval: *touchpad_interval_n
           # ...
-          
+
         - on: update
           interval: *touchpad_interval_p
           # ...

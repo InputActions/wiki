@@ -128,6 +128,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Description
   - Default
 
+* - anchors
+  -
+  - For defining YAML anchors without unused property warnings.
+  - 
+
 * - autoreload
   - *bool*
   - Whether the configuration should be automatically reloaded on file change.

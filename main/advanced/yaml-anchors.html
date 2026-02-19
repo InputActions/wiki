@@ -344,10 +344,10 @@
 <p>The merge operator <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> is not supported.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_anchors</span><span class="p">:</span><span class="w"> </span><span class="c1"># Call this whatever you want but prefix it with _ so it does not conflict with anything in the future</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">anchors</span><span class="p">:</span><span class="w"> </span><span class="c1"># Call this whatever you want but prefix it with _ so it does not conflict with anything in the future</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;touchpad_interval_p</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;touchpad_interval_n</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-75</span>
-<span class="w">  </span>
+
 <span class="nt">touchpad</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
@@ -358,7 +358,7 @@
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
 <span class="w">          </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="nv">*touchpad_interval_n</span>
 <span class="w">          </span><span class="c1"># ...</span>
-<span class="w">          </span>
+
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
 <span class="w">          </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="nv">*touchpad_interval_p</span>
 <span class="w">          </span><span class="c1"># ...</span>

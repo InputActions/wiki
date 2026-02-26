@@ -359,23 +359,48 @@
 </tbody>
 </table>
 </div>
-<p>Straight motion of all fingers in one of four directions: left, right, up or down.</p>
+<p>Straight motion of all fingers at a particular angle.</p>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
 <section id="properties">
 <h3>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+<p>Either <code class="docutils literal notranslate"><span class="pre">angle</span></code> or <code class="docutils literal notranslate"><span class="pre">direction</span></code> must be set.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Property</p></th>
 <th class="head"><p>Type</p></th>
 <th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>direction</strong></p></td>
-<td><p><em>enum(left, right, up, down, left_right, up_down, any)</em></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">any</span></code>, <code class="docutils literal notranslate"><span class="pre">left_right</span></code> and <code class="docutils literal notranslate"><span class="pre">up_down</span></code> allow multiple directions. <code class="docutils literal notranslate"><span class="pre">any</span></code> will not work well with action intervals, as they only accept a single value, not two (x and y).</p></td>
+<tr class="row-even"><td><p><strong>angle</strong></p></td>
+<td><p><em>range(float)</em></p></td>
+<td><p>Custom angle range. See the <a class="reference internal" href="#angle-ranges"><span class="std std-ref">Angle ranges</span></a> section below.</p>
+<p>Format: <code class="docutils literal notranslate"><span class="pre">a-b</span></code>, where each angle ranges from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">360</span></code>.</p>
+<p><strong>Mutually exclusive with <code class="docutils literal notranslate"><span class="pre">direction</span></code>.</strong></p>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><strong>direction</strong></p></td>
+<td><p><em>enum(left, right, up, down, left_right, up_down, left_up, left_down, right_up, right_down, left_up_right_down, left_down_right_up, any)</em></p></td>
+<td><p>Predefined direction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">left_right</span></code>, <code class="docutils literal notranslate"><span class="pre">up_down</span></code> - bidirectional
+<code class="docutils literal notranslate"><span class="pre">left_up</span></code>, <code class="docutils literal notranslate"><span class="pre">left_down</span></code>, <code class="docutils literal notranslate"><span class="pre">right_up</span></code>, <code class="docutils literal notranslate"><span class="pre">right_down</span></code> - diagonal
+<code class="docutils literal notranslate"><span class="pre">left_up_right_down</span></code>, <code class="docutils literal notranslate"><span class="pre">left_down_right_up</span></code> - bidirectional diagonal</p>
+<p>For bidirectional values, the first direction in the enum will always have a negative delta, while the second one will have a positive one.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">up</span></code> and <code class="docutils literal notranslate"><span class="pre">down</span></code> directions have angle tolerances of 20°. The remaining space is used for diagonal directions.</p>
+<p><strong>Mutually exclusive with <code class="docutils literal notranslate"><span class="pre">angle</span></code>.</strong></p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bidirectional</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Allow motion in the angle range opposite to the one specified in the <code class="docutils literal notranslate"><span class="pre">angle</span></code> property. Such motion will have a negative delta.</p>
+<p>This property has no effect if a predefined direction is used.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -384,8 +409,29 @@
 </section>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>The direction is determined in the first few input events, making it possible to use <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions. Upon changing the swipe axis,
-triggers of this type are cancelled and reactivated if there are no active triggers with <code class="docutils literal notranslate"><span class="pre">any</span></code> direction.</p>
+<p>The direction is determined when the motion threshold is reached, allowing for <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">on:</span> <span class="pre">update</span></code> actions. In case of issues regarding direction detection, create a <a class="reference internal" href="../../rule.html"><span class="doc std std-doc">device rule</span></a> that sets the device’s motion threshold property.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The device’s size ratio has no effect on the angle.</p>
+</div>
+<p>If swipe triggers are active and the motion angle changes, but none of the active triggers acccept it, they are cancelled and all swipe triggers are activated
+again, allowing for chaining multiple triggers together.</p>
+</section>
+<section id="angle-ranges">
+<h2>Angle ranges<a class="headerlink" href="#angle-ranges" title="Link to this heading">¶</a></h2>
+<p>0° - right, 90° - up, 180° - left, 270° - down</p>
+<a class="reference internal image-reference" href="../../../_images/angle1.png"><img alt="../../../_images/angle1.png" src="../../../_images/angle1.png" style="width: 400px;" />
+</a>
+<p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>, the range includes values where <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">a</span></code> <strong>and</strong> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>. Example for <code class="docutils literal notranslate"><span class="pre">30-330</span></code>:</p>
+<a class="reference internal image-reference" href="../../../_images/angle2.png"><img alt="../../../_images/angle2.png" src="../../../_images/angle2.png" style="width: 400px;" />
+</a>
+<p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>, the range includes values where <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">a</span></code> <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>. Example for <code class="docutils literal notranslate"><span class="pre">330-30</span></code>:</p>
+<a class="reference internal image-reference" href="../../../_images/angle3.png"><img alt="../../../_images/angle3.png" src="../../../_images/angle3.png" style="width: 400px;" />
+</a>
+<p>For <code class="docutils literal notranslate"><span class="pre">330-30</span></code>, the opposite angle range (red) is <code class="docutils literal notranslate"><span class="pre">150-210</span></code>:</p>
+<a class="reference internal image-reference" href="../../../_images/angle4.png"><img alt="../../../_images/angle4.png" src="../../../_images/angle4.png" style="width: 400px;" />
+</a>
+<p>In the case of overlapping angle ranges, the normal one takes priority over the opposite one.</p>
 </section>
 </section>
 
@@ -450,6 +496,7 @@ triggers of this type are cancelled and reactivated if there are no active trigg
 </ul>
 </li>
 <li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#angle-ranges">Angle ranges</a></li>
 </ul>
 </li>
 </ul>

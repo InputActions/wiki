@@ -366,14 +366,19 @@
 buttons will actually be pressed, after having been blocked previously.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>press_timeout</p></td>
+<tr class="row-odd"><td><p>motion_threshold</p></td>
+<td><p><em>number</em></p></td>
+<td><p>For accurately determining the direction of swipe triggers.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>press_timeout</p></td>
 <td><p><em>time</em></p></td>
 <td><p>The time during which press triggers are not started in case the user presses more than one mouse button.</p>
 <p>Swipe and wheel trigger aren’t affected by this option.</p>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>unblock_buttons_on_timeout</p></td>
+<tr class="row-odd"><td><p>unblock_buttons_on_timeout</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether blocked mouse buttons should be pressed immediately on timeout. If false, they will be pressed and instantly released on button release.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>

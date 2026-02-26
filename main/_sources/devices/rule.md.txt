@@ -26,6 +26,9 @@ device_rules:
         - $name contains Logitech
     ignore: false # don't ignore this device, overrides the rule below
 
+  - conditions: $name == Logitech G502 X
+    motion_threshold: 30
+
   - conditions: $mouse
     press_timeout: 300
     unblock_buttons_on_timeout: false

@@ -8,6 +8,21 @@
 Touchscreen support is experimental.
 :::
 
+## Properties
+:::{list-table}
+:header-rows: 1
+
+* - Property
+  - Type
+  - Description
+  - Default
+
+* - motion_threshold
+  - *number*
+  - For accurately determining the direction of swipe triggers. In millimeters.
+  - ``4``
+:::
+
 ## Event filtering
 Touchscreen event filtering requires blocking all events by default until a gesture is recognized. Setting the ``gestures`` property on
 ``TouchscreenEventHandler`` changes the behavior of the following actions:

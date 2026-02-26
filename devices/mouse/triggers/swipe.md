@@ -13,10 +13,12 @@
   - Motion trigger (delta based on distance)
 :::
 
-Straight motion in one of four directions: left, right, up or down.
+Straight motion at a particular angle.
 
 ## Configuration
 ### Properties
+Either ``angle`` or ``direction`` must be set.
+
 :::{list-table}
 :header-rows: 1
 
@@ -25,10 +27,36 @@ Straight motion in one of four directions: left, right, up or down.
   - Description
   - Default
 
-* - **direction**
-  - *enum(left, right, up, down, left_right, up_down, any)*
-  - ``any``, ``left_right`` and ``up_down`` allow multiple directions. ``any`` will not work well with action intervals, as they only accept a single value, not two (x and y).
+* - **angle**
+  - *range(float)*
+  - Custom angle range. See the [](#angle-ranges) section below.
+
+    Format: ``a-b``, where each angle ranges from ``0`` to ``360``.
+
+    **Mutually exclusive with ``direction``.**
   -
+
+* - **direction**
+  - *enum(left, right, up, down, left_right, up_down, left_up, left_down, right_up, right_down, left_up_right_down, left_down_right_up, any)*
+  - Predefined direction.
+
+    ``left_right``, ``up_down`` - bidirectional
+    ``left_up``, ``left_down``, ``right_up``, ``right_down`` - diagonal
+    ``left_up_right_down``, ``left_down_right_up`` - bidirectional diagonal
+
+    For bidirectional values, the first direction in the enum will always have a negative delta, while the second one will have a positive one.
+
+    The ``left``, ``right``, ``up`` and ``down`` directions have angle tolerances of 20°. The remaining space is used for diagonal directions.
+
+    **Mutually exclusive with ``angle``.**
+  -
+
+* - bidirectional
+  - *bool*
+  - Allow motion in the angle range opposite to the one specified in the ``angle`` property. Such motion will have a negative delta.
+
+    This property has no effect if a predefined direction is used.
+  - ``false``
 
 * - lock_pointer
   - *bool*
@@ -37,5 +65,31 @@ Straight motion in one of four directions: left, right, up or down.
 :::
 
 ## Description
-The direction is determined in the first few input events, making it possible to use ``on: begin`` and ``on: update`` actions. Upon changing the swipe axis,
-triggers of this type are cancelled and reactivated if there are no active triggers with ``any`` direction.
+The direction is determined when the motion threshold is reached, allowing for ``on: begin`` and ``on: update`` actions. In case of issues regarding direction detection, create a [device rule](/devices/rule) that sets the device's motion threshold property.
+
+If swipe triggers are active and the motion angle changes, but none of the active triggers acccept it, they are cancelled and all swipe triggers are activated
+again, allowing for chaining multiple triggers together.
+
+## Angle ranges
+0° - right, 90° - up, 180° - left, 270° - down
+
+```{image} /_static/images/swipe-trigger/angle1.png
+:width: 400px
+```
+
+If ``a < b``, the range includes values where ``x >= a`` **and** ``x <= b``. Example for ``30-330``:
+```{image} /_static/images/swipe-trigger/angle2.png
+:width: 400px
+```
+
+If ``a > b``, the range includes values where ``x >= a`` **or** ``x <= b``. Example for ``330-30``:
+```{image} /_static/images/swipe-trigger/angle3.png
+:width: 400px
+```
+
+For ``330-30``, the opposite angle range (red) is ``150-210``:
+```{image} /_static/images/swipe-trigger/angle4.png
+:width: 400px
+```
+
+In the case of overlapping angle ranges, the normal one takes priority over the opposite one.

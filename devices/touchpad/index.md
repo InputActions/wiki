@@ -30,6 +30,21 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - Disable in case of any issues.
   - ``true``
 
+* - motion_threshold
+  - *number*
+  - For accurately determining the direction of **1-finger** swipe triggers.
+  - ``10``
+
+* - motion_threshold_2
+  - *number*
+  - For accurately determining the direction of **2-finger** swipe triggers.
+  - ``10``
+
+* - motion_threshold_3
+  - *number*
+  - For accurately determining the direction of **3- and 4-finger** swipe triggers.
+  - ``10``
+
 * - pressure_ranges.finger
   - *uint*
   - Minimum pressure for the touch point to be considered a finger. Everything below this value will be ignored.
@@ -45,7 +60,6 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - Minimum pressure for the touch point to be considered a palm. Everything over this value will be ignored.
   - ``4294967295``
 :::
-
 
 ## Acceleration
 The Hyprland and KWin implementations only provide the unaccelerated delta, while the standalone provides both.

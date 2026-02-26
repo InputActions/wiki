@@ -21,6 +21,11 @@ Trackpoints are also considered mice.
     buttons will actually be pressed, after having been blocked previously.
   - ``200``
 
+* - motion_threshold
+  - *number*
+  - For accurately determining the direction of swipe triggers.
+  - ``10``
+
 * - press_timeout
   - *time*
   - The time during which press triggers are not started in case the user presses more than one mouse button.

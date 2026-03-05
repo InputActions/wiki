@@ -402,7 +402,7 @@ likely be made available only on the latest one.</p>
 </div>
 </details>
 <details>
-  <summary>Fedora 40 - 42</summary>
+  <summary>Fedora</summary>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">gcc</span><span class="o">-</span><span class="n">g</span><span class="o">++</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span><span class="o">-</span><span class="n">devel</span> <span class="n">kwin</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">ki18n</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kguiaddons</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kcmutils</span><span class="o">-</span><span class="n">devel</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kconfigwidgets</span><span class="o">-</span><span class="n">devel</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span> <span class="n">kf6</span><span class="o">-</span><span class="n">kguiaddons</span> <span class="n">kf6</span><span class="o">-</span><span class="n">ki18n</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libepoxy</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libdrm</span><span class="o">-</span><span class="n">devel</span> <span class="n">cli11</span><span class="o">-</span><span class="n">devel</span>
 </pre></div>
 </div>
@@ -437,9 +437,10 @@ mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON
 make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-cpack<span class="w"> </span>-V<span class="w"> </span>-G<span class="w"> </span>RPM
+cpack<span class="w"> </span>-V<span class="w"> </span>-G<span class="w"> </span>RPM<span class="w"> </span>--config<span class="w"> </span>ctl/CPack.cmake
+cpack<span class="w"> </span>-V<span class="w"> </span>-G<span class="w"> </span>RPM<span class="w"> </span>--config<span class="w"> </span>kwin/CPack.cmake
 <span class="nb">exit</span><span class="w"> </span><span class="c1"># exit container</span>
-sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class="w"> </span>InputActions/build/inputactions.rpm
+sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class="w"> </span>InputActions/build/inputactions-ctl.rpm<span class="w"> </span>InputActions/build/inputactions-kwin.rpm
 </pre></div>
 </div>
 </section>

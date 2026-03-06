@@ -162,13 +162,15 @@ The proper solution is:
 ```
 
 ## YAML anchors
-[YAML anchors](/advanced/yaml-anchors.md) can be used to define values (mouse trigger button, strokes etc.) once and reuse them thorough the configuration.
+Anchors can be used to define values (mouse trigger button, strokes etc.) once and reuse them thorough the configuration.
 
 - ``&name`` - Define (can be done anywhere)
 - ``*name`` - Reference (must be defined first above the reference)
 
+The merge operator ``<<`` is not supported.
+
 ```yaml
-anchors: # Prefixed with _ to prevent potential conflicts with future properties, may be renamed to anything
+anchors:
   - &mouse_stroke_button [ back ]
   - &stroke_up [ 'MGQA0DMnPMwwAGQA' ]
   - &stroke_left [ 'ZDIAnQAxZAA=' ]
@@ -185,7 +187,7 @@ mouse:
 ```
 
 ## Trigger groups
-[Trigger groups](/advanced/trigger-groups.md) apply a set of properties to all triggers specified in the ``gestures`` property of the group and can be nested.
+Trigger groups apply a set of properties to all triggers specified in the ``gestures`` property of the group and can be nested.
 
 Conditions are merged into an ``all:`` condition group consisting of the group's and the trigger's condition.
 

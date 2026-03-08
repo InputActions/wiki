@@ -21,6 +21,15 @@ Touchscreen support is experimental.
   - *number*
   - For accurately determining the direction of swipe triggers. In millimeters.
   - ``4``
+
+* - swipe.angle_tolerance
+  - *number*
+  - Angle tolerance for the ``left``, ``right``, ``up``, ``down``, ``left_right`` and ``up_down`` directions of [](triggers/swipe). The remaining space   is
+    used for diagonal directions.
+
+    Min: ``0``<br>
+    Max: ``45``
+  - ``20``
 :::
 
 ## Event filtering

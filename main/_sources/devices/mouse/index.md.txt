@@ -33,6 +33,15 @@ Trackpoints are also considered mice.
     Swipe and wheel trigger aren't affected by this option.
   - ``50``
 
+* - swipe.angle_tolerance
+  - *number*
+  - Angle tolerance for the ``left``, ``right``, ``up``, ``down``, ``left_right`` and ``up_down`` directions of [](triggers/swipe). The remaining space   is
+    used for diagonal directions.
+
+    Min: ``0``<br>
+    Max: ``45``
+  - ``20``
+
 * - unblock_buttons_on_timeout
   - *bool*
   - Whether blocked mouse buttons should be pressed immediately on timeout. If false, they will be pressed and instantly released on button release.

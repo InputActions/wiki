@@ -376,7 +376,16 @@ buttons will actually be pressed, after having been blocked previously.</p></td>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>unblock_buttons_on_timeout</p></td>
+<tr class="row-odd"><td><p>swipe.angle_tolerance</p></td>
+<td><p><em>number</em></p></td>
+<td><p>Angle tolerance for the <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code>, <code class="docutils literal notranslate"><span class="pre">left_right</span></code> and <code class="docutils literal notranslate"><span class="pre">up_down</span></code> directions of <a class="reference internal" href="triggers/swipe.html"><span class="doc std std-doc">MouseSwipeTrigger</span></a>. The remaining space   is
+used for diagonal directions.</p>
+<p>Min: <code class="docutils literal notranslate"><span class="pre">0</span></code><br>
+Max: <code class="docutils literal notranslate"><span class="pre">45</span></code></p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>unblock_buttons_on_timeout</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether blocked mouse buttons should be pressed immediately on timeout. If false, they will be pressed and instantly released on button release.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>

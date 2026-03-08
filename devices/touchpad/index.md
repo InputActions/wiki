@@ -59,6 +59,15 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - *uint*
   - Minimum pressure for the touch point to be considered a palm. Everything over this value will be ignored.
   - ``4294967295``
+
+* - swipe.angle_tolerance
+  - *number*
+  - Angle tolerance for the ``left``, ``right``, ``up``, ``down``, ``left_right`` and ``up_down`` directions of [](triggers/swipe). The remaining space   is
+    used for diagonal directions.
+
+    Min: ``0``<br>
+    Max: ``45``
+  - ``20``
 :::
 
 ## Acceleration

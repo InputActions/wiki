@@ -49,7 +49,8 @@ Either ``angle`` or ``direction`` must be set.
 
     For bidirectional values, the first direction in the enum will always have a negative delta, while the second one will have a positive one.
 
-    The ``left``, ``right``, ``up`` and ``down`` directions have angle tolerances of 20°. The remaining space is used for diagonal directions.
+    The ``left``, ``right``, ``up``, ``down``, ``left_right`` and ``up_down`` directions have an angle tolerance equivalent to the value of the
+    ``swipe.angle_tolerance`` device property (20° by default). The remaining space is used for diagonal directions.
 
     **Mutually exclusive with ``angle``.**
   -
@@ -97,3 +98,14 @@ For ``330-30``, the opposite angle range (red) is ``150-210``:
 ```
 
 In the case of overlapping angle ranges, the normal one takes priority over the opposite one.
+
+## Restoring the pre-0.9 angle tolerances
+Prior to v0.9, the ``left``, ``right``, ``up``, ``down``, ``left_right`` and ``up_down`` directions had an angle tolerance of 45°, which was later changed to
+20° in order to make space for diagonal directions. To restore the old behavior **and disable diagonal gestures**, set the ``swipe.angle_tolerance`` device
+property to ``45`` using a [device rule](/devices/rule):
+```yaml
+device_rules:
+  - conditions: $touchpad
+    swipe:
+      angle_tolerance: 45
+```

@@ -74,7 +74,6 @@ For package maintainers: this is the main version and should be called ``inputac
 ```sh
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
-git submodule update --remote
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_STANDALONE=ON -DINPUTACTIONS_BUILD_CTL=ON

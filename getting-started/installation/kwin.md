@@ -87,7 +87,6 @@ likely be made available only on the latest one.
 ```sh
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
-git submodule update --remote
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_KWIN=ON -DINPUTACTIONS_BUILD_CTL=ON
@@ -103,7 +102,6 @@ Build the plugin in a container. The image's KWin version must be the same as th
 sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel kwin-devel kf6-ki18n-devel kf6-kguiaddons-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel qt6-qtbase kf6-kguiaddons kf6-ki18n wayland-devel yaml-cpp yaml-cpp-devel libepoxy-devel libevdev libevdev-devel libdrm-devel cli11-devel rpmbuild
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
-git submodule update --remote
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_KWIN=ON -DINPUTACTIONS_BUILD_CTL=ON

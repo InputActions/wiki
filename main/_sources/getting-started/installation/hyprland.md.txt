@@ -43,15 +43,11 @@
 </details>
 
 ### Installation
-First, build the control tool:
+First, install the control tool:
 ```sh
-git clone --recursive https://github.com/InputActions/ctl
-cd ctl
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr
-make -j$(nproc)
-sudo make install
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod +x inputactions-installer.sh
+./inputactions-installer.sh --ctl --latest
 ```
 
 Then, build the Hyprland plugin. Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.

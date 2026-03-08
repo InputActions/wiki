@@ -416,13 +416,9 @@ likely be made available only on the latest one.</p>
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
-<span class="nb">cd</span><span class="w"> </span>InputActions
-mkdir<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON
-make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-sudo<span class="w"> </span>make<span class="w"> </span>install
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>inputactions-installer.sh<span class="w"> </span>https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
+./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--kwin<span class="w"> </span>--latest
 </pre></div>
 </div>
 </section>
@@ -431,16 +427,13 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 <p>Build the plugin in a container. The image’s KWin version must be the same as the one on your real system.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter container</span>
 sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>extra-cmake-modules<span class="w"> </span>gcc-g++<span class="w"> </span>qt6-qtbase-devel<span class="w"> </span>kwin-devel<span class="w"> </span>kf6-ki18n-devel<span class="w"> </span>kf6-kguiaddons-devel<span class="w"> </span>kf6-kcmutils-devel<span class="w"> </span>kf6-kconfigwidgets-devel<span class="w"> </span>qt6-qtbase<span class="w"> </span>kf6-kguiaddons<span class="w"> </span>kf6-ki18n<span class="w"> </span>wayland-devel<span class="w"> </span>yaml-cpp<span class="w"> </span>yaml-cpp-devel<span class="w"> </span>libepoxy-devel<span class="w"> </span>libevdev<span class="w"> </span>libevdev-devel<span class="w"> </span>libdrm-devel<span class="w"> </span>cli11-devel<span class="w"> </span>rpmbuild
-git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
-<span class="nb">cd</span><span class="w"> </span>InputActions
-mkdir<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON
-make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-cpack<span class="w"> </span>-V<span class="w"> </span>-G<span class="w"> </span>RPM<span class="w"> </span>--config<span class="w"> </span>ctl/CPack.cmake
-cpack<span class="w"> </span>-V<span class="w"> </span>-G<span class="w"> </span>RPM<span class="w"> </span>--config<span class="w"> </span>kwin/CPack.cmake
+curl<span class="w"> </span>-o<span class="w"> </span>inputactions-installer.sh<span class="w"> </span>https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
+./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--kwin<span class="w"> </span>-p<span class="w"> </span>RPM<span class="w"> </span>--latest
 <span class="nb">exit</span><span class="w"> </span><span class="c1"># exit container</span>
-sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class="w"> </span>InputActions/build/inputactions-ctl.rpm<span class="w"> </span>InputActions/build/inputactions-kwin.rpm
+
+<span class="nv">installer_dir</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">XDG_DATA_HOME</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.local/share</span><span class="si">}</span><span class="s2">/inputactions-installer&quot;</span>
+sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installer_dir</span><span class="s2">/inputactions-ctl.rpm&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$installer_dir</span><span class="s2">/inputactions-kwin.rpm&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -454,7 +447,6 @@ sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class
 <p>or open the <code class="docutils literal notranslate"><span class="pre">Desktop</span> <span class="pre">Effects</span></code> page in <code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">Settings</span></code> and enable <code class="docutils literal notranslate"><span class="pre">InputActions</span></code> in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> category.</p>
 <p>If the plugin ever causes the compositor to crash repeatedly, making it impossible to disable it, remove <code class="docutils literal notranslate"><span class="pre">kwin_gesturesEnabled=true</span></code> from
 <code class="docutils literal notranslate"><span class="pre">~/.config/kwinrc</span></code>.</p>
-<p>To rebuild, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> in the project directory and then all command starting from <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code>.</p>
 </section>
 <section id="additional-setup-optional">
 <h2>Additional setup (optional)<a class="headerlink" href="#additional-setup-optional" title="Link to this heading">¶</a></h2>

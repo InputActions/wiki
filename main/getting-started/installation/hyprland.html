@@ -380,14 +380,10 @@
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<p>First, build the control tool:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/InputActions/ctl
-<span class="nb">cd</span><span class="w"> </span>ctl
-mkdir<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr
-make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-sudo<span class="w"> </span>make<span class="w"> </span>install
+<p>First, install the control tool:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>inputactions-installer.sh<span class="w"> </span>https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
+./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--latest
 </pre></div>
 </div>
 <p>Then, build the Hyprland plugin. Read <a class="reference external" href="https://wiki.hypr.land/Plugins/Using-Plugins">https://wiki.hypr.land/Plugins/Using-Plugins</a> first.</p>

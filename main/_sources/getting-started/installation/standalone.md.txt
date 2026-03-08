@@ -71,14 +71,12 @@ For package maintainers: this is the main version and should be called ``inputac
 </details>
 
 ### Installation
+Add the ``--standalone-no-systemd`` flag to not install the daemon service.
+
 ```sh
-git clone --recursive https://github.com/taj-ny/InputActions
-cd InputActions
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_STANDALONE=ON -DINPUTACTIONS_BUILD_CTL=ON
-make -j$(nproc)
-sudo make install
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod +x inputactions-installer.sh
+./inputactions-installer.sh --ctl --standalone --latest
 ```
 
 ## Post-installation

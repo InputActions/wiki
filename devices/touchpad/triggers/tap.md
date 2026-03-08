@@ -16,7 +16,7 @@
 Performed by quickly putting down fingers and lifting all of them.
 
 :::{note}
-This trigger requires the [libevdev backend](<project:/devices/touchpad/index.md#libevdev-backend>) to be enabled.
+This trigger requires the [evdev input backend](<project:/devices/touchpad/index.md#evdev-backend>) to be enabled.
 :::
 
 ## Description

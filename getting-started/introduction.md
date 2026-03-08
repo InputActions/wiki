@@ -3,11 +3,11 @@
 ## Configuration
 ```{include} ../config.md
 :start-after: "# Configuration"
-:end-before: "## "
+:end-before: "## Subproperties"
 ```
 
 ## First trigger
-All configuration for specific device types is located in the ``keyboard``, ``mouse``, ``pointer`` and ``touchpad`` root nodes. Triggers are defined in the
+All configuration for specific device types is located in the ``keyboard``, ``mouse``, ``pointer``, ``touchpad`` and ``touchscreen`` root nodes. Triggers are defined in the
 ``gestures`` property of the those nodes.
 
 This trigger will launch dolphin if you swipe three fingers to the right.
@@ -48,6 +48,10 @@ touchpad:
             - keyboard: [ volumeup ]
 ```
 
+:::{note}
+Available action events for a given trigger are mentioned in the table at the top of the trigger's page. Some triggers do not support certain events.
+:::
+
 ## Complex triggers
 Complex triggers will require multiple actions that execute at different points of the trigger's lifecycle. Here is an example three-finger window drag trigger.
 ```yaml
@@ -72,9 +76,7 @@ Complex triggers will require multiple actions that execute at different points 
 ```
 
 ## Conditions
-Conditions allow you to make a trigger activate only if certain criteria are met - finger count, window class, cursor shape and [much more](/variables).
-
-It is also possible to set conditions on actions, though events will be blocked even if no action can be executed.
+To make a trigger eligible for activation only if certain criteria are met (finger count, window class and [much more](/variables)), set the ``conditions`` property.
 
 ```yaml
 touchpad:
@@ -91,7 +93,14 @@ touchpad:
             - mouse: [ forward ]
 ```
 
-See [](/conditions/index).
+It is also possible to set conditions on actions, though **input will be blocked even if no action is eligible for execution**.
+
+:::{note}
+Overusing action conditions will make the configuration a mess full of duplicate conditions. Prefer trigger conditions instead, which can be specified in a
+trigger group (will be mentioned later) to reduce duplication.
+:::
+
+See [](/conditions/index) for more information.
 
 ## Bidirectional triggers
 Changing the direction does not cause trigger activation. The following configuration will not allow for changing direction without lifting fingers.
@@ -115,12 +124,12 @@ the property's description).
 
   actions:
     - on: update
-      interval: -10
+      interval: -10 # counterclockwise
       input:
         - keyboard: [ volumedown ]
 
     - on: update
-      interval: 10
+      interval: 10 # clockwise
       input:
         - keyboard: [ volumeup ]
 ```

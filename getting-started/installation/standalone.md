@@ -4,7 +4,6 @@ Works in any environment.
 For package maintainers: this is the main version and should be called ``inputactions`` without any ``standalone`` in the name.
 
 ## CMake builds flags
-- ``INPUTACTIONS_BUILD_STANDALONE`` - build the standalone implementation (default: OFF)
 - ``INPUTACTIONS_SYSTEMD`` - enable systemd support, currently only installs the daemon service (default: ON)
 
 ## Packages
@@ -15,10 +14,12 @@ For package maintainers: this is the main version and should be called ``inputac
   ```nix
   {
     inputs = {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-      inputactions = {
-        url = "git+https://github.com/taj-ny/InputActions?submodules=1";
+      inputactions-ctl = {
+        url = "git+https://github.com/InputActions/ctl?submodules=1";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      inputactions-standalone = {
+        url = "git+https://github.com/InputActions/standalone?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
       };
     };
@@ -30,8 +31,8 @@ For package maintainers: this is the main version and should be called ``inputac
 
   {
     environment.systemPackages = [
-      inputs.inputactions.packages.${pkgs.system}.inputactions
-      inputs.inputactions.packages.${pkgs.system}.inputactions-ctl
+      inputs.inputactions-ctl.packages.${pkgs.system}.default
+      inputs.inputactions-standalone.packages.${pkgs.system}.default
     ];
   }
   ```
@@ -73,6 +74,7 @@ For package maintainers: this is the main version and should be called ``inputac
 ```sh
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
+git submodule update --remote
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_STANDALONE=ON -DINPUTACTIONS_BUILD_CTL=ON

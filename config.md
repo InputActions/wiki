@@ -1,29 +1,34 @@
 # Configuration
-There is no configuration UI.
-
-Configuration path candidates:
-- ``~/.config/inputactions/config-debug.yaml`` (debug builds only)
-- ``/etc/inputactions/config.yaml``
-- ``~/.config/inputactions/config.yaml`` (created if does not exist)
-
-Candidates are checked from top to bottom. The configuration path is only chosen once, a restart is required if you wish to use a different file.
-
-:::{warning}
-InputActions can execute commands. In the future, it will also be capable of running commands on key press/release events without blocking them. If you do not
-want normal users to have the ability to create such configurations, use the ``/etc/inputactions/config.yaml`` file.
-:::
-
-Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
-``inputactions config reload`` to reload it manually, this will also print errors.
-
-Configuration uses the YAML format, JSON will work as well if you really want to use it.
+InputActions is configured through a YAML configuration file. There are no plans to add a UI in the future.
 
 :::{important}
 Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.
 :::
 
-If a specific configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
+:::{important}
+If a configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
 suspend InputActions until the next config reload. A notification will be sent when triggered.
+:::
+
+## Path
+File candidates (checked in order as specified):
+- ``~/.config/inputactions/config-debug.yaml`` (debug builds only)
+- ``/etc/inputactions/config.yaml``
+- ``~/.config/inputactions/config.yaml`` (created if not present)
+
+If write access to the configuration file by unprivileged programs is not desired, choose the  ``/etc/inputactions/config.yaml`` file.
+
+:::{note}
+The configuration path is only chosen when ``inputactions-client`` is started (standalone implementation) or the compositor plugin is loaded
+(compositor plugin implementations).
+:::
+
+## Reloading
+By default, the configuration is reloaded automatically when the file is modified and a notification is shown when there is an error. To reload the configuration manually, run ``inputactions config reload``.
+
+## Issues
+The ``inputactions config reload`` and ``inputactions config issues`` commands will show detailed information about any issues with the configuration - errors,
+deprecated features and unused properties.
 
 ## Subproperties
 ``a.b`` in the ``Property`` column means that ``b`` is a property of ``a``:
@@ -131,7 +136,7 @@ Child objects inherit all properties from their parent, add new ones and can be 
 * - anchors
   -
   - For defining YAML anchors without unused property warnings.
-  - 
+  -
 
 * - autoreload
   - *bool*

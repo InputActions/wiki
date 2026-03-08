@@ -26,10 +26,12 @@ likely be made available only on the latest one.
   ```nix
   {
     inputs = {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-      inputactions = {
-        url = "git+https://github.com/taj-ny/InputActions?submodules=1";
+      inputactions-ctl = {
+        url = "git+https://github.com/InputActions/ctl?submodules=1";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      inputactions-kwin = {
+        url = "git+https://github.com/InputActions/kwin?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
       };
     };
@@ -41,8 +43,8 @@ likely be made available only on the latest one.
 
   {
     environment.systemPackages = [
-      inputs.inputactions.packages.${pkgs.system}.inputactions-ctl
-      inputs.inputactions.packages.${pkgs.system}.inputactions-kwin
+      inputs.inputactions-ctl.packages.${pkgs.system}.default
+      inputs.inputactions-kwin.packages.${pkgs.system}.default
     ];
   }
   ```
@@ -85,6 +87,7 @@ likely be made available only on the latest one.
 ```sh
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
+git submodule update --remote
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_KWIN=ON -DINPUTACTIONS_BUILD_CTL=ON
@@ -100,6 +103,7 @@ Build the plugin in a container. The image's KWin version must be the same as th
 sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel kwin-devel kf6-ki18n-devel kf6-kguiaddons-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel qt6-qtbase kf6-kguiaddons kf6-ki18n wayland-devel yaml-cpp yaml-cpp-devel libepoxy-devel libevdev libevdev-devel libdrm-devel cli11-devel rpmbuild
 git clone --recursive https://github.com/taj-ny/InputActions
 cd InputActions
+git submodule update --remote
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_KWIN=ON -DINPUTACTIONS_BUILD_CTL=ON

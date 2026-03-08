@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -345,10 +343,13 @@
 <p><code class="docutils literal notranslate"><span class="pre">flake.nix</span></code>:</p>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="ss">inputs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/taj-ny/InputActions?submodules=1&quot;</span><span class="p">;</span>
+    <span class="ss">inputactions-ctl</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/ctl?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
-      inputs<span class="o">.</span>hyprland<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;hyprland&quot;</span><span class="p">;</span> <span class="c1"># Use if hyprland is in inputs too</span>
+    <span class="p">};</span>
+    <span class="ss">inputactions-hyprland</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/hyprland?submodules=1&quot;</span><span class="p">;</span>
+      inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -356,10 +357,10 @@
 </div>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   home<span class="o">.</span><span class="ss">packages</span> <span class="o">=</span> <span class="p">[</span>
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-ctl
+    inputs<span class="o">.</span>inputactions-ctl<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
   wayland<span class="o">.</span>windowManager<span class="o">.</span>hyprland<span class="o">.</span><span class="ss">plugins</span> <span class="o">=</span> <span class="p">[</span>
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-hyprland
+    inputs<span class="o">.</span>inputactions-hyprland<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
@@ -380,24 +381,24 @@
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
 <p>First, build the control tool:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
-<span class="nb">cd</span><span class="w"> </span>InputActions
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/InputActions/ctl
+<span class="nb">cd</span><span class="w"> </span>ctl
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON
+cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr
 make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
 sudo<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>Then, build the Hyprland plugin. Read <a class="reference external" href="https://wiki.hypr.land/Plugins/Using-Plugins">https://wiki.hypr.land/Plugins/Using-Plugins</a> first.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hyprpm</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">taj</span><span class="o">-</span><span class="n">ny</span><span class="o">/</span><span class="n">InputActions</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hyprpm</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">InputActions</span><span class="o">/</span><span class="n">hyprland</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="additional-setup-optional">
 <h2>Additional setup (optional)<a class="headerlink" href="#additional-setup-optional" title="Link to this heading">¶</a></h2>
-<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#libevdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
+<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#evdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENV</span><span class="p">{</span><span class="n">ID_INPUT_TOUCHPAD</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">TAG</span><span class="o">+=</span><span class="s2">&quot;uaccess&quot;</span>
 </pre></div>
 </div>

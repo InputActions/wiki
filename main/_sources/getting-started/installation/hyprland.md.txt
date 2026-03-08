@@ -4,14 +4,17 @@
 <details>
   <summary>NixOS (flakes, home-manager)</summary>
 
-``flake.nix``:
+  ``flake.nix``:
   ```nix
   {
     inputs = {
-      inputactions = {
-        url = "git+https://github.com/taj-ny/InputActions?submodules=1";
+      inputactions-ctl = {
+        url = "git+https://github.com/InputActions/ctl?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
-        inputs.hyprland.follows = "hyprland"; # Use if hyprland is in inputs too
+      };
+      inputactions-hyprland = {
+        url = "git+https://github.com/InputActions/hyprland?submodules=1";
+        inputs.nixpkgs.follows = "nixpkgs";
       };
     };
   }
@@ -20,10 +23,10 @@
   ```nix
   {
     home.packages = [
-      inputs.inputactions.packages.${pkgs.system}.inputactions-ctl
+      inputs.inputactions-ctl.packages.${pkgs.system}.default
     ];
     wayland.windowManager.hyprland.plugins = [
-      inputs.inputactions.packages.${pkgs.system}.inputactions-hyprland
+      inputs.inputactions-hyprland.packages.${pkgs.system}.default
     ];
   }
   ```
@@ -42,11 +45,11 @@
 ### Installation
 First, build the control tool:
 ```sh
-git clone --recursive https://github.com/taj-ny/InputActions
-cd InputActions
+git clone --recursive https://github.com/InputActions/ctl
+cd ctl
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_CTL=ON
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr
 make -j$(nproc)
 sudo make install
 ```
@@ -54,11 +57,11 @@ sudo make install
 Then, build the Hyprland plugin. Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.
 
 ```
-hyprpm add https://github.com/taj-ny/InputActions
+hyprpm add https://github.com/InputActions/hyprland
 ```
 
 ## Additional setup (optional)
-To enable [extra touchpad features](/devices/touchpad/index.md#libevdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:
+To enable [extra touchpad features](/devices/touchpad/index.md#evdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:
 ```
 ENV{ID_INPUT_TOUCHPAD}=="1", TAG+="uaccess"
 ```

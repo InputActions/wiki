@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -362,10 +360,12 @@ likely be made available only on the latest one.</p>
 <p><code class="docutils literal notranslate"><span class="pre">flake.nix</span></code>:</p>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="ss">inputs</span> <span class="o">=</span> <span class="p">{</span>
-    nixpkgs<span class="o">.</span><span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:nixos/nixpkgs/nixos-unstable&quot;</span><span class="p">;</span>
-
-    <span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/taj-ny/InputActions?submodules=1&quot;</span><span class="p">;</span>
+    <span class="ss">inputactions-ctl</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/ctl?submodules=1&quot;</span><span class="p">;</span>
+      inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="ss">inputactions-kwin</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/kwin?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
   <span class="p">};</span>
@@ -376,8 +376,8 @@ likely be made available only on the latest one.</p>
 
 <span class="p">{</span>
   environment<span class="o">.</span><span class="ss">systemPackages</span> <span class="o">=</span> <span class="p">[</span>
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-ctl
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-kwin
+    inputs<span class="o">.</span>inputactions-ctl<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
+    inputs<span class="o">.</span>inputactions-kwin<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
@@ -418,6 +418,7 @@ likely be made available only on the latest one.</p>
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
 <span class="nb">cd</span><span class="w"> </span>InputActions
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON
@@ -433,6 +434,7 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>extra-cmake-modules<span class="w"> </span>gcc-g++<span class="w"> </span>qt6-qtbase-devel<span class="w"> </span>kwin-devel<span class="w"> </span>kf6-ki18n-devel<span class="w"> </span>kf6-kguiaddons-devel<span class="w"> </span>kf6-kcmutils-devel<span class="w"> </span>kf6-kconfigwidgets-devel<span class="w"> </span>qt6-qtbase<span class="w"> </span>kf6-kguiaddons<span class="w"> </span>kf6-ki18n<span class="w"> </span>wayland-devel<span class="w"> </span>yaml-cpp<span class="w"> </span>yaml-cpp-devel<span class="w"> </span>libepoxy-devel<span class="w"> </span>libevdev<span class="w"> </span>libevdev-devel<span class="w"> </span>libdrm-devel<span class="w"> </span>cli11-devel<span class="w"> </span>rpmbuild
 git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
 <span class="nb">cd</span><span class="w"> </span>InputActions
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_KWIN<span class="o">=</span>ON<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON

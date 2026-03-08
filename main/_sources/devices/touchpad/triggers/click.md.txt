@@ -16,5 +16,5 @@
 Performed by clicking the touchpad itself, not the buttons below or above.
 
 :::{note}
-This trigger requires the [libevdev backend](<project:/devices/touchpad/index.md#libevdev-backend>) to be enabled.
+This trigger requires the [evdev input backend](<project:/devices/touchpad/index.md#evdev-backend>) to be enabled.
 :::

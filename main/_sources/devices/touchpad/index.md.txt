@@ -25,7 +25,7 @@ Some properties are detected automatically, but due to device or driver bugs, th
   - The time during which a click trigger must be performed. If not, a hold trigger will be started.
   - ``200``
 
-* - handle_libevdev_events
+* - handle_evdev_events
   - *bool*
   - Disable in case of any issues.
   - ``true``
@@ -64,8 +64,8 @@ Some properties are detected automatically, but due to device or driver bugs, th
 ## Acceleration
 The Hyprland and KWin implementations only provide the unaccelerated delta, while the standalone provides both.
 
-## libevdev backend
-The libevdev input backend supplies the following touchpad data, which libinput does not:
+## Evdev backend
+The evdev input backend supplies the following touchpad data, which libinput does not:
 - absolute position of each finger,
 - pressure of each finger (usually the surface area but some devices provide true pressure),
 - clicked state (only on touchpads that can be clicked).
@@ -76,9 +76,9 @@ This enables the following features:
 - click trigger,
 - tap trigger.
 
-Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as libevdev is not used for things that
-libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the ``handle_libevdev_events`` device
-property can be used to disable libevdev event processing for a specific device.
+Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as evdev is not used for things that
+libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the ``handle_evdev_events`` device
+property can be used to disable evdev event processing for a specific device.
 
 The Hyprland and KWin implementations require additional setup instructions (available in the installation section) to enable this backend.
 

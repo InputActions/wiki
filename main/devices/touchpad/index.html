@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -370,7 +368,7 @@
 <td><p>The time during which a click trigger must be performed. If not, a hold trigger will be started.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>handle_libevdev_events</p></td>
+<tr class="row-even"><td><p>handle_evdev_events</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Disable in case of any issues.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
@@ -413,9 +411,9 @@
 <h2>Acceleration<a class="headerlink" href="#acceleration" title="Link to this heading">¶</a></h2>
 <p>The Hyprland and KWin implementations only provide the unaccelerated delta, while the standalone provides both.</p>
 </section>
-<section id="libevdev-backend">
-<h2>libevdev backend<a class="headerlink" href="#libevdev-backend" title="Link to this heading">¶</a></h2>
-<p>The libevdev input backend supplies the following touchpad data, which libinput does not:</p>
+<section id="evdev-backend">
+<h2>Evdev backend<a class="headerlink" href="#evdev-backend" title="Link to this heading">¶</a></h2>
+<p>The evdev input backend supplies the following touchpad data, which libinput does not:</p>
 <ul class="simple">
 <li><p>absolute position of each finger,</p></li>
 <li><p>pressure of each finger (usually the surface area but some devices provide true pressure),</p></li>
@@ -428,9 +426,9 @@
 <li><p>click trigger,</p></li>
 <li><p>tap trigger.</p></li>
 </ul>
-<p>Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as libevdev is not used for things that
-libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the <code class="docutils literal notranslate"><span class="pre">handle_libevdev_events</span></code> device
-property can be used to disable libevdev event processing for a specific device.</p>
+<p>Plenty of features and device quirks that libinput takes care of are missing here. This is not that big of an issue, as evdev is not used for things that
+libinput is already capable of, so any problems should only affect the aforementioned features. But just in case, the <code class="docutils literal notranslate"><span class="pre">handle_evdev_events</span></code> device
+property can be used to disable evdev event processing for a specific device.</p>
 <p>The Hyprland and KWin implementations require additional setup instructions (available in the installation section) to enable this backend.</p>
 </section>
 <section id="one-finger-swipe-stroke-triggers">
@@ -513,7 +511,7 @@ they are managed by InputActions.</p>
 <li><a class="reference internal" href="#">Touchpad</a><ul>
 <li><a class="reference internal" href="#properties">Properties</a></li>
 <li><a class="reference internal" href="#acceleration">Acceleration</a></li>
-<li><a class="reference internal" href="#libevdev-backend">libevdev backend</a></li>
+<li><a class="reference internal" href="#evdev-backend">Evdev backend</a></li>
 <li><a class="reference internal" href="#one-finger-swipe-stroke-triggers">One-finger swipe/stroke triggers</a></li>
 <li><a class="reference internal" href="#two-finger-swipe-stroke-triggers">Two-finger swipe/stroke triggers</a></li>
 <li><a class="reference internal" href="#five-finger-triggers">Five-finger triggers</a></li>

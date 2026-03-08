@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -343,7 +341,6 @@
 <section id="cmake-builds-flags">
 <h2>CMake builds flags<a class="headerlink" href="#cmake-builds-flags" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">INPUTACTIONS_BUILD_STANDALONE</span></code> - build the standalone implementation (default: OFF)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">INPUTACTIONS_SYSTEMD</span></code> - enable systemd support, currently only installs the daemon service (default: ON)</p></li>
 </ul>
 </section>
@@ -354,10 +351,12 @@
 <p><code class="docutils literal notranslate"><span class="pre">flake.nix</span></code>:</p>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="ss">inputs</span> <span class="o">=</span> <span class="p">{</span>
-    nixpkgs<span class="o">.</span><span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;github:nixos/nixpkgs/nixos-unstable&quot;</span><span class="p">;</span>
-
-    <span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/taj-ny/InputActions?submodules=1&quot;</span><span class="p">;</span>
+    <span class="ss">inputactions-ctl</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/ctl?submodules=1&quot;</span><span class="p">;</span>
+      inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="ss">inputactions-standalone</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/standalone?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
   <span class="p">};</span>
@@ -368,8 +367,8 @@
 
 <span class="p">{</span>
   environment<span class="o">.</span><span class="ss">systemPackages</span> <span class="o">=</span> <span class="p">[</span>
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions
-    inputs<span class="o">.</span>inputactions<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>inputactions-ctl
+    inputs<span class="o">.</span>inputactions-ctl<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
+    inputs<span class="o">.</span>inputactions-standalone<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
@@ -409,6 +408,7 @@
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/taj-ny/InputActions
 <span class="nb">cd</span><span class="w"> </span>InputActions
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote
 mkdir<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>build
 cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr<span class="w"> </span>-DINPUTACTIONS_BUILD_STANDALONE<span class="o">=</span>ON<span class="w"> </span>-DINPUTACTIONS_BUILD_CTL<span class="o">=</span>ON

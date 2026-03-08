@@ -28,8 +28,6 @@ Variables <variables>
 :caption: Advanced
 
 Dynamic values <dynamic-values/index>
-Trigger groups <advanced/trigger-groups>
-YAML anchors <advanced/yaml-anchors>
 ```
 
 ```{toctree}

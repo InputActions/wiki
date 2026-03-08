@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -340,32 +338,44 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<p>There is no configuration UI.</p>
-<p>Configuration path candidates:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config-debug.yaml</span></code> (debug builds only)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config.yaml</span></code> (created if does not exist)</p></li>
-</ul>
-<p>Candidates are checked from top to bottom. The configuration path is only chosen once, a restart is required if you wish to use a different file.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>InputActions can execute commands. In the future, it will also be capable of running commands on key press/release events without blocking them. If you do not
-want normal users to have the ability to create such configurations, use the <code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code> file.</p>
-</div>
-<p>Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
-<code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code> to reload it manually, this will also print errors.</p>
-<p>Configuration uses the YAML format, JSON will work as well if you really want to use it.</p>
+<p>InputActions is configured through a YAML configuration file. There are no plans to add a UI in the future.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.</p>
 </div>
-<p>If a specific configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
 suspend InputActions until the next config reload. A notification will be sent when triggered.</p>
+</div>
+</section>
+<section id="path">
+<h2>Path<a class="headerlink" href="#path" title="Link to this heading">¶</a></h2>
+<p>File candidates (checked in order as specified):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config-debug.yaml</span></code> (debug builds only)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config.yaml</span></code> (created if not present)</p></li>
+</ul>
+<p>If write access to the configuration file by unprivileged programs is not desired, choose the  <code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration path is only chosen when <code class="docutils literal notranslate"><span class="pre">inputactions-client</span></code> is started (standalone implementation) or the compositor plugin is loaded
+(compositor plugin implementations).</p>
+</div>
+</section>
+<section id="reloading">
+<h2>Reloading<a class="headerlink" href="#reloading" title="Link to this heading">¶</a></h2>
+<p>By default, the configuration is reloaded automatically when the file is modified and a notification is shown when there is an error. To reload the configuration manually, run <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code>.</p>
+</section>
+<section id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code> and <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">issues</span></code> commands will show detailed information about any issues with the configuration - errors,
+deprecated features and unused properties.</p>
 </section>
 <section id="first-trigger">
 <h2>First trigger<a class="headerlink" href="#first-trigger" title="Link to this heading">¶</a></h2>
-<p>All configuration for specific device types is located in the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code>, <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, <code class="docutils literal notranslate"><span class="pre">pointer</span></code> and <code class="docutils literal notranslate"><span class="pre">touchpad</span></code> root nodes. Triggers are defined in the
+<p>All configuration for specific device types is located in the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code>, <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, <code class="docutils literal notranslate"><span class="pre">pointer</span></code>, <code class="docutils literal notranslate"><span class="pre">touchpad</span></code> and <code class="docutils literal notranslate"><span class="pre">touchscreen</span></code> root nodes. Triggers are defined in the
 <code class="docutils literal notranslate"><span class="pre">gestures</span></code> property of the those nodes.</p>
 <p>This trigger will launch dolphin if you swipe three fingers to the right.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">touchpad</span><span class="p">:</span>
@@ -402,6 +412,10 @@ value is <code class="docutils literal notranslate"><span class="pre">end</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumeup</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available action events for a given trigger are mentioned in the table at the top of the trigger’s page. Some triggers do not support certain events.</p>
+</div>
 </section>
 <section id="complex-triggers">
 <h2>Complex triggers<a class="headerlink" href="#complex-triggers" title="Link to this heading">¶</a></h2>
@@ -429,8 +443,7 @@ value is <code class="docutils literal notranslate"><span class="pre">end</span>
 </section>
 <section id="conditions">
 <h2>Conditions<a class="headerlink" href="#conditions" title="Link to this heading">¶</a></h2>
-<p>Conditions allow you to make a trigger activate only if certain criteria are met - finger count, window class, cursor shape and <a class="reference internal" href="../variables.html"><span class="doc std std-doc">much more</span></a>.</p>
-<p>It is also possible to set conditions on actions, though events will be blocked even if no action can be executed.</p>
+<p>To make a trigger eligible for activation only if certain criteria are met (finger count, window class and <a class="reference internal" href="../variables.html"><span class="doc std std-doc">much more</span></a>), set the <code class="docutils literal notranslate"><span class="pre">conditions</span></code> property.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">touchpad</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
@@ -445,7 +458,13 @@ value is <code class="docutils literal notranslate"><span class="pre">end</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">mouse</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">forward</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a>.</p>
+<p>It is also possible to set conditions on actions, though <strong>input will be blocked even if no action is eligible for execution</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Overusing action conditions will make the configuration a mess full of duplicate conditions. Prefer trigger conditions instead, which can be specified in a
+trigger group (will be mentioned later) to reduce duplication.</p>
+</div>
+<p>See <a class="reference internal" href="../conditions/index.html"><span class="doc std std-doc">Condition</span></a> for more information.</p>
 </section>
 <section id="bidirectional-triggers">
 <h2>Bidirectional triggers<a class="headerlink" href="#bidirectional-triggers" title="Link to this heading">¶</a></h2>
@@ -468,12 +487,12 @@ the property’s description).</p>
 
 <span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-10</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-10</span><span class="w"> </span><span class="c1"># counterclockwise</span>
 <span class="w">      </span><span class="nt">input</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumedown</span><span class="w"> </span><span class="p p-Indicator">]</span>
 
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"> </span><span class="c1"># clockwise</span>
 <span class="w">      </span><span class="nt">input</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">keyboard</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">volumeup</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
@@ -516,12 +535,13 @@ and triggers are updated from top to bottom. This is a simplification, see <a cl
 </section>
 <section id="yaml-anchors">
 <h2>YAML anchors<a class="headerlink" href="#yaml-anchors" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="../advanced/yaml-anchors.html"><span class="std std-doc">YAML anchors</span></a> can be used to define values (mouse trigger button, strokes etc.) once and reuse them thorough the configuration.</p>
+<p>Anchors can be used to define values (mouse trigger button, strokes etc.) once and reuse them thorough the configuration.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;name</span></code> - Define (can be done anywhere)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">*name</span></code> - Reference (must be defined first above the reference)</p></li>
 </ul>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">anchors</span><span class="p">:</span><span class="w"> </span><span class="c1"># Prefixed with _ to prevent potential conflicts with future properties, may be renamed to anything</span>
+<p>The merge operator <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> is not supported.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">anchors</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;mouse_stroke_button</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">back</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_up</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;MGQA0DMnPMwwAGQA&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;stroke_left</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;ZDIAnQAxZAA=&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -540,7 +560,7 @@ and triggers are updated from top to bottom. This is a simplification, see <a cl
 </section>
 <section id="trigger-groups">
 <h2>Trigger groups<a class="headerlink" href="#trigger-groups" title="Link to this heading">¶</a></h2>
-<p><a class="reference internal" href="../advanced/trigger-groups.html"><span class="std std-doc">Trigger groups</span></a> apply a set of properties to all triggers specified in the <code class="docutils literal notranslate"><span class="pre">gestures</span></code> property of the group and can be nested.</p>
+<p>Trigger groups apply a set of properties to all triggers specified in the <code class="docutils literal notranslate"><span class="pre">gestures</span></code> property of the group and can be nested.</p>
 <p>Conditions are merged into an <code class="docutils literal notranslate"><span class="pre">all:</span></code> condition group consisting of the group’s and the trigger’s condition.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">anchors</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;mouse_stroke_button</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">back</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -679,6 +699,9 @@ it will not set the <code class="docutils literal notranslate"><span class="pre"
             <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#path">Path</a></li>
+<li><a class="reference internal" href="#reloading">Reloading</a></li>
+<li><a class="reference internal" href="#issues">Issues</a></li>
 <li><a class="reference internal" href="#first-trigger">First trigger</a></li>
 <li><a class="reference internal" href="#action-events">Action events</a></li>
 <li><a class="reference internal" href="#complex-triggers">Complex triggers</a></li>

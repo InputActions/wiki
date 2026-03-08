@@ -1,15 +1,17 @@
 # Packaging guidelines
 InputActions should be packaged into the following packages:
-- ``inputactions`` - Standalone implementation
+- ``inputactions-ctl``- Control tool
 
-  Build flags: ``-DINPUTACTIONS_BUILD_STANDALONE=ON``
+  Repository: [InputActions/ctl](https://github.com/InputActions/ctl)
 
+- ``inputactions-kwin`` - KWin compositor plugin implementation
+
+  Repository: [InputActions/kwin](https://github.com/InputActions/kwin)<br>
   Dependencies: ``inputactions-ctl``
-- ``inputactions-ctl`` - Control tool
 
-  Build flags: ``-DINPUTACTIONS_BUILD_CTL=ON``
-- ``inputactions-kwin`` - KWin plugin
+- ``inputactions-standalone`` - Standalone implementation
 
-  Build flags: ``-DINPUTACTIONS_BUILD_KWIN=ON``
-
+  Repository: [InputActions/standalone](https://github.com/InputActions/standalone)<br>
   Dependencies: ``inputactions-ctl``
+
+As GitHub does not include submodules in release tarballs, every release starting from v0.9.0 will have a manually generated one that does include them.

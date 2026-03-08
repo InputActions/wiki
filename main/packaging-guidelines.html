@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="prev" title="YAML Anchors" href="advanced/yaml-anchors.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="prev" title="Command dynamic value" href="dynamic-values/command.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Packaging guidelines - InputActions main</title>
@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul class="current">
@@ -340,18 +338,19 @@
 <h1>Packaging guidelines<a class="headerlink" href="#packaging-guidelines" title="Link to this heading">¶</a></h1>
 <p>InputActions should be packaged into the following packages:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">inputactions</span></code> - Standalone implementation</p>
-<p>Build flags: <code class="docutils literal notranslate"><span class="pre">-DINPUTACTIONS_BUILD_STANDALONE=ON</span></code></p>
-<p>Dependencies: <code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code>- Control tool</p>
+<p>Repository: <a class="reference external" href="https://github.com/InputActions/ctl">InputActions/ctl</a></p>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code> - Control tool</p>
-<p>Build flags: <code class="docutils literal notranslate"><span class="pre">-DINPUTACTIONS_BUILD_CTL=ON</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-kwin</span></code> - KWin compositor plugin implementation</p>
+<p>Repository: <a class="reference external" href="https://github.com/InputActions/kwin">InputActions/kwin</a><br>
+Dependencies: <code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code></p>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-kwin</span></code> - KWin plugin</p>
-<p>Build flags: <code class="docutils literal notranslate"><span class="pre">-DINPUTACTIONS_BUILD_KWIN=ON</span></code></p>
-<p>Dependencies: <code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-standalone</span></code> - Standalone implementation</p>
+<p>Repository: <a class="reference external" href="https://github.com/InputActions/standalone">InputActions/standalone</a><br>
+Dependencies: <code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code></p>
 </li>
 </ul>
+<p>As GitHub does not include submodules in release tarballs, every release starting from v0.9.0 will have a manually generated one that does include them.</p>
 </section>
 
         </article>
@@ -360,14 +359,14 @@
         
         <div class="related-pages">
           
-          <a class="prev-page" href="advanced/yaml-anchors.html">
+          <a class="prev-page" href="dynamic-values/command.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">YAML Anchors</div>
+                <div class="title">Command dynamic value</div>
                 
               </div>
             </a>

@@ -52,7 +52,7 @@ accessible here.
   -
 
 * - types
-  - *flags(keyboard, mouse, touchpad)*
+  - *flags(keyboard, mouse, touchpad, touchscreen)*
   - Certain devices may have multiple types (e.g. mouse and keyboard).
 
 * - keyboard

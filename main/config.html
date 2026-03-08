@@ -292,8 +292,6 @@
 <li class="toctree-l2"><a class="reference internal" href="dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="advanced/trigger-groups.html">Trigger groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="advanced/yaml-anchors.html">YAML anchors</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Other</span></p>
 <ul>
@@ -338,28 +336,40 @@
         <article role="main" id="furo-main-content">
           <section id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
-<p>There is no configuration UI.</p>
-<p>Configuration path candidates:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config-debug.yaml</span></code> (debug builds only)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config.yaml</span></code> (created if does not exist)</p></li>
-</ul>
-<p>Candidates are checked from top to bottom. The configuration path is only chosen once, a restart is required if you wish to use a different file.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>InputActions can execute commands. In the future, it will also be capable of running commands on key press/release events without blocking them. If you do not
-want normal users to have the ability to create such configurations, use the <code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code> file.</p>
-</div>
-<p>Configuration will be reloaded automatically when the file is modified, any errors will be shown in notifications. You can run
-<code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code> to reload it manually, this will also print errors.</p>
-<p>Configuration uses the YAML format, JSON will work as well if you really want to use it.</p>
+<p>InputActions is configured through a YAML configuration file. There are no plans to add a UI in the future.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.</p>
 </div>
-<p>If a specific configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a configuration renders the session unusable, the emergency key combination (backspace+space+enter in any order) can be held for 2 seconds to
 suspend InputActions until the next config reload. A notification will be sent when triggered.</p>
+</div>
+<section id="path">
+<h2>Path<a class="headerlink" href="#path" title="Link to this heading">¶</a></h2>
+<p>File candidates (checked in order as specified):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config-debug.yaml</span></code> (debug builds only)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~/.config/inputactions/config.yaml</span></code> (created if not present)</p></li>
+</ul>
+<p>If write access to the configuration file by unprivileged programs is not desired, choose the  <code class="docutils literal notranslate"><span class="pre">/etc/inputactions/config.yaml</span></code> file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The configuration path is only chosen when <code class="docutils literal notranslate"><span class="pre">inputactions-client</span></code> is started (standalone implementation) or the compositor plugin is loaded
+(compositor plugin implementations).</p>
+</div>
+</section>
+<section id="reloading">
+<h2>Reloading<a class="headerlink" href="#reloading" title="Link to this heading">¶</a></h2>
+<p>By default, the configuration is reloaded automatically when the file is modified and a notification is shown when there is an error. To reload the configuration manually, run <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code>.</p>
+</section>
+<section id="issues">
+<h2>Issues<a class="headerlink" href="#issues" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">reload</span></code> and <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">issues</span></code> commands will show detailed information about any issues with the configuration - errors,
+deprecated features and unused properties.</p>
+</section>
 <section id="subproperties">
 <h2>Subproperties<a class="headerlink" href="#subproperties" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">a.b</span></code> in the <code class="docutils literal notranslate"><span class="pre">Property</span></code> column means that <code class="docutils literal notranslate"><span class="pre">b</span></code> is a property of <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
@@ -696,6 +706,9 @@ suspend InputActions until the next config reload. A notification will be sent w
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#path">Path</a></li>
+<li><a class="reference internal" href="#reloading">Reloading</a></li>
+<li><a class="reference internal" href="#issues">Issues</a></li>
 <li><a class="reference internal" href="#subproperties">Subproperties</a></li>
 <li><a class="reference internal" href="#inheritance">Inheritance</a></li>
 <li><a class="reference internal" href="#types">Types</a></li>

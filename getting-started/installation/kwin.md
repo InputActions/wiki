@@ -85,13 +85,9 @@ likely be made available only on the latest one.
 
 ### Installation
 ```sh
-git clone --recursive https://github.com/taj-ny/InputActions
-cd InputActions
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_KWIN=ON -DINPUTACTIONS_BUILD_CTL=ON
-make -j$(nproc)
-sudo make install
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod +x inputactions-installer.sh
+./inputactions-installer.sh --ctl --kwin --latest
 ```
 
 ### Installation (Fedora immutable)
@@ -100,16 +96,13 @@ Build the plugin in a container. The image's KWin version must be the same as th
 ```sh
 # enter container
 sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel kwin-devel kf6-ki18n-devel kf6-kguiaddons-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel qt6-qtbase kf6-kguiaddons kf6-ki18n wayland-devel yaml-cpp yaml-cpp-devel libepoxy-devel libevdev libevdev-devel libdrm-devel cli11-devel rpmbuild
-git clone --recursive https://github.com/taj-ny/InputActions
-cd InputActions
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DINPUTACTIONS_BUILD_KWIN=ON -DINPUTACTIONS_BUILD_CTL=ON
-make -j$(nproc)
-cpack -V -G RPM --config ctl/CPack.cmake
-cpack -V -G RPM --config kwin/CPack.cmake
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+chmod +x inputactions-installer.sh
+./inputactions-installer.sh --ctl --kwin -p RPM --latest
 exit # exit container
-sudo rpm-ostree install InputActions/build/inputactions-ctl.rpm InputActions/build/inputactions-kwin.rpm
+
+installer_dir="${XDG_DATA_HOME:-$HOME/.local/share}/inputactions-installer"
+sudo rpm-ostree install "$installer_dir/inputactions-ctl.rpm" "$installer_dir/inputactions-kwin.rpm"
 ```
 
 ## After installation
@@ -121,8 +114,6 @@ or open the ``Desktop Effects`` page in ``System Settings`` and enable ``InputAc
 
 If the plugin ever causes the compositor to crash repeatedly, making it impossible to disable it, remove ``kwin_gesturesEnabled=true`` from
 ``~/.config/kwinrc``.
-
-To rebuild, run ``make clean`` in the project directory and then all command starting from ``cd build``.
 
 ## Additional setup (optional)
 To enable [extra touchpad features](/devices/touchpad/index.md#libevdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:

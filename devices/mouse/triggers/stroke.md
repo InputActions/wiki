@@ -42,5 +42,5 @@ At the end of the trigger, the performed stroke is compared against all active t
 (must be at least 70%) is ended, while all others are cancelled. **Only ``on: end`` conflicting actions are supported, making this trigger not suitable for
 certain use cases.**
 
-Strokes can be recorded using the stroke recorder at *System Settings* -> *Desktop Effects* -> *Input Actions (configure)* or the control tool:
-``inputactions record-stroke``.
+Strokes can be recorded using the control tool: ``inputactions record-stroke``. Users of the KWin compositor plugin can use the GUI at *System Settings* ->
+*Desktop Effects* -> *InputActions*.

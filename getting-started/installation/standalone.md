@@ -1,6 +1,10 @@
 # Standalone
 Works in any environment.
 
+:::{note}
+A stable release of this implementation is currently not available.
+:::
+
 ## CMake builds flags
 - ``INPUTACTIONS_SYSTEMD`` - enable systemd support, currently only installs the daemon service (default: ON)
 

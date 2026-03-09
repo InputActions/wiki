@@ -1,0 +1,61 @@
+# Touchscreen
+:::{list-table}
+* - **Inherits**
+  - [](/devices/index)
+:::
+
+:::{note}
+Touchscreen support is experimental.
+:::
+
+## Properties
+:::{list-table}
+:header-rows: 1
+
+* - Property
+  - Type
+  - Description
+  - Default
+
+* - motion_threshold
+  - *number*
+  - For accurately determining the direction of swipe triggers. In millimeters.
+  - ``4``
+
+* - swipe.angle_tolerance
+  - *number*
+  - Angle tolerance for the ``left``, ``right``, ``up``, ``down``, ``left_right`` and ``up_down`` directions of [](triggers/swipe). The remaining space   is
+    used for diagonal directions.
+
+    Min: ``0``<br>
+    Max: ``45``
+  - ``20``
+:::
+
+## Event filtering
+Touchscreen event filtering requires blocking all events by default until a gesture is recognized. Setting the ``gestures`` property on
+``TouchscreenEventHandler`` changes the behavior of the following actions:
+- hold - latency increased by 50 ms
+- motion - threshold for each finger increased by 4 mm
+- tap - latency increased by 50 ms
+
+## Window under fingers
+Information about the window located under the center of all touch points is available in ``window_under_fingers_*`` variables.
+
+## KWin and multiple touchscreens
+The KWin plugin may currently not process touchscreen input correctly if multiple devices are present. In such situations, a device rule must be created to ignore all but one touchscreen.
+
+```yaml
+device_rules:
+  - conditions:
+      - $touchscreen
+      - $name != device_name # replace 'device_name' with the device's name
+    ignore: true
+```
+
+```{toctree}
+:maxdepth: 1
+:hidden:
+
+Triggers <triggers/index>
+```

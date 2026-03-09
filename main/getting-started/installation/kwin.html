@@ -450,7 +450,7 @@ sudo<span class="w"> </span>rpm-ostree<span class="w"> </span>install<span class
 </section>
 <section id="additional-setup-optional">
 <h2>Additional setup (optional)<a class="headerlink" href="#additional-setup-optional" title="Link to this heading">¶</a></h2>
-<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#libevdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
+<p>To enable <a class="reference internal" href="../../devices/touchpad/index.html#evdev-backend"><span class="std std-ref">extra touchpad features</span></a>, create a file at <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/71-touchpad.rules</span></code> with the following content:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ENV</span><span class="p">{</span><span class="n">ID_INPUT_TOUCHPAD</span><span class="p">}</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">TAG</span><span class="o">+=</span><span class="s2">&quot;uaccess&quot;</span>
 </pre></div>
 </div>

@@ -116,7 +116,7 @@ If the plugin ever causes the compositor to crash repeatedly, making it impossib
 ``~/.config/kwinrc``.
 
 ## Additional setup (optional)
-To enable [extra touchpad features](/devices/touchpad/index.md#libevdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:
+To enable [extra touchpad features](/devices/touchpad/index.md#evdev-backend), create a file at ``/etc/udev/rules.d/71-touchpad.rules`` with the following content:
 ```
 ENV{ID_INPUT_TOUCHPAD}=="1", TAG+="uaccess"
 ```

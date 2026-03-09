@@ -1,8 +1,6 @@
 # Standalone
 Works in any environment.
 
-For package maintainers: this is the main version and should be called ``inputactions`` without any ``standalone`` in the name.
-
 ## CMake builds flags
 - ``INPUTACTIONS_SYSTEMD`` - enable systemd support, currently only installs the daemon service (default: ON)
 

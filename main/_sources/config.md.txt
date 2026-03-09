@@ -10,8 +10,8 @@ If a configuration renders the session unusable, the emergency key combination (
 suspend InputActions until the next config reload. A notification will be sent when triggered.
 :::
 
-## Path
-File candidates (checked in order as specified):
+## Configuration file path
+File candidates (highest priority to lowest):
 - ``~/.config/inputactions/config-debug.yaml`` (debug builds only)
 - ``/etc/inputactions/config.yaml``
 - ``~/.config/inputactions/config.yaml`` (created if not present)

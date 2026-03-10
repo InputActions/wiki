@@ -22,8 +22,8 @@ likely be made available only on the latest one.
 <details>
   <summary>NixOS (flakes)</summary>
 
-  ``flake.nix``:
-  ```nix
+  ```{code-block} nix
+  :caption: flake.nix
   {
     inputs = {
       inputactions-ctl = {
@@ -38,7 +38,8 @@ likely be made available only on the latest one.
   }
   ```
 
-  ```nix
+  ```{code-block} nix
+  :caption: configuration.nix
   { inputs, pkgs, ... }:
 
   {
@@ -46,6 +47,17 @@ likely be made available only on the latest one.
       inputs.inputactions-ctl.packages.${pkgs.system}.default
       inputs.inputactions-kwin.packages.${pkgs.system}.default
     ];
+  }
+  ```
+
+  Optionally, add the official binary cache if compilation times are an issue:
+  ```{code-block} nix
+  :caption: configuration.nix
+  {
+    nix.settings = {
+      extra-substituters = ["https://inputactions.cachix.org"];
+      extra-trusted-public-keys = ["inputactions.cachix.org-1:yBGhAqTOv0V08lrOTBwMAkU7V/9a0i2UPvsvCu39CjE="];
+    };
   }
   ```
 </details>

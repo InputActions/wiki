@@ -351,7 +351,8 @@
 <h2>Packages<a class="headerlink" href="#packages" title="Link to this heading">¶</a></h2>
 <details>
   <summary>NixOS (flakes)</summary>
-<p><code class="docutils literal notranslate"><span class="pre">flake.nix</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">flake.nix</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="ss">inputs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="ss">inputactions-ctl</span> <span class="o">=</span> <span class="p">{</span>
@@ -366,6 +367,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">configuration.nix</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> inputs<span class="p">,</span> pkgs<span class="p">,</span> <span class="o">...</span> <span class="p">}:</span>
 
 <span class="p">{</span>
@@ -375,6 +379,19 @@
   <span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</div>
+<p>Optionally, add the official binary cache if compilation times are an issue:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">configuration.nix</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  nix<span class="o">.</span><span class="ss">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">extra-substituters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://inputactions.cachix.org&quot;</span><span class="p">];</span>
+    <span class="ss">extra-trusted-public-keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;inputactions.cachix.org-1:yBGhAqTOv0V08lrOTBwMAkU7V/9a0i2UPvsvCu39CjE=&quot;</span><span class="p">];</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </details>
 </section>

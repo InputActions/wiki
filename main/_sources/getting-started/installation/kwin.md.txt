@@ -7,6 +7,10 @@ The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0. I
 likely be made available only on the latest one.
 
 ## Packages
+:::{note}
+Unofficial packages may not be up to date.
+:::
+
 <details>
   <summary>Arch Linux (AUR)*</summary>
 

@@ -281,7 +281,6 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../conditions/index.html">Conditions</a><input aria-label="Toggle navigation of Conditions" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../conditions/can-replace-text.html">Can replace text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../conditions/group.html">Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../conditions/variable.html">Variable</a></li>
 </ul>
@@ -412,28 +411,6 @@ entire text, and the text is replaced with the value specified in the <code clas
 </div>
 </section>
 </section>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Set a <a class="reference internal" href="../conditions/can-replace-text.html"><span class="std std-doc">can replace text condition</span></a> on the trigger to ensure it can only be activated if there is something to replace.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">keyboard</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shortcut</span>
-<span class="w">      </span><span class="nt">shortcut</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">leftctrl</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">space</span><span class="w"> </span><span class="p p-Indicator">]</span>
-
-<span class="w">      </span><span class="nt">conditions</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">can_replace_text</span><span class="p">:</span><span class="w"> </span><span class="nl">&amp;text_substitution_rules</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">:calc{(.*)}</span>
-<span class="w">              </span><span class="nt">replace</span><span class="p">:</span>
-<span class="w">                </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">printf &quot;$(qalc -t &quot;$match_1&quot;)&quot;</span>
-
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">regex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">:email</span>
-<span class="w">              </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example@example.com</span>
-
-<span class="w">      </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">replace_text</span><span class="p">:</span><span class="w"> </span><span class="nv">*text_substitution_rules</span>
-</pre></div>
-</div>
-</section>
 </section>
 
         </article>
@@ -498,7 +475,6 @@ entire text, and the text is replaced with the value specified in the <code clas
 <li><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#description">Description</a></li>
 </ul>
 </li>
 </ul>

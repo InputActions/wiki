@@ -19,7 +19,6 @@ conditions:
 ```{toctree}
 :hidden:
 
-Can replace text <can-replace-text>
 Group <group>
 Variable <variable>
 ```

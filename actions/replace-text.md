@@ -54,25 +54,3 @@ replace_text:
   - regex: :email
     replace: example@example.com
 ```
-
-## Description
-Set a [can replace text condition](/conditions/can-replace-text.md) on the trigger to ensure it can only be activated if there is something to replace.
-
-```yaml
-keyboard:
-  gestures:
-    - type: shortcut
-      shortcut: [ leftctrl, space ]
-
-      conditions:
-        - can_replace_text: &text_substitution_rules
-            - regex: :calc{(.*)}
-              replace:
-                command: printf "$(qalc -t "$match_1")"
-
-            - regex: :email
-              replace: example@example.com
-
-      actions:
-        - replace_text: *text_substitution_rules
-```

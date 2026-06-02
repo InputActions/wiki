@@ -43,6 +43,10 @@ Variables contain information about the current state of the environment and inp
   - *string*
   - ID (*[](/trigger).id*) of the last trigger that was updated or ended.
 
+* - max_finger_distance_percentage
+  - *number*
+  - Maximum distance between two fingers as a percentage of the diagonal.
+
 * - plasma_overview_active
   - *bool*
   - Whether Plasma's overview is active.

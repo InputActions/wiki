@@ -25,6 +25,14 @@ Variables <variables>
 
 ```{toctree}
 :hidden:
+:caption: Scripting
+
+Scripting <scripting/index>
+Modules <scripting/modules/index>
+```
+
+```{toctree}
+:hidden:
 :caption: Advanced
 
 Dynamic values <dynamic-values/index>

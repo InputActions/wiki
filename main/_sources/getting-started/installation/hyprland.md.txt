@@ -50,7 +50,7 @@
   <summary>Arch Linux</summary>
 
   ```
-  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-tools yaml-cpp libevdev cli11
+  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-declarative qt6-tools yaml-cpp libevdev cli11
   ```
 </details>
 

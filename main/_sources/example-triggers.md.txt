@@ -182,6 +182,42 @@ Read [](/getting-started/introduction) first before complaining that these do no
        - command: kdotool windowminimize $window_under_pointer_id
   ```
 </details>
+<details>
+  <summary>Wheel + swipe in any direction - Auto scrolling</summary>
+
+  ```yaml
+  scripting:
+    scripts:
+      - source: |
+          var { input, variableRegistry, Point } = require("inputactions/core");
+
+          var pointerPositionVariable = variableRegistry.variable("pointer_position_screen_percentage");
+          var initialPointerPosition = {};
+
+  mouse:
+    gestures:
+      - type: swipe
+        direction: any
+        mouse_buttons: [ middle ]
+
+        actions:
+          - on: begin
+            function: |
+              () => {
+                  initialPointerPosition = pointerPositionVariable.value.clone();
+              }
+
+          - on: tick
+            interval: 10
+            function: |
+              () => {
+                  const pointerPosition = pointerPositionVariable.value;
+                  const diff = new Point(pointerPosition.x - initialPointerPosition.x, pointerPosition.y - initialPointerPosition.y);
+
+                  input.virtualMouse.mouseWheel(new Point(diff.x * 100, diff.y * 100));
+              }
+  ```
+</details>
 
 ## Touchpad
 <details>

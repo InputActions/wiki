@@ -270,6 +270,7 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="actions/index.html">Actions</a><input aria-label="Toggle navigation of Actions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="actions/command.html">Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions/function.html">Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/input.html">Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/plasma-shortcut.html">Plasma shortcut</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/replace-text.html">Replace text</a></li>
@@ -281,15 +282,41 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="conditions/index.html">Conditions</a><input aria-label="Toggle navigation of Conditions" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="conditions/function.html">Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conditions/group.html">Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conditions/variable.html">Variable</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scripting/index.html">Scripting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="scripting/modules/index.html">Modules</a><input aria-label="Toggle navigation of Modules" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="scripting/modules/inputactions/core/index.html">inputactions/core</a><input aria-label="Toggle navigation of inputactions/core" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="scripting/modules/inputactions/core/types/index.html">Types</a><input aria-label="Toggle navigation of Types" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/input-backend.html">InputBackend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/point.html">Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/variable.html">Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/variable-registry.html">VariableRegistry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/virtual-mouse.html">VirtualMouse</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="scripting/modules/inputactions/fs/index.html">inputactions/fs</a><input aria-label="Toggle navigation of inputactions/fs" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="scripting/modules/inputactions/fs/types/index.html">Types</a><input aria-label="Toggle navigation of Types" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/fs/types/file.html">File</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
@@ -407,42 +434,51 @@ deprecated features and unused properties.</p>
 <td><p>Floating point number.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>int</p></td>
+<tr class="row-even"><td><p>function</p></td>
+<td><p>A JavaScript function.</p></td>
+<td><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
 <td><p>Signed integer, can be negative.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>keyboard_key</p></td>
+<tr class="row-even"><td><p>keyboard_key</p></td>
 <td><p>See <a class="reference internal" href="devices/keyboard/scancodes.html"><span class="doc std std-doc">Keyboard scancodes</span></a>.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>regex</p></td>
+<tr class="row-odd"><td><p>regex</p></td>
 <td><p>Regular expression.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>string</p></td>
+<tr class="row-even"><td><p>string</p></td>
 <td><p>Text, can be wrapped in <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">'</span></code>, but usually does not have to be.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>time</p></td>
+<tr class="row-odd"><td><p>time</p></td>
 <td><p>Duration in milliseconds, cannot be negative.</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>uint</p></td>
+<tr class="row-even"><td><p>uint</p></td>
 <td><p>Unsigned integer, cannot be negative.</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>enum(value1, value2, …)</p></td>
+<tr class="row-odd"><td><p>enum(value1, value2, …)</p></td>
 <td><p>One value from the list of values in brackets.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">value2</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>flags(value1, value2, …)</p></td>
+<tr class="row-even"><td><p>flags(value1, value2, …)</p></td>
 <td><p>List of one or more values from the list of values in brackets.</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">value1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">value2</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>list(type)</p></td>
+<tr class="row-odd"><td><p>list(type)</p></td>
 <td><p>List of elements of type <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="w"> </span><span class="p p-Indicator">]</span>
 </pre></div>
@@ -454,7 +490,7 @@ deprecated features and unused properties.</p>
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>map(key_type, value_type)</p></td>
+<tr class="row-even"><td><p>map(key_type, value_type)</p></td>
 <td><p>A map (<code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code>) where all keys are of type <code class="docutils literal notranslate"><span class="pre">key_type</span></code> and values of type <code class="docutils literal notranslate"><span class="pre">value_type</span></code>.</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span>
 <span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span>
@@ -462,12 +498,12 @@ deprecated features and unused properties.</p>
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>point(type)</p></td>
+<tr class="row-odd"><td><p>point(type)</p></td>
 <td><p>Two numeric values (x and y) of type <code class="docutils literal notranslate"><span class="pre">type</span></code>. Format: <code class="docutils literal notranslate"><span class="pre">x,y</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">point(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">4,0</span></code><br>
 <code class="docutils literal notranslate"><span class="pre">point(float)</span></code> - <code class="docutils literal notranslate"><span class="pre">1.1,2.2</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>range(type)</p></td>
+<tr class="row-even"><td><p>range(type)</p></td>
 <td><p>Range of numbers of type <code class="docutils literal notranslate"><span class="pre">type</span></code>. Format: <code class="docutils literal notranslate"><span class="pre">min-max</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code> may be surrounded by exactly one space on each side.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">range(int)</span></code> - <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">2</span></code><br>
 <code class="docutils literal notranslate"><span class="pre">range(point)</span></code> - <code class="docutils literal notranslate"><span class="pre">0;0</span> <span class="pre">-</span> <span class="pre">0.5;0.5</span></code></p></td>
@@ -538,12 +574,17 @@ deprecated features and unused properties.</p>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>touchpad</p></td>
+<tr class="row-odd"><td><p>scripting.scripts</p></td>
+<td><p><em>list(<a class="reference internal" href="#script"><span class="std std-ref">Script</span></a>)</em></p></td>
+<td><p>See <a class="reference internal" href="scripting/index.html"><span class="doc std std-doc">Scripting</span></a>.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>touchpad</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>touchscreen</p></td>
+<tr class="row-odd"><td><p>touchscreen</p></td>
 <td><p><em><a class="reference internal" href="#eventhandler"><span class="std std-ref">EventHandler</span></a></em></p></td>
 <td></td>
 <td></td>
@@ -570,6 +611,25 @@ deprecated features and unused properties.</p>
 <tr class="row-odd"><td><p>speed</p></td>
 <td><p><em><a class="reference internal" href="#speed"><span class="std std-ref">Speed</span></a></em></p></td>
 <td><p>Settings for how motion trigger speed is determined.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="script">
+<h3>Script<a class="headerlink" href="#script" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>source</strong></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The script.</p></td>
 </tr>
 </tbody>
 </table>
@@ -716,6 +776,7 @@ deprecated features and unused properties.</p>
 <li><a class="reference internal" href="#structure">Structure</a><ul>
 <li><a class="reference internal" href="#root">Root</a></li>
 <li><a class="reference internal" href="#eventhandler">EventHandler</a></li>
+<li><a class="reference internal" href="#script">Script</a></li>
 <li><a class="reference internal" href="#speed">Speed</a></li>
 </ul>
 </li>

@@ -1,7 +1,7 @@
 # Condition
 :::{list-table}
 * - **Inherited by**
-  - [](/conditions/group), [](/conditions/variable)
+  - [](/conditions/function), [](/conditions/group), [](/conditions/variable)
 :::
 
 ## Configuration
@@ -19,6 +19,7 @@ conditions:
 ```{toctree}
 :hidden:
 
+Function <function>
 Group <group>
 Variable <variable>
 ```

@@ -57,6 +57,14 @@ Child objects inherit all properties from their parent, add new ones and can be 
   - Floating point number.
   -
 
+* - function
+  - A JavaScript function.
+  - ```js
+    () => {
+        console.log("a");
+    }
+    ```
+
 * - int
   - Signed integer, can be negative.
   -
@@ -180,6 +188,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   -
   -
 
+* - scripting.scripts
+  - *list([](#script))*
+  - See [](/scripting/index).
+  -
+
 * - touchpad
   - *[](#eventhandler)*
   -
@@ -206,6 +219,19 @@ Child objects inherit all properties from their parent, add new ones and can be 
 * - speed
   - *[](#speed)*
   - Settings for how motion trigger speed is determined.
+:::
+
+### Script
+:::{list-table}
+:header-rows: 1
+
+* - Property
+  - Type
+  - Description
+
+* - **source**
+  - *string*
+  - The script.
 :::
 
 ### Speed

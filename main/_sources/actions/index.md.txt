@@ -1,7 +1,7 @@
 # Action
 :::{list-table}
 * - **Inherited by**
-  - [](/actions/groups/index), [](/actions/command), [](/actions/input), [](/actions/plasma-shortcut), [](/actions/replace-text), [](/actions/sleep)
+  - [](/actions/groups/index), [](/actions/command), [](/actions/function), [](/actions/input), [](/actions/plasma-shortcut), [](/actions/replace-text), [](/actions/sleep)
 :::
 
 ## Configuration
@@ -83,6 +83,7 @@ Update actions assigned to the ``actions`` property of a bidirectional trigger:
 :hidden:
 
 Command <command>
+Function <function>
 Input <input>
 Plasma shortcut <plasma-shortcut>
 Replace text <replace-text>

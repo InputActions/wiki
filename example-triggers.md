@@ -183,7 +183,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
   ```
 </details>
 <details>
-  <summary>Wheel + swipe in any direction - Auto scrolling</summary>
+  <summary>Middle + swipe in any direction - Auto scrolling</summary>
 
   ```yaml
   scripting:

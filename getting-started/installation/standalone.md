@@ -59,28 +59,28 @@ A stable release of this implementation is currently not available.
   <summary>Arch Linux</summary>
 
   ```
-  sudo pacman -S --needed --noconfirm base-devel git extra-cmake-modules qt6-tools yaml-cpp libevdev cli11
+  sudo pacman -S --needed --noconfirm base-devel git extra-cmake-modules qt6-declarative qt6-tools yaml-cpp libevdev cli11
   ```
 </details>
 <details>
   <summary>Debian-based (KDE Neon, Kubuntu, Ubuntu)</summary>
 
   ```
-  sudo apt install git cmake g++ extra-cmake-modules qt6-tools-dev gettext libyaml-cpp-dev libxkbcommon-dev pkg-config libevdev-dev libudev-dev libinput-dev libwayland-dev systemd-dev libcli11-dev
+  sudo apt install git cmake g++ extra-cmake-modules qt6-declarative-dev qt6-tools-dev gettext libyaml-cpp-dev libxkbcommon-dev pkg-config libevdev-dev libudev-dev libinput-dev libwayland-dev systemd-dev libcli11-dev
   ```
 </details>
 <details>
   <summary>Fedora</summary>
 
   ```
-  sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel qt6-qtbase yaml-cpp yaml-cpp-devel libevdev libevdev-devel libinput-devel libudev-devel wayland-devel cli11-devel
+  sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel qt6-qtbase qt6-qtdeclarative-devel yaml-cpp yaml-cpp-devel libevdev libevdev-devel libinput-devel libudev-devel wayland-devel cli11-devel
   ```
 </details>
 <details>
   <summary>openSUSE</summary>
 
   ```
-  sudo zypper in git cmake-full gcc-c++ kf6-extra-cmake-modules "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Network)" yaml-cpp-devel libevdev-devel libudev-devel libinput-devel wayland-devel libxkbcommon-devel "pkgconfig(systemd)" cli11-devel
+  sudo zypper in git cmake-full gcc-c++ kf6-extra-cmake-modules qt6-declarative-devel "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Network)" yaml-cpp-devel libevdev-devel libudev-devel libinput-devel wayland-devel libxkbcommon-devel "pkgconfig(systemd)" cli11-devel
   ```
 </details>
 

@@ -1,5 +1,4 @@
 # Command dynamic value
-
 ## Description
 Runs the specified command in a shell and returns its standard output once it finishes.
 

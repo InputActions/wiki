@@ -206,6 +206,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="example-triggers.html">Example triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common patterns</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Core</span></p>
 <ul class="current">
@@ -269,6 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="actions/index.html">Actions</a><input aria-label="Toggle navigation of Actions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="actions/activate-window.html">Activate window</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/command.html">Command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/function.html">Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/input.html">Input</a></li>
@@ -400,31 +402,47 @@
 <p>Does not change thorough the trigger.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p>keyboard_modifiers</p></td>
+<tr class="row-odd"><td><p>initial_window_id</p></td>
+<td><p><em>string</em></p></td>
+<td><p>A snapshot of the <code class="docutils literal notranslate"><span class="pre">window_id</span></code> variable’s value performed after triggers are successfully activated.</p></td>
+</tr>
+<tr class="row-even"><td><p>initial_window_under_fingers_id</p></td>
+<td><p><em>string</em></p></td>
+<td><p>A snapshot of the <code class="docutils literal notranslate"><span class="pre">window_under_fingers_id</span></code> variable’s value performed after triggers are successfully activated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>initial_window_under_pointer_id</p></td>
+<td><p><em>string</em></p></td>
+<td><p>A snapshot of the <code class="docutils literal notranslate"><span class="pre">window_under_pointer_id</span></code> variable’s value performed after triggers are successfully activated.</p></td>
+</tr>
+<tr class="row-even"><td><p>keyboard_modifiers</p></td>
 <td><p><em>flags(alt, ctrl, meta, shift)</em></p></td>
 <td><p>Currently pressed keyboard modifiers.</p>
 <p>Does not change thorough the trigger.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p>last_trigger_id</p></td>
+<tr class="row-odd"><td><p>last_trigger_id</p></td>
 <td><p><em>string</em></p></td>
 <td><p>ID (<em><a class="reference internal" href="trigger.html"><span class="doc std std-doc">Trigger</span></a>.id</em>) of the last trigger that was updated or ended.</p></td>
 </tr>
-<tr class="row-odd"><td><p>max_finger_distance_percentage</p></td>
+<tr class="row-even"><td><p>max_finger_distance_percentage</p></td>
 <td><p><em>number</em></p></td>
 <td><p>Maximum distance between two fingers as a percentage of the diagonal.</p></td>
 </tr>
-<tr class="row-even"><td><p>plasma_overview_active</p></td>
+<tr class="row-odd"><td><p>plasma_overview_active</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether Plasma’s overview is active.</p></td>
 </tr>
-<tr class="row-odd"><td><p>pointer_position_screen_percentage</p></td>
+<tr class="row-even"><td><p>pointer_position_screen_percentage</p></td>
 <td><p><em>point</em></p></td>
 <td><p>Pointer position relative to the top-left corner of the screen it is currently on as a percentage.</p></td>
 </tr>
-<tr class="row-even"><td><p>pointer_position_window_percentage</p></td>
+<tr class="row-odd"><td><p>pointer_position_window_percentage</p></td>
 <td><p><em>point</em></p></td>
 <td><p>Pointer position relative to the top-left corner of the window it is currently hovering over as a percentage.</p></td>
+</tr>
+<tr class="row-even"><td><p>previous_window_id</p></td>
+<td><p><em>string</em></p></td>
+<td><p>Set to the ID of the previously active window when an <a class="reference internal" href="actions/activate-window.html"><span class="doc std std-doc">ActivateWindow</span></a> is executed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>screen_name</p></td>
 <td><p><em>string</em></p></td>

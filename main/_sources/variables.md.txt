@@ -33,6 +33,18 @@ Variables contain information about the current state of the environment and inp
 
     Does not change thorough the trigger.
 
+* - initial_window_id
+  - *string*
+  - A snapshot of the ``window_id`` variable's value performed after triggers are successfully activated.
+
+* - initial_window_under_fingers_id
+  - *string*
+  - A snapshot of the ``window_under_fingers_id`` variable's value performed after triggers are successfully activated.
+
+* - initial_window_under_pointer_id
+  - *string*
+  - A snapshot of the ``window_under_pointer_id`` variable's value performed after triggers are successfully activated.
+
 * - keyboard_modifiers
   - *flags(alt, ctrl, meta, shift)*
   - Currently pressed keyboard modifiers.
@@ -58,6 +70,10 @@ Variables contain information about the current state of the environment and inp
 * - pointer_position_window_percentage
   - *point*
   - Pointer position relative to the top-left corner of the window it is currently hovering over as a percentage.
+
+* - previous_window_id
+  - *string*
+  - Set to the ID of the previously active window when an [](/actions/activate-window) is executed.
 
 * - screen_name
   - *string*

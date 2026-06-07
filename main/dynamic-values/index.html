@@ -206,6 +206,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../example-triggers.html">Example triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common-patterns.html">Common patterns</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Core</span></p>
 <ul>
@@ -269,6 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../actions/index.html">Actions</a><input aria-label="Toggle navigation of Actions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../actions/activate-window.html">Activate window</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../actions/command.html">Command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../actions/function.html">Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../actions/input.html">Input</a></li>
@@ -364,14 +366,16 @@
         <article role="main" id="furo-main-content">
           <section id="dynamic-values">
 <h1>Dynamic values<a class="headerlink" href="#dynamic-values" title="Link to this heading">¶</a></h1>
-<p>Some properties accept dynamic values if explicitly stated in the description. They are useful if you need the value to be evaluated every time.</p>
-<p>The property will also state whether the value will be evaluated synchronously or asynchronously. Synchronous evaluation is used when the value must be known
-immediately and may freeze the compositor if it takes too long. Asynchronous evaluation will never freeze the compositor but can delay actions.</p>
+<p>Certain properties accept dynamic values if explicitly stated in its description. Those are evaluated every time the value is accessed.</p>
+<p>Dynamic values are evaluated either synchronously or asynchronously. Synchronous evaluation is used when the value must be known immediately and may freeze
+the main process if it takes too long. Asynchronous evaluation will never freeze the main process but can delay actions.</p>
+<p>To assign an <a class="reference internal" href="../variables.html"><span class="doc std std-doc">InputActions variable</span></a> to a property, set it to <code class="docutils literal notranslate"><span class="pre">$variable_name</span></code>.</p>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">property1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span><span class="w"> </span><span class="c1"># static value</span>
 <span class="nt">property2</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo -n value</span><span class="w"> </span><span class="c1"># dynamic value</span>
+<span class="w">  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo -n value</span><span class="w"> </span><span class="c1"># dynamic command value</span>
+<span class="nt">property3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$window_id</span><span class="w"> </span><span class="c1"># variable</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">

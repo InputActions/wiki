@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Configuration" href="config.html"><link rel="prev" title="Introduction" href="getting-started/introduction.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Common patterns" href="common-patterns.html"><link rel="prev" title="Introduction" href="getting-started/introduction.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Example triggers - InputActions main</title>
@@ -206,6 +206,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Example triggers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common patterns</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Core</span></p>
 <ul>
@@ -269,6 +270,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="actions/index.html">Actions</a><input aria-label="Toggle navigation of Actions" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="actions/activate-window.html">Activate window</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/command.html">Command</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/function.html">Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actions/input.html">Input</a></li>
@@ -371,7 +373,7 @@
 <section id="mouse">
 <h2>Mouse<a class="headerlink" href="#mouse" title="Link to this heading">¶</a></h2>
 <details>
-  <summary>Right + Draw circle clockwise - Close window</summary>
+  <summary>Right + Draw circle clockwise - Close window (Plasma)</summary>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stroke</span>
 <span class="w">  </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;OAMAAUkEBRZZEgwkYCARMmA6GUBSViRPQGMrYyNkNLAOVT3DAzhH0AUdUOkYC1j2OQBkAA==&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">right</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -514,7 +516,7 @@
 </div>
 </details>
 <details>
-  <summary>Middle click top edge - Maximize window</summary>
+  <summary>Middle click top edge - Maximize window (Plasma)</summary>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">press</span>
 <span class="w">  </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">middle</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">instant</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -525,17 +527,6 @@
 <span class="w">  </span><span class="nt">actions</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">begin</span>
 <span class="w">      </span><span class="nt">plasma_shortcut</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kwin,Window Maximize</span>
-</pre></div>
-</div>
-</details>
-<details>
-  <summary>Right + Swipe down - Minimize window under cursor</summary>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
-<span class="w">   </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">down</span>
-<span class="w">   </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">right</span><span class="w"> </span><span class="p p-Indicator">]</span>
-
-<span class="w">   </span><span class="nt">actions</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kdotool windowminimize $window_under_pointer_id</span>
 </pre></div>
 </div>
 </details>
@@ -854,12 +845,12 @@ Swipe fast - Open alt+tab switcher</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="config.html">
+          <a class="next-page" href="common-patterns.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Configuration</div>
+                <div class="title">Common patterns</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

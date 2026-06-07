@@ -401,15 +401,15 @@ properly without a short delay after window activation.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">window_id</span></code>, <code class="docutils literal notranslate"><span class="pre">window_under_fingers_id</span></code> and <code class="docutils literal notranslate"><span class="pre">window_under_pointer_id</span></code> may change during a gesture, making it impossible to access the original values
 at the end of the gesture. To solve this problem, the values of the aforementioned variables are copied to the <code class="docutils literal notranslate"><span class="pre">initial_window_id</span></code>,
 <code class="docutils literal notranslate"><span class="pre">initial_window_under_fingers_id</span></code> and <code class="docutils literal notranslate"><span class="pre">initial_window_under_pointer_id</span></code> variables after triggers are activated.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mouse:
-  gestures:
-    - type: stroke
-      strokes: [ &#39;MQAAMTJkZAA=&#39; ] # down
-      mouse_buttons: [ right ]
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">mouse</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stroke</span>
+<span class="w">      </span><span class="nt">strokes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&#39;MQAAMTJkZAA=&#39;</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># down</span>
+<span class="w">      </span><span class="nt">mouse_buttons</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">right</span><span class="w"> </span><span class="p p-Indicator">]</span>
 
-      actions:
-        - activate_window: $initial_window_under_pointer_id
-        - plasma_shortcut: kwin,Window Close
+<span class="w">      </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">activate_window</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">$initial_window_under_pointer_id</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">plasma_shortcut</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kwin,Window Close</span>
 </pre></div>
 </div>
 <p>See the <a class="reference internal" href="#performing-actions-on-inactive-windows"><span class="std std-ref">Performing actions on inactive windows</span></a> section for more information.</p>

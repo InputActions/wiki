@@ -9,6 +9,7 @@ If you like InputActions, consider [making a donation](https://github.com/sponso
 Version selector <https://wiki.inputactions.org/main/version-selector>
 Getting started <getting-started/index>
 Example triggers <example-triggers>
+Common patterns <common-patterns>
 ```
 
 ```{toctree}

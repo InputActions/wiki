@@ -1,7 +1,8 @@
 # Action
 :::{list-table}
 * - **Inherited by**
-  - [](/actions/groups/index), [](/actions/command), [](/actions/function), [](/actions/input), [](/actions/plasma-shortcut), [](/actions/replace-text), [](/actions/sleep)
+  - [](/actions/activate-window), [](/actions/groups/index), [](/actions/command), [](/actions/function), [](/actions/input), [](/actions/plasma-shortcut),
+    [](/actions/replace-text), [](/actions/sleep)
 :::
 
 ## Configuration
@@ -82,6 +83,7 @@ Update actions assigned to the ``actions`` property of a bidirectional trigger:
 ```{toctree}
 :hidden:
 
+Activate window <activate-window>
 Command <command>
 Function <function>
 Input <input>

@@ -5,7 +5,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
 
 ## Mouse
 <details>
-  <summary>Right + Draw circle clockwise - Close window</summary>
+  <summary>Right + Draw circle clockwise - Close window (Plasma)</summary>
 
   ```yaml
   - type: stroke
@@ -155,7 +155,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
   ```
 </details>
 <details>
-  <summary>Middle click top edge - Maximize window</summary>
+  <summary>Middle click top edge - Maximize window (Plasma)</summary>
 
   ```yaml
   - type: press
@@ -168,18 +168,6 @@ Read [](/getting-started/introduction) first before complaining that these do no
     actions:
       - on: begin
         plasma_shortcut: kwin,Window Maximize
-  ```
-</details>
-<details>
-  <summary>Right + Swipe down - Minimize window under cursor</summary>
-
-  ```yaml
-   - type: swipe
-     direction: down
-     mouse_buttons: [ right ]
-
-     actions:
-       - command: kdotool windowminimize $window_under_pointer_id
   ```
 </details>
 <details>

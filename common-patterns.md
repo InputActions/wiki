@@ -35,7 +35,7 @@ The ``window_id``, ``window_under_fingers_id`` and ``window_under_pointer_id`` m
 at the end of the gesture. To solve this problem, the values of the aforementioned variables are copied to the ``initial_window_id``,
 ``initial_window_under_fingers_id`` and ``initial_window_under_pointer_id`` variables after triggers are activated.
 
-```
+```yaml
 mouse:
   gestures:
     - type: stroke

@@ -1,5 +1,7 @@
 # Configuration
-InputActions is configured through a YAML configuration file. There are no plans to add a UI in the future.
+InputActions is configured through a YAML configuration file. While there are no plans to introduce a configuration GUI, there is an
+unofficial one - [InputActionsEditor](https://github.com/Luwx/InputActionsEditor). Certain features mentioned in the wiki may not be supported by the project
+yet.
 
 :::{important}
 Breaking changes may be introduced at any time, they will be announced in pull requests and in the release changelog.

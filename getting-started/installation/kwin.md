@@ -74,7 +74,7 @@ Unofficial packages may not be up to date.
   <summary>Arch Linux</summary>
 
   ```
-  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-declarative qt6-tools kwin yaml-cpp libevdev cli11
+  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-declarative qt6-tools kwin yaml-cpp libevdev cli11 vulkan-headers
   ```
 </details>
 <details>

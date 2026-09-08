@@ -1,7 +1,5 @@
 # InputActions wiki
-This wiki defaults to the latest Git commit. Use the <a href="/main/version-selector">version selector</a> to select your version.
-
-If you like InputActions, consider [making a donation](https://github.com/sponsors/taj-ny) to support the development.
+This wiki is versioned and defaults to the ``main`` branch. Use the <a href="/main/version-selector">version selector</a> to change the current version.
 
 ```{toctree}
 :hidden:

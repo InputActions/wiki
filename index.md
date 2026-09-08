@@ -1,6 +1,9 @@
 # InputActions wiki
 This wiki is versioned and defaults to the ``main`` branch. Use the <a href="/main/version-selector">version selector</a> to change the current version.
 
+- **Issue tracker and discussions:** [github.com/InputActions/discussions](https://github.com/InputActions/discussions)
+- **Donate:** [github.com/sponsors/taj-ny](https://github.com/sponsors/taj-ny)
+
 ```{toctree}
 :hidden:
 

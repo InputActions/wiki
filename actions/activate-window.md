@@ -1,4 +1,4 @@
-# ActivateWindow
+# ActivateWindowAction
 :::{list-table}
 * - **Inherits**
   - [](/actions/index)

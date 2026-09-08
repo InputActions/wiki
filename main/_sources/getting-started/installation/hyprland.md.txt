@@ -57,7 +57,7 @@
 ### Installation
 First, install the control tool:
 ```sh
-curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod +x inputactions-installer.sh
 ./inputactions-installer.sh --ctl --latest
 ```

@@ -101,7 +101,7 @@ Unofficial packages may not be up to date.
 
 ### Installation
 ```sh
-curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod +x inputactions-installer.sh
 ./inputactions-installer.sh --ctl --kwin --latest
 ```
@@ -112,7 +112,7 @@ Build the plugin in a container. The image's KWin version must be the same as th
 ```sh
 # enter container
 sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel kwin-devel kf6-ki18n-devel kf6-kguiaddons-devel kf6-kcmutils-devel kf6-kconfigwidgets-devel qt6-qtbase qt6-qtdeclarative-devel kf6-kguiaddons kf6-ki18n wayland-devel yaml-cpp yaml-cpp-devel libepoxy-devel libevdev libevdev-devel libdrm-devel cli11-devel rpmbuild
-curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod +x inputactions-installer.sh
 ./inputactions-installer.sh --ctl --kwin -p RPM --latest
 exit # exit container

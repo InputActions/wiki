@@ -88,7 +88,7 @@ A stable release of this implementation is currently not available.
 Add the ``--standalone-no-systemd`` flag to not install the daemon service.
 
 ```sh
-curl -o inputactions-installer.sh https://raw.githubusercontent.com/taj-ny/InputActions/refs/heads/main/install.sh
+curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod +x inputactions-installer.sh
 ./inputactions-installer.sh --ctl --standalone --latest
 ```

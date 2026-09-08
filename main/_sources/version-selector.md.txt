@@ -1,5 +1,8 @@
 # Version selector
-- <a href="/main">Latest Git</a>
+## Branches
+- <a href="/main">main</a>
+
+## Tags
 - <a href="/v0.9.0">v0.9.0</a>
 - <a href="/v0.8.4">v0.8.4</a>
 - <a href="/v0.8.3">v0.8.3</a>

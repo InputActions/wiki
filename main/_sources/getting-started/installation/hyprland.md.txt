@@ -1,5 +1,14 @@
 # Hyprland
 
+## Unsupported features
+:::{important}
+This implementation does not support certain features.
+:::
+
+- Accelerated touchpad gestures
+- Get the resource name of any window
+- Get the fullscreen state of any window
+
 ## Packages
 <details>
   <summary>NixOS (flakes, home-manager)</summary>

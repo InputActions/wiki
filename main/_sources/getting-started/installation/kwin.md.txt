@@ -6,6 +6,13 @@ It is necessary to restart KWin after updating the plugin, otherwise the newer v
 The minimum Plasma version is 6.3, for older versions use InputActions v0.8.0. If a new feature requires additional changes to work on older versions, it will
 likely be made available only on the latest one.
 
+## Unsupported features
+:::{important}
+This implementation does not support certain features.
+:::
+
+- Accelerated touchpad gestures
+
 ## Packages
 :::{note}
 Unofficial packages may not be up to date.

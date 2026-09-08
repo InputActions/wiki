@@ -366,11 +366,52 @@
         <article role="main" id="furo-main-content">
           <section id="standalone">
 <h1>Standalone<a class="headerlink" href="#standalone" title="Link to this heading">¶</a></h1>
-<p>Works in any environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A stable release of this implementation is currently not available.</p>
 </div>
+<section id="unsupported-features">
+<h2>Unsupported features<a class="headerlink" href="#unsupported-features" title="Link to this heading">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This implementation does not support certain features.</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../actions/activate-window.html"><span class="doc std std-doc">ActivateWindowAction</span></a></p></li>
+<li><p><a class="reference internal" href="../../actions/replace-text.html"><span class="doc std std-doc">ReplaceTextAction</span></a></p></li>
+<li><p>Keyboard text action of <a class="reference internal" href="../../actions/input.html"><span class="doc std std-doc">InputAction</span></a></p></li>
+<li><p>Get the window under fingers on the touchscreen</p></li>
+<li><p>Get the cursor shape</p></li>
+<li><p>Get the name of the current screen</p></li>
+<li><p>Reliable filtering of touchpad input events</p></li>
+</ul>
+<p>Additionally, more features may be unsupported depending on the environment.</p>
+<details>
+  <summary>GNOME, Plasma</summary>
+<p>No additional features are unsupported in these environments.</p>
+</details>
+<details>
+  <summary>Other (Wayland)</summary>
+<ul class="simple">
+<li><p>If the compositor does not implement <a class="reference external" href="https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1">wlr foreign toplevel management</a>:</p>
+<ul>
+<li><p>Get the active window</p></li>
+</ul>
+</li>
+<li><p>Get the window under the pointer</p></li>
+<li><p>Get the PID of the active window</p></li>
+</ul>
+</details>
+<details>
+  <summary>Other (X11)</summary>
+<ul class="simple">
+<li><p>Get the active window</p></li>
+<li><p>Get the window under the pointer</p></li>
+<li><p>Get the position of the pointer</p></li>
+</ul>
+</details>
+<p>There are plans to make most of the aforementioned features implementable using custom scripts, which will be able to use DBus APIs, start proceses and more.</p>
+</section>
 <section id="cmake-builds-flags">
 <h2>CMake builds flags<a class="headerlink" href="#cmake-builds-flags" title="Link to this heading">¶</a></h2>
 <ul class="simple">
@@ -615,6 +656,7 @@ result in devices changing their behavior after starting InputActions. In that c
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Standalone</a><ul>
+<li><a class="reference internal" href="#unsupported-features">Unsupported features</a></li>
 <li><a class="reference internal" href="#cmake-builds-flags">CMake builds flags</a></li>
 <li><a class="reference internal" href="#packages">Packages</a></li>
 <li><a class="reference internal" href="#manual">Manual</a><ul>

@@ -1,9 +1,44 @@
 # Standalone
-Works in any environment.
-
 :::{note}
 A stable release of this implementation is currently not available.
 :::
+
+## Unsupported features
+:::{important}
+This implementation does not support certain features.
+:::
+
+- [](/actions/activate-window)
+- [](/actions/replace-text)
+- Keyboard text action of [](/actions/input)
+- Get the window under fingers on the touchscreen
+- Get the cursor shape
+- Get the name of the current screen
+- Reliable filtering of touchpad input events
+
+Additionally, more features may be unsupported depending on the environment.
+<details>
+  <summary>GNOME, Plasma</summary>
+
+  No additional features are unsupported in these environments.
+</details>
+<details>
+  <summary>Other (Wayland)</summary>
+
+  - If the compositor does not implement [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1):
+    - Get the active window
+  - Get the window under the pointer
+  - Get the PID of the active window
+</details>
+<details>
+  <summary>Other (X11)</summary>
+
+  - Get the active window
+  - Get the window under the pointer
+  - Get the position of the pointer
+</details>
+
+There are plans to make most of the aforementioned features implementable using custom scripts, which will be able to use DBus APIs, start proceses and more.
 
 ## CMake builds flags
 - ``INPUTACTIONS_SYSTEMD`` - enable systemd support, currently only installs the daemon service (default: ON)

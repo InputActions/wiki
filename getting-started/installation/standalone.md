@@ -72,6 +72,17 @@ There are plans to make most of the aforementioned features implementable using 
       inputs.inputactions-ctl.packages.${pkgs.system}.default
       inputs.inputactions-standalone.packages.${pkgs.system}.default
     ];
+    users.groups.inputactions = {};
+    security.wrappers.inputactions-client = {
+      source = "${inputs.inputactions-standalone.packages.${pkgs.system}.default}/bin/inputactions-client";
+      owner = "root";
+      group = "inputactions";
+      setgid = true;
+    };
+    systemd = {
+      packages = [ inputs.inputactions-standalone.packages.${pkgs.system}.default ];
+      services.inputactionsd.wantedBy = [ "multi-user.target" ];
+    };
   }
   ```
 
@@ -120,7 +131,7 @@ There are plans to make most of the aforementioned features implementable using 
 </details>
 
 ### Installation
-Add the ``--standalone-no-systemd`` flag to not install the daemon service.
+ the ``--standalone-no-systemd`` flag to ``./inputactions-installer.sh`` if not using systemd.
 
 ```sh
 curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
@@ -130,7 +141,7 @@ chmod +x inputactions-installer.sh
 
 ## Post-installation
 :::{warning}
-If you have installed the compositor plugin, make sure to disable it. There is currently no protection against running it and the standalone version
+If you have previously installed the compositor plugin, make sure to disable it. There is currently no protection against running it and the standalone version
 simultaneously.
 :::
 
@@ -138,15 +149,10 @@ simultaneously.
    ```
    sudo systemctl enable --now inputactionsd
    ```
-2. Add ``/usr/bin/inputactions-client`` to autostart. The client must be started after the session, by the user who owns the session, in an environment where
-   it can use KWin's DBus interface (Plasma only) and can connect to the Wayland server (non-GNOME environments). A running client is required in every virtual
-   terminal InputActions will be used in.
+2. Add ``inputactions-client`` to autostart. A running client is required in every tty InputActions will be used in.
 
 ### GNOME
 Enable the ``InputActions`` helper extension (installed automatically after starting the client).
-
-### Plasma
-The helper script is loaded and unloaded automatically by the client.
 
 ## InputActions setup
 By default, devices are not grabbed but their events are processed. Grabbing is required for event filtering. Both properties can be configured using
@@ -208,7 +214,7 @@ result in devices changing their behavior after starting InputActions. In that c
    sudo udevadm trigger
    ```
 
-5. Restart the daemon
+5. Reload the configuration
    ```
-   sudo systemctl restart inputactionsd
+   inputactions config reload
    ```

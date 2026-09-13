@@ -448,6 +448,17 @@
     inputs<span class="o">.</span>inputactions-ctl<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
     inputs<span class="o">.</span>inputactions-standalone<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
+  users<span class="o">.</span>groups<span class="o">.</span><span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{};</span>
+  security<span class="o">.</span>wrappers<span class="o">.</span><span class="ss">inputactions-client</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">source</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">${</span>inputs<span class="o">.</span>inputactions-standalone<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default<span class="si">}</span><span class="s2">/bin/inputactions-client&quot;</span><span class="p">;</span>
+    <span class="ss">owner</span> <span class="o">=</span> <span class="s2">&quot;root&quot;</span><span class="p">;</span>
+    <span class="ss">group</span> <span class="o">=</span> <span class="s2">&quot;inputactions&quot;</span><span class="p">;</span>
+    <span class="ss">setgid</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="ss">systemd</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">packages</span> <span class="o">=</span> <span class="p">[</span> inputs<span class="o">.</span>inputactions-standalone<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default <span class="p">];</span>
+    services<span class="o">.</span>inputactionsd<span class="o">.</span><span class="ss">wantedBy</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;multi-user.target&quot;</span> <span class="p">];</span>
+  <span class="p">};</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -497,7 +508,7 @@
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<p>Add the <code class="docutils literal notranslate"><span class="pre">--standalone-no-systemd</span></code> flag to not install the daemon service.</p>
+<p>the <code class="docutils literal notranslate"><span class="pre">--standalone-no-systemd</span></code> flag to <code class="docutils literal notranslate"><span class="pre">./inputactions-installer.sh</span></code> if not using systemd.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>inputactions-installer.sh<span class="w"> </span>https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
 ./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--standalone<span class="w"> </span>--latest
@@ -509,7 +520,7 @@ chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
 <h2>Post-installation<a class="headerlink" href="#post-installation" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you have installed the compositor plugin, make sure to disable it. There is currently no protection against running it and the standalone version
+<p>If you have previously installed the compositor plugin, make sure to disable it. There is currently no protection against running it and the standalone version
 simultaneously.</p>
 </div>
 <ol class="arabic">
@@ -518,17 +529,11 @@ simultaneously.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">/usr/bin/inputactions-client</span></code> to autostart. The client must be started after the session, by the user who owns the session, in an environment where
-it can use KWin’s DBus interface (Plasma only) and can connect to the Wayland server (non-GNOME environments). A running client is required in every virtual
-terminal InputActions will be used in.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">inputactions-client</span></code> to autostart. A running client is required in every tty InputActions will be used in.</p></li>
 </ol>
 <section id="gnome">
 <h3>GNOME<a class="headerlink" href="#gnome" title="Link to this heading">¶</a></h3>
 <p>Enable the <code class="docutils literal notranslate"><span class="pre">InputActions</span></code> helper extension (installed automatically after starting the client).</p>
-</section>
-<section id="plasma">
-<h3>Plasma<a class="headerlink" href="#plasma" title="Link to this heading">¶</a></h3>
-<p>The helper script is loaded and unloaded automatically by the client.</p>
 </section>
 </section>
 <section id="inputactions-setup">
@@ -591,8 +596,8 @@ result in devices changing their behavior after starting InputActions. In that c
 </pre></div>
 </div>
 </li>
-<li><p>Restart the daemon</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">inputactionsd</span>
+<li><p>Reload the configuration</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inputactions</span> <span class="n">config</span> <span class="n">reload</span>
 </pre></div>
 </div>
 </li>
@@ -666,7 +671,6 @@ result in devices changing their behavior after starting InputActions. In that c
 </li>
 <li><a class="reference internal" href="#post-installation">Post-installation</a><ul>
 <li><a class="reference internal" href="#gnome">GNOME</a></li>
-<li><a class="reference internal" href="#plasma">Plasma</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#inputactions-setup">InputActions setup</a></li>

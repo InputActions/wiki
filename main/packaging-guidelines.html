@@ -371,13 +371,14 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code>- Control tool</p>
 <p>Repository: <a class="reference external" href="https://github.com/InputActions/ctl">InputActions/ctl</a></p>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-kwin</span></code> - KWin compositor plugin implementation</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputactions-kwin</span></code> - KWin plugin implementation</p>
 <p>Repository: <a class="reference external" href="https://github.com/InputActions/kwin">InputActions/kwin</a><br>
 Dependencies: <code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code></p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">inputactions-standalone</span></code> - Standalone implementation</p>
 <p>Repository: <a class="reference external" href="https://github.com/InputActions/standalone">InputActions/standalone</a><br>
 Dependencies: <code class="docutils literal notranslate"><span class="pre">inputactions-ctl</span></code></p>
+<p>The package must create an <code class="docutils literal notranslate"><span class="pre">inputactions</span></code> system group. <code class="docutils literal notranslate"><span class="pre">inputactions-client</span></code> must be owned by that group and have the setgid bit.</p>
 </li>
 </ul>
 <p>As GitHub does not include submodules in release tarballs, every release starting from v0.9.0 will have a manually generated one that does include them.</p>

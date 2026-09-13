@@ -44,4 +44,5 @@ Dynamic values <dynamic-values/index>
 :caption: Other
 
 Packaging guidelines <packaging-guidelines.md>
+Donate <donate.md>
 ```

@@ -177,9 +177,10 @@ Read [](/getting-started/introduction) first before complaining that these do no
   scripting:
     scripts:
       - source: |
-          var { input, variableRegistry, Point } = require("inputactions/core");
+          var { Point } = require("inputactions");
+          var { input, variableRegistry } = require("inputactions/core");
 
-          var pointerPositionVariable = variableRegistry.variable("pointer_position_screen_percentage");
+          var pointerPositionVariable = variableRegistry.get("pointer_position_screen_percentage");
           var initialPointerPosition = {};
 
   mouse:
@@ -192,7 +193,7 @@ Read [](/getting-started/introduction) first before complaining that these do no
           - on: begin
             function: |
               () => {
-                  initialPointerPosition = pointerPositionVariable.value.clone();
+                  initialPointerPosition = pointerPositionVariable.value;
               }
 
           - on: tick

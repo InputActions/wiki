@@ -294,31 +294,10 @@
 <p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="scripting/index.html">Scripting</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="scripting/modules/index.html">Modules</a><input aria-label="Toggle navigation of Modules" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="scripting/modules/inputactions/core/index.html">inputactions/core</a><input aria-label="Toggle navigation of inputactions/core" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="scripting/modules/inputactions/core/types/index.html">Types</a><input aria-label="Toggle navigation of Types" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/input-backend.html">InputBackend</a></li>
-<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/point.html">Point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/variable.html">Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/variable-registry.html">VariableRegistry</a></li>
-<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/core/types/virtual-mouse.html">VirtualMouse</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="scripting/modules/inputactions/fs/index.html">inputactions/fs</a><input aria-label="Toggle navigation of inputactions/fs" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="scripting/modules/inputactions/fs/types/index.html">Types</a><input aria-label="Toggle navigation of Types" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="scripting/modules/inputactions/fs/types/file.html">File</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
@@ -449,59 +428,63 @@
 <td><p><em>string</em></p></td>
 <td><p>Name of the currently active screen.</p></td>
 </tr>
-<tr class="row-even"><td><p>thumb_present</p></td>
+<tr class="row-even"><td><p>session_locked</p></td>
+<td><p><em>bool</em></p></td>
+<td><p>Whether the session is currently locked. Use this to disable triggers on the lockscreen.</p></td>
+</tr>
+<tr class="row-odd"><td><p>thumb_present</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether a thumb is currently present on the input device.</p></td>
 </tr>
-<tr class="row-odd"><td><p>thumb_initial_position_percentage</p></td>
+<tr class="row-even"><td><p>thumb_initial_position_percentage</p></td>
 <td><p><em>point</em></p></td>
 <td><p>See <code class="docutils literal notranslate"><span class="pre">finger_{1..5}_initial_position_percentage</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p>thumb_position_percentage</p></td>
+<tr class="row-odd"><td><p>thumb_position_percentage</p></td>
 <td><p><em>point</em></p></td>
 <td><p>See <code class="docutils literal notranslate"><span class="pre">finger_{1..5}_position_percentage</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>time_since_last_trigger</p></td>
+<tr class="row-even"><td><p>time_since_last_trigger</p></td>
 <td><p><em>time</em></p></td>
 <td><p>Time in milliseconds since <code class="docutils literal notranslate"><span class="pre">last_trigger_id</span></code> was set.</p></td>
 </tr>
-<tr class="row-even"><td><p>window_class<br>
+<tr class="row-odd"><td><p>window_class<br>
 window_under_fingers_class<br>
 window_under_pointer_class</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s resource class.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window_fullscreen<br>
+<tr class="row-even"><td><p>window_fullscreen<br>
 window_under_fingers_fullscreen<br>
 window_under_pointer_fullscreen</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the window is fullscreen.</p></td>
 </tr>
-<tr class="row-even"><td><p>window_id<br>
+<tr class="row-odd"><td><p>window_id<br>
 window_under_fingers_id<br>
 window_under_pointer_id</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s identifier.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window_maximized<br>
+<tr class="row-even"><td><p>window_maximized<br>
 window_under_fingers_maximized<br>
 window_under_pointer_maximized</p></td>
 <td><p><em>bool</em></p></td>
 <td><p>Whether the window is maximized.</p></td>
 </tr>
-<tr class="row-even"><td><p>window_name<br>
+<tr class="row-odd"><td><p>window_name<br>
 window_under_fingers_name<br>
 window_under_pointer_name</p></td>
 <td><p><em>string</em></p></td>
 <td><p>The window’s resource name.</p></td>
 </tr>
-<tr class="row-odd"><td><p>window_pid<br>
+<tr class="row-even"><td><p>window_pid<br>
 window_under_fingers_pid<br>
 window_under_pointer_pid</p></td>
 <td><p><em>number</em></p></td>
 <td><p>The window’s process ID.</p></td>
 </tr>
-<tr class="row-even"><td><p>window_title<br>
+<tr class="row-odd"><td><p>window_title<br>
 window_under_fingers_title<br>
 window_under_pointer_title</p></td>
 <td><p><em>string</em></p></td>

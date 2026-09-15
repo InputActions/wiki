@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Modules" href="modules/index.html"><link rel="prev" title="Variables" href="../variables.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Dynamic values" href="../dynamic-values/index.html"><link rel="prev" title="Variables" href="../variables.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Scripting - InputActions main</title>
@@ -294,31 +294,10 @@
 <p class="caption" role="heading"><span class="caption-text">Scripting</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Scripting</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="modules/index.html">Modules</a><input aria-label="Toggle navigation of Modules" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="modules/inputactions/core/index.html">inputactions/core</a><input aria-label="Toggle navigation of inputactions/core" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="modules/inputactions/core/types/index.html">Types</a><input aria-label="Toggle navigation of Types" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/inputactions/core/types/input-backend.html">InputBackend</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/inputactions/core/types/point.html">Point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/inputactions/core/types/variable.html">Variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/inputactions/core/types/variable-registry.html">VariableRegistry</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/inputactions/core/types/virtual-mouse.html">VirtualMouse</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="modules/inputactions/fs/index.html">inputactions/fs</a><input aria-label="Toggle navigation of inputactions/fs" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="modules/inputactions/fs/types/index.html">Types</a><input aria-label="Toggle navigation of Types" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/inputactions/fs/types/file.html">File</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dynamic-values/index.html">Dynamic values</a><input aria-label="Toggle navigation of Dynamic values" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../dynamic-values/command.html">Command</a></li>
 </ul>
 </li>
@@ -370,106 +349,233 @@
 <p>InputActions supports scripting in JavaScript for extending functionality and implementing logic that is difficult or impossible to express in YAML.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Scripting is an experimental feature and breaking changes may be introduced to the API at any time. It is currently not available in the standalone
-implementation until <a class="reference external" href="https://github.com/taj-ny/InputActions/issues/457">issue 457</a> is resolved.</p>
+<p>This feature is work in progress and only a very small subset of the scripting API is currently implemented.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Scripts are executed on the main thread (in the case of compositor plugin implementations, the compositor’s main thread) and as such resource intensive tasks
-may result in performance issues like increased input latency and frame rate issues (the latter only applying to compositor plugin implementations).</p>
-</div>
-<p>The JavaScript engine in use is Qt’s QJSEngine, which provides the following <a class="reference external" href="https://doc.qt.io/qt-6/qtqml-javascript-functionlist.html">objects and functions</a>.</p>
-<p>It is assumed you already know the basics of JavaScript.</p>
+<section id="engine">
+<h2>Engine<a class="headerlink" href="#engine" title="Link to this heading">¶</a></h2>
+<p>The JavaScript engine currently in use is Qt’s QJSEngine, which implements the ES6 standard, along with some features from later standards, such as the
+exponentiation operator (<code class="docutils literal notranslate"><span class="pre">**</span></code>), <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing">nullish coalescing</a> (<code class="docutils literal notranslate"><span class="pre">??</span></code>)
+, <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">optional chaining</a> (<code class="docutils literal notranslate"><span class="pre">?.</span></code>) and numeric separators
+(<code class="docutils literal notranslate"><span class="pre">1_000_000</span></code>). The <code class="docutils literal notranslate"><span class="pre">async</span></code> and <code class="docutils literal notranslate"><span class="pre">await</span></code> keywords are not supported, however this issue can be worked around by using TypeScript.</p>
+<p><a class="reference external" href="https://doc.qt.io/qt-6/qtqml-javascript-functionlist.html">List of objects and functions provided by QJSEngine</a>.</p>
+</section>
 <section id="built-in-modules">
 <h2>Built-in modules<a class="headerlink" href="#built-in-modules" title="Link to this heading">¶</a></h2>
-<p>The InputActions scripting API is divided into modules, which can be imported using the <code class="docutils literal notranslate"><span class="pre">require</span></code> global function.</p>
+<p>The scripting API is contained in the following modules:</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Module</p></th>
 <th class="head"><p>Description</p></th>
+<th class="head"><p>Type definitions file</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="modules/inputactions/core/index.html"><span class="doc std std-doc">inputactions/core</span></a></p></td>
-<td><p>Core InputActions functionality - input, variables etc.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inputactions</span></code></p></td>
+<td><p>Various utility functions and classes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">main.d.ts</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="modules/inputactions/fs/index.html"><span class="doc std std-doc">inputactions/fs</span></a></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inputactions/core</span></code></p></td>
+<td><p>Core InputActions functionality - config, input, variables etc.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">core.d.ts</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inputactions/desktop/generic</span></code></p></td>
+<td><p>Desktop environment integration (generic interface for any environment)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">desktop/generic.d.ts</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inputactions/fs</span></code></p></td>
 <td><p>File system accesss</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fs.d.ts</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// import specific elements</span>
-<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">variableRegistry</span><span class="p">,</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions/core&quot;</span><span class="p">);</span>
+<p>The documentation for those modules can be found in the <a class="reference external" href="https://github.com/InputActions/scripting-types/tree/main/src">InputActions/scripting-types</a>
+repository.</p>
+</section>
+<section id="classic-scripts">
+<h2>Classic scripts<a class="headerlink" href="#classic-scripts" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prefer <a class="reference internal" href="#module-scripts">module scripts</a> over classic scripts unless the script is short.</p>
+</div>
+<p>Classic scripts can be directly embedded in the configuration. Functions defined using the <code class="docutils literal notranslate"><span class="pre">function</span></code> keyword as well as variables defined with <code class="docutils literal notranslate"><span class="pre">var</span></code> will
+be visible to all other classic scripts evaluated after the declaring script, including those in <a class="reference internal" href="../actions/function.html"><span class="doc std std-doc">FunctionAction</span></a> and <a class="reference internal" href="../conditions/function.html"><span class="doc std std-doc">FunctionCondition</span></a>. Scripts are always the first element of the configuration to be loaded, regardless of where the <code class="docutils literal notranslate"><span class="pre">scripting</span></code> node is located.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scripting</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">scripts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">var count = 0;</span>
+<span class="w">        </span><span class="no">function incrementCount() {</span>
+<span class="w">            </span><span class="no">count++;</span>
+<span class="w">        </span><span class="no">}</span>
+
+<span class="nt">touchpad</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">gestures</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swipe</span>
+<span class="w">      </span><span class="nt">fingers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">      </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">any</span>
+
+<span class="w">      </span><span class="nt">actions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<span class="w">          </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">incrementCount</span>
+
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">end</span>
+<span class="w">          </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">() =&gt; console.log(count);</span>
+</pre></div>
+</div>
+<p>To import modules, use the <code class="docutils literal notranslate"><span class="pre">require</span></code> global function:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions&quot;</span><span class="p">);</span>
 <span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 
-<span class="c1">// import everything into &#39;ia&#39;</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">ia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions/core&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions&quot;</span><span class="p">);</span>
 <span class="ow">new</span><span class="w"> </span><span class="nx">ia</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
-<section id="main-scripts">
-<h2>Main scripts<a class="headerlink" href="#main-scripts" title="Link to this heading">¶</a></h2>
-<p>The main scripts are specified in the <code class="docutils literal notranslate"><span class="pre">scripting.scripts</span></code> node. To make variables accessible in actions and conditions, declare them using <code class="docutils literal notranslate"><span class="pre">var</span></code>.</p>
+<section id="module-scripts">
+<h2>Module scripts<a class="headerlink" href="#module-scripts" title="Link to this heading">¶</a></h2>
+<p>Module scripts cannot be embedded in the configuration and must be <a class="reference internal" href="#package">packaged</a>. In the future it will be possible to install those packages and
+import scripts using their IDs.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scripting</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">scripts</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">        </span><span class="no">var ia = { variableRegistry, Point } = require(&quot;inputactions/core&quot;);</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/absolute/path/to/script/package</span>
 </pre></div>
 </div>
+<p>To import modules, use the <code class="docutils literal notranslate"><span class="pre">import</span></code> declaration:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;inputactions&quot;</span><span class="p">;</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">ia</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;inputactions&quot;</span><span class="p">;</span>
+<span class="ow">new</span><span class="w"> </span><span class="nx">ia</span><span class="p">.</span><span class="nx">Point</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the main module exports a default function, it will be called as soon as the module is loaded with an instance of a <code class="docutils literal notranslate"><span class="pre">ModuleScript</span></code> object containing the directory of the script package.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ModuleScript</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;inputactions&quot;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// script.packageDirectory</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="package">
+<h3>Package<a class="headerlink" href="#package" title="Link to this heading">¶</a></h3>
+<p>A module script package is a directory containing the main module in a <code class="docutils literal notranslate"><span class="pre">.js</span></code> file and a <code class="docutils literal notranslate"><span class="pre">metadata.yaml</span></code> file with the following properties:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>id</strong></p></td>
+<td><p><em>string</em></p></td>
+<td><p>Unique identifier of the script in reverse domain name notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>version</strong></p></td>
+<td><p><em>string</em></p></td>
+<td><p>Format: <code class="docutils literal notranslate"><span class="pre">major.minor.patch</span></code>, for example <code class="docutils literal notranslate"><span class="pre">1.0.0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>main_module</strong></p></td>
+<td><p><em>string</em></p></td>
+<td><p>Path to the main module relative to the package directory. This is the module that will be imported by InputActions.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Example metadata file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">com.example.example-script</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="nt">main_module</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main.js</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="errors">
 <h2>Errors<a class="headerlink" href="#errors" title="Link to this heading">¶</a></h2>
-<p>Uncaught errors that occur during initial script evaluation will prevent the configuration from being loaded, while errors that occur after (e.g. during a <a class="reference internal" href="../actions/function.html"><span class="doc std std-doc">FunctionAction</span></a>‘s function call) will only result in warnings and no notifications. Both may be viewed by running <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">issues</span></code>.</p>
+<p>Uncaught errors thrown during configuration loading will prevent the configuration from being loaded, while errors thrown after the configuration is activated
+(e.g. during the execution of a <a class="reference internal" href="../actions/function.html"><span class="doc std std-doc">FunctionAction</span></a>) will only result in warnings. Run <code class="docutils literal notranslate"><span class="pre">inputactions</span> <span class="pre">config</span> <span class="pre">issues</span></code> to view them.</p>
 </section>
-<section id="object-cloning">
-<h2>Object cloning<a class="headerlink" href="#object-cloning" title="Link to this heading">¶</a></h2>
-<p>Custom objects provided by InputActions are not cloned when assigned to variables or passed to functions:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions/core&quot;</span><span class="p">);</span>
+<section id="typescript">
+<h2>TypeScript<a class="headerlink" href="#typescript" title="Link to this heading">¶</a></h2>
+<p>Using TypeScript is strongly recommended due to static typing in addition to the <code class="docutils literal notranslate"><span class="pre">async</span></code> and <code class="docutils literal notranslate"><span class="pre">await</span></code> keywords. Official TypeScript type declarations can be
+found in the <a class="reference external" href="https://github.com/InputActions/scripting-types">InputActions/scripting-types</a> repository, while the
+<a class="reference external" href="https://github.com/InputActions/script-template">InputActions/script-template</a> repository hosts a script template.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When importing <code class="docutils literal notranslate"><span class="pre">.ts</span></code> files from a module, it is required to use the <code class="docutils literal notranslate"><span class="pre">.js</span></code> extension, otherwise the import will fail at runtime.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">utils</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./utils.js&quot;</span><span class="p">;</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">p1</span><span class="p">;</span>
-<span class="nx">p1</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-
-<span class="c1">// p1 and p2 refer to the same object, therefore p2.x == 1 as well</span>
+<span class="c1">// Incorrect:</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">utils</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./utils&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">utils</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./utils.ts&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>For all objects constructible from JavaScript, a <code class="docutils literal notranslate"><span class="pre">clone</span></code> method is provided that returns a copy of the object:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Point</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions/core&quot;</span><span class="p">);</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Point</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">p1</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span>
-<span class="nx">p1</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
-
-<span class="c1">// p2.x is 0</span>
-</pre></div>
 </div>
-<p>Certain objects, such as Point, are always cloned when crossing the C++/JavaScript boundary. As the entirety of the API is implemented in C++, there is no
-need to manually clone objects passed to or received from the InputActions API. However, properties of non-primitive types reuse object instances instead of
-constructing new ones each time its value is changed:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">variableRegistry</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions/core&quot;</span><span class="p">);</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">variableRegistry</span><span class="p">.</span><span class="nx">variable</span><span class="p">(</span><span class="s2">&quot;finger_1_position_percentage&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Point</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">variable</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-<span class="c1">// variable value changes here</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">variable</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-
-<span class="c1">// value1 and value2 refer to the same object, therefore both are the same</span>
-</pre></div>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>Scripting is configured in the <code class="docutils literal notranslate"><span class="pre">scripting</span></code> <a class="reference internal" href="../config.html#root"><span class="std std-ref">root</span></a> node.</p>
+<section id="id1">
+<h3>Scripting<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>scripts</p></td>
+<td><p><em>list(<a class="reference internal" href="#classicscript"><span class="std std-ref">ClassicScript</span></a> or <a class="reference internal" href="#modulescript"><span class="std std-ref">ModuleScript</span></a>)</em></p></td>
+<td><p>Loaded in order as specified.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>When storing the values of such properties for later use, it is necessary to clone them:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">variableRegistry</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;inputactions/core&quot;</span><span class="p">);</span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">variableRegistry</span><span class="p">.</span><span class="nx">variable</span><span class="p">(</span><span class="s2">&quot;finger_1_position_percentage&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Point</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">variable</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span>
-<span class="c1">// variable value changes here</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">variable</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-
-<span class="c1">// value1 and value2 do not refer to the same object</span>
-</pre></div>
+</section>
+<section id="classicscript">
+<h3>ClassicScript<a class="headerlink" href="#classicscript" title="Link to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="#classic-scripts"><span class="std std-ref">Classic scripts</span></a>.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>source</strong></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The script’s source.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+</section>
+<section id="modulescript">
+<h3>ModuleScript<a class="headerlink" href="#modulescript" title="Link to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="#module-scripts"><span class="std std-ref">Module scripts</span></a>.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>package</strong></p></td>
+<td><p><em>string</em></p></td>
+<td><p>The absolute path to the script <a class="reference internal" href="#package">package</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </section>
 </section>
 
@@ -478,12 +584,12 @@ constructing new ones each time its value is changed:</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="modules/index.html">
+          <a class="next-page" href="../dynamic-values/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Modules</div>
+                <div class="title">Dynamic values</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -529,10 +635,21 @@ constructing new ones each time its value is changed:</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Scripting</a><ul>
+<li><a class="reference internal" href="#engine">Engine</a></li>
 <li><a class="reference internal" href="#built-in-modules">Built-in modules</a></li>
-<li><a class="reference internal" href="#main-scripts">Main scripts</a></li>
+<li><a class="reference internal" href="#classic-scripts">Classic scripts</a></li>
+<li><a class="reference internal" href="#module-scripts">Module scripts</a><ul>
+<li><a class="reference internal" href="#package">Package</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#errors">Errors</a></li>
-<li><a class="reference internal" href="#object-cloning">Object cloning</a></li>
+<li><a class="reference internal" href="#typescript">TypeScript</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#id1">Scripting</a></li>
+<li><a class="reference internal" href="#classicscript">ClassicScript</a></li>
+<li><a class="reference internal" href="#modulescript">ModuleScript</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

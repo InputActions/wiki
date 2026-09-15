@@ -190,9 +190,9 @@ Child objects inherit all properties from their parent, add new ones and can be 
   -
   -
 
-* - scripting.scripts
-  - *list([](#script))*
-  - See [](/scripting/index).
+* - scripting
+  - *[](/scripting/index.md#scripting-1)*
+  -
   -
 
 * - touchpad
@@ -221,19 +221,6 @@ Child objects inherit all properties from their parent, add new ones and can be 
 * - speed
   - *[](#speed)*
   - Settings for how motion trigger speed is determined.
-:::
-
-### Script
-:::{list-table}
-:header-rows: 1
-
-* - Property
-  - Type
-  - Description
-
-* - **source**
-  - *string*
-  - The script.
 :::
 
 ### Speed

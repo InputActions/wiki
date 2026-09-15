@@ -79,6 +79,10 @@ Variables contain information about the current state of the environment and inp
   - *string*
   - Name of the currently active screen.
 
+* - session_locked
+  - *bool*
+  - Whether the session is currently locked. Use this to disable triggers on the lockscreen.
+
 * - thumb_present
   - *bool*
   - Whether a thumb is currently present on the input device.

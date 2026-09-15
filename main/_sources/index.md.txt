@@ -29,7 +29,6 @@ Variables <variables>
 :caption: Scripting
 
 Scripting <scripting/index>
-Modules <scripting/modules/index>
 ```
 
 ```{toctree}

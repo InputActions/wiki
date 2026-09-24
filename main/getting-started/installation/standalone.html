@@ -367,8 +367,14 @@
 </ul>
 <p>Additionally, more features may be unsupported depending on the environment.</p>
 <details>
-  <summary>GNOME, Plasma</summary>
-<p>No additional features are unsupported in these environments.</p>
+  <summary>GNOME</summary>
+<ul class="simple">
+<li><p>Mouse stroke trigger overlay</p></li>
+</ul>
+</details>
+<details>
+  <summary>Plasma</summary>
+<p>No additional features are unsupported in this environment.</p>
 </details>
 <details>
   <summary>Other (Wayland)</summary>
@@ -410,6 +416,10 @@
       <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/ctl?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
+    <span class="ss">inputactions-overlay</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/overlay?submodules=1&quot;</span><span class="p">;</span>
+      inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
     <span class="ss">inputactions-standalone</span> <span class="o">=</span> <span class="p">{</span>
       <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/standalone?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
@@ -426,6 +436,7 @@
 <span class="p">{</span>
   environment<span class="o">.</span><span class="ss">systemPackages</span> <span class="o">=</span> <span class="p">[</span>
     inputs<span class="o">.</span>inputactions-ctl<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
+    inputs<span class="o">.</span>inputactions-overlay<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
     inputs<span class="o">.</span>inputactions-standalone<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
   users<span class="o">.</span>groups<span class="o">.</span><span class="ss">inputactions</span> <span class="o">=</span> <span class="p">{};</span>
@@ -463,36 +474,40 @@
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h3>
 <details>
   <summary>Arch Linux</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="o">--</span><span class="n">noconfirm</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span> <span class="n">cli11</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="o">--</span><span class="n">noconfirm</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span> <span class="n">cli11</span> <span class="n">layer</span><span class="o">-</span><span class="n">shell</span><span class="o">-</span><span class="n">qt</span>
 </pre></div>
 </div>
 </details>
 <details>
   <summary>Debian-based (KDE Neon, Kubuntu, Ubuntu)</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">g</span><span class="o">++</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span><span class="o">-</span><span class="n">dev</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span><span class="o">-</span><span class="n">dev</span> <span class="n">gettext</span> <span class="n">libyaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libinput</span><span class="o">-</span><span class="n">dev</span> <span class="n">libwayland</span><span class="o">-</span><span class="n">dev</span> <span class="n">systemd</span><span class="o">-</span><span class="n">dev</span> <span class="n">libcli11</span><span class="o">-</span><span class="n">dev</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">g</span><span class="o">++</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span><span class="o">-</span><span class="n">dev</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span><span class="o">-</span><span class="n">dev</span> <span class="n">gettext</span> <span class="n">libyaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libudev</span><span class="o">-</span><span class="n">dev</span> <span class="n">libinput</span><span class="o">-</span><span class="n">dev</span> <span class="n">libwayland</span><span class="o">-</span><span class="n">dev</span> <span class="n">systemd</span><span class="o">-</span><span class="n">dev</span> <span class="n">libcli11</span><span class="o">-</span><span class="n">dev</span> <span class="n">liblayershellqtinterface</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
 </details>
 <details>
   <summary>Fedora</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">gcc</span><span class="o">-</span><span class="n">g</span><span class="o">++</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span><span class="o">-</span><span class="n">devel</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtdeclarative</span><span class="o">-</span><span class="n">devel</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libinput</span><span class="o">-</span><span class="n">devel</span> <span class="n">libudev</span><span class="o">-</span><span class="n">devel</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">cli11</span><span class="o">-</span><span class="n">devel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">git</span> <span class="n">cmake</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">gcc</span><span class="o">-</span><span class="n">g</span><span class="o">++</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span><span class="o">-</span><span class="n">devel</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtbase</span> <span class="n">qt6</span><span class="o">-</span><span class="n">qtdeclarative</span><span class="o">-</span><span class="n">devel</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libinput</span><span class="o">-</span><span class="n">devel</span> <span class="n">libudev</span><span class="o">-</span><span class="n">devel</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">cli11</span><span class="o">-</span><span class="n">devel</span> <span class="n">layer</span><span class="o">-</span><span class="n">shell</span><span class="o">-</span><span class="n">qt</span><span class="o">-</span><span class="n">devel</span>
 </pre></div>
 </div>
 </details>
 <details>
   <summary>openSUSE</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">git</span> <span class="n">cmake</span><span class="o">-</span><span class="n">full</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">kf6</span><span class="o">-</span><span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;cmake(Qt6Core)&quot;</span> <span class="s2">&quot;cmake(Qt6DBus)&quot;</span> <span class="s2">&quot;cmake(Qt6Network)&quot;</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libudev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libinput</span><span class="o">-</span><span class="n">devel</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;pkgconfig(systemd)&quot;</span> <span class="n">cli11</span><span class="o">-</span><span class="n">devel</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zypper</span> <span class="ow">in</span> <span class="n">git</span> <span class="n">cmake</span><span class="o">-</span><span class="n">full</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">kf6</span><span class="o">-</span><span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;cmake(Qt6Core)&quot;</span> <span class="s2">&quot;cmake(Qt6DBus)&quot;</span> <span class="s2">&quot;cmake(Qt6Network)&quot;</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span><span class="o">-</span><span class="n">devel</span> <span class="n">libevdev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libudev</span><span class="o">-</span><span class="n">devel</span> <span class="n">libinput</span><span class="o">-</span><span class="n">devel</span> <span class="n">wayland</span><span class="o">-</span><span class="n">devel</span> <span class="n">libxkbcommon</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;pkgconfig(systemd)&quot;</span> <span class="n">cli11</span><span class="o">-</span><span class="n">devel</span> <span class="s2">&quot;cmake(LayerShellQt)&quot;</span>
 </pre></div>
 </div>
 </details>
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<p>the <code class="docutils literal notranslate"><span class="pre">--standalone-no-systemd</span></code> flag to <code class="docutils literal notranslate"><span class="pre">./inputactions-installer.sh</span></code> if not using systemd.</p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">--standalone-no-systemd</span></code> flag to <code class="docutils literal notranslate"><span class="pre">./inputactions-installer.sh</span></code> if not using systemd.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>inputactions-installer.sh<span class="w"> </span>https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
-./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--standalone<span class="w"> </span>--latest
+./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--standalone<span class="w"> </span>--overlay<span class="w"> </span>--latest
 </pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If using Debian stable, remove the <code class="docutils literal notranslate"><span class="pre">--overlay</span></code> flag from <code class="docutils literal notranslate"><span class="pre">./inputactions-installer.sh</span></code>, as it is not supported and will not compile.</p>
 </div>
 </section>
 </section>

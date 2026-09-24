@@ -7,13 +7,17 @@ InputActions should be packaged into the following packages:
 - ``inputactions-kwin`` - KWin plugin implementation
 
   Repository: [InputActions/kwin](https://github.com/InputActions/kwin)<br>
-  Dependencies: ``inputactions-ctl``
+  Dependencies: ``inputactions-ctl``, ``inputactions-overlay``
 
 - ``inputactions-standalone`` - Standalone implementation
 
   Repository: [InputActions/standalone](https://github.com/InputActions/standalone)<br>
-  Dependencies: ``inputactions-ctl``
+  Dependencies: ``inputactions-ctl``, ``inputactions-overlay``
 
   The package must create an ``inputactions`` system group. ``inputactions-client`` must be owned by that group and have the setgid bit.
+
+- ``inputactions-overlay`` - Overlay for drawing on the screen
+
+  Repository: [InputActions/overlay](https://github.com/InputActions/overlay)<br>
 
 As GitHub does not include submodules in release tarballs, every release starting from v0.9.0 will have a manually generated one that does include them.

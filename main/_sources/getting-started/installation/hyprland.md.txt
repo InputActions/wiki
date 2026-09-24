@@ -25,6 +25,10 @@ This implementation does not support certain features.
         url = "git+https://github.com/InputActions/hyprland?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      inputactions-overlay = {
+        url = "git+https://github.com/InputActions/overlay?submodules=1";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
     };
   }
   ```
@@ -34,6 +38,7 @@ This implementation does not support certain features.
   {
     home.packages = [
       inputs.inputactions-ctl.packages.${pkgs.system}.default
+      inputs.inputactions-overlay.packages.${pkgs.system}.default
     ];
     wayland.windowManager.hyprland.plugins = [
       inputs.inputactions-hyprland.packages.${pkgs.system}.default
@@ -59,19 +64,19 @@ This implementation does not support certain features.
   <summary>Arch Linux</summary>
 
   ```
-  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-declarative qt6-tools yaml-cpp libevdev cli11
+  sudo pacman -S --needed base-devel git extra-cmake-modules qt6-declarative qt6-tools yaml-cpp libevdev cli11 layer-shell-qt
   ```
 </details>
 
 ### Installation
-First, install the control tool:
+First install the control tool and the overlay:
 ```sh
 curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod +x inputactions-installer.sh
-./inputactions-installer.sh --ctl --latest
+./inputactions-installer.sh --ctl --overlay --latest
 ```
 
-Then, build the Hyprland plugin. Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.
+Then build the Hyprland plugin. Read <https://wiki.hypr.land/Plugins/Using-Plugins> first.
 
 ```
 hyprpm add https://github.com/InputActions/hyprland

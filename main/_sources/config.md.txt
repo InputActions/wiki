@@ -185,6 +185,11 @@ Child objects inherit all properties from their parent, add new ones and can be 
   -
   -
 
+* - overlay
+  - *[](#overlay)*
+  -
+  -
+
 * - pointer
   - *[](#eventhandler)*
   -
@@ -221,6 +226,26 @@ Child objects inherit all properties from their parent, add new ones and can be 
 * - speed
   - *[](#speed)*
   - Settings for how motion trigger speed is determined.
+:::
+
+### Overlay
+:::{note}
+On Plasma the overlay window will resize itself to avoid the window open animation. When using a script/plugin that animates windows, it may be necessary to
+add the ``inputactions-overlay`` class to the blacklist.
+:::
+
+:::{list-table}
+:header-rows: 1
+
+* - Property
+  - Type
+  - Description
+  - Default
+
+* - mouse_stroke.enable
+  - *bool*
+  - Whether to enable the overlay for mouse stroke triggers.
+  - ``false``
 :::
 
 ### Speed

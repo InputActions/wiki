@@ -374,6 +374,10 @@
       <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/hyprland?submodules=1&quot;</span><span class="p">;</span>
       inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
     <span class="p">};</span>
+    <span class="ss">inputactions-overlay</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="ss">url</span> <span class="o">=</span> <span class="s2">&quot;git+https://github.com/InputActions/overlay?submodules=1&quot;</span><span class="p">;</span>
+      inputs<span class="o">.</span>nixpkgs<span class="o">.</span><span class="ss">follows</span> <span class="o">=</span> <span class="s2">&quot;nixpkgs&quot;</span><span class="p">;</span>
+    <span class="p">};</span>
   <span class="p">};</span>
 <span class="p">}</span>
 </pre></div>
@@ -384,6 +388,7 @@
 <div class="highlight-nix notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   home<span class="o">.</span><span class="ss">packages</span> <span class="o">=</span> <span class="p">[</span>
     inputs<span class="o">.</span>inputactions-ctl<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
+    inputs<span class="o">.</span>inputactions-overlay<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
   <span class="p">];</span>
   wayland<span class="o">.</span>windowManager<span class="o">.</span>hyprland<span class="o">.</span><span class="ss">plugins</span> <span class="o">=</span> <span class="p">[</span>
     inputs<span class="o">.</span>inputactions-hyprland<span class="o">.</span>packages<span class="o">.</span><span class="si">${</span>pkgs<span class="o">.</span>system<span class="si">}</span><span class="o">.</span>default
@@ -412,20 +417,20 @@
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h3>
 <details>
   <summary>Arch Linux</summary>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span> <span class="n">cli11</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="o">--</span><span class="n">needed</span> <span class="n">base</span><span class="o">-</span><span class="n">devel</span> <span class="n">git</span> <span class="n">extra</span><span class="o">-</span><span class="n">cmake</span><span class="o">-</span><span class="n">modules</span> <span class="n">qt6</span><span class="o">-</span><span class="n">declarative</span> <span class="n">qt6</span><span class="o">-</span><span class="n">tools</span> <span class="n">yaml</span><span class="o">-</span><span class="n">cpp</span> <span class="n">libevdev</span> <span class="n">cli11</span> <span class="n">layer</span><span class="o">-</span><span class="n">shell</span><span class="o">-</span><span class="n">qt</span>
 </pre></div>
 </div>
 </details>
 </section>
 <section id="installation">
 <h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h3>
-<p>First, install the control tool:</p>
+<p>First install the control tool and the overlay:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>inputactions-installer.sh<span class="w"> </span>https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>inputactions-installer.sh
-./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--latest
+./inputactions-installer.sh<span class="w"> </span>--ctl<span class="w"> </span>--overlay<span class="w"> </span>--latest
 </pre></div>
 </div>
-<p>Then, build the Hyprland plugin. Read <a class="reference external" href="https://wiki.hypr.land/Plugins/Using-Plugins">https://wiki.hypr.land/Plugins/Using-Plugins</a> first.</p>
+<p>Then build the Hyprland plugin. Read <a class="reference external" href="https://wiki.hypr.land/Plugins/Using-Plugins">https://wiki.hypr.land/Plugins/Using-Plugins</a> first.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hyprpm</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">InputActions</span><span class="o">/</span><span class="n">hyprland</span>
 </pre></div>
 </div>

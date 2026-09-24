@@ -32,6 +32,8 @@ Additionally, more features may be unsupported depending on the environment.
 
   - If the compositor does not implement [wlr foreign toplevel management](https://wayland.app/protocols/wlr-foreign-toplevel-management-unstable-v1):
     - Get the active window
+  - If the compositor does not implement [wlr layer shell](https://wayland.app/protocols/wlr-layer-shell-unstable-v1):
+    - Mouse stroke trigger overlay
   - Get the window under the pointer
   - Get the PID of the active window
 </details>
@@ -41,6 +43,7 @@ Additionally, more features may be unsupported depending on the environment.
   - Get the active window
   - Get the window under the pointer
   - Get the position of the pointer
+  - Mouse stroke trigger overlay
 </details>
 
 There are plans to make most of the aforementioned features implementable using custom scripts, which will be able to use DBus APIs, start proceses and more.

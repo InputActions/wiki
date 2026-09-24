@@ -18,9 +18,14 @@ This implementation does not support certain features.
 
 Additionally, more features may be unsupported depending on the environment.
 <details>
-  <summary>GNOME, Plasma</summary>
+  <summary>GNOME</summary>
 
-  No additional features are unsupported in these environments.
+  - Mouse stroke trigger overlay
+</details>
+<details>
+  <summary>Plasma</summary>
+
+  No additional features are unsupported in this environment.
 </details>
 <details>
   <summary>Other (Wayland)</summary>
@@ -55,6 +60,10 @@ There are plans to make most of the aforementioned features implementable using 
         url = "git+https://github.com/InputActions/ctl?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      inputactions-overlay = {
+        url = "git+https://github.com/InputActions/overlay?submodules=1";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
       inputactions-standalone = {
         url = "git+https://github.com/InputActions/standalone?submodules=1";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -70,6 +79,7 @@ There are plans to make most of the aforementioned features implementable using 
   {
     environment.systemPackages = [
       inputs.inputactions-ctl.packages.${pkgs.system}.default
+      inputs.inputactions-overlay.packages.${pkgs.system}.default
       inputs.inputactions-standalone.packages.${pkgs.system}.default
     ];
     users.groups.inputactions = {};
@@ -105,39 +115,43 @@ There are plans to make most of the aforementioned features implementable using 
   <summary>Arch Linux</summary>
 
   ```
-  sudo pacman -S --needed --noconfirm base-devel git extra-cmake-modules qt6-declarative qt6-tools yaml-cpp libevdev cli11
+  sudo pacman -S --needed --noconfirm base-devel git extra-cmake-modules qt6-declarative qt6-tools yaml-cpp libevdev cli11 layer-shell-qt
   ```
 </details>
 <details>
   <summary>Debian-based (KDE Neon, Kubuntu, Ubuntu)</summary>
 
   ```
-  sudo apt install git cmake g++ extra-cmake-modules qt6-declarative-dev qt6-tools-dev gettext libyaml-cpp-dev libxkbcommon-dev pkg-config libevdev-dev libudev-dev libinput-dev libwayland-dev systemd-dev libcli11-dev
+  sudo apt install git cmake g++ extra-cmake-modules qt6-declarative-dev qt6-tools-dev gettext libyaml-cpp-dev libxkbcommon-dev pkg-config libevdev-dev libudev-dev libinput-dev libwayland-dev systemd-dev libcli11-dev liblayershellqtinterface-dev
   ```
 </details>
 <details>
   <summary>Fedora</summary>
 
   ```
-  sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel qt6-qtbase qt6-qtdeclarative-devel yaml-cpp yaml-cpp-devel libevdev libevdev-devel libinput-devel libudev-devel wayland-devel cli11-devel
+  sudo dnf install git cmake extra-cmake-modules gcc-g++ qt6-qtbase-devel qt6-qtbase qt6-qtdeclarative-devel yaml-cpp yaml-cpp-devel libevdev libevdev-devel libinput-devel libudev-devel wayland-devel cli11-devel layer-shell-qt-devel
   ```
 </details>
 <details>
   <summary>openSUSE</summary>
 
   ```
-  sudo zypper in git cmake-full gcc-c++ kf6-extra-cmake-modules qt6-declarative-devel "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Network)" yaml-cpp-devel libevdev-devel libudev-devel libinput-devel wayland-devel libxkbcommon-devel "pkgconfig(systemd)" cli11-devel
+  sudo zypper in git cmake-full gcc-c++ kf6-extra-cmake-modules qt6-declarative-devel "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Network)" yaml-cpp-devel libevdev-devel libudev-devel libinput-devel wayland-devel libxkbcommon-devel "pkgconfig(systemd)" cli11-devel "cmake(LayerShellQt)"
   ```
 </details>
 
 ### Installation
- the ``--standalone-no-systemd`` flag to ``./inputactions-installer.sh`` if not using systemd.
+Add the ``--standalone-no-systemd`` flag to ``./inputactions-installer.sh`` if not using systemd.
 
 ```sh
 curl -o inputactions-installer.sh https://raw.githubusercontent.com/InputActions/installer/refs/heads/main/install.sh
 chmod +x inputactions-installer.sh
-./inputactions-installer.sh --ctl --standalone --latest
+./inputactions-installer.sh --ctl --standalone --overlay --latest
 ```
+
+:::{important}
+If using Debian stable, remove the ``--overlay`` flag from ``./inputactions-installer.sh``, as it is not supported and will not compile.
+:::
 
 ## Post-installation
 :::{warning}

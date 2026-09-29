@@ -139,7 +139,7 @@ There are plans to make most of the aforementioned features implementable using 
   <summary>openSUSE</summary>
 
   ```
-  sudo zypper in git cmake-full gcc-c++ kf6-extra-cmake-modules qt6-declarative-devel "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Network)" yaml-cpp-devel libevdev-devel libudev-devel libinput-devel wayland-devel libxkbcommon-devel "pkgconfig(systemd)" cli11-devel "cmake(LayerShellQt)"
+  sudo zypper in git cmake-full gcc-c++ kf6-extra-cmake-modules qt6-declarative-devel "cmake(Qt6Core)" "cmake(Qt6DBus)" "cmake(Qt6Network)" "cmake(Qt6OpenGLWidgets)" yaml-cpp-devel libevdev-devel libudev-devel libinput-devel wayland-devel libxkbcommon-devel "pkgconfig(systemd)" cli11-devel "cmake(LayerShellQt)"
   ```
 </details>
 
